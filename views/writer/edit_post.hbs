@@ -1,0 +1,57 @@
+<script src="https://cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Chỉnh sửa bài viết</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <label for="title">Tiêu đề</label>
+                    <input type="text" class="form-control" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="category">Chuyên mục</label>
+                    <select id="category" class="form-control">
+                        <option value="" selected="selected">Chọn chuyên mục</option>
+                        <optgroup label="Kinh doanh">
+                            <option value="oranges1">Nông sản</option>
+                            <option value="oranges2">Hải sản</option>
+                            <option value="oranges3">Vĩ mô</option>
+                        </optgroup>
+                        <optgroup label="Thể thao">
+                            <option value="bananas1">Bóng đá</option>
+                            <option value="bananas2">V-League</option>
+                            <option value="bananas3">Tennis</option>
+                        </optgroup>
+                        <optgroup label="Giáo dục">
+                            <option value="apples1">Điểm thi</option>
+                            <option value="apples2">Tuyển sinh</option>
+                            <option value="apples3">Tra cứu đại học</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="abstract">Tóm tắt</label>
+                    <textarea class="form-control" id="abstract"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="content">Nội dung</label>
+                    <textarea name="content" id="content" class="form-control"></textarea>
+                    <script>
+                        CKEDITOR.replace('content');
+                    </script>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Gán nhãn</label>
+                    <input type="text" class="form-control" id="tags" data-role="tagsinput">
+                    <p class="text-muted">Chú ý: Phân biệt các nhãn bằng cách enter</p>
+                </div>
+                <center> <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Lưu thay đổi</button>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>

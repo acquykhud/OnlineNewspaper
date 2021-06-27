@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo điện tử</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="/public/css/tagsinput.css" rel="stylesheet" type="text/css">
+  <style>
+  @media all and (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu{ display: none; }
+    .navbar .nav-item:hover .nav-link{   }
+    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+    .navbar .nav-item .dropdown-menu{ margin-top:0; }
+  }	
+
+  .carousel-caption {
+    left:0;
+    right:0;
+    bottom:0;
+    text-align:left;
+    padding:10px;
+    background:rgba(0,0,0,0.6);
+    text-shadow:none;
+  }
+
+  .navbar {
+    margin-bottom: 20px;
+  }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <a class="navbar-brand" href="/">Báo điện tử</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Kinh doanh
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Nông sản</a>
+            <a class="dropdown-item" href="/view/cat/1">Hải sản</a>
+            <a class="dropdown-item" href="/view/cat/1">Vĩ mô</a>
+            <a class="dropdown-item" href="/view/cat/1">Bảo hiểm</a>
+            <a class="dropdown-item" href="/view/cat/1">Hàng hóa</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Thể thao
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Bóng đá</a>
+            <a class="dropdown-item" href="/view/cat/1">V-League</a>
+            <a class="dropdown-item" href="/view/cat/1">Tennis</a>
+            <a class="dropdown-item" href="/view/cat/1">Euro 2021</a>
+            <a class="dropdown-item" href="/view/cat/1">V-Race</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Giáo dục
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Tuyển sinh</a>
+            <a class="dropdown-item" href="/view/cat/1">Điểm thi</a>
+            <a class="dropdown-item" href="/view/cat/1">Tra cứu đại học</a>
+            <a class="dropdown-item" href="/view/cat/1">Học tiếng Anh</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Du lịch
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Điểm đến</a>
+            <a class="dropdown-item" href="/view/cat/1">Dấu chân</a>
+            <a class="dropdown-item" href="/view/cat/1">Tư vấn</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Khoa học
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Phát minh</a>
+            <a class="dropdown-item" href="/view/cat/1">Ứng dụng</a>
+            <a class="dropdown-item" href="/view/cat/1">Thế giới tự nhiên</a>
+            <a class="dropdown-item" href="/view/cat/1">Thường thức</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hài
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Cười</a>
+            <a class="dropdown-item" href="/view/cat/1">Đố vui</a>
+            <a class="dropdown-item" href="/view/cat/1">Chuyện lạ</a>
+            <a class="dropdown-item" href="/view/cat/1">Thú cưng</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Thế giới
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Tư liệu</a>
+            <a class="dropdown-item" href="/view/cat/1">Phân tích</a>
+            <a class="dropdown-item" href="/view/cat/1">Người Việt 5 châu</a>
+            <a class="dropdown-item" href="/view/cat/1">Quân sự</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Giải trí
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Video</a>
+            <a class="dropdown-item" href="/view/cat/1">Phim</a>
+            <a class="dropdown-item" href="/view/cat/1">Nhạc</a>
+            <a class="dropdown-item" href="/view/cat/1">Thời trang</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/view/cat/1" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sức khỏe
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Tư vấn</a>
+            <a class="dropdown-item" href="/view/cat/1">Dinh dưỡng</a>
+            <a class="dropdown-item" href="/view/cat/1">Khỏe đẹp</a>
+            <a class="dropdown-item" href="/view/cat/1">Đàn ông</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Xe
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/view/cat/1">Thị trường</a>
+            <a class="dropdown-item" href="/view/cat/1">Tư vấn</a>
+            <a class="dropdown-item" href="/view/cat/1">Diễn đàn</a>
+            <a class="dropdown-item" href="/view/cat/1">Đánh giá</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Nội dung ..." aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+      </form>
+      <ul class="navbar-nav navbar-right">
+        {{#if logged}}
+        <li class="nav-item">
+          <a class="nav-link" href="/writer">Phóng viên</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/editor">Biên tập viên</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Quản trị viên</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/info">Tài khoản</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/user/login"><i class="fa fa-key" aria-hidden="true"></i> Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  {{{ body }}}
+  <div style="padding-bottom: 100px"></div>
+  <footer class="bg-light text-center text-lg-start fixed-bottom shadow-sm">
+    <div class="text-center p-3">
+      Báo điện tử 2021
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+  <script src="/public/js/tagsinput.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

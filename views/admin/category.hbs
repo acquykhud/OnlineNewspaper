@@ -1,0 +1,235 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Quản lý</h3>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/admin/category">Chuyên mục</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/tag">Nhãn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/post">Bài viết</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/user">Người dùng</a>
+        </li>
+    </ul>
+    <div class="row pt-3">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Kinh doanh
+                </a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Thể thao</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Giáo dục</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Du lịch</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Khoa học</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Hài</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Thế giới</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Giải trí</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Sức khỏe</a>
+                <a href="/admin/category/1" class="list-group-item list-group-item-action">Xe</a>
+            </div>
+            <div class="list-group pt-3">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4"><i class="fa fa-plus"></i> Thêm chuyên mục</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>Chuyên mục: <b>Kinh doanh</b></h3>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2"><i class="fa fa-pencil"></i> Sửa</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-close"></i> Xóa</button>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã chuyên mục con</th>
+                            <th scope="col">Tên chuyên mục con</th>
+                            <th scope="col">Số bài viết</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Nông sản</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Hải sản</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Vĩ mô</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                                                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal5"><i class="fa fa-plus"></i> Thêm chuyên mục con</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa chuyên mục</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa chuyên mục <b>Kinh doanh</b> chứ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xóa chuyên mục con</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa chuyên mục con <b>Nông sản</b> trong chuyên mục <b>Kinh doanh</b> chứ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sửa chuyên mục</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="catname">Tên chuyên mục</label>
+            <input type="text" class="form-control" value="Kinh doanh" id="catname" name="catname">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sửa chuyên mục con</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="catname">Tên chuyên mục con</label>
+            <input type="text" class="form-control" value="Nông sản" id="catname" name="catname">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm chuyên mục</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="catname">Tên chuyên mục</label>
+            <input type="text" class="form-control" placeholder="Tên chuyên mục" id="catname" name="catname">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm chuyên mục con</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="catname">Tên chuyên mục con</label>
+            <input type="text" class="form-control" placeholder="Tên chuyên mục con" id="catname" name="catname">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary">Thêm</button>
+      </div>
+    </div>
+  </div>
+</div>

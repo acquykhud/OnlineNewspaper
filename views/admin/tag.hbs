@@ -1,0 +1,188 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Quản lý</h3>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/category">Chuyên mục</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/admin/tag">Nhãn</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/post">Bài viết</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/user">Người dùng</a>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3"><i
+                            class="fa fa-plus"></i> Thêm nhãn</button>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã nhãn</th>
+                            <th scope="col">Tên nhãn</th>
+                            <th scope="col">Số bài viết</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Đầu tư</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#exampleModal"><i class="fa fa-ellipsis-h"></i> Chi tiết</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal1"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal2"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Tài chính</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#exampleModal"><i class="fa fa-ellipsis-h"></i> Chi tiết</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal1"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal2"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Chứng khoán</td>
+                            <td>1</td>
+                            <td>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                    data-target="#exampleModal"><i class="fa fa-ellipsis-h"></i> Chi tiết</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#exampleModal1"><i class="fa fa-pencil"></i> Sửa</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#exampleModal2"><i class="fa fa-close"></i> Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Các bài viết của nhãn <b>Đầu tư</b></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Mã bài viết</th>
+                            <th scope="col">Tiêu đề</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td><a href="/view/post/1">Quy chế tuyển sinh đại học năm 2021 có gì mới?</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa nhãn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa nhãn <b>Đầu tư</b> chứ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sửa nhãn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="tagname">Tên nhãn</label>
+                    <input type="text" class="form-control" value="Đầu tư" id="tagname" name="tagname">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm nhãn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="tagname">Tên nhãn</label>
+                    <input type="text" class="form-control" id="tagname" name="tagname">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
