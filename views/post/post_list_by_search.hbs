@@ -1,10 +1,13 @@
 <div class="container-fluid">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><span class="badge badge-primary">{{this.tagName}}</span></li>
+            <li class="breadcrumb-item"><a href="/">Báo điện tử</a></li>
+            <li class="breadcrumb-item"><a href="#">Kết quả tìm kiếm cho "{{this.keyword}}"</a></li>
+            </li>
         </ol>
     </nav>
     <div class="row">
+
         {{#each this.articlesList}}
         <div class="col-md-4 mb-4">
             <div class="card">
@@ -13,11 +16,6 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <h5>
-                                {{#if ../byCat}}
-                                {{../categoryInfo.category_name}}
-                                {{else}}
-                                {{../categoryInfo.subCategory_name}}
-                                {{/if}}
                                 {{#if is_premium}}
                                 <span class="badge badge-success">Premium</span>
                                 {{/if}}
@@ -30,26 +28,41 @@
                     <h5 class="card-title"><a href="/view/post/{{article_id}}">{{title}}</a></h5>
                     <p class="card-text">{{abstract}}</p>
                     {{#each this.tagsList}}
-                        <a href="/view/tag/{{tag_id}}" class="badge badge-primary">{{tag_name}}</a>
+                    <a href="/view/tag/{{tag_id}}" class="badge badge-primary">{{tag_name}}</a>
                     {{/each}}
                 </div>
             </div>
         </div>
         {{/each}}
-        
     </div>
     <div class="pt-5">
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
+
+                {{#if this.pagingList.prev}}
+                <li class="page-item">
+                    <a class="page-link" href="/view/search/?keyword={{this.keyword}}&page={{this.pagingList.prev}}" tabindex="-1" aria-disabled="true">Trước</a>
+                </li>
+                {{else}}
                 <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
                 </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                {{/if}}
+
+                {{#each this.pagingList.list}}
+                    <li class="page-item {{#if active}}active{{/if}}"><a class="page-link"
+                            href="/view/search/?keyword={{../keyword}}&page={{page}}">{{page}}</a></li>
+                {{/each}}
+
+                {{#if this.pagingList.next}}
                 <li class="page-item">
-                    <a class="page-link" href="#">Sau</a>
+                    <a class="page-link" href="/view/search/?keyword={{this.keyword}}&page={{this.pagingList.next}}" tabindex="-1" aria-disabled="true">Sau</a>
                 </li>
+                {{else}}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Sau</a>
+                </li>
+                {{/if}}
             </ul>
         </nav>
     </div>

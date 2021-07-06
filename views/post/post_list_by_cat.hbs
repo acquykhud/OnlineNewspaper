@@ -1,179 +1,110 @@
 <div class="container-fluid">
-    <nav aria-label="breadcrumb">        
+    <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Báo điện tử</a></li>
-            <li class="breadcrumb-item"><a href="/view/cat/1">Kinh doanh</a></li>
-            <li class="breadcrumb-item"><a href="/view/cat/1">Nông sản</a></li>
+            {{#with this.categoryInfo}}
+            <li class="breadcrumb-item"><a href="/view/cat/{{category_id}}">{{category_name}}</a></li>
+            {{#unless byCat}}
+            <li class="breadcrumb-item"><a href="/view/cat/{{category_id}}/{{subCategory_id}}">{{subCategory_name}}</a>
+            </li>
+            {{/unless}}
+            {{/with}}
         </ol>
     </nav>
     <div class="row">
-        <div class="col-md-4">
+
+        {{#each this.articlesList}}
+        <div class="col-md-4 mb-4">
             <div class="card">
                 <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh <span class="badge badge-success">Premium</span></h5>
+                        <div class="col-sm-4">
+                            <h5>
+                                {{#if ../byCat}}
+                                {{../categoryInfo.category_name}}
+                                {{else}}
+                                {{../categoryInfo.subCategory_name}}
+                                {{/if}}
+                                {{#if is_premium}}
+                                <span class="badge badge-success">Premium</span>
+                                {{/if}}
+                            </h5>
                         </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
+                        <div class="col-sm-8">
+                            <p class="card-text text-right"><small class="text-muted">{{views}} lượt xem - {{published_time}}</small></p>
                         </div>
                     </div>
+                    <h5 class="card-title"><a href="/view/post/{{article_id}}">{{title}}</a></h5>
+                    <p class="card-text">{{abstract}}</p>
+                    {{#each this.tagsList}}
+                    <a href="/view/tag/{{tag_id}}" class="badge badge-primary">{{tag_name}}</a>
+                    {{/each}}
 
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh <span class="badge badge-success">Premium</span></h5>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
-                        </div>
-                    </div>
-
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh</h5>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
-                        </div>
-                    </div>
-
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh</h5>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
-                        </div>
-                    </div>
-
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh</h5>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
-                        </div>
-                    </div>
-
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="/public/images/big/img1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h5>Kinh doanh</h5>
-                        </div>
-                        <div class="col-sm-9">
-                            <p class="card-text text-right"><small class="text-muted">Thứ bảy, 26/6/2021, 09:32 (GMT+7)</small></p>
-
-                        </div>
-                    </div>
-
-                    <h5 class="card-title"><a href="/view/post/1">Bạn là nhà đầu tư hay người đầu cơ?</a></h5>
-                    <p class="card-text">Nếu bạn mua một cổ phiếu đơn thuần chỉ bởi nó đã tăng giá rất nhiều mà không hề
-                        có nghiên cứu gì về nó, bạn không phải nhà đầu tư, dù rằng WSJ và các biên tập viên của họ cứ
-                        khăng khăng gọi bằng thuật ngữ như vậy. Nếu bạn mua tiền điện tử bởi có vẻ như nhìn nó hấp dẫn,
-                        bạn cũng chẳng phải nhà đầu tư</p>
-                    <a href="/view/tag/1" class="badge badge-primary">Đầu tư</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Tài chính</a>
-                    <a href="/view/tag/1" class="badge badge-primary">Chứng khoán</a>
-                </div>
-            </div>
-        </div>
+        {{/each}}
     </div>
     <div class="pt-5">
         <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Sau</a>
-    </li>
-  </ul>
-</nav>
+            <ul class="pagination justify-content-center">
+
+                {{#if this.byCat}}
+                    {{#if this.pagingList.prev}}
+                    <li class="page-item">
+                        <a class="page-link" href="/view/cat/{{this.categoryInfo.category_id}}?page={{this.pagingList.prev}}" tabindex="-1" aria-disabled="true">Trước</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                    </li>
+                    {{/if}}
+                {{else}}
+                    {{#if this.pagingList.prev}}
+                    <li class="page-item">
+                        <a class="page-link" href="/view/cat/{{this.categoryInfo.category_id}}/{{this.categoryInfo.subCategory_id}}?page={{this.pagingList.prev}}" tabindex="-1" aria-disabled="true">Trước</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                    </li>
+                    {{/if}}
+                {{/if}}
+
+                {{#each this.pagingList.list}}
+                    {{#if ../byCat}}
+                    <li class="page-item {{#if active}}active{{/if}}"><a class="page-link"
+                            href="/view/cat/{{../categoryInfo.category_id}}?page={{page}}">{{page}}</a></li>
+                    {{else}}
+                    <li class="page-item {{#if active}}active{{/if}}"><a class="page-link"
+                            href="/view/cat/{{../categoryInfo.category_id}}/{{../categoryInfo.subCategory_id}}?page={{page}}">{{page}}</a>
+                    </li>
+                    {{/if}}
+                {{/each}}
+
+                {{#if this.byCat}}
+                    {{#if this.pagingList.next}}
+                    <li class="page-item">
+                        <a class="page-link" href="/view/cat/{{this.categoryInfo.category_id}}?page={{this.pagingList.next}}" tabindex="-1" aria-disabled="true">Sau</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Sau</a>
+                    </li>
+                    {{/if}}
+                {{else}}
+                    {{#if this.pagingList.next}}
+                    <li class="page-item">
+                        <a class="page-link" href="/view/cat/{{this.categoryInfo.category_id}}/{{this.categoryInfo.subCategory_id}}?page={{this.pagingList.next}}" tabindex="-1" aria-disabled="true">Sau</a>
+                    </li>
+                    {{else}}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Sau</a>
+                    </li>
+                    {{/if}}
+                {{/if}}
+            </ul>
+        </nav>
     </div>
 </div>
