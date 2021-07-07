@@ -45,14 +45,14 @@ app.get('/', async function (req, res) {
 });
 
 app.get('/view/search/', async function(req, res) {
+    const isValidSub = false;
     const keyword = req.query.keyword || '';
-    console.log(keyword);
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
     if (keyword.length === 0) {
         return res.redirect('/');
     }
-    const articlesList = await categoryModel.getArticlesByKeyword(keyword, offset);
+    const articlesList = await categoryModel.getArticlesByKeyword(keyword, offset, isValidSub);
     const searchValid = (articlesList.length !== 0);
     if (searchValid) {
         res.render('post/post_list_by_search', {
@@ -69,11 +69,12 @@ app.get('/view/search/', async function(req, res) {
 });
 
 app.get('/view/cat/:id/', async function(req, res) {
+    const isValidSub = false;
     const catId = req.params.id ;
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
     let catIdValid = true;
-    const articlesList = await categoryModel.getArticlesByCategory(catId, offset);
+    const articlesList = await categoryModel.getArticlesByCategory(catId, offset, isValidSub);
     if (articlesList.length === 0)
         catIdValid = false;
     
@@ -98,19 +99,19 @@ app.get('/view/cat/:id/', async function(req, res) {
 });
 
 app.get('/view/cat/:id/:subid/', async function (req, res) {
+    const isValidSub = false;
     const catId = req.params.id;
     const subId = req.params.subid;
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
     let catIdValid = true;
     const articlesList = await categoryModel.getArticlesByCategory(catId, 0); // only need to validate category id, so offset = 0!!
-    //console.log(articlesList);
     if (articlesList.length === 0)
         catIdValid = false;
     let subIdValid = false;
     if (catIdValid === true)
         subIdValid = await categoryModel.isSubCategoryIDValid(subId);
-    const articlesListBySubcategory = await categoryModel.getArticlesBySubCategory(subId, offset);
+    const articlesListBySubcategory = await categoryModel.getArticlesBySubCategory(subId, offset, isValidSub);
     if (articlesListBySubcategory.length === 0)
         subIdValid = false;
     if (catIdValid && subIdValid) {

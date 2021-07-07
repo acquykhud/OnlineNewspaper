@@ -24,14 +24,16 @@ module.exports = {
         const tmp = await db.select('').from('subcategories').where('subcategory_id', subCategoryId);
         return tmp.length !== 0;
     },
-    async getArticlesBySubCategory(subCategoryId, offset) {
-        let list = await db.raw(`
-        select a.* from articles a
+    async getArticlesBySubCategory(subCategoryId, offset, isValidSub = false) {
+        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const query = `select a.* from articles a
         join article_subcategories ass on a.article_id = ass.article_id and ass.subcategory_id = ${subCategoryId}
         join subcategories s on ass.subcategory_id = s.subcategory_id
         join categories c on s.category_id = c.category_id
+        ${option}
         limit 6 offset ${offset}
-        `);
+        `;
+        let list = await db.raw(query);
         list = list[0];
         for (let i = 0; i < list.length; ++i) {
             const articleId = list[i].article_id;
@@ -48,21 +50,24 @@ module.exports = {
         where at.article_id = ${articleId}
         `))[0];
     },
-    async getArticlesByCategory(categorId, offset) {
-        let list = await db.raw(`
+    async getArticlesByCategory(categorId, offset, isValidSub = false) {
+        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const query = `
         select a.*, c.category_name from articles a 
         join article_subcategories ass on a.article_id = ass.article_id 
         join subcategories s on ass.subcategory_id = s.subcategory_id and s.category_id = ${categorId}
         join categories c on s.category_id = c.category_id
+        ${option}
         limit 6 offset ${offset}
-        `);
+        `;
+        let list = await db.raw(query);
         list = list[0];
         for (let i = 0; i < list.length; ++i) {
             const articleId = list[i].article_id;
-            const tagsList =  await this.getTagsByArticleId(articleId);
+            const tagsList = await this.getTagsByArticleId(articleId);
             list[i].tagsList = tagsList;
             list[i].tagsListEmpty = (list[i].tagsList.length === 0);
-        }        
+        }
         return list;
     },
     async getSameArticlesByCategory(categoryId, articleId) {
@@ -78,10 +83,10 @@ module.exports = {
         list = list[0];
         for (let i = 0; i < list.length; ++i) {
             const eArticleId = list[i].article_id;
-            const tagsList =  await this.getTagsByArticleId(eArticleId);
+            const tagsList = await this.getTagsByArticleId(eArticleId);
             list[i].tagsList = tagsList;
             list[i].tagsListEmpty = (list[i].tagsList.length === 0);
-        }        
+        }
         return list;
     },
     async getArticleById(articleId) {
@@ -128,10 +133,10 @@ module.exports = {
         list = list[0];
         for (let i = 0; i < list.length; ++i) {
             const articleId = list[i].article_id;
-            const tagsList =  await this.getTagsByArticleId(articleId);
+            const tagsList = await this.getTagsByArticleId(articleId);
             list[i].tagsList = tagsList;
             list[i].tagsListEmpty = (list[i].tagsList.length === 0);
-        }        
+        }
         return list;
     },
     async getNameOfTag(tagId) {
@@ -226,13 +231,17 @@ module.exports = {
         }
         return list;
     },
-    async  getArticlesByKeyword(keyword, offset) {
+    async getArticlesByKeyword(keyword, offset, isValidSub = false) {
         const hexEncodedKeyword = '0x' + (new Buffer.from(keyword).toString('hex'));
-        const ret = await db.raw(`
+        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const query = `
         select a.* from articles a 
         where match (title, content, abstract) against (${hexEncodedKeyword} in natural language mode)
+        ${option}
         limit 6 offset ${offset}
-        `);
+        `;
+        // console.log(query);
+        const ret = await db.raw(query);
         let list = ret[0];
         for (let i = 0; i < list.length; ++i) {
             const articleId = list[i].article_id;
