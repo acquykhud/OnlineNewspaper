@@ -20,7 +20,50 @@
             </tr>
         </thead>
         <tbody>
+            {{#each article_list}}
             <tr>
+                <th scope="row">{{article_id}}</th>
+                <td><a href="/view/post/{{article_id}}">{{title}}</a></td>
+                <td>{{cat_subcat}}</td>
+                <td>
+                    {{#each tagnames}}
+                    <span class="badge badge-primary">{{this}}</span>
+                    {{/each}}
+                </td>
+                <td>
+                    {{#if (ifCond state '==' '1')}}
+                    <span class="badge badge-primary">Đã duyệt, chờ xuất bản</span>
+                    {{else if (ifCond state '==' '2')}}
+                    <span class="badge badge-success">Đã xuất bản</span>
+                    {{else if (ifCond state '==' '3')}}
+                    <span class="badge badge-danger">Bị từ chối</span>
+                    {{else if (ifCond state '==' '4')}}
+                    <span class="badge badge-secondary">Chưa duyệt</span>
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if (ifCond editor '===' 'Bạn')}}
+                    <b>{{editor}}</b>
+                    {{else}}
+                    {{editor}}
+                    {{/if}}
+                </td>
+                <td>
+                    {{reason}}
+                </td>
+                <td>
+                    {{#if (ifCond state '==' '4')}}
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#declineModal"
+                        data-article-id="{{article_id}}" data-article-name="{{title}}"><i class="fa fa-close"></i> Từ
+                        chối</button>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#acceptModal"
+                        data-article-id="{{article_id}}" data-article-name="{{title}}"><i class="fa fa-check"></i>
+                        Duyệt</button>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+            {{!-- <tr>
                 <th scope="row">1</th>
                 <td><a href="/view/post/1">Quy chế tuyển sinh đại học năm 2021 có gì mới?</a></td>
                 <td>Giáo dục > Tuyển sinh</td>
@@ -39,8 +82,7 @@
                     &nbsp;
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                        data-target="#exampleModal"><i class="fa fa-close"></i> Từ chối</button>
+                    &nbsp;
                 </td>
             </tr>
             <tr>
@@ -62,8 +104,7 @@
                     &nbsp;
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                        data-target="#exampleModal1"><i class="fa fa-check"></i> Duyệt</button>
+                    &nbsp;
                 </td>
             </tr>
             <tr>
@@ -85,16 +126,15 @@
                     Thích thì từ chối!
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                        data-target="#exampleModal1"><i class="fa fa-check"></i> Duyệt</button>
+                    &nbsp;
                 </td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="declineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -103,27 +143,33 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12"><b>Mã bài: </b> 1<br></div>
+            <form method="POST" action="editor/send-declined-reason">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12"><b>Mã bài: </b><span id="declined-article-id-1"></span><br></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><b>Tiêu đề: </b><span id="declined-article-name"></span><br></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="note" name="declined_note"
+                            placeholder="Để lại ghi chú cho phóng viên">
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" readonly class="form-control" id="declined-article-id-2"
+                            name="declined_article_id">
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12"><b>Tiêu đề: </b> Quy chế tuyển sinh đại học năm 2021 có gì mới?<br></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                 </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control" id="note" placeholder="Để lại ghi chú cho phóng viên">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary">Lưu thay đổi</button>
-            </div>
-        </div>  
+            </form>
+        </div>
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="acceptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -132,52 +178,78 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12"><b>Mã bài: </b> 1<br></div>
+            <form method="POST" action="editor/send-accepted">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12"><b>Mã bài: </b><span id="accepted-article-id-1"></span><br></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><b>Tiêu đề: </b><span id="accepted-article-name"></span><br></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"><b>Hiệu chỉnh thông tin: </b><br></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Chuyên mục</label>
+                        <select id="category" class="form-control">
+                            <option value="" selected="selected">Chọn chuyên mục</option>
+                            <optgroup label="Kinh doanh">
+                                <option value="oranges1">Nông sản</option>
+                                <option value="oranges2">Hải sản</option>
+                                <option value="oranges3">Vĩ mô</option>
+                            </optgroup>
+                            <optgroup label="Thể thao">
+                                <option value="bananas1">Bóng đá</option>
+                                <option value="bananas2">V-League</option>
+                                <option value="bananas3">Tennis</option>
+                            </optgroup>
+                            <optgroup label="Giáo dục">
+                                <option value="apples1">Điểm thi</option>
+                                <option value="apples2">Tuyển sinh</option>
+                                <option value="apples3">Tra cứu đại học</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Gán nhãn</label>
+                        <input type="text" class="form-control" id="tags" data-role="tagsinput">
+                        <p class="text-muted">Chú ý: Phân biệt các nhãn bằng cách enter</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="release-time">Thời điểm xuất bản</label>
+                        <input type="text" class="form-control" id="release-time">
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12"><b>Tiêu đề: </b> Quy chế tuyển sinh đại học năm 2021 có gì mới?<br></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-primary">Duyệt bài viết</button>
                 </div>
-<div class="row">
-                    <div class="col-md-12"><b>Hiệu chỉnh thông tin: </b><br></div>
-                </div>
-                <div class="form-group">
-                    <label for="category">Chuyên mục</label>
-                    <select id="category" class="form-control">
-                        <option value="" selected="selected">Chọn chuyên mục</option>
-                        <optgroup label="Kinh doanh">
-                            <option value="oranges1">Nông sản</option>
-                            <option value="oranges2">Hải sản</option>
-                            <option value="oranges3">Vĩ mô</option>
-                        </optgroup>
-                        <optgroup label="Thể thao">
-                            <option value="bananas1">Bóng đá</option>
-                            <option value="bananas2">V-League</option>
-                            <option value="bananas3">Tennis</option>
-                        </optgroup>
-                        <optgroup label="Giáo dục">
-                            <option value="apples1">Điểm thi</option>
-                            <option value="apples2">Tuyển sinh</option>
-                            <option value="apples3">Tra cứu đại học</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="tags">Gán nhãn</label>
-                    <input type="text" class="form-control" id="tags" data-role="tagsinput">
-                    <p class="text-muted">Chú ý: Phân biệt các nhãn bằng cách enter</p>
-                </div>
-                <div class="form-group">
-                    <label for="release-time">Thời điểm xuất bản</label>
-                    <input type="text" class="form-control" id="release-time">
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary">Duyệt bài viết</button>
-            </div>
-        </div>  
+            </form>
+        </div>
     </div>
 </div>
+
+{{#section 'js'}}
+<script>
+    $('#declineModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+        const article_id = button.data('article-id');
+        const article_name = button.data('article-name');
+        var modal = $(this);
+        modal.find('#declined-article-id-1').text(article_id);
+        modal.find('#declined-article-id-2').val(article_id);
+        modal.find('#declined-article-name').text(article_name);
+    })
+
+    $('#acceptModal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget);
+        const article_id = button.data('article-id');
+        const article_name = button.data('article-name');
+        var modal = $(this);
+        modal.find('#accepted-article-id-1').text(article_id);
+        //modal.find('#accepted-article-id-2').val(article_id);
+        modal.find('#accepted-article-name').text(article_name);
+    })
+</script>
+{{/section}}

@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const exphbs = require('express-handlebars');
-const hbs_sections = require('express-handlebars-sections');
+
 const app = express();
 
 let logged = false;
@@ -30,7 +30,7 @@ app.use(express.urlencoded({
 
 require('./middlewares/locals.mdw')(app);
 
-app.get('/', async function (req, res) {
+app.get('/', async function(req, res) {
     const topArticlesByTime = helpers.makePairs(await categoryModel.getTopArticlesByTime());
     const topArticlesByView = helpers.makePairs(await categoryModel.getTopArticlesByView());
     const topArticlesByEachCategory = await categoryModel.getTopArticleOfEachCategory();
@@ -70,17 +70,17 @@ app.get('/view/search/', async function(req, res) {
 
 app.get('/view/cat/:id/', async function(req, res) {
     const isValidSub = false;
-    const catId = req.params.id ;
+    const catId = req.params.id;
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
     let catIdValid = true;
     const articlesList = await categoryModel.getArticlesByCategory(catId, offset, isValidSub);
     if (articlesList.length === 0)
         catIdValid = false;
-    
+
     if (catIdValid) {
         // show by categories
-        let categoryInfo = { 
+        let categoryInfo = {
             category_id: catId,
             category_name: await categoryModel.getNameOfCategory(catId),
         };
@@ -98,7 +98,7 @@ app.get('/view/cat/:id/', async function(req, res) {
     }
 });
 
-app.get('/view/cat/:id/:subid/', async function (req, res) {
+app.get('/view/cat/:id/:subid/', async function(req, res) {
     const isValidSub = false;
     const catId = req.params.id;
     const subId = req.params.subid;
@@ -116,7 +116,7 @@ app.get('/view/cat/:id/:subid/', async function (req, res) {
         subIdValid = false;
     if (catIdValid && subIdValid) {
         // show by sub-categories
-        let categoryInfo = { 
+        let categoryInfo = {
             category_id: catId,
             subCategory_id: subId,
             category_name: await categoryModel.getNameOfCategory(catId),
@@ -136,8 +136,8 @@ app.get('/view/cat/:id/:subid/', async function (req, res) {
     }
 });
 
-app.get('/view/tag/:id', async function (req, res) {
-    const tagId = req.params.id ;
+app.get('/view/tag/:id', async function(req, res) {
+    const tagId = req.params.id;
     let tagIdValid = true;
     const articlesList = await categoryModel.getArticlesByTag(tagId);
     if (articlesList.length === 0)
@@ -157,7 +157,7 @@ app.get('/view/tag/:id', async function (req, res) {
     }
 });
 
-app.get('/view/post/:id/', async function (req, res) {
+app.get('/view/post/:id/', async function(req, res) {
     const articleId = req.params.id;
     let article = await categoryModel.getArticleById(articleId);
     if (article === null) {
@@ -169,7 +169,7 @@ app.get('/view/post/:id/', async function (req, res) {
     const categoryName = await categoryModel.getNameOfCategory(categoryId);
     const subCategoryName = await categoryModel.getNameOfSubCategory(subCategoryId);
     const sameCategoryList = await categoryModel.getSameArticlesByCategory(categoryId, articleId);
-    res.render('post/view_post', { 
+    res.render('post/view_post', {
         logged: logged,
         article: article,
         comments: comments,
@@ -199,11 +199,11 @@ app.post('/search/', async function(req, res) {
 
 });
 
-app.get('/user/login', function (req, res) {
+app.get('/user/login', function(req, res) {
     res.render('user/login', { logged: logged });
 });
 
-app.post('/user/login', function (req, res) {
+app.post('/user/login', function(req, res) {
     const username = req.body.username;
     const password = req.body.password;
     if (username == "a" && password == "a") {
@@ -212,64 +212,66 @@ app.post('/user/login', function (req, res) {
     res.redirect('/');
 });
 
-app.get('/user/logout', function (req, res) {
+app.get('/user/logout', function(req, res) {
     logged = false;
     res.redirect('/');
 });
 
-app.get('/user/resetpwd', function (req, res) {
+app.get('/user/resetpwd', function(req, res) {
     res.render('user/reset_password', { logged: logged });
 });
 
-app.get('/user/register', function (req, res) {
+app.get('/user/register', function(req, res) {
     res.render('user/register', { logged: logged });
 });
 
-app.get('/user/info', function (req, res) {
+app.get('/user/info', function(req, res) {
     res.render('user/info', { logged: logged });
 });
 
-app.get('/user/update', function (req, res) {
+app.get('/user/update', function(req, res) {
     res.render('user/update_info', { logged: logged });
 });
 
-app.get('/user/changepwd', function (req, res) {
+app.get('/user/changepwd', function(req, res) {
     res.render('user/change_password', { logged: logged });
 });
 
-app.get('/writer', function (req, res) {
-    res.render('writer/list_own_post', { logged: logged });
-});
+require('./middlewares/routes.mdw.js')(app);
 
-app.get('/writer/edit/1', function (req, res) {
-    res.render('writer/edit_post', { logged: logged });
-});
+// app.get('/writer', function (req, res) {
+//     res.render('writer/list_own_post', { logged: logged });
+// });
 
-app.get('/writer/new', function (req, res) {
-    res.render('writer/edit_post', { logged: logged });
-});
+// app.get('/writer/edit/1', function (req, res) {
+//     res.render('writer/edit_post', { logged: logged });
+// });
 
-app.get('/editor', function (req, res) {
-    res.render('editor/list_managed_post', { logged: logged });
-});
+// app.get('/writer/new', function (req, res) {
+//     res.render('writer/edit_post', { logged: logged });
+// });
 
-app.get('/admin', function (req, res) {
+// app.get('/editor', function(req, res) {
+//     res.render('editor/list_managed_post', { logged: logged });
+// });
+
+app.get('/admin', function(req, res) {
     res.redirect('/admin/category');
 });
 
-app.get('/admin/category', function (req, res) {
+app.get('/admin/category', function(req, res) {
     res.redirect('/admin/category/1');
 });
 
-app.get('/admin/category/1', function (req, res) {
+app.get('/admin/category/1', function(req, res) {
     res.render('admin/category', { logged: logged });
 });
 
-app.get('/admin/tag', function (req, res) {
+app.get('/admin/tag', function(req, res) {
     res.render('admin/tag', { logged: logged });
 });
 
 const PORT = 3000;
-app.listen(PORT, function () {
+app.listen(PORT, function() {
     console.log(`OnlineNewspaper Web listening at http://localhost:${PORT}`);
 });

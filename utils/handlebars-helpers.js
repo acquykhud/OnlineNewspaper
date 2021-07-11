@@ -1,4 +1,8 @@
+const hbs_sections = require('express-handlebars-sections');
+
 module.exports = {
+    section: hbs_sections(),
+
     ifCond: function(v1, operator, v2) {
         switch (operator) {
             case '==':

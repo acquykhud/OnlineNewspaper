@@ -1,12 +1,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8">
-        <h3>Bài viết của bạn</h3>
+            <h3>Bài viết của bạn</h3>
+        </div>
+        <div class="col-md-4 text-right">
+            <a href="/writer/new" class="btn btn-primary"><i class="fa fa-file-o"></i> Tạo bài mới</a>
+        </div>
     </div>
-    <div class="col-md-4 text-right">
-        <a href="/writer/new" class="btn btn-primary"><i class="fa fa-file-o"></i> Tạo bài mới</a>
-    </div>
-    </div>
+    {{#if article_list}}
     <table class="table">
         <thead>
             <tr>
@@ -20,27 +21,42 @@
             </tr>
         </thead>
         <tbody>
+            {{#each article_list}}
             <tr>
-                <th scope="row">1</th>
-                <td><a href="/view/post/1">Quy chế tuyển sinh đại học năm 2021 có gì mới?</a></td>
-                <td>Giáo dục > Tuyển sinh</td>
+                <th scope="row">{{article_id}}</th>
+                <td><a href="/view/post/{{article_id}}">{{title}}</a></td>
+                <td>{{cat_subcat}}</td>
                 <td>
-                    <span class="badge badge-primary">Giáo dục</span>
-                    <span class="badge badge-primary">Tuyển sinh</span>
-                    <span class="badge badge-primary">Đại học</span>
+                    {{#each tagnames}}
+                    <span class="badge badge-primary">{{this}}</span>
+                    {{/each}}
                 </td>
                 <td>
-                    <span class="badge badge-primary">Đã duyệt</span>
-                    <span class="badge badge-primary">Đã xuất bản</span>
+                    {{#if (ifCond state '==' '1')}}
+                    <span class="badge badge-primary">Đã duyệt, chờ xuất bản</span>
+                    {{else if (ifCond state '==' '2')}}
+                    <span class="badge badge-success">Đã xuất bản</span>
+                    {{else if (ifCond state '==' '3')}}
+                    <span class="badge badge-danger">Bị từ chối</span>
+                    {{else if (ifCond state '==' '4')}}
+                    <span class="badge badge-secondary">Chưa duyệt</span>
+                    {{/if}}
                 </td>
                 <td>
-                    &nbsp;
+                    {{#if (ifCond state '==' '3')}}
+                    <b>{{editor}}:</b> {{reason}}
+                    {{/if}}
                 </td>
                 <td>
-                    &nbsp;
+                    {{#if (ifCond state '==' '3')}}
+                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh sửa</a>
+                    {{else if (ifCond state '==' '4')}}
+                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh sửa</a>
+                    {{/if}}
                 </td>
             </tr>
-            <tr>
+            {{/each}}
+            {{!-- <tr>
                 <th scope="row">2</th>
                 <td><a href="/view/post/1">Quy chế tuyển sinh đại học năm 2021 có gì mới?</a></td>
                 <td>Giáo dục > Tuyển sinh</td>
@@ -97,7 +113,10 @@
                 <td>
                     <a href="/writer/edit/1" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh sửa</a>
                 </td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
+    {{else}}
+    <p>Bạn chưa tạo bài viết nào!</p>
+    {{/if}}
 </div>
