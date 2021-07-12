@@ -17,7 +17,7 @@ module.exports = {
 
     async getEditorArticleList(editor_id) {
         const query =
-            `select art.article_id, art.title, cat.category_name, subcat.subcategory_name, art.state 
+            `select art.article_id, art.title, cat.category_name, subcat.subcategory_id, subcat.subcategory_name, art.state 
             from editor_categories ec, categories cat, subcategories subcat,
             article_subcategories artsub, articles art
             where ec.category_id in
@@ -94,5 +94,61 @@ module.exports = {
 
         const doQuery = await db.raw(query);
         return;
+    },
+
+    async updateAcceptedArticleFromEditor(article_id, editor_id, published_time) {
+        const query =
+            `update articles
+            set state = 2, editor_accepted = ${editor_id}, published_time = "${published_time}"
+            where article_id = ${article_id}
+            `;
+
+        const doQuery = await db.raw(query);
+        return;
+    },
+
+    async updateSubcategoryForArticle(article_id, subcategory_id) {
+        const query =
+            `update article_subcategories
+            set subcategory_id = ${subcategory_id}
+            where article_id = ${article_id}
+            `;
+
+        const doQuery = await db.raw(query);
+        return;
+    },
+
+    async removeTagsOfArticle(article_id) {
+        const query =
+            `delete from articles_tags
+            where article_id = ${article_id}
+            `;
+
+        const doQuery = await db.raw(query);
+        return;
+    },
+
+    async addArticleTagRelationship(article_id, tag_name) {
+        const query =
+            `insert into articles_tags(article_id, tag_id)
+            select art.article_id, t.tag_id
+            from tags t, articles art
+            where t.tag_name = "${tag_name}" and art.article_id = ${article_id}
+            `;
+
+        const doQuery = await db.raw(query);
+        return;
+    },
+
+    async getEditorInfoAccepted(article_id) {
+        const query =
+            `select art.editor_accepted, u.full_name
+            from articles art, users u
+            where art.article_id = ${article_id}
+            and art.editor_accepted = u.id
+            `;
+
+        const list = await db.raw(query);
+        return list[0][0];
     },
 };

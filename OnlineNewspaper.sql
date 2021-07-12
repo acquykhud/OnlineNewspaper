@@ -41,7 +41,7 @@ CREATE TABLE `article_subcategories` (
 
 LOCK TABLES `article_subcategories` WRITE;
 /*!40000 ALTER TABLE `article_subcategories` DISABLE KEYS */;
-INSERT INTO `article_subcategories` VALUES (1,1,1),(2,2,2),(3,3,1),(4,4,2),(8,5,2);
+INSERT INTO `article_subcategories` VALUES (1,1,1),(2,2,2),(3,3,1),(4,4,1),(8,5,2);
 /*!40000 ALTER TABLE `article_subcategories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,10 +64,13 @@ CREATE TABLE `articles` (
   `published_time` datetime DEFAULT NULL COMMENT 'Thoi gian xuat ban neu state la 2',
   `avatar_path` varchar(512) DEFAULT NULL COMMENT 'anh dai dien',
   `abstract` varchar(4096) DEFAULT NULL COMMENT 'tom tat bai viet',
+  `editor_accepted` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`article_id`),
   KEY `fk_author_id` (`author_id`),
   KEY `fk_state` (`state`),
+  KEY `fk_editor_accepted` (`editor_accepted`),
   CONSTRAINT `fk_author_id` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_editor_accepted` FOREIGN KEY (`editor_accepted`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_state` FOREIGN KEY (`state`) REFERENCES `states` (`state_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,7 +81,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,3,'Tiêu đề bài báo (Đã duyệt - Chờ xuất bản)',1,'Noi dung (da duoc duyet - cho xuat ban)',100,1,1,'2021-07-05 19:15:28','fake path','Tom tat 1'),(2,3,'Tiêu đề bài báo (Đã xuất bản)',2,'Noi dung (da xuat ban)',200,1,0,'2021-07-07 19:15:30','fake path 2','Tom tat 2'),(3,3,'Tiêu đề bài báo (Bị từ chối)',3,'Noi dung (bi tu choi)',300,0,0,'2021-07-14 19:15:32','fake path 3','Tom tat 3'),(4,3,'Tiêu đề bài báo (Chưa được duyệt)',4,'Noi dung (chua duoc duyet)',400,0,1,'2021-07-21 19:15:35','fake path 4','Tom tat 4'),(5,3,'Tiêu đề bài báo ',1,'Noi dung hehe',100,1,0,'2021-07-05 23:13:56','fake path 5','Tom tat 5'),(6,3,'Tiêu đề bài báo 6',1,'Noi dung nua ne',500,1,0,'2021-07-27 23:14:32','fake path 6','Tom tat 6');
+INSERT INTO `articles` VALUES (1,3,'Tiêu đề bài báo (Đã duyệt - Chờ xuất bản)',1,'Noi dung (da duoc duyet - cho xuat ban)',100,1,1,'2021-07-05 19:15:28','fake path','Tom tat 1',2),(2,3,'Tiêu đề bài báo (Đã xuất bản)',2,'Noi dung (da xuat ban)',200,1,0,'2021-07-07 19:15:30','fake path 2','Tom tat 2',2),(3,3,'Tiêu đề bài báo (Bị từ chối)',3,'Noi dung (bi tu choi)',300,0,0,'2021-07-14 19:15:32','fake path 3','Tom tat 3',NULL),(4,3,'Tiêu đề bài báo (Chưa được duyệt)',4,'Noi dung (chua duoc duyet)',400,0,1,NULL,'fake path 4','Tom tat 4',NULL),(5,3,'Tiêu đề bài báo ',1,'Noi dung hehe',100,1,0,'2021-07-05 23:13:56','fake path 5','Tom tat 5',2),(6,3,'Tiêu đề bài báo 6',1,'Noi dung nua ne',500,1,0,'2021-07-27 23:14:32','fake path 6','Tom tat 6',2);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +101,7 @@ CREATE TABLE `articles_tags` (
   KEY `fk_tag_id` (`tag_id`),
   CONSTRAINT `fk_article_id` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +110,7 @@ CREATE TABLE `articles_tags` (
 
 LOCK TABLES `articles_tags` WRITE;
 /*!40000 ALTER TABLE `articles_tags` DISABLE KEYS */;
-INSERT INTO `articles_tags` VALUES (1,1,1),(1,2,2),(2,1,3),(2,2,4),(3,1,5),(4,2,6);
+INSERT INTO `articles_tags` VALUES (1,1,1),(1,2,2),(2,1,3),(2,2,4),(3,1,5),(4,2,14),(4,7,15);
 /*!40000 ALTER TABLE `articles_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +187,7 @@ CREATE TABLE `declined_articles` (
   KEY `fk_editor_id_2` (`editor_id`),
   CONSTRAINT `fk_article_id_4` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_editor_id_2` FOREIGN KEY (`editor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +318,7 @@ CREATE TABLE `tags` (
   `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(255) NOT NULL,
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +327,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Noi dung tag_name_1'),(2,'Noi dung tag_name_2');
+INSERT INTO `tags` VALUES (1,'Noi dung tag_name_1'),(2,'Noi dung tag_name_2'),(6,'Hải sản'),(7,'Nông sản');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,4 +396,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-11 17:53:19
+-- Dump completed on 2021-07-12 23:49:57

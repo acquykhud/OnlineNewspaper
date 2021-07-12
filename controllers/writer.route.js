@@ -38,12 +38,17 @@ router.get('/', async function(req, res) {
     });
 });
 
-router.get('/edit/1', function(req, res) {
-    res.render('writer/edit_post', { logged: logged });
+router.get('/edit/:id/', function(req, res) {
+    const article_id = req.params.id;
+    res.render('writer/edit_post', {
+        logged: logged
+    });
 });
 
 router.get('/new', function(req, res) {
-    res.render('writer/edit_post', { logged: logged });
+    res.render('writer/new_post', {
+        logged: logged
+    });
 });
 
 module.exports = router;
