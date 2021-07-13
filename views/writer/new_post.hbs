@@ -7,46 +7,31 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form>
+            <form id="newPostForm" method="POST" action="./add-new-post">
                 <div class="form-group">
                     <label for="title">Tiêu đề</label>
-                    <input type="text" class="form-control" id="title">
+                    <input type="text" class="form-control" id="title" name="title">
                 </div>
                 <div class="form-group">
                     <label for="category">Chuyên mục</label>
-                    <select id="category" class="form-control">
-                        <option value="" selected="selected">Chọn chuyên mục</option>
-                        {{!-- <optgroup label="Kinh doanh">
-                            <option value="oranges1">Nông sản</option>
-                            <option value="oranges2">Hải sản</option>
-                            <option value="oranges3">Vĩ mô</option>
-                        </optgroup>
-                        <optgroup label="Thể thao">
-                            <option value="bananas1">Bóng đá</option>
-                            <option value="bananas2">V-League</option>
-                            <option value="bananas3">Tennis</option>
-                        </optgroup>
-                        <optgroup label="Giáo dục">
-                            <option value="apples1">Điểm thi</option>
-                            <option value="apples2">Tuyển sinh</option>
-                            <option value="apples3">Tra cứu đại học</option>
-                        </optgroup> --}}
+                    <select id="category" class="form-control" name="subcategory_id">
+                        <option value="-1" selected disabled hidden>Chọn chuyên mục</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="abstract">Tóm tắt</label>
-                    <textarea class="form-control" id="abstract"></textarea>
+                    <textarea class="form-control" id="abstract" name="abstract"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="content">Nội dung</label>
-                    <textarea name="content" id="content" class="form-control"></textarea>
+                    <textarea name="content" id="content" class="form-control" name="content"></textarea>
                     <script>
                         CKEDITOR.replace('content');
                     </script>
                 </div>
                 <div class="form-group">
                     <label for="tags">Gán nhãn</label>
-                    <input type="text" class="form-control" id="tags" data-role="tagsinput">
+                    <input type="text" class="form-control" id="tags" data-role="tagsinput" name="tags">
                     <p class="text-muted">Chú ý: Phân biệt các nhãn bằng cách enter</p>
                 </div>
                 <center> <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Lưu thay đổi</button>
@@ -57,6 +42,7 @@
 </div>
 
 {{#section 'js'}}
+
 <script>
     $.getJSON('/ajax/get-category-list', async function (catList) {
         for (const cat of catList) {
@@ -68,5 +54,41 @@
             })
         }
     })
+
+    $('#newPostForm').on('submit', function (event) {
+        event.preventDefault();
+
+        const title = $('#title').val();
+        if (title.length === 0) {
+            alert('Bạn chưa nhập tiêu đề bài viết!');
+            return;
+        }
+
+        const subcategory_id = +$('#newPostForm option:selected').val();
+        if (subcategory_id === -1) {
+            alert('Bạn chưa chọn chuyên mục!');
+            return;
+        }
+
+        const abstract = $('#abstract').val();
+        if (abstract.length === 0) {
+            alert('Bạn chưa nhập tóm tắt bài viết!');
+            return;
+        }
+
+        const tags = $('#tags').val();
+        if (tags.length === 0) {
+            alert("Bạn chưa gán nhãn bài viết!");
+            return;
+        }
+
+        const content = CKEDITOR.instances["content"].getData();
+        if (content.length === 0) {
+            alert("Bạn chưa nhập thông tin bài viết!");
+            return;
+        }
+
+        $('#newPostForm').off('submit').submit();
+    });
 </script>
 {{/section}}

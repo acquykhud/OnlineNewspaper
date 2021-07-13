@@ -10,8 +10,6 @@ const router = express.Router();
 const editor_id = 2;
 let logged = false;
 
-
-// Cần thêm bảng accepted_articles?
 router.get('/', async function(req, res) {
     const allArticles = await articlesModel.getEditorArticleList(editor_id);
 
@@ -71,7 +69,6 @@ router.post('/send-accepted', async function(req, res) {
     const article_id = req.body.accepted_article_id;
     const subcategory_id = req.body.subcategory_id;
     const tags = req.body.tags[1].split(',');
-    //const release_time_raw = req.body.release_time;
     const release_time = moment(req.body.release_time, 'DD/MM/YYYY HH:mm').format('YYYY-MM-DD HH:mm:ss');
 
     // console.log(article_id);
@@ -80,17 +77,9 @@ router.post('/send-accepted', async function(req, res) {
     // console.log(release_time);
 
     await articlesModel.updateAcceptedArticleFromEditor(article_id, editor_id, release_time);
-    for (tag_name of tags) {
-        const isIncluded = await tagsModel.isIncluded(tag_name);
-        if (isIncluded === false) {
-            await tagsModel.add(tag_name);
-        }
-    }
     await articlesModel.updateSubcategoryForArticle(article_id, subcategory_id);
-    await articlesModel.removeTagsOfArticle(article_id);
-    for (tag_name of tags) {
-        await articlesModel.addArticleTagRelationship(article_id, tag_name);
-    }
+    await tagsModel.addTagList(tags);
+    await articlesModel.updateTagsForArticle(article_id, tags);
 
     res.redirect('/editor');
 });

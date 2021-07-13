@@ -1,6 +1,7 @@
 const express = require('express');
 
 const articlesModel = require('../models/articles.model');
+const tagsModel = require('../models/tags.model');
 
 const router = express.Router();
 
@@ -21,6 +22,8 @@ router.get('/', async function(req, res) {
         const cat_subcat = await articlesModel.getCategoryForArticle(article.article_id);
         if (cat_subcat !== undefined) {
             article.cat_subcat = `${cat_subcat.category_name} > ${cat_subcat.subcategory_name}`
+        } else {
+            article.cat_subcat = 'undefined';
         }
 
         if (article.state === 3) {
@@ -38,17 +41,65 @@ router.get('/', async function(req, res) {
     });
 });
 
-router.get('/edit/:id/', function(req, res) {
+router.get('/edit/:id/', async function(req, res) {
     const article_id = req.params.id;
+    const article = await articlesModel.getArticleForWriter(article_id);
+    console.log(article);
     res.render('writer/edit_post', {
-        logged: logged
+        logged: logged,
+        article: article,
+        article_id: article_id
     });
 });
+
+router.post('/edit-post', async function(req, res) {
+    const article_id = req.body.article_id;
+    const title = req.body.title;
+    const subcategory_id = req.body.subcategory_id;
+    const abstract = req.body.abstract;
+    const content = req.body.content;
+    const tags = req.body.tags[1].split(',');
+
+    // console.log(article_id);
+    // console.log(title);
+    // console.log(subcategory_id);
+    // console.log(abstract);
+    // console.log(content);
+    // console.log(tags);
+
+    await articlesModel.updateArticleFromWriter(article_id, title, abstract, content);
+    await articlesModel.updateSubcategoryForArticle(article_id, subcategory_id);
+    await tagsModel.addTagList(tags);
+    await articlesModel.updateTagsForArticle(article_id, tags);
+    res.redirect('/writer');
+})
+
 
 router.get('/new', function(req, res) {
     res.render('writer/new_post', {
         logged: logged
     });
 });
+
+router.post('/add-new-post', async function(req, res) {
+    const title = req.body.title;
+    const subcategory_id = req.body.subcategory_id;
+    const abstract = req.body.abstract;
+    const content = req.body.content;
+    const tags = req.body.tags[1].split(',');
+
+    // console.log(title);
+    // console.log(subcategory_id);
+    // console.log(abstract);
+    // console.log(content);
+    // console.log(tags);
+
+    const addResult = await articlesModel.addArticleFromWriter(author_id, title, content, abstract);
+    const article_id = addResult[0].insertId;
+    await articlesModel.insertSubcategoryForArticle(article_id, subcategory_id);
+    await tagsModel.addTagList(tags);
+    await articlesModel.updateTagsForArticle(article_id, tags);
+    res.redirect('/writer');
+})
 
 module.exports = router;

@@ -32,5 +32,14 @@ module.exports = {
             return true;
         }
         return false;
-    }
+    },
+
+    async addTagList(tagList) {
+        for (tag_name of tagList) {
+            const isIncluded = await this.isIncluded(tag_name);
+            if (isIncluded === false) {
+                await this.add(tag_name);
+            }
+        }
+    },
 };

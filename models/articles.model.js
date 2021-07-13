@@ -53,7 +53,7 @@ module.exports = {
             from article_subcategories arsub, subcategories sub, categories cat
             where arsub.subcategory_id = sub.subcategory_id
             and sub.category_id = cat.category_id
-            and arsub.id = ${article_id}`;
+            and arsub.article_id = ${article_id}`;
 
         const list = await db.raw(query);
         return list[0][0];
@@ -99,7 +99,7 @@ module.exports = {
     async updateAcceptedArticleFromEditor(article_id, editor_id, published_time) {
         const query =
             `update articles
-            set state = 2, editor_accepted = ${editor_id}, published_time = "${published_time}"
+            set state = 1, editor_accepted = ${editor_id}, published_time = "${published_time}"
             where article_id = ${article_id}
             `;
 
@@ -115,6 +115,16 @@ module.exports = {
             `;
 
         const doQuery = await db.raw(query);
+        return;
+    },
+
+    async insertSubcategoryForArticle(article_id, subcategory_id) {
+        const query =
+            `insert into article_subcategories(article_id, subcategory_id)
+            values (?, ?)
+            `;
+
+        const doQuery = await db.raw(query, [article_id, subcategory_id]);
         return;
     },
 
@@ -151,4 +161,43 @@ module.exports = {
         const list = await db.raw(query);
         return list[0][0];
     },
+
+    async updateTagsForArticle(article_id, tags) {
+        await this.removeTagsOfArticle(article_id);
+        for (tag_name of tags) {
+            await this.addArticleTagRelationship(article_id, tag_name);
+        }
+    },
+
+    async addArticleFromWriter(author_id, title, content, abstract) {
+        const query =
+            `insert into articles(author_id, title, state, content, abstract)
+            values (?, ?, 4, ?, ?)`;
+
+        const doQuery = await db.raw(query, [author_id, title, content, abstract]);
+        return doQuery;
+    },
+
+    async getArticleForWriter(article_id) {
+        const query =
+            `select art.title, art.content, art.abstract, artsub.subcategory_id
+            from articles art, article_subcategories artsub
+            where art.article_id = ?
+            and art.article_id = artsub.article_id
+            `;
+
+        const list = await db.raw(query, [article_id]);
+        return list[0][0];
+    },
+
+    async updateArticleFromWriter(article_id, title, abstract, content) {
+        const query =
+            `update articles
+            set state = 4, title = ?, abstract = ?, content = ?
+            where article_id = ?
+            `;
+
+        const doQuery = await db.raw(query, [title, abstract, content, article_id]);
+        return doQuery;
+    }
 };
