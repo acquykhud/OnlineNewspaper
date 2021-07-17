@@ -53,8 +53,8 @@ router.get('/', async function(req, res) {
 });
 
 router.post('/send-declined-reason', async function(req, res) {
-    const article_id = req.body.declined_article_id
-    const declined_reason = req.body.declined_note
+    const article_id = req.body.declined_article_id;
+    const declined_reason = req.body.declined_note;
 
     //console.log(article_id);
     //console.log(declined_reason);
