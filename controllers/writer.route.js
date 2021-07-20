@@ -43,8 +43,11 @@ router.get('/', async function(req, res) {
 
 router.get('/edit/:id/', async function(req, res) {
     const article_id = req.params.id;
-    const article = await articlesModel.getArticleForWriter(article_id);
-    console.log(article);
+    let article = await articlesModel.getArticleForWriter(article_id);
+    //console.log(article);
+    if (!((article.state === 3 || article.state === 4) && author_id === article.author_id)) {
+        article = undefined;
+    }
     res.render('writer/edit_post', {
         logged: logged,
         article: article,

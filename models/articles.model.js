@@ -180,7 +180,7 @@ module.exports = {
 
     async getArticleForWriter(article_id) {
         const query =
-            `select art.title, art.content, art.abstract, artsub.subcategory_id
+            `select art.*, artsub.subcategory_id
             from articles art, article_subcategories artsub
             where art.article_id = ?
             and art.article_id = artsub.article_id
@@ -199,5 +199,16 @@ module.exports = {
 
         const doQuery = await db.raw(query, [title, abstract, content, article_id]);
         return doQuery;
-    }
+    },
+
+    /*async getArticleFromId(article_id) {
+        const query =
+            `select *
+            from articles
+            where article_id = ?
+            `;
+
+        const list = await db.raw(query, [article_id]);
+        return list[0][0];
+    },*/
 };
