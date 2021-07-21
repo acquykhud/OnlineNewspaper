@@ -20,6 +20,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="avatar">Đường dẫn ảnh đại diện</label>
+                    <input type="text" class="form-control" id="avatar" name="avatar" value="{{article.avatar_path}}">
+                </div>
+                <div class="form-group">
                     <label for="abstract">Tóm tắt</label>
                     <textarea class="form-control" id="abstract" name="abstract">{{article.abstract}}</textarea>
                 </div>
@@ -76,6 +80,11 @@
         }
     });
 
+    function isValidURL(string) {
+        var res = string.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        return (res !== null)
+    };
+
     $('#editPostForm').on('submit', function (event) {
         event.preventDefault();
 
@@ -88,6 +97,12 @@
         const abstract = $('#abstract').val();
         if (abstract.length === 0) {
             alert('Bạn chưa nhập tóm tắt bài viết!');
+            return;
+        }
+
+        const avatar = $('#avatar').val();
+        if (!isValidURL(avatar)) {
+            alert('Đường dẫn ảnh đại diện không hợp lệ!');
             return;
         }
 

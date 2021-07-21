@@ -169,12 +169,12 @@ module.exports = {
         }
     },
 
-    async addArticleFromWriter(author_id, title, content, abstract) {
+    async addArticleFromWriter(author_id, title, content, abstract, avatar_path) {
         const query =
-            `insert into articles(author_id, title, state, content, abstract)
-            values (?, ?, 4, ?, ?)`;
+            `insert into articles(author_id, title, state, content, abstract, avatar_path)
+            values (?, ?, 4, ?, ?, ?)`;
 
-        const doQuery = await db.raw(query, [author_id, title, content, abstract]);
+        const doQuery = await db.raw(query, [author_id, title, content, abstract, avatar_path]);
         return doQuery;
     },
 
@@ -190,14 +190,14 @@ module.exports = {
         return list[0][0];
     },
 
-    async updateArticleFromWriter(article_id, title, abstract, content) {
+    async updateArticleFromWriter(article_id, title, abstract, content, avatar_path) {
         const query =
             `update articles
-            set state = 4, title = ?, abstract = ?, content = ?
+            set state = 4, title = ?, abstract = ?, content = ?, avatar_path = ?
             where article_id = ?
             `;
 
-        const doQuery = await db.raw(query, [title, abstract, content, article_id]);
+        const doQuery = await db.raw(query, [title, abstract, content, avatar_path, article_id]);
         return doQuery;
     },
 

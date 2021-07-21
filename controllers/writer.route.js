@@ -62,6 +62,7 @@ router.post('/edit-post', async function(req, res) {
     const abstract = req.body.abstract;
     const content = req.body.content;
     const tags = req.body.tags[1].split(',');
+    const avatar_path = req.body.avatar;
 
     // console.log(article_id);
     // console.log(title);
@@ -70,7 +71,7 @@ router.post('/edit-post', async function(req, res) {
     // console.log(content);
     // console.log(tags);
 
-    await articlesModel.updateArticleFromWriter(article_id, title, abstract, content);
+    await articlesModel.updateArticleFromWriter(article_id, title, abstract, content, avatar_path);
     await articlesModel.updateSubcategoryForArticle(article_id, subcategory_id);
     await tagsModel.addTagList(tags);
     await articlesModel.updateTagsForArticle(article_id, tags);
@@ -90,6 +91,7 @@ router.post('/add-new-post', async function(req, res) {
     const abstract = req.body.abstract;
     const content = req.body.content;
     const tags = req.body.tags[1].split(',');
+    const avatar_path = req.body.avatar;
 
     // console.log(title);
     // console.log(subcategory_id);
@@ -97,7 +99,7 @@ router.post('/add-new-post', async function(req, res) {
     // console.log(content);
     // console.log(tags);
 
-    const addResult = await articlesModel.addArticleFromWriter(author_id, title, content, abstract);
+    const addResult = await articlesModel.addArticleFromWriter(author_id, title, content, abstract, avatar_path);
     const article_id = addResult[0].insertId;
     await articlesModel.insertSubcategoryForArticle(article_id, subcategory_id);
     await tagsModel.addTagList(tags);
