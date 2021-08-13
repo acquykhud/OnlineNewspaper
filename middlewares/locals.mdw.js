@@ -1,5 +1,14 @@
 const categoryModel = require('../models/categories.models');
+
 module.exports = function (app) {
+    app.use(function (req, res, next) {
+        if (typeof(req.session.auth) == 'undefined') {
+            req.session.auth = false;
+        }
+        res.locals.auth = req.session.auth;
+        next();
+    });
+
     app.use(async function (req, res, next) {
         const categoriesList = await categoryModel.getListOfCategories();
         let allList = [];

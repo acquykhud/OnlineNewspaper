@@ -5,8 +5,8 @@ const knex = require('knex')({
     connection: {
         host: '127.0.0.1',
         port: 3306,
-        user: 'xikhud',
-        password: 'xikhud',
+        user: 'root',
+        password: '',
         database: 'OnlineNewspaper',
         typeCast: function (field, next) {
             if (field.type == 'DATETIME') {
