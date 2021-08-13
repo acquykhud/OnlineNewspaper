@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Khôi phục mật khẩu</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" action="/user/resetpwd">
+                <div class="form-group">
+                    <label for="email">Địa chỉ Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <center> <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Gửi OTP</button>
+                </center>
+            </form>
+            {{#if err}}
+                <div class="alert alert-danger" role="alert" style="margin-top:10px;">
+                    {{err}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

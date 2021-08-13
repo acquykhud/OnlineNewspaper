@@ -4,15 +4,12 @@ const moment = require('moment');
 const helpers = require("../utils/helpers");
 const router = express.Router();
 
-const logged = false;
-
 router.get('/home/', async function(req, res) {
     const topArticlesByTime = helpers.makePairs(await categoryModel.getTopArticlesByTime());
     const topArticlesByView = helpers.makePairs(await categoryModel.getTopArticlesByView());
     const topArticlesByEachCategory = await categoryModel.getTopArticleOfEachCategory();
     const top3ArticlesByView = await categoryModel.getTopArticlesByView(3);
     res.render('index', {
-        logged: logged,
         topArticlesByTime: topArticlesByTime,
         topArticlesByView: topArticlesByView,
         topArticlesByEachCategory: topArticlesByEachCategory,
@@ -61,7 +58,6 @@ router.get('/cat/:id/', async function(req, res) {
             category_name: await categoryModel.getNameOfCategory(catId),
         };
         res.render('post/post_list_by_cat', {
-            logged: logged,
             page: page,
             categoryInfo: categoryInfo,
             articlesList: articlesList,
@@ -99,7 +95,6 @@ router.get('/cat/:id/:subid/', async function(req, res) {
             subCategory_name: await categoryModel.getNameOfSubCategory(subId),
         };
         res.render('post/post_list_by_cat', {
-            logged: logged,
             page: page,
             categoryInfo: categoryInfo,
             articlesList: articlesListBySubcategory,
@@ -122,7 +117,6 @@ router.get('/tag/:id', async function(req, res) {
     if (tagIdValid) {
         const tagName = await categoryModel.getNameOfTag(tagId);
         res.render('post/post_list_by_tag', {
-            logged: logged,
             tagId: tagId,
             tagName: tagName,
             articlesList: articlesList,
@@ -146,7 +140,6 @@ router.get('/post/:id/', async function(req, res) {
     const subCategoryName = await categoryModel.getNameOfSubCategory(subCategoryId);
     const sameCategoryList = await categoryModel.getSameArticlesByCategory(categoryId, articleId);
     res.render('post/view_post', {
-        logged: logged,
         article: article,
         comments: comments,
         subCategoryId: subCategoryId,

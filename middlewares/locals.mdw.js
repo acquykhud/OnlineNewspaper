@@ -2,10 +2,11 @@ const categoryModel = require('../models/categories.models');
 
 module.exports = function (app) {
     app.use(function (req, res, next) {
-        if (typeof(req.session.auth) == 'undefined') {
-            req.session.auth = false;
+        if (typeof(req.session.logged) == 'undefined') {
+            req.session.logged = false;
         }
-        res.locals.auth = req.session.auth;
+        res.locals.logged = req.session.logged;
+        res.locals.user = req.session.user;
         next();
     });
 

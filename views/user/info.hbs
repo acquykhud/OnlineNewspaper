@@ -3,10 +3,13 @@
         <div class="col-md-12">
             <h3>Thông tin tài khoản</h3><br>
             <hr>
-            <p><b>Họ tên:</b> AAA</p><br>
-            <p><b>Email:</b> aaa@gmail.com</p><br>
-            <p><b>Ngày tháng năm sinh:</b> 01/01/2000</p><br>
-            <p><b>Loại tài khoản:</b> All</p><br>
+            <p><b>Họ tên:</b> {{user.full_name}}</p><br>
+            <p><b>Email:</b> {{user.email}}</p><br>
+            <p><b>Ngày tháng năm sinh:</b> {{user.dob}}</p><br>
+            <p><b>Loại tài khoản:</b> {{user.roleName}}</p><br>
+            {{#if (ifCond user.role '==' '3')}}
+            <p><b>Bút danh:</b> {{user.pseudonym}}</p>
+            {{/if}}
             <a href="/user/update" class="btn btn-primary">Cập nhật thông tin</a>
             <a href="/user/changepwd" class="btn btn-primary">Đổi mật khẩu</a>
         </div>

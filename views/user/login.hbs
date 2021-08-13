@@ -21,6 +21,11 @@
                 <center> <button type="submit" class="btn btn-primary"><i class="fa fa-key"></i> Đăng nhập</button>
                 </center>
             </form>
+            {{#if login_error}}
+            <div class="alert alert-danger" role="alert" style="margin-top:10px;">
+                {{login_error}}
+            </div>
+            {{/if}}
         </div>
     </div>
 </div>
