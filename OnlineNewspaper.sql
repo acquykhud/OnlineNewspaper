@@ -1,400 +1,3608 @@
--- MariaDB dump 10.19  Distrib 10.4.18-MariaDB, for Win64 (AMD64)
---
--- Host: localhost    Database: onlinenewspaper1707
--- ------------------------------------------------------
--- Server version	10.4.18-MariaDB
+/*
+ Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+ Source Server         : localhost_3306
+ Source Server Type    : MySQL
+ Source Server Version : 50731
+ Source Host           : localhost:3306
+ Source Schema         : onlinenewspaper
 
---
--- Table structure for table `article_subcategories`
---
+ Target Server Type    : MySQL
+ Target Server Version : 50731
+ File Encoding         : 65001
 
+ Date: 13/08/2021 17:32:39
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for article_subcategories
+-- ----------------------------
 DROP TABLE IF EXISTS `article_subcategories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `article_subcategories` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
-  `subcategory_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_article_id` (`article_id`) USING BTREE,
-  KEY `fk_article_id_2` (`article_id`),
-  KEY `fk_subcategory_id` (`subcategory_id`),
+CREATE TABLE `article_subcategories`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `article_id` int(10) UNSIGNED NOT NULL,
+  `subcategory_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `unique_article_id`(`article_id`) USING BTREE,
+  INDEX `fk_article_id_2`(`article_id`) USING BTREE,
+  INDEX `fk_subcategory_id`(`subcategory_id`) USING BTREE,
   CONSTRAINT `fk_article_id_2` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_subcategory_id` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`subcategory_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1008 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 1008 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `article_subcategories`
---
+-- ----------------------------
+-- Records of article_subcategories
+-- ----------------------------
+INSERT INTO `article_subcategories` VALUES (1, 1, 2);
+INSERT INTO `article_subcategories` VALUES (2, 2, 3);
+INSERT INTO `article_subcategories` VALUES (3, 3, 4);
+INSERT INTO `article_subcategories` VALUES (4, 4, 5);
+INSERT INTO `article_subcategories` VALUES (5, 5, 6);
+INSERT INTO `article_subcategories` VALUES (6, 6, 7);
+INSERT INTO `article_subcategories` VALUES (7, 7, 8);
+INSERT INTO `article_subcategories` VALUES (8, 8, 9);
+INSERT INTO `article_subcategories` VALUES (9, 9, 10);
+INSERT INTO `article_subcategories` VALUES (10, 10, 11);
+INSERT INTO `article_subcategories` VALUES (11, 11, 12);
+INSERT INTO `article_subcategories` VALUES (12, 12, 13);
+INSERT INTO `article_subcategories` VALUES (13, 13, 14);
+INSERT INTO `article_subcategories` VALUES (14, 14, 15);
+INSERT INTO `article_subcategories` VALUES (15, 15, 1);
+INSERT INTO `article_subcategories` VALUES (16, 16, 2);
+INSERT INTO `article_subcategories` VALUES (17, 17, 3);
+INSERT INTO `article_subcategories` VALUES (18, 18, 4);
+INSERT INTO `article_subcategories` VALUES (19, 19, 5);
+INSERT INTO `article_subcategories` VALUES (20, 20, 6);
+INSERT INTO `article_subcategories` VALUES (21, 21, 7);
+INSERT INTO `article_subcategories` VALUES (22, 22, 8);
+INSERT INTO `article_subcategories` VALUES (23, 23, 9);
+INSERT INTO `article_subcategories` VALUES (24, 24, 10);
+INSERT INTO `article_subcategories` VALUES (25, 25, 11);
+INSERT INTO `article_subcategories` VALUES (26, 26, 12);
+INSERT INTO `article_subcategories` VALUES (27, 27, 13);
+INSERT INTO `article_subcategories` VALUES (28, 28, 14);
+INSERT INTO `article_subcategories` VALUES (29, 29, 15);
+INSERT INTO `article_subcategories` VALUES (30, 30, 1);
+INSERT INTO `article_subcategories` VALUES (31, 31, 2);
+INSERT INTO `article_subcategories` VALUES (32, 32, 3);
+INSERT INTO `article_subcategories` VALUES (33, 33, 4);
+INSERT INTO `article_subcategories` VALUES (34, 34, 5);
+INSERT INTO `article_subcategories` VALUES (35, 35, 6);
+INSERT INTO `article_subcategories` VALUES (36, 36, 7);
+INSERT INTO `article_subcategories` VALUES (37, 37, 8);
+INSERT INTO `article_subcategories` VALUES (38, 38, 9);
+INSERT INTO `article_subcategories` VALUES (39, 39, 10);
+INSERT INTO `article_subcategories` VALUES (40, 40, 11);
+INSERT INTO `article_subcategories` VALUES (41, 41, 12);
+INSERT INTO `article_subcategories` VALUES (42, 42, 13);
+INSERT INTO `article_subcategories` VALUES (43, 43, 14);
+INSERT INTO `article_subcategories` VALUES (44, 44, 15);
+INSERT INTO `article_subcategories` VALUES (45, 45, 1);
+INSERT INTO `article_subcategories` VALUES (46, 46, 2);
+INSERT INTO `article_subcategories` VALUES (47, 47, 3);
+INSERT INTO `article_subcategories` VALUES (48, 48, 4);
+INSERT INTO `article_subcategories` VALUES (49, 49, 5);
+INSERT INTO `article_subcategories` VALUES (50, 50, 6);
+INSERT INTO `article_subcategories` VALUES (51, 51, 7);
+INSERT INTO `article_subcategories` VALUES (52, 52, 8);
+INSERT INTO `article_subcategories` VALUES (53, 53, 9);
+INSERT INTO `article_subcategories` VALUES (54, 54, 10);
+INSERT INTO `article_subcategories` VALUES (55, 55, 11);
+INSERT INTO `article_subcategories` VALUES (56, 56, 12);
+INSERT INTO `article_subcategories` VALUES (57, 57, 13);
+INSERT INTO `article_subcategories` VALUES (58, 58, 14);
+INSERT INTO `article_subcategories` VALUES (59, 59, 15);
+INSERT INTO `article_subcategories` VALUES (60, 60, 1);
+INSERT INTO `article_subcategories` VALUES (61, 61, 2);
+INSERT INTO `article_subcategories` VALUES (62, 62, 3);
+INSERT INTO `article_subcategories` VALUES (63, 63, 4);
+INSERT INTO `article_subcategories` VALUES (64, 64, 5);
+INSERT INTO `article_subcategories` VALUES (65, 65, 6);
+INSERT INTO `article_subcategories` VALUES (66, 66, 7);
+INSERT INTO `article_subcategories` VALUES (67, 67, 8);
+INSERT INTO `article_subcategories` VALUES (68, 68, 9);
+INSERT INTO `article_subcategories` VALUES (69, 69, 10);
+INSERT INTO `article_subcategories` VALUES (70, 70, 11);
+INSERT INTO `article_subcategories` VALUES (71, 71, 12);
+INSERT INTO `article_subcategories` VALUES (72, 72, 13);
+INSERT INTO `article_subcategories` VALUES (73, 73, 14);
+INSERT INTO `article_subcategories` VALUES (74, 74, 15);
+INSERT INTO `article_subcategories` VALUES (75, 75, 1);
+INSERT INTO `article_subcategories` VALUES (76, 76, 2);
+INSERT INTO `article_subcategories` VALUES (77, 77, 3);
+INSERT INTO `article_subcategories` VALUES (78, 78, 4);
+INSERT INTO `article_subcategories` VALUES (79, 79, 5);
+INSERT INTO `article_subcategories` VALUES (80, 80, 6);
+INSERT INTO `article_subcategories` VALUES (81, 81, 7);
+INSERT INTO `article_subcategories` VALUES (82, 82, 8);
+INSERT INTO `article_subcategories` VALUES (83, 83, 9);
+INSERT INTO `article_subcategories` VALUES (84, 84, 10);
+INSERT INTO `article_subcategories` VALUES (85, 85, 11);
+INSERT INTO `article_subcategories` VALUES (86, 86, 12);
+INSERT INTO `article_subcategories` VALUES (87, 87, 13);
+INSERT INTO `article_subcategories` VALUES (88, 88, 14);
+INSERT INTO `article_subcategories` VALUES (89, 89, 15);
+INSERT INTO `article_subcategories` VALUES (90, 90, 1);
+INSERT INTO `article_subcategories` VALUES (91, 91, 2);
+INSERT INTO `article_subcategories` VALUES (92, 92, 3);
+INSERT INTO `article_subcategories` VALUES (93, 93, 4);
+INSERT INTO `article_subcategories` VALUES (94, 94, 5);
+INSERT INTO `article_subcategories` VALUES (95, 95, 6);
+INSERT INTO `article_subcategories` VALUES (96, 96, 7);
+INSERT INTO `article_subcategories` VALUES (97, 97, 8);
+INSERT INTO `article_subcategories` VALUES (98, 98, 9);
+INSERT INTO `article_subcategories` VALUES (99, 99, 10);
+INSERT INTO `article_subcategories` VALUES (100, 100, 11);
+INSERT INTO `article_subcategories` VALUES (101, 101, 12);
+INSERT INTO `article_subcategories` VALUES (102, 102, 13);
+INSERT INTO `article_subcategories` VALUES (103, 103, 14);
+INSERT INTO `article_subcategories` VALUES (104, 104, 15);
+INSERT INTO `article_subcategories` VALUES (105, 105, 1);
+INSERT INTO `article_subcategories` VALUES (106, 106, 2);
+INSERT INTO `article_subcategories` VALUES (107, 107, 3);
+INSERT INTO `article_subcategories` VALUES (108, 108, 4);
+INSERT INTO `article_subcategories` VALUES (109, 109, 5);
+INSERT INTO `article_subcategories` VALUES (110, 110, 6);
+INSERT INTO `article_subcategories` VALUES (111, 111, 7);
+INSERT INTO `article_subcategories` VALUES (112, 112, 8);
+INSERT INTO `article_subcategories` VALUES (113, 113, 9);
+INSERT INTO `article_subcategories` VALUES (114, 114, 10);
+INSERT INTO `article_subcategories` VALUES (115, 115, 11);
+INSERT INTO `article_subcategories` VALUES (116, 116, 12);
+INSERT INTO `article_subcategories` VALUES (117, 117, 13);
+INSERT INTO `article_subcategories` VALUES (118, 118, 14);
+INSERT INTO `article_subcategories` VALUES (119, 119, 15);
+INSERT INTO `article_subcategories` VALUES (120, 120, 1);
+INSERT INTO `article_subcategories` VALUES (121, 121, 2);
+INSERT INTO `article_subcategories` VALUES (122, 122, 3);
+INSERT INTO `article_subcategories` VALUES (123, 123, 4);
+INSERT INTO `article_subcategories` VALUES (124, 124, 5);
+INSERT INTO `article_subcategories` VALUES (125, 125, 6);
+INSERT INTO `article_subcategories` VALUES (126, 126, 7);
+INSERT INTO `article_subcategories` VALUES (127, 127, 8);
+INSERT INTO `article_subcategories` VALUES (128, 128, 9);
+INSERT INTO `article_subcategories` VALUES (129, 129, 10);
+INSERT INTO `article_subcategories` VALUES (130, 130, 11);
+INSERT INTO `article_subcategories` VALUES (131, 131, 12);
+INSERT INTO `article_subcategories` VALUES (132, 132, 13);
+INSERT INTO `article_subcategories` VALUES (133, 133, 14);
+INSERT INTO `article_subcategories` VALUES (134, 134, 15);
+INSERT INTO `article_subcategories` VALUES (135, 135, 1);
+INSERT INTO `article_subcategories` VALUES (136, 136, 2);
+INSERT INTO `article_subcategories` VALUES (137, 137, 3);
+INSERT INTO `article_subcategories` VALUES (138, 138, 4);
+INSERT INTO `article_subcategories` VALUES (139, 139, 5);
+INSERT INTO `article_subcategories` VALUES (140, 140, 6);
+INSERT INTO `article_subcategories` VALUES (141, 141, 7);
+INSERT INTO `article_subcategories` VALUES (142, 142, 8);
+INSERT INTO `article_subcategories` VALUES (143, 143, 9);
+INSERT INTO `article_subcategories` VALUES (144, 144, 10);
+INSERT INTO `article_subcategories` VALUES (145, 145, 11);
+INSERT INTO `article_subcategories` VALUES (146, 146, 12);
+INSERT INTO `article_subcategories` VALUES (147, 147, 13);
+INSERT INTO `article_subcategories` VALUES (148, 148, 14);
+INSERT INTO `article_subcategories` VALUES (149, 149, 15);
+INSERT INTO `article_subcategories` VALUES (150, 150, 1);
+INSERT INTO `article_subcategories` VALUES (151, 151, 2);
+INSERT INTO `article_subcategories` VALUES (152, 152, 3);
+INSERT INTO `article_subcategories` VALUES (153, 153, 4);
+INSERT INTO `article_subcategories` VALUES (154, 154, 5);
+INSERT INTO `article_subcategories` VALUES (155, 155, 6);
+INSERT INTO `article_subcategories` VALUES (156, 156, 7);
+INSERT INTO `article_subcategories` VALUES (157, 157, 8);
+INSERT INTO `article_subcategories` VALUES (158, 158, 9);
+INSERT INTO `article_subcategories` VALUES (159, 159, 10);
+INSERT INTO `article_subcategories` VALUES (160, 160, 11);
+INSERT INTO `article_subcategories` VALUES (161, 161, 12);
+INSERT INTO `article_subcategories` VALUES (162, 162, 13);
+INSERT INTO `article_subcategories` VALUES (163, 163, 14);
+INSERT INTO `article_subcategories` VALUES (164, 164, 15);
+INSERT INTO `article_subcategories` VALUES (165, 165, 1);
+INSERT INTO `article_subcategories` VALUES (166, 166, 2);
+INSERT INTO `article_subcategories` VALUES (167, 167, 3);
+INSERT INTO `article_subcategories` VALUES (168, 168, 4);
+INSERT INTO `article_subcategories` VALUES (169, 169, 5);
+INSERT INTO `article_subcategories` VALUES (170, 170, 6);
+INSERT INTO `article_subcategories` VALUES (171, 171, 7);
+INSERT INTO `article_subcategories` VALUES (172, 172, 8);
+INSERT INTO `article_subcategories` VALUES (173, 173, 9);
+INSERT INTO `article_subcategories` VALUES (174, 174, 10);
+INSERT INTO `article_subcategories` VALUES (175, 175, 11);
+INSERT INTO `article_subcategories` VALUES (176, 176, 12);
+INSERT INTO `article_subcategories` VALUES (177, 177, 13);
+INSERT INTO `article_subcategories` VALUES (178, 178, 14);
+INSERT INTO `article_subcategories` VALUES (179, 179, 15);
+INSERT INTO `article_subcategories` VALUES (180, 180, 1);
+INSERT INTO `article_subcategories` VALUES (181, 181, 2);
+INSERT INTO `article_subcategories` VALUES (182, 182, 3);
+INSERT INTO `article_subcategories` VALUES (183, 183, 4);
+INSERT INTO `article_subcategories` VALUES (184, 184, 5);
+INSERT INTO `article_subcategories` VALUES (185, 185, 6);
+INSERT INTO `article_subcategories` VALUES (186, 186, 7);
+INSERT INTO `article_subcategories` VALUES (187, 187, 8);
+INSERT INTO `article_subcategories` VALUES (188, 188, 9);
+INSERT INTO `article_subcategories` VALUES (189, 189, 10);
+INSERT INTO `article_subcategories` VALUES (190, 190, 11);
+INSERT INTO `article_subcategories` VALUES (191, 191, 12);
+INSERT INTO `article_subcategories` VALUES (192, 192, 13);
+INSERT INTO `article_subcategories` VALUES (193, 193, 14);
+INSERT INTO `article_subcategories` VALUES (194, 194, 15);
+INSERT INTO `article_subcategories` VALUES (195, 195, 1);
+INSERT INTO `article_subcategories` VALUES (196, 196, 2);
+INSERT INTO `article_subcategories` VALUES (197, 197, 3);
+INSERT INTO `article_subcategories` VALUES (198, 198, 4);
+INSERT INTO `article_subcategories` VALUES (199, 199, 5);
+INSERT INTO `article_subcategories` VALUES (200, 200, 6);
+INSERT INTO `article_subcategories` VALUES (201, 201, 7);
+INSERT INTO `article_subcategories` VALUES (202, 202, 8);
+INSERT INTO `article_subcategories` VALUES (203, 203, 9);
+INSERT INTO `article_subcategories` VALUES (204, 204, 10);
+INSERT INTO `article_subcategories` VALUES (205, 205, 11);
+INSERT INTO `article_subcategories` VALUES (206, 206, 12);
+INSERT INTO `article_subcategories` VALUES (207, 207, 13);
+INSERT INTO `article_subcategories` VALUES (208, 208, 14);
+INSERT INTO `article_subcategories` VALUES (209, 209, 15);
+INSERT INTO `article_subcategories` VALUES (210, 210, 1);
+INSERT INTO `article_subcategories` VALUES (211, 211, 2);
+INSERT INTO `article_subcategories` VALUES (212, 212, 3);
+INSERT INTO `article_subcategories` VALUES (213, 213, 4);
+INSERT INTO `article_subcategories` VALUES (214, 214, 5);
+INSERT INTO `article_subcategories` VALUES (215, 215, 6);
+INSERT INTO `article_subcategories` VALUES (216, 216, 7);
+INSERT INTO `article_subcategories` VALUES (217, 217, 8);
+INSERT INTO `article_subcategories` VALUES (218, 218, 9);
+INSERT INTO `article_subcategories` VALUES (219, 219, 10);
+INSERT INTO `article_subcategories` VALUES (220, 220, 11);
+INSERT INTO `article_subcategories` VALUES (221, 221, 12);
+INSERT INTO `article_subcategories` VALUES (222, 222, 13);
+INSERT INTO `article_subcategories` VALUES (223, 223, 14);
+INSERT INTO `article_subcategories` VALUES (224, 224, 15);
+INSERT INTO `article_subcategories` VALUES (225, 225, 1);
+INSERT INTO `article_subcategories` VALUES (226, 226, 2);
+INSERT INTO `article_subcategories` VALUES (227, 227, 3);
+INSERT INTO `article_subcategories` VALUES (228, 228, 4);
+INSERT INTO `article_subcategories` VALUES (229, 229, 5);
+INSERT INTO `article_subcategories` VALUES (230, 230, 6);
+INSERT INTO `article_subcategories` VALUES (231, 231, 7);
+INSERT INTO `article_subcategories` VALUES (232, 232, 8);
+INSERT INTO `article_subcategories` VALUES (233, 233, 9);
+INSERT INTO `article_subcategories` VALUES (234, 234, 10);
+INSERT INTO `article_subcategories` VALUES (235, 235, 11);
+INSERT INTO `article_subcategories` VALUES (236, 236, 12);
+INSERT INTO `article_subcategories` VALUES (237, 237, 13);
+INSERT INTO `article_subcategories` VALUES (238, 238, 14);
+INSERT INTO `article_subcategories` VALUES (239, 239, 15);
+INSERT INTO `article_subcategories` VALUES (240, 240, 1);
+INSERT INTO `article_subcategories` VALUES (241, 241, 2);
+INSERT INTO `article_subcategories` VALUES (242, 242, 3);
+INSERT INTO `article_subcategories` VALUES (243, 243, 4);
+INSERT INTO `article_subcategories` VALUES (244, 244, 5);
+INSERT INTO `article_subcategories` VALUES (245, 245, 6);
+INSERT INTO `article_subcategories` VALUES (246, 246, 7);
+INSERT INTO `article_subcategories` VALUES (247, 247, 8);
+INSERT INTO `article_subcategories` VALUES (248, 248, 9);
+INSERT INTO `article_subcategories` VALUES (249, 249, 10);
+INSERT INTO `article_subcategories` VALUES (250, 250, 11);
+INSERT INTO `article_subcategories` VALUES (251, 251, 12);
+INSERT INTO `article_subcategories` VALUES (252, 252, 13);
+INSERT INTO `article_subcategories` VALUES (253, 253, 14);
+INSERT INTO `article_subcategories` VALUES (254, 254, 15);
+INSERT INTO `article_subcategories` VALUES (255, 255, 1);
+INSERT INTO `article_subcategories` VALUES (256, 256, 2);
+INSERT INTO `article_subcategories` VALUES (257, 257, 3);
+INSERT INTO `article_subcategories` VALUES (258, 258, 4);
+INSERT INTO `article_subcategories` VALUES (259, 259, 5);
+INSERT INTO `article_subcategories` VALUES (260, 260, 6);
+INSERT INTO `article_subcategories` VALUES (261, 261, 7);
+INSERT INTO `article_subcategories` VALUES (262, 262, 8);
+INSERT INTO `article_subcategories` VALUES (263, 263, 9);
+INSERT INTO `article_subcategories` VALUES (264, 264, 10);
+INSERT INTO `article_subcategories` VALUES (265, 265, 11);
+INSERT INTO `article_subcategories` VALUES (266, 266, 12);
+INSERT INTO `article_subcategories` VALUES (267, 267, 13);
+INSERT INTO `article_subcategories` VALUES (268, 268, 14);
+INSERT INTO `article_subcategories` VALUES (269, 269, 15);
+INSERT INTO `article_subcategories` VALUES (270, 270, 1);
+INSERT INTO `article_subcategories` VALUES (271, 271, 2);
+INSERT INTO `article_subcategories` VALUES (272, 272, 3);
+INSERT INTO `article_subcategories` VALUES (273, 273, 4);
+INSERT INTO `article_subcategories` VALUES (274, 274, 5);
+INSERT INTO `article_subcategories` VALUES (275, 275, 6);
+INSERT INTO `article_subcategories` VALUES (276, 276, 7);
+INSERT INTO `article_subcategories` VALUES (277, 277, 8);
+INSERT INTO `article_subcategories` VALUES (278, 278, 9);
+INSERT INTO `article_subcategories` VALUES (279, 279, 10);
+INSERT INTO `article_subcategories` VALUES (280, 280, 11);
+INSERT INTO `article_subcategories` VALUES (281, 281, 12);
+INSERT INTO `article_subcategories` VALUES (282, 282, 13);
+INSERT INTO `article_subcategories` VALUES (283, 283, 14);
+INSERT INTO `article_subcategories` VALUES (284, 284, 15);
+INSERT INTO `article_subcategories` VALUES (285, 285, 1);
+INSERT INTO `article_subcategories` VALUES (286, 286, 2);
+INSERT INTO `article_subcategories` VALUES (287, 287, 3);
+INSERT INTO `article_subcategories` VALUES (288, 288, 4);
+INSERT INTO `article_subcategories` VALUES (289, 289, 5);
+INSERT INTO `article_subcategories` VALUES (290, 290, 6);
+INSERT INTO `article_subcategories` VALUES (291, 291, 7);
+INSERT INTO `article_subcategories` VALUES (292, 292, 8);
+INSERT INTO `article_subcategories` VALUES (293, 293, 9);
+INSERT INTO `article_subcategories` VALUES (294, 294, 10);
+INSERT INTO `article_subcategories` VALUES (295, 295, 11);
+INSERT INTO `article_subcategories` VALUES (296, 296, 12);
+INSERT INTO `article_subcategories` VALUES (297, 297, 13);
+INSERT INTO `article_subcategories` VALUES (298, 298, 14);
+INSERT INTO `article_subcategories` VALUES (299, 299, 15);
+INSERT INTO `article_subcategories` VALUES (300, 300, 1);
+INSERT INTO `article_subcategories` VALUES (301, 301, 2);
+INSERT INTO `article_subcategories` VALUES (302, 302, 3);
+INSERT INTO `article_subcategories` VALUES (303, 303, 4);
+INSERT INTO `article_subcategories` VALUES (304, 304, 5);
+INSERT INTO `article_subcategories` VALUES (305, 305, 6);
+INSERT INTO `article_subcategories` VALUES (306, 306, 7);
+INSERT INTO `article_subcategories` VALUES (307, 307, 8);
+INSERT INTO `article_subcategories` VALUES (308, 308, 9);
+INSERT INTO `article_subcategories` VALUES (309, 309, 10);
+INSERT INTO `article_subcategories` VALUES (310, 310, 11);
+INSERT INTO `article_subcategories` VALUES (311, 311, 12);
+INSERT INTO `article_subcategories` VALUES (312, 312, 13);
+INSERT INTO `article_subcategories` VALUES (313, 313, 14);
+INSERT INTO `article_subcategories` VALUES (314, 314, 15);
+INSERT INTO `article_subcategories` VALUES (315, 315, 1);
+INSERT INTO `article_subcategories` VALUES (316, 316, 2);
+INSERT INTO `article_subcategories` VALUES (317, 317, 3);
+INSERT INTO `article_subcategories` VALUES (318, 318, 4);
+INSERT INTO `article_subcategories` VALUES (319, 319, 5);
+INSERT INTO `article_subcategories` VALUES (320, 320, 6);
+INSERT INTO `article_subcategories` VALUES (321, 321, 7);
+INSERT INTO `article_subcategories` VALUES (322, 322, 8);
+INSERT INTO `article_subcategories` VALUES (323, 323, 9);
+INSERT INTO `article_subcategories` VALUES (324, 324, 10);
+INSERT INTO `article_subcategories` VALUES (325, 325, 11);
+INSERT INTO `article_subcategories` VALUES (326, 326, 12);
+INSERT INTO `article_subcategories` VALUES (327, 327, 13);
+INSERT INTO `article_subcategories` VALUES (328, 328, 14);
+INSERT INTO `article_subcategories` VALUES (329, 329, 15);
+INSERT INTO `article_subcategories` VALUES (330, 330, 1);
+INSERT INTO `article_subcategories` VALUES (331, 331, 2);
+INSERT INTO `article_subcategories` VALUES (332, 332, 3);
+INSERT INTO `article_subcategories` VALUES (333, 333, 4);
+INSERT INTO `article_subcategories` VALUES (334, 334, 5);
+INSERT INTO `article_subcategories` VALUES (335, 335, 6);
+INSERT INTO `article_subcategories` VALUES (336, 336, 7);
+INSERT INTO `article_subcategories` VALUES (337, 337, 8);
+INSERT INTO `article_subcategories` VALUES (338, 338, 9);
+INSERT INTO `article_subcategories` VALUES (339, 339, 10);
+INSERT INTO `article_subcategories` VALUES (340, 340, 11);
+INSERT INTO `article_subcategories` VALUES (341, 341, 12);
+INSERT INTO `article_subcategories` VALUES (342, 342, 13);
+INSERT INTO `article_subcategories` VALUES (343, 343, 14);
+INSERT INTO `article_subcategories` VALUES (344, 344, 15);
+INSERT INTO `article_subcategories` VALUES (345, 345, 1);
+INSERT INTO `article_subcategories` VALUES (346, 346, 2);
+INSERT INTO `article_subcategories` VALUES (347, 347, 3);
+INSERT INTO `article_subcategories` VALUES (348, 348, 4);
+INSERT INTO `article_subcategories` VALUES (349, 349, 5);
+INSERT INTO `article_subcategories` VALUES (350, 350, 6);
+INSERT INTO `article_subcategories` VALUES (351, 351, 7);
+INSERT INTO `article_subcategories` VALUES (352, 352, 8);
+INSERT INTO `article_subcategories` VALUES (353, 353, 9);
+INSERT INTO `article_subcategories` VALUES (354, 354, 10);
+INSERT INTO `article_subcategories` VALUES (355, 355, 11);
+INSERT INTO `article_subcategories` VALUES (356, 356, 12);
+INSERT INTO `article_subcategories` VALUES (357, 357, 13);
+INSERT INTO `article_subcategories` VALUES (358, 358, 14);
+INSERT INTO `article_subcategories` VALUES (359, 359, 15);
+INSERT INTO `article_subcategories` VALUES (360, 360, 1);
+INSERT INTO `article_subcategories` VALUES (361, 361, 2);
+INSERT INTO `article_subcategories` VALUES (362, 362, 3);
+INSERT INTO `article_subcategories` VALUES (363, 363, 4);
+INSERT INTO `article_subcategories` VALUES (364, 364, 5);
+INSERT INTO `article_subcategories` VALUES (365, 365, 6);
+INSERT INTO `article_subcategories` VALUES (366, 366, 7);
+INSERT INTO `article_subcategories` VALUES (367, 367, 8);
+INSERT INTO `article_subcategories` VALUES (368, 368, 9);
+INSERT INTO `article_subcategories` VALUES (369, 369, 10);
+INSERT INTO `article_subcategories` VALUES (370, 370, 11);
+INSERT INTO `article_subcategories` VALUES (371, 371, 12);
+INSERT INTO `article_subcategories` VALUES (372, 372, 13);
+INSERT INTO `article_subcategories` VALUES (373, 373, 14);
+INSERT INTO `article_subcategories` VALUES (374, 374, 15);
+INSERT INTO `article_subcategories` VALUES (375, 375, 1);
+INSERT INTO `article_subcategories` VALUES (376, 376, 2);
+INSERT INTO `article_subcategories` VALUES (377, 377, 3);
+INSERT INTO `article_subcategories` VALUES (378, 378, 4);
+INSERT INTO `article_subcategories` VALUES (379, 379, 5);
+INSERT INTO `article_subcategories` VALUES (380, 380, 6);
+INSERT INTO `article_subcategories` VALUES (381, 381, 7);
+INSERT INTO `article_subcategories` VALUES (382, 382, 8);
+INSERT INTO `article_subcategories` VALUES (383, 383, 9);
+INSERT INTO `article_subcategories` VALUES (384, 384, 10);
+INSERT INTO `article_subcategories` VALUES (385, 385, 11);
+INSERT INTO `article_subcategories` VALUES (386, 386, 12);
+INSERT INTO `article_subcategories` VALUES (387, 387, 13);
+INSERT INTO `article_subcategories` VALUES (388, 388, 14);
+INSERT INTO `article_subcategories` VALUES (389, 389, 15);
+INSERT INTO `article_subcategories` VALUES (390, 390, 1);
+INSERT INTO `article_subcategories` VALUES (391, 391, 2);
+INSERT INTO `article_subcategories` VALUES (392, 392, 3);
+INSERT INTO `article_subcategories` VALUES (393, 393, 4);
+INSERT INTO `article_subcategories` VALUES (394, 394, 5);
+INSERT INTO `article_subcategories` VALUES (395, 395, 6);
+INSERT INTO `article_subcategories` VALUES (396, 396, 7);
+INSERT INTO `article_subcategories` VALUES (397, 397, 8);
+INSERT INTO `article_subcategories` VALUES (398, 398, 9);
+INSERT INTO `article_subcategories` VALUES (399, 399, 10);
+INSERT INTO `article_subcategories` VALUES (400, 400, 11);
+INSERT INTO `article_subcategories` VALUES (401, 401, 12);
+INSERT INTO `article_subcategories` VALUES (402, 402, 13);
+INSERT INTO `article_subcategories` VALUES (403, 403, 14);
+INSERT INTO `article_subcategories` VALUES (404, 404, 15);
+INSERT INTO `article_subcategories` VALUES (405, 405, 1);
+INSERT INTO `article_subcategories` VALUES (406, 406, 2);
+INSERT INTO `article_subcategories` VALUES (407, 407, 3);
+INSERT INTO `article_subcategories` VALUES (408, 408, 4);
+INSERT INTO `article_subcategories` VALUES (409, 409, 5);
+INSERT INTO `article_subcategories` VALUES (410, 410, 6);
+INSERT INTO `article_subcategories` VALUES (411, 411, 7);
+INSERT INTO `article_subcategories` VALUES (412, 412, 8);
+INSERT INTO `article_subcategories` VALUES (413, 413, 9);
+INSERT INTO `article_subcategories` VALUES (414, 414, 10);
+INSERT INTO `article_subcategories` VALUES (415, 415, 11);
+INSERT INTO `article_subcategories` VALUES (416, 416, 12);
+INSERT INTO `article_subcategories` VALUES (417, 417, 13);
+INSERT INTO `article_subcategories` VALUES (418, 418, 14);
+INSERT INTO `article_subcategories` VALUES (419, 419, 15);
+INSERT INTO `article_subcategories` VALUES (420, 420, 1);
+INSERT INTO `article_subcategories` VALUES (421, 421, 2);
+INSERT INTO `article_subcategories` VALUES (422, 422, 3);
+INSERT INTO `article_subcategories` VALUES (423, 423, 4);
+INSERT INTO `article_subcategories` VALUES (424, 424, 5);
+INSERT INTO `article_subcategories` VALUES (425, 425, 6);
+INSERT INTO `article_subcategories` VALUES (426, 426, 7);
+INSERT INTO `article_subcategories` VALUES (427, 427, 8);
+INSERT INTO `article_subcategories` VALUES (428, 428, 9);
+INSERT INTO `article_subcategories` VALUES (429, 429, 10);
+INSERT INTO `article_subcategories` VALUES (430, 430, 11);
+INSERT INTO `article_subcategories` VALUES (431, 431, 12);
+INSERT INTO `article_subcategories` VALUES (432, 432, 13);
+INSERT INTO `article_subcategories` VALUES (433, 433, 14);
+INSERT INTO `article_subcategories` VALUES (434, 434, 15);
+INSERT INTO `article_subcategories` VALUES (435, 435, 1);
+INSERT INTO `article_subcategories` VALUES (436, 436, 2);
+INSERT INTO `article_subcategories` VALUES (437, 437, 3);
+INSERT INTO `article_subcategories` VALUES (438, 438, 4);
+INSERT INTO `article_subcategories` VALUES (439, 439, 5);
+INSERT INTO `article_subcategories` VALUES (440, 440, 6);
+INSERT INTO `article_subcategories` VALUES (441, 441, 7);
+INSERT INTO `article_subcategories` VALUES (442, 442, 8);
+INSERT INTO `article_subcategories` VALUES (443, 443, 9);
+INSERT INTO `article_subcategories` VALUES (444, 444, 10);
+INSERT INTO `article_subcategories` VALUES (445, 445, 11);
+INSERT INTO `article_subcategories` VALUES (446, 446, 12);
+INSERT INTO `article_subcategories` VALUES (447, 447, 13);
+INSERT INTO `article_subcategories` VALUES (448, 448, 14);
+INSERT INTO `article_subcategories` VALUES (449, 449, 15);
+INSERT INTO `article_subcategories` VALUES (450, 450, 1);
+INSERT INTO `article_subcategories` VALUES (451, 451, 2);
+INSERT INTO `article_subcategories` VALUES (452, 452, 3);
+INSERT INTO `article_subcategories` VALUES (453, 453, 4);
+INSERT INTO `article_subcategories` VALUES (454, 454, 5);
+INSERT INTO `article_subcategories` VALUES (455, 455, 6);
+INSERT INTO `article_subcategories` VALUES (456, 456, 7);
+INSERT INTO `article_subcategories` VALUES (457, 457, 8);
+INSERT INTO `article_subcategories` VALUES (458, 458, 9);
+INSERT INTO `article_subcategories` VALUES (459, 459, 10);
+INSERT INTO `article_subcategories` VALUES (460, 460, 11);
+INSERT INTO `article_subcategories` VALUES (461, 461, 12);
+INSERT INTO `article_subcategories` VALUES (462, 462, 13);
+INSERT INTO `article_subcategories` VALUES (463, 463, 14);
+INSERT INTO `article_subcategories` VALUES (464, 464, 15);
+INSERT INTO `article_subcategories` VALUES (465, 465, 1);
+INSERT INTO `article_subcategories` VALUES (466, 466, 2);
+INSERT INTO `article_subcategories` VALUES (467, 467, 3);
+INSERT INTO `article_subcategories` VALUES (468, 468, 4);
+INSERT INTO `article_subcategories` VALUES (469, 469, 5);
+INSERT INTO `article_subcategories` VALUES (470, 470, 6);
+INSERT INTO `article_subcategories` VALUES (471, 471, 7);
+INSERT INTO `article_subcategories` VALUES (472, 472, 8);
+INSERT INTO `article_subcategories` VALUES (473, 473, 9);
+INSERT INTO `article_subcategories` VALUES (474, 474, 10);
+INSERT INTO `article_subcategories` VALUES (475, 475, 11);
+INSERT INTO `article_subcategories` VALUES (476, 476, 12);
+INSERT INTO `article_subcategories` VALUES (477, 477, 13);
+INSERT INTO `article_subcategories` VALUES (478, 478, 14);
+INSERT INTO `article_subcategories` VALUES (479, 479, 15);
+INSERT INTO `article_subcategories` VALUES (480, 480, 1);
+INSERT INTO `article_subcategories` VALUES (481, 481, 2);
+INSERT INTO `article_subcategories` VALUES (482, 482, 3);
+INSERT INTO `article_subcategories` VALUES (483, 483, 4);
+INSERT INTO `article_subcategories` VALUES (484, 484, 5);
+INSERT INTO `article_subcategories` VALUES (485, 485, 6);
+INSERT INTO `article_subcategories` VALUES (486, 486, 7);
+INSERT INTO `article_subcategories` VALUES (487, 487, 8);
+INSERT INTO `article_subcategories` VALUES (488, 488, 9);
+INSERT INTO `article_subcategories` VALUES (489, 489, 10);
+INSERT INTO `article_subcategories` VALUES (490, 490, 11);
+INSERT INTO `article_subcategories` VALUES (491, 491, 12);
+INSERT INTO `article_subcategories` VALUES (492, 492, 13);
+INSERT INTO `article_subcategories` VALUES (493, 493, 14);
+INSERT INTO `article_subcategories` VALUES (494, 494, 15);
+INSERT INTO `article_subcategories` VALUES (495, 495, 1);
+INSERT INTO `article_subcategories` VALUES (496, 496, 2);
+INSERT INTO `article_subcategories` VALUES (497, 497, 3);
+INSERT INTO `article_subcategories` VALUES (498, 498, 4);
+INSERT INTO `article_subcategories` VALUES (499, 499, 5);
+INSERT INTO `article_subcategories` VALUES (500, 500, 6);
+INSERT INTO `article_subcategories` VALUES (501, 501, 7);
+INSERT INTO `article_subcategories` VALUES (502, 502, 8);
+INSERT INTO `article_subcategories` VALUES (503, 503, 9);
+INSERT INTO `article_subcategories` VALUES (504, 504, 10);
+INSERT INTO `article_subcategories` VALUES (505, 505, 11);
+INSERT INTO `article_subcategories` VALUES (506, 506, 12);
+INSERT INTO `article_subcategories` VALUES (507, 507, 13);
+INSERT INTO `article_subcategories` VALUES (508, 508, 14);
+INSERT INTO `article_subcategories` VALUES (509, 509, 15);
+INSERT INTO `article_subcategories` VALUES (510, 510, 1);
+INSERT INTO `article_subcategories` VALUES (511, 511, 2);
+INSERT INTO `article_subcategories` VALUES (512, 512, 3);
+INSERT INTO `article_subcategories` VALUES (513, 513, 4);
+INSERT INTO `article_subcategories` VALUES (514, 514, 5);
+INSERT INTO `article_subcategories` VALUES (515, 515, 6);
+INSERT INTO `article_subcategories` VALUES (516, 516, 7);
+INSERT INTO `article_subcategories` VALUES (517, 517, 8);
+INSERT INTO `article_subcategories` VALUES (518, 518, 9);
+INSERT INTO `article_subcategories` VALUES (519, 519, 10);
+INSERT INTO `article_subcategories` VALUES (520, 520, 11);
+INSERT INTO `article_subcategories` VALUES (521, 521, 12);
+INSERT INTO `article_subcategories` VALUES (522, 522, 13);
+INSERT INTO `article_subcategories` VALUES (523, 523, 14);
+INSERT INTO `article_subcategories` VALUES (524, 524, 15);
+INSERT INTO `article_subcategories` VALUES (525, 525, 1);
+INSERT INTO `article_subcategories` VALUES (526, 526, 2);
+INSERT INTO `article_subcategories` VALUES (527, 527, 3);
+INSERT INTO `article_subcategories` VALUES (528, 528, 4);
+INSERT INTO `article_subcategories` VALUES (529, 529, 5);
+INSERT INTO `article_subcategories` VALUES (530, 530, 6);
+INSERT INTO `article_subcategories` VALUES (531, 531, 7);
+INSERT INTO `article_subcategories` VALUES (532, 532, 8);
+INSERT INTO `article_subcategories` VALUES (533, 533, 9);
+INSERT INTO `article_subcategories` VALUES (534, 534, 10);
+INSERT INTO `article_subcategories` VALUES (535, 535, 11);
+INSERT INTO `article_subcategories` VALUES (536, 536, 12);
+INSERT INTO `article_subcategories` VALUES (537, 537, 13);
+INSERT INTO `article_subcategories` VALUES (538, 538, 14);
+INSERT INTO `article_subcategories` VALUES (539, 539, 15);
+INSERT INTO `article_subcategories` VALUES (540, 540, 1);
+INSERT INTO `article_subcategories` VALUES (541, 541, 2);
+INSERT INTO `article_subcategories` VALUES (542, 542, 3);
+INSERT INTO `article_subcategories` VALUES (543, 543, 4);
+INSERT INTO `article_subcategories` VALUES (544, 544, 5);
+INSERT INTO `article_subcategories` VALUES (545, 545, 6);
+INSERT INTO `article_subcategories` VALUES (546, 546, 7);
+INSERT INTO `article_subcategories` VALUES (547, 547, 8);
+INSERT INTO `article_subcategories` VALUES (548, 548, 9);
+INSERT INTO `article_subcategories` VALUES (549, 549, 10);
+INSERT INTO `article_subcategories` VALUES (550, 550, 11);
+INSERT INTO `article_subcategories` VALUES (551, 551, 12);
+INSERT INTO `article_subcategories` VALUES (552, 552, 13);
+INSERT INTO `article_subcategories` VALUES (553, 553, 14);
+INSERT INTO `article_subcategories` VALUES (554, 554, 15);
+INSERT INTO `article_subcategories` VALUES (555, 555, 1);
+INSERT INTO `article_subcategories` VALUES (556, 556, 2);
+INSERT INTO `article_subcategories` VALUES (557, 557, 3);
+INSERT INTO `article_subcategories` VALUES (558, 558, 4);
+INSERT INTO `article_subcategories` VALUES (559, 559, 5);
+INSERT INTO `article_subcategories` VALUES (560, 560, 6);
+INSERT INTO `article_subcategories` VALUES (561, 561, 7);
+INSERT INTO `article_subcategories` VALUES (562, 562, 8);
+INSERT INTO `article_subcategories` VALUES (563, 563, 9);
+INSERT INTO `article_subcategories` VALUES (564, 564, 10);
+INSERT INTO `article_subcategories` VALUES (565, 565, 11);
+INSERT INTO `article_subcategories` VALUES (566, 566, 12);
+INSERT INTO `article_subcategories` VALUES (567, 567, 13);
+INSERT INTO `article_subcategories` VALUES (568, 568, 14);
+INSERT INTO `article_subcategories` VALUES (569, 569, 15);
+INSERT INTO `article_subcategories` VALUES (570, 570, 1);
+INSERT INTO `article_subcategories` VALUES (571, 571, 2);
+INSERT INTO `article_subcategories` VALUES (572, 572, 3);
+INSERT INTO `article_subcategories` VALUES (573, 573, 4);
+INSERT INTO `article_subcategories` VALUES (574, 574, 5);
+INSERT INTO `article_subcategories` VALUES (575, 575, 6);
+INSERT INTO `article_subcategories` VALUES (576, 576, 7);
+INSERT INTO `article_subcategories` VALUES (577, 577, 8);
+INSERT INTO `article_subcategories` VALUES (578, 578, 9);
+INSERT INTO `article_subcategories` VALUES (579, 579, 10);
+INSERT INTO `article_subcategories` VALUES (580, 580, 11);
+INSERT INTO `article_subcategories` VALUES (581, 581, 12);
+INSERT INTO `article_subcategories` VALUES (582, 582, 13);
+INSERT INTO `article_subcategories` VALUES (583, 583, 14);
+INSERT INTO `article_subcategories` VALUES (584, 584, 15);
+INSERT INTO `article_subcategories` VALUES (585, 585, 1);
+INSERT INTO `article_subcategories` VALUES (586, 586, 2);
+INSERT INTO `article_subcategories` VALUES (587, 587, 3);
+INSERT INTO `article_subcategories` VALUES (588, 588, 4);
+INSERT INTO `article_subcategories` VALUES (589, 589, 5);
+INSERT INTO `article_subcategories` VALUES (590, 590, 6);
+INSERT INTO `article_subcategories` VALUES (591, 591, 7);
+INSERT INTO `article_subcategories` VALUES (592, 592, 8);
+INSERT INTO `article_subcategories` VALUES (593, 593, 9);
+INSERT INTO `article_subcategories` VALUES (594, 594, 10);
+INSERT INTO `article_subcategories` VALUES (595, 595, 11);
+INSERT INTO `article_subcategories` VALUES (596, 596, 12);
+INSERT INTO `article_subcategories` VALUES (597, 597, 13);
+INSERT INTO `article_subcategories` VALUES (598, 598, 14);
+INSERT INTO `article_subcategories` VALUES (599, 599, 15);
+INSERT INTO `article_subcategories` VALUES (600, 600, 1);
+INSERT INTO `article_subcategories` VALUES (601, 601, 2);
+INSERT INTO `article_subcategories` VALUES (602, 602, 3);
+INSERT INTO `article_subcategories` VALUES (603, 603, 4);
+INSERT INTO `article_subcategories` VALUES (604, 604, 5);
+INSERT INTO `article_subcategories` VALUES (605, 605, 6);
+INSERT INTO `article_subcategories` VALUES (606, 606, 7);
+INSERT INTO `article_subcategories` VALUES (607, 607, 8);
+INSERT INTO `article_subcategories` VALUES (608, 608, 9);
+INSERT INTO `article_subcategories` VALUES (609, 609, 10);
+INSERT INTO `article_subcategories` VALUES (610, 610, 11);
+INSERT INTO `article_subcategories` VALUES (611, 611, 12);
+INSERT INTO `article_subcategories` VALUES (612, 612, 13);
+INSERT INTO `article_subcategories` VALUES (613, 613, 14);
+INSERT INTO `article_subcategories` VALUES (614, 614, 15);
+INSERT INTO `article_subcategories` VALUES (615, 615, 1);
+INSERT INTO `article_subcategories` VALUES (616, 616, 2);
+INSERT INTO `article_subcategories` VALUES (617, 617, 3);
+INSERT INTO `article_subcategories` VALUES (618, 618, 4);
+INSERT INTO `article_subcategories` VALUES (619, 619, 5);
+INSERT INTO `article_subcategories` VALUES (620, 620, 6);
+INSERT INTO `article_subcategories` VALUES (621, 621, 7);
+INSERT INTO `article_subcategories` VALUES (622, 622, 8);
+INSERT INTO `article_subcategories` VALUES (623, 623, 9);
+INSERT INTO `article_subcategories` VALUES (624, 624, 10);
+INSERT INTO `article_subcategories` VALUES (625, 625, 11);
+INSERT INTO `article_subcategories` VALUES (626, 626, 12);
+INSERT INTO `article_subcategories` VALUES (627, 627, 13);
+INSERT INTO `article_subcategories` VALUES (628, 628, 14);
+INSERT INTO `article_subcategories` VALUES (629, 629, 15);
+INSERT INTO `article_subcategories` VALUES (630, 630, 1);
+INSERT INTO `article_subcategories` VALUES (631, 631, 2);
+INSERT INTO `article_subcategories` VALUES (632, 632, 3);
+INSERT INTO `article_subcategories` VALUES (633, 633, 4);
+INSERT INTO `article_subcategories` VALUES (634, 634, 5);
+INSERT INTO `article_subcategories` VALUES (635, 635, 6);
+INSERT INTO `article_subcategories` VALUES (636, 636, 7);
+INSERT INTO `article_subcategories` VALUES (637, 637, 8);
+INSERT INTO `article_subcategories` VALUES (638, 638, 9);
+INSERT INTO `article_subcategories` VALUES (639, 639, 10);
+INSERT INTO `article_subcategories` VALUES (640, 640, 11);
+INSERT INTO `article_subcategories` VALUES (641, 641, 12);
+INSERT INTO `article_subcategories` VALUES (642, 642, 13);
+INSERT INTO `article_subcategories` VALUES (643, 643, 14);
+INSERT INTO `article_subcategories` VALUES (644, 644, 15);
+INSERT INTO `article_subcategories` VALUES (645, 645, 1);
+INSERT INTO `article_subcategories` VALUES (646, 646, 2);
+INSERT INTO `article_subcategories` VALUES (647, 647, 3);
+INSERT INTO `article_subcategories` VALUES (648, 648, 4);
+INSERT INTO `article_subcategories` VALUES (649, 649, 5);
+INSERT INTO `article_subcategories` VALUES (650, 650, 6);
+INSERT INTO `article_subcategories` VALUES (651, 651, 7);
+INSERT INTO `article_subcategories` VALUES (652, 652, 8);
+INSERT INTO `article_subcategories` VALUES (653, 653, 9);
+INSERT INTO `article_subcategories` VALUES (654, 654, 10);
+INSERT INTO `article_subcategories` VALUES (655, 655, 11);
+INSERT INTO `article_subcategories` VALUES (656, 656, 12);
+INSERT INTO `article_subcategories` VALUES (657, 657, 13);
+INSERT INTO `article_subcategories` VALUES (658, 658, 14);
+INSERT INTO `article_subcategories` VALUES (659, 659, 15);
+INSERT INTO `article_subcategories` VALUES (660, 660, 1);
+INSERT INTO `article_subcategories` VALUES (661, 661, 2);
+INSERT INTO `article_subcategories` VALUES (662, 662, 3);
+INSERT INTO `article_subcategories` VALUES (663, 663, 4);
+INSERT INTO `article_subcategories` VALUES (664, 664, 5);
+INSERT INTO `article_subcategories` VALUES (665, 665, 6);
+INSERT INTO `article_subcategories` VALUES (666, 666, 7);
+INSERT INTO `article_subcategories` VALUES (667, 667, 8);
+INSERT INTO `article_subcategories` VALUES (668, 668, 9);
+INSERT INTO `article_subcategories` VALUES (669, 669, 10);
+INSERT INTO `article_subcategories` VALUES (670, 670, 11);
+INSERT INTO `article_subcategories` VALUES (671, 671, 12);
+INSERT INTO `article_subcategories` VALUES (672, 672, 13);
+INSERT INTO `article_subcategories` VALUES (673, 673, 14);
+INSERT INTO `article_subcategories` VALUES (674, 674, 15);
+INSERT INTO `article_subcategories` VALUES (675, 675, 1);
+INSERT INTO `article_subcategories` VALUES (676, 676, 2);
+INSERT INTO `article_subcategories` VALUES (677, 677, 3);
+INSERT INTO `article_subcategories` VALUES (678, 678, 4);
+INSERT INTO `article_subcategories` VALUES (679, 679, 5);
+INSERT INTO `article_subcategories` VALUES (680, 680, 6);
+INSERT INTO `article_subcategories` VALUES (681, 681, 7);
+INSERT INTO `article_subcategories` VALUES (682, 682, 8);
+INSERT INTO `article_subcategories` VALUES (683, 683, 9);
+INSERT INTO `article_subcategories` VALUES (684, 684, 10);
+INSERT INTO `article_subcategories` VALUES (685, 685, 11);
+INSERT INTO `article_subcategories` VALUES (686, 686, 12);
+INSERT INTO `article_subcategories` VALUES (687, 687, 13);
+INSERT INTO `article_subcategories` VALUES (688, 688, 14);
+INSERT INTO `article_subcategories` VALUES (689, 689, 15);
+INSERT INTO `article_subcategories` VALUES (690, 690, 1);
+INSERT INTO `article_subcategories` VALUES (691, 691, 2);
+INSERT INTO `article_subcategories` VALUES (692, 692, 3);
+INSERT INTO `article_subcategories` VALUES (693, 693, 4);
+INSERT INTO `article_subcategories` VALUES (694, 694, 5);
+INSERT INTO `article_subcategories` VALUES (695, 695, 6);
+INSERT INTO `article_subcategories` VALUES (696, 696, 7);
+INSERT INTO `article_subcategories` VALUES (697, 697, 8);
+INSERT INTO `article_subcategories` VALUES (698, 698, 9);
+INSERT INTO `article_subcategories` VALUES (699, 699, 10);
+INSERT INTO `article_subcategories` VALUES (700, 700, 11);
+INSERT INTO `article_subcategories` VALUES (701, 701, 12);
+INSERT INTO `article_subcategories` VALUES (702, 702, 13);
+INSERT INTO `article_subcategories` VALUES (703, 703, 14);
+INSERT INTO `article_subcategories` VALUES (704, 704, 15);
+INSERT INTO `article_subcategories` VALUES (705, 705, 1);
+INSERT INTO `article_subcategories` VALUES (706, 706, 2);
+INSERT INTO `article_subcategories` VALUES (707, 707, 3);
+INSERT INTO `article_subcategories` VALUES (708, 708, 4);
+INSERT INTO `article_subcategories` VALUES (709, 709, 5);
+INSERT INTO `article_subcategories` VALUES (710, 710, 6);
+INSERT INTO `article_subcategories` VALUES (711, 711, 7);
+INSERT INTO `article_subcategories` VALUES (712, 712, 8);
+INSERT INTO `article_subcategories` VALUES (713, 713, 9);
+INSERT INTO `article_subcategories` VALUES (714, 714, 10);
+INSERT INTO `article_subcategories` VALUES (715, 715, 11);
+INSERT INTO `article_subcategories` VALUES (716, 716, 12);
+INSERT INTO `article_subcategories` VALUES (717, 717, 13);
+INSERT INTO `article_subcategories` VALUES (718, 718, 14);
+INSERT INTO `article_subcategories` VALUES (719, 719, 15);
+INSERT INTO `article_subcategories` VALUES (720, 720, 1);
+INSERT INTO `article_subcategories` VALUES (721, 721, 2);
+INSERT INTO `article_subcategories` VALUES (722, 722, 3);
+INSERT INTO `article_subcategories` VALUES (723, 723, 4);
+INSERT INTO `article_subcategories` VALUES (724, 724, 5);
+INSERT INTO `article_subcategories` VALUES (725, 725, 6);
+INSERT INTO `article_subcategories` VALUES (726, 726, 7);
+INSERT INTO `article_subcategories` VALUES (727, 727, 8);
+INSERT INTO `article_subcategories` VALUES (728, 728, 9);
+INSERT INTO `article_subcategories` VALUES (729, 729, 10);
+INSERT INTO `article_subcategories` VALUES (730, 730, 11);
+INSERT INTO `article_subcategories` VALUES (731, 731, 12);
+INSERT INTO `article_subcategories` VALUES (732, 732, 13);
+INSERT INTO `article_subcategories` VALUES (733, 733, 14);
+INSERT INTO `article_subcategories` VALUES (734, 734, 15);
+INSERT INTO `article_subcategories` VALUES (735, 735, 1);
+INSERT INTO `article_subcategories` VALUES (736, 736, 2);
+INSERT INTO `article_subcategories` VALUES (737, 737, 3);
+INSERT INTO `article_subcategories` VALUES (738, 738, 4);
+INSERT INTO `article_subcategories` VALUES (739, 739, 5);
+INSERT INTO `article_subcategories` VALUES (740, 740, 6);
+INSERT INTO `article_subcategories` VALUES (741, 741, 7);
+INSERT INTO `article_subcategories` VALUES (742, 742, 8);
+INSERT INTO `article_subcategories` VALUES (743, 743, 9);
+INSERT INTO `article_subcategories` VALUES (744, 744, 10);
+INSERT INTO `article_subcategories` VALUES (745, 745, 11);
+INSERT INTO `article_subcategories` VALUES (746, 746, 12);
+INSERT INTO `article_subcategories` VALUES (747, 747, 13);
+INSERT INTO `article_subcategories` VALUES (748, 748, 14);
+INSERT INTO `article_subcategories` VALUES (749, 749, 15);
+INSERT INTO `article_subcategories` VALUES (750, 750, 1);
+INSERT INTO `article_subcategories` VALUES (751, 751, 2);
+INSERT INTO `article_subcategories` VALUES (752, 752, 3);
+INSERT INTO `article_subcategories` VALUES (753, 753, 4);
+INSERT INTO `article_subcategories` VALUES (754, 754, 5);
+INSERT INTO `article_subcategories` VALUES (755, 755, 6);
+INSERT INTO `article_subcategories` VALUES (756, 756, 7);
+INSERT INTO `article_subcategories` VALUES (757, 757, 8);
+INSERT INTO `article_subcategories` VALUES (758, 758, 9);
+INSERT INTO `article_subcategories` VALUES (759, 759, 10);
+INSERT INTO `article_subcategories` VALUES (760, 760, 11);
+INSERT INTO `article_subcategories` VALUES (761, 761, 12);
+INSERT INTO `article_subcategories` VALUES (762, 762, 13);
+INSERT INTO `article_subcategories` VALUES (763, 763, 14);
+INSERT INTO `article_subcategories` VALUES (764, 764, 15);
+INSERT INTO `article_subcategories` VALUES (765, 765, 1);
+INSERT INTO `article_subcategories` VALUES (766, 766, 2);
+INSERT INTO `article_subcategories` VALUES (767, 767, 3);
+INSERT INTO `article_subcategories` VALUES (768, 768, 4);
+INSERT INTO `article_subcategories` VALUES (769, 769, 5);
+INSERT INTO `article_subcategories` VALUES (770, 770, 6);
+INSERT INTO `article_subcategories` VALUES (771, 771, 7);
+INSERT INTO `article_subcategories` VALUES (772, 772, 8);
+INSERT INTO `article_subcategories` VALUES (773, 773, 9);
+INSERT INTO `article_subcategories` VALUES (774, 774, 10);
+INSERT INTO `article_subcategories` VALUES (775, 775, 11);
+INSERT INTO `article_subcategories` VALUES (776, 776, 12);
+INSERT INTO `article_subcategories` VALUES (777, 777, 13);
+INSERT INTO `article_subcategories` VALUES (778, 778, 14);
+INSERT INTO `article_subcategories` VALUES (779, 779, 15);
+INSERT INTO `article_subcategories` VALUES (780, 780, 1);
+INSERT INTO `article_subcategories` VALUES (781, 781, 2);
+INSERT INTO `article_subcategories` VALUES (782, 782, 3);
+INSERT INTO `article_subcategories` VALUES (783, 783, 4);
+INSERT INTO `article_subcategories` VALUES (784, 784, 5);
+INSERT INTO `article_subcategories` VALUES (785, 785, 6);
+INSERT INTO `article_subcategories` VALUES (786, 786, 7);
+INSERT INTO `article_subcategories` VALUES (787, 787, 8);
+INSERT INTO `article_subcategories` VALUES (788, 788, 9);
+INSERT INTO `article_subcategories` VALUES (789, 789, 10);
+INSERT INTO `article_subcategories` VALUES (790, 790, 11);
+INSERT INTO `article_subcategories` VALUES (791, 791, 12);
+INSERT INTO `article_subcategories` VALUES (792, 792, 13);
+INSERT INTO `article_subcategories` VALUES (793, 793, 14);
+INSERT INTO `article_subcategories` VALUES (794, 794, 15);
+INSERT INTO `article_subcategories` VALUES (795, 795, 1);
+INSERT INTO `article_subcategories` VALUES (796, 796, 2);
+INSERT INTO `article_subcategories` VALUES (797, 797, 3);
+INSERT INTO `article_subcategories` VALUES (798, 798, 4);
+INSERT INTO `article_subcategories` VALUES (799, 799, 5);
+INSERT INTO `article_subcategories` VALUES (800, 800, 6);
+INSERT INTO `article_subcategories` VALUES (801, 801, 7);
+INSERT INTO `article_subcategories` VALUES (802, 802, 8);
+INSERT INTO `article_subcategories` VALUES (803, 803, 9);
+INSERT INTO `article_subcategories` VALUES (804, 804, 10);
+INSERT INTO `article_subcategories` VALUES (805, 805, 11);
+INSERT INTO `article_subcategories` VALUES (806, 806, 12);
+INSERT INTO `article_subcategories` VALUES (807, 807, 13);
+INSERT INTO `article_subcategories` VALUES (808, 808, 14);
+INSERT INTO `article_subcategories` VALUES (809, 809, 15);
+INSERT INTO `article_subcategories` VALUES (810, 810, 1);
+INSERT INTO `article_subcategories` VALUES (811, 811, 2);
+INSERT INTO `article_subcategories` VALUES (812, 812, 3);
+INSERT INTO `article_subcategories` VALUES (813, 813, 4);
+INSERT INTO `article_subcategories` VALUES (814, 814, 5);
+INSERT INTO `article_subcategories` VALUES (815, 815, 6);
+INSERT INTO `article_subcategories` VALUES (816, 816, 7);
+INSERT INTO `article_subcategories` VALUES (817, 817, 8);
+INSERT INTO `article_subcategories` VALUES (818, 818, 9);
+INSERT INTO `article_subcategories` VALUES (819, 819, 10);
+INSERT INTO `article_subcategories` VALUES (820, 820, 11);
+INSERT INTO `article_subcategories` VALUES (821, 821, 12);
+INSERT INTO `article_subcategories` VALUES (822, 822, 13);
+INSERT INTO `article_subcategories` VALUES (823, 823, 14);
+INSERT INTO `article_subcategories` VALUES (824, 824, 15);
+INSERT INTO `article_subcategories` VALUES (825, 825, 1);
+INSERT INTO `article_subcategories` VALUES (826, 826, 2);
+INSERT INTO `article_subcategories` VALUES (827, 827, 3);
+INSERT INTO `article_subcategories` VALUES (828, 828, 4);
+INSERT INTO `article_subcategories` VALUES (829, 829, 5);
+INSERT INTO `article_subcategories` VALUES (830, 830, 6);
+INSERT INTO `article_subcategories` VALUES (831, 831, 7);
+INSERT INTO `article_subcategories` VALUES (832, 832, 8);
+INSERT INTO `article_subcategories` VALUES (833, 833, 9);
+INSERT INTO `article_subcategories` VALUES (834, 834, 10);
+INSERT INTO `article_subcategories` VALUES (835, 835, 11);
+INSERT INTO `article_subcategories` VALUES (836, 836, 12);
+INSERT INTO `article_subcategories` VALUES (837, 837, 13);
+INSERT INTO `article_subcategories` VALUES (838, 838, 14);
+INSERT INTO `article_subcategories` VALUES (839, 839, 15);
+INSERT INTO `article_subcategories` VALUES (840, 840, 1);
+INSERT INTO `article_subcategories` VALUES (841, 841, 2);
+INSERT INTO `article_subcategories` VALUES (842, 842, 3);
+INSERT INTO `article_subcategories` VALUES (843, 843, 4);
+INSERT INTO `article_subcategories` VALUES (844, 844, 5);
+INSERT INTO `article_subcategories` VALUES (845, 845, 6);
+INSERT INTO `article_subcategories` VALUES (846, 846, 7);
+INSERT INTO `article_subcategories` VALUES (847, 847, 8);
+INSERT INTO `article_subcategories` VALUES (848, 848, 9);
+INSERT INTO `article_subcategories` VALUES (849, 849, 10);
+INSERT INTO `article_subcategories` VALUES (850, 850, 11);
+INSERT INTO `article_subcategories` VALUES (851, 851, 12);
+INSERT INTO `article_subcategories` VALUES (852, 852, 13);
+INSERT INTO `article_subcategories` VALUES (853, 853, 14);
+INSERT INTO `article_subcategories` VALUES (854, 854, 15);
+INSERT INTO `article_subcategories` VALUES (855, 855, 1);
+INSERT INTO `article_subcategories` VALUES (856, 856, 2);
+INSERT INTO `article_subcategories` VALUES (857, 857, 3);
+INSERT INTO `article_subcategories` VALUES (858, 858, 4);
+INSERT INTO `article_subcategories` VALUES (859, 859, 5);
+INSERT INTO `article_subcategories` VALUES (860, 860, 6);
+INSERT INTO `article_subcategories` VALUES (861, 861, 7);
+INSERT INTO `article_subcategories` VALUES (862, 862, 8);
+INSERT INTO `article_subcategories` VALUES (863, 863, 9);
+INSERT INTO `article_subcategories` VALUES (864, 864, 10);
+INSERT INTO `article_subcategories` VALUES (865, 865, 11);
+INSERT INTO `article_subcategories` VALUES (866, 866, 12);
+INSERT INTO `article_subcategories` VALUES (867, 867, 13);
+INSERT INTO `article_subcategories` VALUES (868, 868, 14);
+INSERT INTO `article_subcategories` VALUES (869, 869, 15);
+INSERT INTO `article_subcategories` VALUES (870, 870, 1);
+INSERT INTO `article_subcategories` VALUES (871, 871, 2);
+INSERT INTO `article_subcategories` VALUES (872, 872, 3);
+INSERT INTO `article_subcategories` VALUES (873, 873, 4);
+INSERT INTO `article_subcategories` VALUES (874, 874, 5);
+INSERT INTO `article_subcategories` VALUES (875, 875, 6);
+INSERT INTO `article_subcategories` VALUES (876, 876, 7);
+INSERT INTO `article_subcategories` VALUES (877, 877, 8);
+INSERT INTO `article_subcategories` VALUES (878, 878, 9);
+INSERT INTO `article_subcategories` VALUES (879, 879, 10);
+INSERT INTO `article_subcategories` VALUES (880, 880, 11);
+INSERT INTO `article_subcategories` VALUES (881, 881, 12);
+INSERT INTO `article_subcategories` VALUES (882, 882, 13);
+INSERT INTO `article_subcategories` VALUES (883, 883, 14);
+INSERT INTO `article_subcategories` VALUES (884, 884, 15);
+INSERT INTO `article_subcategories` VALUES (885, 885, 1);
+INSERT INTO `article_subcategories` VALUES (886, 886, 2);
+INSERT INTO `article_subcategories` VALUES (887, 887, 3);
+INSERT INTO `article_subcategories` VALUES (888, 888, 4);
+INSERT INTO `article_subcategories` VALUES (889, 889, 5);
+INSERT INTO `article_subcategories` VALUES (890, 890, 6);
+INSERT INTO `article_subcategories` VALUES (891, 891, 7);
+INSERT INTO `article_subcategories` VALUES (892, 892, 8);
+INSERT INTO `article_subcategories` VALUES (893, 893, 9);
+INSERT INTO `article_subcategories` VALUES (894, 894, 10);
+INSERT INTO `article_subcategories` VALUES (895, 895, 11);
+INSERT INTO `article_subcategories` VALUES (896, 896, 12);
+INSERT INTO `article_subcategories` VALUES (897, 897, 13);
+INSERT INTO `article_subcategories` VALUES (898, 898, 14);
+INSERT INTO `article_subcategories` VALUES (899, 899, 15);
+INSERT INTO `article_subcategories` VALUES (900, 900, 1);
+INSERT INTO `article_subcategories` VALUES (901, 901, 2);
+INSERT INTO `article_subcategories` VALUES (902, 902, 3);
+INSERT INTO `article_subcategories` VALUES (903, 903, 4);
+INSERT INTO `article_subcategories` VALUES (904, 904, 5);
+INSERT INTO `article_subcategories` VALUES (905, 905, 6);
+INSERT INTO `article_subcategories` VALUES (906, 906, 7);
+INSERT INTO `article_subcategories` VALUES (907, 907, 8);
+INSERT INTO `article_subcategories` VALUES (908, 908, 9);
+INSERT INTO `article_subcategories` VALUES (909, 909, 10);
+INSERT INTO `article_subcategories` VALUES (910, 910, 11);
+INSERT INTO `article_subcategories` VALUES (911, 911, 12);
+INSERT INTO `article_subcategories` VALUES (912, 912, 13);
+INSERT INTO `article_subcategories` VALUES (913, 913, 14);
+INSERT INTO `article_subcategories` VALUES (914, 914, 15);
+INSERT INTO `article_subcategories` VALUES (915, 915, 1);
+INSERT INTO `article_subcategories` VALUES (916, 916, 2);
+INSERT INTO `article_subcategories` VALUES (917, 917, 3);
+INSERT INTO `article_subcategories` VALUES (918, 918, 4);
+INSERT INTO `article_subcategories` VALUES (919, 919, 5);
+INSERT INTO `article_subcategories` VALUES (920, 920, 6);
+INSERT INTO `article_subcategories` VALUES (921, 921, 7);
+INSERT INTO `article_subcategories` VALUES (922, 922, 8);
+INSERT INTO `article_subcategories` VALUES (923, 923, 9);
+INSERT INTO `article_subcategories` VALUES (924, 924, 10);
+INSERT INTO `article_subcategories` VALUES (925, 925, 11);
+INSERT INTO `article_subcategories` VALUES (926, 926, 12);
+INSERT INTO `article_subcategories` VALUES (927, 927, 13);
+INSERT INTO `article_subcategories` VALUES (928, 928, 14);
+INSERT INTO `article_subcategories` VALUES (929, 929, 15);
+INSERT INTO `article_subcategories` VALUES (930, 930, 1);
+INSERT INTO `article_subcategories` VALUES (931, 931, 2);
+INSERT INTO `article_subcategories` VALUES (932, 932, 3);
+INSERT INTO `article_subcategories` VALUES (933, 933, 4);
+INSERT INTO `article_subcategories` VALUES (934, 934, 5);
+INSERT INTO `article_subcategories` VALUES (935, 935, 6);
+INSERT INTO `article_subcategories` VALUES (936, 936, 7);
+INSERT INTO `article_subcategories` VALUES (937, 937, 8);
+INSERT INTO `article_subcategories` VALUES (938, 938, 9);
+INSERT INTO `article_subcategories` VALUES (939, 939, 10);
+INSERT INTO `article_subcategories` VALUES (940, 940, 11);
+INSERT INTO `article_subcategories` VALUES (941, 941, 12);
+INSERT INTO `article_subcategories` VALUES (942, 942, 13);
+INSERT INTO `article_subcategories` VALUES (943, 943, 14);
+INSERT INTO `article_subcategories` VALUES (944, 944, 15);
+INSERT INTO `article_subcategories` VALUES (945, 945, 1);
+INSERT INTO `article_subcategories` VALUES (946, 946, 2);
+INSERT INTO `article_subcategories` VALUES (947, 947, 3);
+INSERT INTO `article_subcategories` VALUES (948, 948, 4);
+INSERT INTO `article_subcategories` VALUES (949, 949, 5);
+INSERT INTO `article_subcategories` VALUES (950, 950, 6);
+INSERT INTO `article_subcategories` VALUES (951, 951, 7);
+INSERT INTO `article_subcategories` VALUES (952, 952, 8);
+INSERT INTO `article_subcategories` VALUES (953, 953, 9);
+INSERT INTO `article_subcategories` VALUES (954, 954, 10);
+INSERT INTO `article_subcategories` VALUES (955, 955, 11);
+INSERT INTO `article_subcategories` VALUES (956, 956, 12);
+INSERT INTO `article_subcategories` VALUES (957, 957, 13);
+INSERT INTO `article_subcategories` VALUES (958, 958, 14);
+INSERT INTO `article_subcategories` VALUES (959, 959, 15);
+INSERT INTO `article_subcategories` VALUES (960, 960, 1);
+INSERT INTO `article_subcategories` VALUES (961, 961, 2);
+INSERT INTO `article_subcategories` VALUES (962, 962, 3);
+INSERT INTO `article_subcategories` VALUES (963, 963, 4);
+INSERT INTO `article_subcategories` VALUES (964, 964, 5);
+INSERT INTO `article_subcategories` VALUES (965, 965, 6);
+INSERT INTO `article_subcategories` VALUES (966, 966, 7);
+INSERT INTO `article_subcategories` VALUES (967, 967, 8);
+INSERT INTO `article_subcategories` VALUES (968, 968, 9);
+INSERT INTO `article_subcategories` VALUES (969, 969, 10);
+INSERT INTO `article_subcategories` VALUES (970, 970, 11);
+INSERT INTO `article_subcategories` VALUES (971, 971, 12);
+INSERT INTO `article_subcategories` VALUES (972, 972, 13);
+INSERT INTO `article_subcategories` VALUES (973, 973, 14);
+INSERT INTO `article_subcategories` VALUES (974, 974, 15);
+INSERT INTO `article_subcategories` VALUES (975, 975, 1);
+INSERT INTO `article_subcategories` VALUES (976, 976, 2);
+INSERT INTO `article_subcategories` VALUES (977, 977, 3);
+INSERT INTO `article_subcategories` VALUES (978, 978, 4);
+INSERT INTO `article_subcategories` VALUES (979, 979, 5);
+INSERT INTO `article_subcategories` VALUES (980, 980, 6);
+INSERT INTO `article_subcategories` VALUES (981, 981, 7);
+INSERT INTO `article_subcategories` VALUES (982, 982, 8);
+INSERT INTO `article_subcategories` VALUES (983, 983, 9);
+INSERT INTO `article_subcategories` VALUES (984, 984, 10);
+INSERT INTO `article_subcategories` VALUES (985, 985, 11);
+INSERT INTO `article_subcategories` VALUES (986, 986, 12);
+INSERT INTO `article_subcategories` VALUES (987, 987, 13);
+INSERT INTO `article_subcategories` VALUES (988, 988, 14);
+INSERT INTO `article_subcategories` VALUES (989, 989, 15);
+INSERT INTO `article_subcategories` VALUES (990, 990, 1);
+INSERT INTO `article_subcategories` VALUES (991, 991, 2);
+INSERT INTO `article_subcategories` VALUES (992, 992, 3);
+INSERT INTO `article_subcategories` VALUES (993, 993, 4);
+INSERT INTO `article_subcategories` VALUES (994, 994, 5);
+INSERT INTO `article_subcategories` VALUES (995, 995, 6);
+INSERT INTO `article_subcategories` VALUES (996, 996, 7);
+INSERT INTO `article_subcategories` VALUES (997, 997, 8);
+INSERT INTO `article_subcategories` VALUES (998, 998, 9);
+INSERT INTO `article_subcategories` VALUES (999, 999, 10);
+INSERT INTO `article_subcategories` VALUES (1000, 1001, 1);
+INSERT INTO `article_subcategories` VALUES (1001, 1002, 1);
+INSERT INTO `article_subcategories` VALUES (1002, 1003, 1);
+INSERT INTO `article_subcategories` VALUES (1003, 1004, 1);
+INSERT INTO `article_subcategories` VALUES (1004, 1005, 1);
+INSERT INTO `article_subcategories` VALUES (1006, 1006, 1);
+INSERT INTO `article_subcategories` VALUES (1007, 1007, 1);
 
-LOCK TABLES `article_subcategories` WRITE;
-/*!40000 ALTER TABLE `article_subcategories` DISABLE KEYS */;
-INSERT INTO `article_subcategories` VALUES (1,1,2),(2,2,3),(3,3,4),(4,4,5),(5,5,6),(6,6,7),(7,7,8),(8,8,9),(9,9,10),(10,10,11),(11,11,12),(12,12,13),(13,13,14),(14,14,15),(15,15,1),(16,16,2),(17,17,3),(18,18,4),(19,19,5),(20,20,6),(21,21,7),(22,22,8),(23,23,9),(24,24,10),(25,25,11),(26,26,12),(27,27,13),(28,28,14),(29,29,15),(30,30,1),(31,31,2),(32,32,3),(33,33,4),(34,34,5),(35,35,6),(36,36,7),(37,37,8),(38,38,9),(39,39,10),(40,40,11),(41,41,12),(42,42,13),(43,43,14),(44,44,15),(45,45,1),(46,46,2),(47,47,3),(48,48,4),(49,49,5),(50,50,6),(51,51,7),(52,52,8),(53,53,9),(54,54,10),(55,55,11),(56,56,12),(57,57,13),(58,58,14),(59,59,15),(60,60,1),(61,61,2),(62,62,3),(63,63,4),(64,64,5),(65,65,6),(66,66,7),(67,67,8),(68,68,9),(69,69,10),(70,70,11),(71,71,12),(72,72,13),(73,73,14),(74,74,15),(75,75,1),(76,76,2),(77,77,3),(78,78,4),(79,79,5),(80,80,6),(81,81,7),(82,82,8),(83,83,9),(84,84,10),(85,85,11),(86,86,12),(87,87,13),(88,88,14),(89,89,15),(90,90,1),(91,91,2),(92,92,3),(93,93,4),(94,94,5),(95,95,6),(96,96,7),(97,97,8),(98,98,9),(99,99,10),(100,100,11),(101,101,12),(102,102,13),(103,103,14),(104,104,15),(105,105,1),(106,106,2),(107,107,3),(108,108,4),(109,109,5),(110,110,6),(111,111,7),(112,112,8),(113,113,9),(114,114,10),(115,115,11),(116,116,12),(117,117,13),(118,118,14),(119,119,15),(120,120,1),(121,121,2),(122,122,3),(123,123,4),(124,124,5),(125,125,6),(126,126,7),(127,127,8),(128,128,9),(129,129,10),(130,130,11),(131,131,12),(132,132,13),(133,133,14),(134,134,15),(135,135,1),(136,136,2),(137,137,3),(138,138,4),(139,139,5),(140,140,6),(141,141,7),(142,142,8),(143,143,9),(144,144,10),(145,145,11),(146,146,12),(147,147,13),(148,148,14),(149,149,15),(150,150,1),(151,151,2),(152,152,3),(153,153,4),(154,154,5),(155,155,6),(156,156,7),(157,157,8),(158,158,9),(159,159,10),(160,160,11),(161,161,12),(162,162,13),(163,163,14),(164,164,15),(165,165,1),(166,166,2),(167,167,3),(168,168,4),(169,169,5),(170,170,6),(171,171,7),(172,172,8),(173,173,9),(174,174,10),(175,175,11),(176,176,12),(177,177,13),(178,178,14),(179,179,15),(180,180,1),(181,181,2),(182,182,3),(183,183,4),(184,184,5),(185,185,6),(186,186,7),(187,187,8),(188,188,9),(189,189,10),(190,190,11),(191,191,12),(192,192,13),(193,193,14),(194,194,15),(195,195,1),(196,196,2),(197,197,3),(198,198,4),(199,199,5),(200,200,6),(201,201,7),(202,202,8),(203,203,9),(204,204,10),(205,205,11),(206,206,12),(207,207,13),(208,208,14),(209,209,15),(210,210,1),(211,211,2),(212,212,3),(213,213,4),(214,214,5),(215,215,6),(216,216,7),(217,217,8),(218,218,9),(219,219,10),(220,220,11),(221,221,12),(222,222,13),(223,223,14),(224,224,15),(225,225,1),(226,226,2),(227,227,3),(228,228,4),(229,229,5),(230,230,6),(231,231,7),(232,232,8),(233,233,9),(234,234,10),(235,235,11),(236,236,12),(237,237,13),(238,238,14),(239,239,15),(240,240,1),(241,241,2),(242,242,3),(243,243,4),(244,244,5),(245,245,6),(246,246,7),(247,247,8),(248,248,9),(249,249,10),(250,250,11),(251,251,12),(252,252,13),(253,253,14),(254,254,15),(255,255,1),(256,256,2),(257,257,3),(258,258,4),(259,259,5),(260,260,6),(261,261,7),(262,262,8),(263,263,9),(264,264,10),(265,265,11),(266,266,12),(267,267,13),(268,268,14),(269,269,15),(270,270,1),(271,271,2),(272,272,3),(273,273,4),(274,274,5),(275,275,6),(276,276,7),(277,277,8),(278,278,9),(279,279,10),(280,280,11),(281,281,12),(282,282,13),(283,283,14),(284,284,15),(285,285,1),(286,286,2),(287,287,3),(288,288,4),(289,289,5),(290,290,6),(291,291,7),(292,292,8),(293,293,9),(294,294,10),(295,295,11),(296,296,12),(297,297,13),(298,298,14),(299,299,15),(300,300,1),(301,301,2),(302,302,3),(303,303,4),(304,304,5),(305,305,6),(306,306,7),(307,307,8),(308,308,9),(309,309,10),(310,310,11),(311,311,12),(312,312,13),(313,313,14),(314,314,15),(315,315,1),(316,316,2),(317,317,3),(318,318,4),(319,319,5),(320,320,6),(321,321,7),(322,322,8),(323,323,9),(324,324,10),(325,325,11),(326,326,12),(327,327,13),(328,328,14),(329,329,15),(330,330,1),(331,331,2),(332,332,3),(333,333,4),(334,334,5),(335,335,6),(336,336,7),(337,337,8),(338,338,9),(339,339,10),(340,340,11),(341,341,12),(342,342,13),(343,343,14),(344,344,15),(345,345,1),(346,346,2),(347,347,3),(348,348,4),(349,349,5),(350,350,6),(351,351,7),(352,352,8),(353,353,9),(354,354,10),(355,355,11),(356,356,12),(357,357,13),(358,358,14),(359,359,15),(360,360,1),(361,361,2),(362,362,3),(363,363,4),(364,364,5),(365,365,6),(366,366,7),(367,367,8),(368,368,9),(369,369,10),(370,370,11),(371,371,12),(372,372,13),(373,373,14),(374,374,15),(375,375,1),(376,376,2),(377,377,3),(378,378,4),(379,379,5),(380,380,6),(381,381,7),(382,382,8),(383,383,9),(384,384,10),(385,385,11),(386,386,12),(387,387,13),(388,388,14),(389,389,15),(390,390,1),(391,391,2),(392,392,3),(393,393,4),(394,394,5),(395,395,6),(396,396,7),(397,397,8),(398,398,9),(399,399,10),(400,400,11),(401,401,12),(402,402,13),(403,403,14),(404,404,15),(405,405,1),(406,406,2),(407,407,3),(408,408,4),(409,409,5),(410,410,6),(411,411,7),(412,412,8),(413,413,9),(414,414,10),(415,415,11),(416,416,12),(417,417,13),(418,418,14),(419,419,15),(420,420,1),(421,421,2),(422,422,3),(423,423,4),(424,424,5),(425,425,6),(426,426,7),(427,427,8),(428,428,9),(429,429,10),(430,430,11),(431,431,12),(432,432,13),(433,433,14),(434,434,15),(435,435,1),(436,436,2),(437,437,3),(438,438,4),(439,439,5),(440,440,6),(441,441,7),(442,442,8),(443,443,9),(444,444,10),(445,445,11),(446,446,12),(447,447,13),(448,448,14),(449,449,15),(450,450,1),(451,451,2),(452,452,3),(453,453,4),(454,454,5),(455,455,6),(456,456,7),(457,457,8),(458,458,9),(459,459,10),(460,460,11),(461,461,12),(462,462,13),(463,463,14),(464,464,15),(465,465,1),(466,466,2),(467,467,3),(468,468,4),(469,469,5),(470,470,6),(471,471,7),(472,472,8),(473,473,9),(474,474,10),(475,475,11),(476,476,12),(477,477,13),(478,478,14),(479,479,15),(480,480,1),(481,481,2),(482,482,3),(483,483,4),(484,484,5),(485,485,6),(486,486,7),(487,487,8),(488,488,9),(489,489,10),(490,490,11),(491,491,12),(492,492,13),(493,493,14),(494,494,15),(495,495,1),(496,496,2),(497,497,3),(498,498,4),(499,499,5),(500,500,6),(501,501,7),(502,502,8),(503,503,9),(504,504,10),(505,505,11),(506,506,12),(507,507,13),(508,508,14),(509,509,15),(510,510,1),(511,511,2),(512,512,3),(513,513,4),(514,514,5),(515,515,6),(516,516,7),(517,517,8),(518,518,9),(519,519,10),(520,520,11),(521,521,12),(522,522,13),(523,523,14),(524,524,15),(525,525,1),(526,526,2),(527,527,3),(528,528,4),(529,529,5),(530,530,6),(531,531,7),(532,532,8),(533,533,9),(534,534,10),(535,535,11),(536,536,12),(537,537,13),(538,538,14),(539,539,15),(540,540,1),(541,541,2),(542,542,3),(543,543,4),(544,544,5),(545,545,6),(546,546,7),(547,547,8),(548,548,9),(549,549,10),(550,550,11),(551,551,12),(552,552,13),(553,553,14),(554,554,15),(555,555,1),(556,556,2),(557,557,3),(558,558,4),(559,559,5),(560,560,6),(561,561,7),(562,562,8),(563,563,9),(564,564,10),(565,565,11),(566,566,12),(567,567,13),(568,568,14),(569,569,15),(570,570,1),(571,571,2),(572,572,3),(573,573,4),(574,574,5),(575,575,6),(576,576,7),(577,577,8),(578,578,9),(579,579,10),(580,580,11),(581,581,12),(582,582,13),(583,583,14),(584,584,15),(585,585,1),(586,586,2),(587,587,3),(588,588,4),(589,589,5),(590,590,6),(591,591,7),(592,592,8),(593,593,9),(594,594,10),(595,595,11),(596,596,12),(597,597,13),(598,598,14),(599,599,15),(600,600,1),(601,601,2),(602,602,3),(603,603,4),(604,604,5),(605,605,6),(606,606,7),(607,607,8),(608,608,9),(609,609,10),(610,610,11),(611,611,12),(612,612,13),(613,613,14),(614,614,15),(615,615,1),(616,616,2),(617,617,3),(618,618,4),(619,619,5),(620,620,6),(621,621,7),(622,622,8),(623,623,9),(624,624,10),(625,625,11),(626,626,12),(627,627,13),(628,628,14),(629,629,15),(630,630,1),(631,631,2),(632,632,3),(633,633,4),(634,634,5),(635,635,6),(636,636,7),(637,637,8),(638,638,9),(639,639,10),(640,640,11),(641,641,12),(642,642,13),(643,643,14),(644,644,15),(645,645,1),(646,646,2),(647,647,3),(648,648,4),(649,649,5),(650,650,6),(651,651,7),(652,652,8),(653,653,9),(654,654,10),(655,655,11),(656,656,12),(657,657,13),(658,658,14),(659,659,15),(660,660,1),(661,661,2),(662,662,3),(663,663,4),(664,664,5),(665,665,6),(666,666,7),(667,667,8),(668,668,9),(669,669,10),(670,670,11),(671,671,12),(672,672,13),(673,673,14),(674,674,15),(675,675,1),(676,676,2),(677,677,3),(678,678,4),(679,679,5),(680,680,6),(681,681,7),(682,682,8),(683,683,9),(684,684,10),(685,685,11),(686,686,12),(687,687,13),(688,688,14),(689,689,15),(690,690,1),(691,691,2),(692,692,3),(693,693,4),(694,694,5),(695,695,6),(696,696,7),(697,697,8),(698,698,9),(699,699,10),(700,700,11),(701,701,12),(702,702,13),(703,703,14),(704,704,15),(705,705,1),(706,706,2),(707,707,3),(708,708,4),(709,709,5),(710,710,6),(711,711,7),(712,712,8),(713,713,9),(714,714,10),(715,715,11),(716,716,12),(717,717,13),(718,718,14),(719,719,15),(720,720,1),(721,721,2),(722,722,3),(723,723,4),(724,724,5),(725,725,6),(726,726,7),(727,727,8),(728,728,9),(729,729,10),(730,730,11),(731,731,12),(732,732,13),(733,733,14),(734,734,15),(735,735,1),(736,736,2),(737,737,3),(738,738,4),(739,739,5),(740,740,6),(741,741,7),(742,742,8),(743,743,9),(744,744,10),(745,745,11),(746,746,12),(747,747,13),(748,748,14),(749,749,15),(750,750,1),(751,751,2),(752,752,3),(753,753,4),(754,754,5),(755,755,6),(756,756,7),(757,757,8),(758,758,9),(759,759,10),(760,760,11),(761,761,12),(762,762,13),(763,763,14),(764,764,15),(765,765,1),(766,766,2),(767,767,3),(768,768,4),(769,769,5),(770,770,6),(771,771,7),(772,772,8),(773,773,9),(774,774,10),(775,775,11),(776,776,12),(777,777,13),(778,778,14),(779,779,15),(780,780,1),(781,781,2),(782,782,3),(783,783,4),(784,784,5),(785,785,6),(786,786,7),(787,787,8),(788,788,9),(789,789,10),(790,790,11),(791,791,12),(792,792,13),(793,793,14),(794,794,15),(795,795,1),(796,796,2),(797,797,3),(798,798,4),(799,799,5),(800,800,6),(801,801,7),(802,802,8),(803,803,9),(804,804,10),(805,805,11),(806,806,12),(807,807,13),(808,808,14),(809,809,15),(810,810,1),(811,811,2),(812,812,3),(813,813,4),(814,814,5),(815,815,6),(816,816,7),(817,817,8),(818,818,9),(819,819,10),(820,820,11),(821,821,12),(822,822,13),(823,823,14),(824,824,15),(825,825,1),(826,826,2),(827,827,3),(828,828,4),(829,829,5),(830,830,6),(831,831,7),(832,832,8),(833,833,9),(834,834,10),(835,835,11),(836,836,12),(837,837,13),(838,838,14),(839,839,15),(840,840,1),(841,841,2),(842,842,3),(843,843,4),(844,844,5),(845,845,6),(846,846,7),(847,847,8),(848,848,9),(849,849,10),(850,850,11),(851,851,12),(852,852,13),(853,853,14),(854,854,15),(855,855,1),(856,856,2),(857,857,3),(858,858,4),(859,859,5),(860,860,6),(861,861,7),(862,862,8),(863,863,9),(864,864,10),(865,865,11),(866,866,12),(867,867,13),(868,868,14),(869,869,15),(870,870,1),(871,871,2),(872,872,3),(873,873,4),(874,874,5),(875,875,6),(876,876,7),(877,877,8),(878,878,9),(879,879,10),(880,880,11),(881,881,12),(882,882,13),(883,883,14),(884,884,15),(885,885,1),(886,886,2),(887,887,3),(888,888,4),(889,889,5),(890,890,6),(891,891,7),(892,892,8),(893,893,9),(894,894,10),(895,895,11),(896,896,12),(897,897,13),(898,898,14),(899,899,15),(900,900,1),(901,901,2),(902,902,3),(903,903,4),(904,904,5),(905,905,6),(906,906,7),(907,907,8),(908,908,9),(909,909,10),(910,910,11),(911,911,12),(912,912,13),(913,913,14),(914,914,15),(915,915,1),(916,916,2),(917,917,3),(918,918,4),(919,919,5),(920,920,6),(921,921,7),(922,922,8),(923,923,9),(924,924,10),(925,925,11),(926,926,12),(927,927,13),(928,928,14),(929,929,15),(930,930,1),(931,931,2),(932,932,3),(933,933,4),(934,934,5),(935,935,6),(936,936,7),(937,937,8),(938,938,9),(939,939,10),(940,940,11),(941,941,12),(942,942,13),(943,943,14),(944,944,15),(945,945,1),(946,946,2),(947,947,3),(948,948,4),(949,949,5),(950,950,6),(951,951,7),(952,952,8),(953,953,9),(954,954,10),(955,955,11),(956,956,12),(957,957,13),(958,958,14),(959,959,15),(960,960,1),(961,961,2),(962,962,3),(963,963,4),(964,964,5),(965,965,6),(966,966,7),(967,967,8),(968,968,9),(969,969,10),(970,970,11),(971,971,12),(972,972,13),(973,973,14),(974,974,15),(975,975,1),(976,976,2),(977,977,3),(978,978,4),(979,979,5),(980,980,6),(981,981,7),(982,982,8),(983,983,9),(984,984,10),(985,985,11),(986,986,12),(987,987,13),(988,988,14),(989,989,15),(990,990,1),(991,991,2),(992,992,3),(993,993,4),(994,994,5),(995,995,6),(996,996,7),(997,997,8),(998,998,9),(999,999,10),(1000,1001,1),(1001,1002,1),(1002,1003,1),(1003,1004,1),(1004,1005,1),(1006,1006,1),(1007,1007,1);
-/*!40000 ALTER TABLE `article_subcategories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `articles`
---
-
+-- ----------------------------
+-- Table structure for articles
+-- ----------------------------
 DROP TABLE IF EXISTS `articles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `articles` (
-  `article_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `author_id` int(10) unsigned NOT NULL,
-  `title` varchar(512) NOT NULL,
-  `state` int(10) unsigned NOT NULL COMMENT '1: Da duyet - cho xuat ban, 2: Da xuat ban, 3: Bi tu choi, 4: Chua duoc duyet',
-  `content` varchar(8192) NOT NULL COMMENT 'Luu bai viet ',
-  `views` int(10) unsigned NOT NULL DEFAULT 0,
+CREATE TABLE `articles`  (
+  `article_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `author_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `state` int(10) UNSIGNED NOT NULL COMMENT '1: Da duyet - cho xuat ban, 2: Da xuat ban, 3: Bi tu choi, 4: Chua duoc duyet',
+  `content` varchar(8192) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'Luu bai viet ',
+  `views` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `is_trending` int(1) NOT NULL DEFAULT 0 COMMENT '1: Co, 0: Khong',
   `is_premium` int(1) NOT NULL DEFAULT 0 COMMENT '1: Co, 0: Khong',
-  `published_time` datetime DEFAULT NULL COMMENT 'Thoi gian xuat ban neu state la 2',
-  `avatar_path` varchar(512) DEFAULT NULL COMMENT 'anh dai dien',
-  `abstract` varchar(4096) DEFAULT NULL COMMENT 'tom tat bai viet',
-  `editor_accepted` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`article_id`),
-  KEY `fk_author_id` (`author_id`),
-  KEY `fk_state` (`state`),
-  KEY `fk_editor_accepted` (`editor_accepted`),
-  FULLTEXT KEY `idx_fts` (`title`,`content`,`abstract`),
+  `published_time` datetime NULL DEFAULT NULL COMMENT 'Thoi gian xuat ban neu state la 2',
+  `avatar_path` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'anh dai dien',
+  `abstract` varchar(4096) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'tom tat bai viet',
+  `editor_accepted` int(10) UNSIGNED NULL DEFAULT NULL,
+  PRIMARY KEY (`article_id`) USING BTREE,
+  INDEX `fk_author_id`(`author_id`) USING BTREE,
+  INDEX `fk_state`(`state`) USING BTREE,
+  INDEX `fk_editor_accepted`(`editor_accepted`) USING BTREE,
+  FULLTEXT INDEX `idx_fts`(`title`, `content`, `abstract`),
   CONSTRAINT `fk_author_id` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_editor_accepted` FOREIGN KEY (`editor_accepted`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_state` FOREIGN KEY (`state`) REFERENCES `states` (`state_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1008 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 1008 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `articles`
---
+-- ----------------------------
+-- Records of articles
+-- ----------------------------
+INSERT INTO `articles` VALUES (1, 3, 'Tiêu đề bài báo 1', 2, 'Noi dung bai bao 1', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 1', 'Tom tat 1', 2);
+INSERT INTO `articles` VALUES (2, 3, 'Tiêu đề bài báo 2', 3, 'Noi dung bai bao 2', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 2', 'Tom tat 2', NULL);
+INSERT INTO `articles` VALUES (3, 3, 'Tiêu đề bài báo 3', 4, 'Noi dung bai bao 3', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 3', 'Tom tat 3', NULL);
+INSERT INTO `articles` VALUES (4, 3, 'Tiêu đề bài báo 4', 1, 'Noi dung bai bao 4', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 4', 'Tom tat 4', 2);
+INSERT INTO `articles` VALUES (5, 3, 'Tiêu đề bài báo 5', 2, 'Noi dung bai bao 5', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 5', 'Tom tat 5', 2);
+INSERT INTO `articles` VALUES (6, 3, 'Tiêu đề bài báo 6', 3, 'Noi dung bai bao 6', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 6', 'Tom tat 6', NULL);
+INSERT INTO `articles` VALUES (7, 3, 'Tiêu đề bài báo 7', 4, 'Noi dung bai bao 7', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 7', 'Tom tat 7', NULL);
+INSERT INTO `articles` VALUES (8, 3, 'Tiêu đề bài báo 8', 1, 'Noi dung bai bao 8', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 8', 'Tom tat 8', 7);
+INSERT INTO `articles` VALUES (9, 3, 'Tiêu đề bài báo 9', 2, 'Noi dung bai bao 9', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 9', 'Tom tat 9', 7);
+INSERT INTO `articles` VALUES (10, 3, 'Tiêu đề bài báo 10', 3, 'Noi dung bai bao 10', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 10', 'Tom tat 10', NULL);
+INSERT INTO `articles` VALUES (11, 3, 'Tiêu đề bài báo 11', 4, 'Noi dung bai bao 11', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 11', 'Tom tat 11', NULL);
+INSERT INTO `articles` VALUES (12, 3, 'Tiêu đề bài báo 12', 1, 'Noi dung bai bao 12', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 12', 'Tom tat 12', 7);
+INSERT INTO `articles` VALUES (13, 3, 'Tiêu đề bài báo 13', 2, 'Noi dung bai bao 13', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 13', 'Tom tat 13', 7);
+INSERT INTO `articles` VALUES (14, 3, 'Tiêu đề bài báo 14', 3, 'Noi dung bai bao 14', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 14', 'Tom tat 14', NULL);
+INSERT INTO `articles` VALUES (15, 3, 'Tiêu đề bài báo 15', 4, 'Noi dung bai bao 15', 2222, 1, 1, '2021-07-27 23:14:32', 'fake path 15', 'Tom tat 15', NULL);
+INSERT INTO `articles` VALUES (16, 3, 'Tiêu đề bài báo 16', 1, 'Noi dung bai bao 16', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 16', 'Tom tat 16', 2);
+INSERT INTO `articles` VALUES (17, 3, 'Tiêu đề bài báo 17', 2, 'Noi dung bai bao 17', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 17', 'Tom tat 17', 2);
+INSERT INTO `articles` VALUES (18, 3, 'Tiêu đề bài báo 18', 3, 'Noi dung bai bao 18', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 18', 'Tom tat 18', NULL);
+INSERT INTO `articles` VALUES (19, 3, 'Tiêu đề bài báo 19', 4, 'Noi dung bai bao 19', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 19', 'Tom tat 19', NULL);
+INSERT INTO `articles` VALUES (20, 3, 'Tiêu đề bài báo 20', 1, 'Noi dung bai bao 20', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 20', 'Tom tat 20', 2);
+INSERT INTO `articles` VALUES (21, 3, 'Tiêu đề bài báo 21', 2, 'Noi dung bai bao 21', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 21', 'Tom tat 21', 2);
+INSERT INTO `articles` VALUES (22, 3, 'Tiêu đề bài báo 22', 3, 'Noi dung bai bao 22', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 22', 'Tom tat 22', NULL);
+INSERT INTO `articles` VALUES (23, 3, 'Tiêu đề bài báo 23', 4, 'Noi dung bai bao 23', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 23', 'Tom tat 23', NULL);
+INSERT INTO `articles` VALUES (24, 3, 'Tiêu đề bài báo 24', 1, 'Noi dung bai bao 24', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 24', 'Tom tat 24', 7);
+INSERT INTO `articles` VALUES (25, 3, 'Tiêu đề bài báo 25', 2, 'Noi dung bai bao 25', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 25', 'Tom tat 25', 7);
+INSERT INTO `articles` VALUES (26, 3, 'Tiêu đề bài báo 26', 3, 'Noi dung bai bao 26', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 26', 'Tom tat 26', NULL);
+INSERT INTO `articles` VALUES (27, 3, 'Tiêu đề bài báo 27', 4, 'Noi dung bai bao 27', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 27', 'Tom tat 27', NULL);
+INSERT INTO `articles` VALUES (28, 3, 'Tiêu đề bài báo 28', 1, 'Noi dung bai bao 28', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 28', 'Tom tat 28', 7);
+INSERT INTO `articles` VALUES (29, 3, 'Tiêu đề bài báo 29', 2, 'Noi dung bai bao 29', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 29', 'Tom tat 29', 7);
+INSERT INTO `articles` VALUES (30, 3, 'Tiêu đề bài báo 30', 3, 'Noi dung bai bao 30', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 30', 'Tom tat 30', NULL);
+INSERT INTO `articles` VALUES (31, 3, 'Tiêu đề bài báo 31', 4, 'Noi dung bai bao 31', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 31', 'Tom tat 31', NULL);
+INSERT INTO `articles` VALUES (32, 3, 'Tiêu đề bài báo 32', 1, 'Noi dung bai bao 32', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 32', 'Tom tat 32', 2);
+INSERT INTO `articles` VALUES (33, 3, 'Tiêu đề bài báo 33', 2, 'Noi dung bai bao 33', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 33', 'Tom tat 33', 2);
+INSERT INTO `articles` VALUES (34, 3, 'Tiêu đề bài báo 34', 3, 'Noi dung bai bao 34', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 34', 'Tom tat 34', NULL);
+INSERT INTO `articles` VALUES (35, 3, 'Tiêu đề bài báo 35', 4, 'Noi dung bai bao 35', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 35', 'Tom tat 35', NULL);
+INSERT INTO `articles` VALUES (36, 3, 'Tiêu đề bài báo 36', 1, 'Noi dung bai bao 36', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 36', 'Tom tat 36', 2);
+INSERT INTO `articles` VALUES (37, 3, 'Tiêu đề bài báo 37', 2, 'Noi dung bai bao 37', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 37', 'Tom tat 37', 7);
+INSERT INTO `articles` VALUES (38, 3, 'Tiêu đề bài báo 38', 3, 'Noi dung bai bao 38', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 38', 'Tom tat 38', NULL);
+INSERT INTO `articles` VALUES (39, 3, 'Tiêu đề bài báo 39', 4, 'Noi dung bai bao 39', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 39', 'Tom tat 39', NULL);
+INSERT INTO `articles` VALUES (40, 3, 'Tiêu đề bài báo 40', 1, 'Noi dung bai bao 40', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 40', 'Tom tat 40', 7);
+INSERT INTO `articles` VALUES (41, 3, 'Tiêu đề bài báo 41', 2, 'Noi dung bai bao 41', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 41', 'Tom tat 41', 7);
+INSERT INTO `articles` VALUES (42, 3, 'Tiêu đề bài báo 42', 3, 'Noi dung bai bao 42', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 42', 'Tom tat 42', NULL);
+INSERT INTO `articles` VALUES (43, 3, 'Tiêu đề bài báo 43', 4, 'Noi dung bai bao 43', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 43', 'Tom tat 43', NULL);
+INSERT INTO `articles` VALUES (44, 3, 'Tiêu đề bài báo 44', 1, 'Noi dung bai bao 44', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 44', 'Tom tat 44', 7);
+INSERT INTO `articles` VALUES (45, 3, 'Tiêu đề bài báo 45', 2, 'Noi dung bai bao 45', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 45', 'Tom tat 45', 2);
+INSERT INTO `articles` VALUES (46, 3, 'Tiêu đề bài báo 46', 3, 'Noi dung bai bao 46', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 46', 'Tom tat 46', NULL);
+INSERT INTO `articles` VALUES (47, 3, 'Tiêu đề bài báo 47', 4, 'Noi dung bai bao 47', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 47', 'Tom tat 47', NULL);
+INSERT INTO `articles` VALUES (48, 3, 'Tiêu đề bài báo 48', 1, 'Noi dung bai bao 48', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 48', 'Tom tat 48', 2);
+INSERT INTO `articles` VALUES (49, 3, 'Tiêu đề bài báo 49', 2, 'Noi dung bai bao 49', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 49', 'Tom tat 49', 2);
+INSERT INTO `articles` VALUES (50, 3, 'Tiêu đề bài báo 50', 3, 'Noi dung bai bao 50', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 50', 'Tom tat 50', NULL);
+INSERT INTO `articles` VALUES (51, 3, 'Tiêu đề bài báo 51', 4, 'Noi dung bai bao 51', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 51', 'Tom tat 51', NULL);
+INSERT INTO `articles` VALUES (52, 3, 'Tiêu đề bài báo 52', 1, 'Noi dung bai bao 52', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 52', 'Tom tat 52', 7);
+INSERT INTO `articles` VALUES (53, 3, 'Tiêu đề bài báo 53', 2, 'Noi dung bai bao 53', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 53', 'Tom tat 53', 7);
+INSERT INTO `articles` VALUES (54, 3, 'Tiêu đề bài báo 54', 3, 'Noi dung bai bao 54', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 54', 'Tom tat 54', NULL);
+INSERT INTO `articles` VALUES (55, 3, 'Tiêu đề bài báo 55', 4, 'Noi dung bai bao 55', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 55', 'Tom tat 55', NULL);
+INSERT INTO `articles` VALUES (56, 3, 'Tiêu đề bài báo 56', 1, 'Noi dung bai bao 56', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 56', 'Tom tat 56', 7);
+INSERT INTO `articles` VALUES (57, 3, 'Tiêu đề bài báo 57', 2, 'Noi dung bai bao 57', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 57', 'Tom tat 57', 7);
+INSERT INTO `articles` VALUES (58, 3, 'Tiêu đề bài báo 58', 3, 'Noi dung bai bao 58', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 58', 'Tom tat 58', NULL);
+INSERT INTO `articles` VALUES (59, 3, 'Tiêu đề bài báo 59', 4, 'Noi dung bai bao 59', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 59', 'Tom tat 59', NULL);
+INSERT INTO `articles` VALUES (60, 3, 'Tiêu đề bài báo 60', 1, 'Noi dung bai bao 60', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 60', 'Tom tat 60', 2);
+INSERT INTO `articles` VALUES (61, 3, 'Tiêu đề bài báo 61', 2, 'Noi dung bai bao 61', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 61', 'Tom tat 61', 2);
+INSERT INTO `articles` VALUES (62, 3, 'Tiêu đề bài báo 62', 3, 'Noi dung bai bao 62', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 62', 'Tom tat 62', NULL);
+INSERT INTO `articles` VALUES (63, 3, 'Tiêu đề bài báo 63', 4, 'Noi dung bai bao 63', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 63', 'Tom tat 63', NULL);
+INSERT INTO `articles` VALUES (64, 3, 'Tiêu đề bài báo 64', 1, 'Noi dung bai bao 64', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 64', 'Tom tat 64', 2);
+INSERT INTO `articles` VALUES (65, 3, 'Tiêu đề bài báo 65', 2, 'Noi dung bai bao 65', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 65', 'Tom tat 65', 2);
+INSERT INTO `articles` VALUES (66, 3, 'Tiêu đề bài báo 66', 3, 'Noi dung bai bao 66', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 66', 'Tom tat 66', NULL);
+INSERT INTO `articles` VALUES (67, 3, 'Tiêu đề bài báo 67', 4, 'Noi dung bai bao 67', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 67', 'Tom tat 67', NULL);
+INSERT INTO `articles` VALUES (68, 3, 'Tiêu đề bài báo 68', 1, 'Noi dung bai bao 68', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 68', 'Tom tat 68', 7);
+INSERT INTO `articles` VALUES (69, 3, 'Tiêu đề bài báo 69', 2, 'Noi dung bai bao 69', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 69', 'Tom tat 69', 7);
+INSERT INTO `articles` VALUES (70, 3, 'Tiêu đề bài báo 70', 3, 'Noi dung bai bao 70', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 70', 'Tom tat 70', NULL);
+INSERT INTO `articles` VALUES (71, 3, 'Tiêu đề bài báo 71', 4, 'Noi dung bai bao 71', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 71', 'Tom tat 71', NULL);
+INSERT INTO `articles` VALUES (72, 3, 'Tiêu đề bài báo 72', 1, 'Noi dung bai bao 72', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 72', 'Tom tat 72', 7);
+INSERT INTO `articles` VALUES (73, 3, 'Tiêu đề bài báo 73', 2, 'Noi dung bai bao 73', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 73', 'Tom tat 73', 7);
+INSERT INTO `articles` VALUES (74, 3, 'Tiêu đề bài báo 74', 3, 'Noi dung bai bao 74', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 74', 'Tom tat 74', NULL);
+INSERT INTO `articles` VALUES (75, 3, 'Tiêu đề bài báo 75', 4, 'Noi dung bai bao 75', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 75', 'Tom tat 75', NULL);
+INSERT INTO `articles` VALUES (76, 3, 'Tiêu đề bài báo 76', 1, 'Noi dung bai bao 76', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 76', 'Tom tat 76', 2);
+INSERT INTO `articles` VALUES (77, 3, 'Tiêu đề bài báo 77', 2, 'Noi dung bai bao 77', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 77', 'Tom tat 77', 2);
+INSERT INTO `articles` VALUES (78, 3, 'Tiêu đề bài báo 78', 3, 'Noi dung bai bao 78', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 78', 'Tom tat 78', NULL);
+INSERT INTO `articles` VALUES (79, 3, 'Tiêu đề bài báo 79', 4, 'Noi dung bai bao 79', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 79', 'Tom tat 79', NULL);
+INSERT INTO `articles` VALUES (80, 3, 'Tiêu đề bài báo 80', 1, 'Noi dung bai bao 80', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 80', 'Tom tat 80', 2);
+INSERT INTO `articles` VALUES (81, 3, 'Tiêu đề bài báo 81', 2, 'Noi dung bai bao 81', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 81', 'Tom tat 81', 2);
+INSERT INTO `articles` VALUES (82, 3, 'Tiêu đề bài báo 82', 3, 'Noi dung bai bao 82', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 82', 'Tom tat 82', NULL);
+INSERT INTO `articles` VALUES (83, 3, 'Tiêu đề bài báo 83', 4, 'Noi dung bai bao 83', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 83', 'Tom tat 83', NULL);
+INSERT INTO `articles` VALUES (84, 3, 'Tiêu đề bài báo 84', 1, 'Noi dung bai bao 84', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 84', 'Tom tat 84', 7);
+INSERT INTO `articles` VALUES (85, 3, 'Tiêu đề bài báo 85', 2, 'Noi dung bai bao 85', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 85', 'Tom tat 85', 7);
+INSERT INTO `articles` VALUES (86, 3, 'Tiêu đề bài báo 86', 3, 'Noi dung bai bao 86', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 86', 'Tom tat 86', NULL);
+INSERT INTO `articles` VALUES (87, 3, 'Tiêu đề bài báo 87', 4, 'Noi dung bai bao 87', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 87', 'Tom tat 87', NULL);
+INSERT INTO `articles` VALUES (88, 3, 'Tiêu đề bài báo 88', 1, 'Noi dung bai bao 88', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 88', 'Tom tat 88', 7);
+INSERT INTO `articles` VALUES (89, 3, 'Tiêu đề bài báo 89', 2, 'Noi dung bai bao 89', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 89', 'Tom tat 89', 7);
+INSERT INTO `articles` VALUES (90, 3, 'Tiêu đề bài báo 90', 3, 'Noi dung bai bao 90', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 90', 'Tom tat 90', NULL);
+INSERT INTO `articles` VALUES (91, 3, 'Tiêu đề bài báo 91', 4, 'Noi dung bai bao 91', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 91', 'Tom tat 91', NULL);
+INSERT INTO `articles` VALUES (92, 3, 'Tiêu đề bài báo 92', 1, 'Noi dung bai bao 92', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 92', 'Tom tat 92', 2);
+INSERT INTO `articles` VALUES (93, 3, 'Tiêu đề bài báo 93', 2, 'Noi dung bai bao 93', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 93', 'Tom tat 93', 2);
+INSERT INTO `articles` VALUES (94, 3, 'Tiêu đề bài báo 94', 3, 'Noi dung bai bao 94', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 94', 'Tom tat 94', NULL);
+INSERT INTO `articles` VALUES (95, 3, 'Tiêu đề bài báo 95', 4, 'Noi dung bai bao 95', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 95', 'Tom tat 95', NULL);
+INSERT INTO `articles` VALUES (96, 3, 'Tiêu đề bài báo 96', 1, 'Noi dung bai bao 96', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 96', 'Tom tat 96', 2);
+INSERT INTO `articles` VALUES (97, 3, 'Tiêu đề bài báo 97', 2, 'Noi dung bai bao 97', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 97', 'Tom tat 97', 7);
+INSERT INTO `articles` VALUES (98, 3, 'Tiêu đề bài báo 98', 3, 'Noi dung bai bao 98', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 98', 'Tom tat 98', NULL);
+INSERT INTO `articles` VALUES (99, 3, 'Tiêu đề bài báo 99', 4, 'Noi dung bai bao 99', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 99', 'Tom tat 99', NULL);
+INSERT INTO `articles` VALUES (100, 3, 'Tiêu đề bài báo 100', 1, 'Noi dung bai bao 100', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 100', 'Tom tat 100', 7);
+INSERT INTO `articles` VALUES (101, 3, 'Tiêu đề bài báo 101', 2, 'Noi dung bai bao 101', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 101', 'Tom tat 101', 7);
+INSERT INTO `articles` VALUES (102, 3, 'Tiêu đề bài báo 102', 3, 'Noi dung bai bao 102', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 102', 'Tom tat 102', NULL);
+INSERT INTO `articles` VALUES (103, 3, 'Tiêu đề bài báo 103', 4, 'Noi dung bai bao 103', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 103', 'Tom tat 103', NULL);
+INSERT INTO `articles` VALUES (104, 3, 'Tiêu đề bài báo 104', 1, 'Noi dung bai bao 104', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 104', 'Tom tat 104', 7);
+INSERT INTO `articles` VALUES (105, 3, 'Tiêu đề bài báo 105', 2, 'Noi dung bai bao 105', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 105', 'Tom tat 105', 2);
+INSERT INTO `articles` VALUES (106, 3, 'Tiêu đề bài báo 106', 3, 'Noi dung bai bao 106', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 106', 'Tom tat 106', NULL);
+INSERT INTO `articles` VALUES (107, 3, 'Tiêu đề bài báo 107', 4, 'Noi dung bai bao 107', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 107', 'Tom tat 107', NULL);
+INSERT INTO `articles` VALUES (108, 3, 'Tiêu đề bài báo 108', 1, 'Noi dung bai bao 108', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 108', 'Tom tat 108', 2);
+INSERT INTO `articles` VALUES (109, 3, 'Tiêu đề bài báo 109', 2, 'Noi dung bai bao 109', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 109', 'Tom tat 109', 2);
+INSERT INTO `articles` VALUES (110, 3, 'Tiêu đề bài báo 110', 3, 'Noi dung bai bao 110', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 110', 'Tom tat 110', NULL);
+INSERT INTO `articles` VALUES (111, 3, 'Tiêu đề bài báo 111', 4, 'Noi dung bai bao 111', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 111', 'Tom tat 111', NULL);
+INSERT INTO `articles` VALUES (112, 3, 'Tiêu đề bài báo 112', 1, 'Noi dung bai bao 112', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 112', 'Tom tat 112', 7);
+INSERT INTO `articles` VALUES (113, 3, 'Tiêu đề bài báo 113', 2, 'Noi dung bai bao 113', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 113', 'Tom tat 113', 7);
+INSERT INTO `articles` VALUES (114, 3, 'Tiêu đề bài báo 114', 3, 'Noi dung bai bao 114', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 114', 'Tom tat 114', NULL);
+INSERT INTO `articles` VALUES (115, 3, 'Tiêu đề bài báo 115', 4, 'Noi dung bai bao 115', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 115', 'Tom tat 115', NULL);
+INSERT INTO `articles` VALUES (116, 3, 'Tiêu đề bài báo 116', 1, 'Noi dung bai bao 116', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 116', 'Tom tat 116', 7);
+INSERT INTO `articles` VALUES (117, 3, 'Tiêu đề bài báo 117', 2, 'Noi dung bai bao 117', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 117', 'Tom tat 117', 7);
+INSERT INTO `articles` VALUES (118, 3, 'Tiêu đề bài báo 118', 3, 'Noi dung bai bao 118', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 118', 'Tom tat 118', NULL);
+INSERT INTO `articles` VALUES (119, 3, 'Tiêu đề bài báo 119', 4, 'Noi dung bai bao 119', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 119', 'Tom tat 119', NULL);
+INSERT INTO `articles` VALUES (120, 3, 'Tiêu đề bài báo 120', 1, 'Noi dung bai bao 120', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 120', 'Tom tat 120', 2);
+INSERT INTO `articles` VALUES (121, 3, 'Tiêu đề bài báo 121', 2, 'Noi dung bai bao 121', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 121', 'Tom tat 121', 2);
+INSERT INTO `articles` VALUES (122, 3, 'Tiêu đề bài báo 122', 3, 'Noi dung bai bao 122', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 122', 'Tom tat 122', NULL);
+INSERT INTO `articles` VALUES (123, 3, 'Tiêu đề bài báo 123', 4, 'Noi dung bai bao 123', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 123', 'Tom tat 123', NULL);
+INSERT INTO `articles` VALUES (124, 3, 'Tiêu đề bài báo 124', 1, 'Noi dung bai bao 124', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 124', 'Tom tat 124', 2);
+INSERT INTO `articles` VALUES (125, 3, 'Tiêu đề bài báo 125', 2, 'Noi dung bai bao 125', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 125', 'Tom tat 125', 2);
+INSERT INTO `articles` VALUES (126, 3, 'Tiêu đề bài báo 126', 3, 'Noi dung bai bao 126', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 126', 'Tom tat 126', NULL);
+INSERT INTO `articles` VALUES (127, 3, 'Tiêu đề bài báo 127', 4, 'Noi dung bai bao 127', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 127', 'Tom tat 127', NULL);
+INSERT INTO `articles` VALUES (128, 3, 'Tiêu đề bài báo 128', 1, 'Noi dung bai bao 128', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 128', 'Tom tat 128', 7);
+INSERT INTO `articles` VALUES (129, 3, 'Tiêu đề bài báo 129', 2, 'Noi dung bai bao 129', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 129', 'Tom tat 129', 7);
+INSERT INTO `articles` VALUES (130, 3, 'Tiêu đề bài báo 130', 3, 'Noi dung bai bao 130', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 130', 'Tom tat 130', NULL);
+INSERT INTO `articles` VALUES (131, 3, 'Tiêu đề bài báo 131', 4, 'Noi dung bai bao 131', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 131', 'Tom tat 131', NULL);
+INSERT INTO `articles` VALUES (132, 3, 'Tiêu đề bài báo 132', 1, 'Noi dung bai bao 132', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 132', 'Tom tat 132', 7);
+INSERT INTO `articles` VALUES (133, 3, 'Tiêu đề bài báo 133', 2, 'Noi dung bai bao 133', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 133', 'Tom tat 133', 7);
+INSERT INTO `articles` VALUES (134, 3, 'Tiêu đề bài báo 134', 3, 'Noi dung bai bao 134', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 134', 'Tom tat 134', NULL);
+INSERT INTO `articles` VALUES (135, 3, 'Tiêu đề bài báo 135', 4, 'Noi dung bai bao 135', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 135', 'Tom tat 135', NULL);
+INSERT INTO `articles` VALUES (136, 3, 'Tiêu đề bài báo 136', 1, 'Noi dung bai bao 136', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 136', 'Tom tat 136', 2);
+INSERT INTO `articles` VALUES (137, 3, 'Tiêu đề bài báo 137', 2, 'Noi dung bai bao 137', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 137', 'Tom tat 137', 2);
+INSERT INTO `articles` VALUES (138, 3, 'Tiêu đề bài báo 138', 3, 'Noi dung bai bao 138', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 138', 'Tom tat 138', NULL);
+INSERT INTO `articles` VALUES (139, 3, 'Tiêu đề bài báo 139', 4, 'Noi dung bai bao 139', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 139', 'Tom tat 139', NULL);
+INSERT INTO `articles` VALUES (140, 3, 'Tiêu đề bài báo 140', 1, 'Noi dung bai bao 140', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 140', 'Tom tat 140', 2);
+INSERT INTO `articles` VALUES (141, 3, 'Tiêu đề bài báo 141', 2, 'Noi dung bai bao 141', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 141', 'Tom tat 141', 2);
+INSERT INTO `articles` VALUES (142, 3, 'Tiêu đề bài báo 142', 3, 'Noi dung bai bao 142', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 142', 'Tom tat 142', NULL);
+INSERT INTO `articles` VALUES (143, 3, 'Tiêu đề bài báo 143', 4, 'Noi dung bai bao 143', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 143', 'Tom tat 143', NULL);
+INSERT INTO `articles` VALUES (144, 3, 'Tiêu đề bài báo 144', 1, 'Noi dung bai bao 144', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 144', 'Tom tat 144', 7);
+INSERT INTO `articles` VALUES (145, 3, 'Tiêu đề bài báo 145', 2, 'Noi dung bai bao 145', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 145', 'Tom tat 145', 7);
+INSERT INTO `articles` VALUES (146, 3, 'Tiêu đề bài báo 146', 3, 'Noi dung bai bao 146', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 146', 'Tom tat 146', NULL);
+INSERT INTO `articles` VALUES (147, 3, 'Tiêu đề bài báo 147', 4, 'Noi dung bai bao 147', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 147', 'Tom tat 147', NULL);
+INSERT INTO `articles` VALUES (148, 3, 'Tiêu đề bài báo 148', 1, 'Noi dung bai bao 148', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 148', 'Tom tat 148', 7);
+INSERT INTO `articles` VALUES (149, 3, 'Tiêu đề bài báo 149', 2, 'Noi dung bai bao 149', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 149', 'Tom tat 149', 7);
+INSERT INTO `articles` VALUES (150, 3, 'Tiêu đề bài báo 150', 3, 'Noi dung bai bao 150', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 150', 'Tom tat 150', NULL);
+INSERT INTO `articles` VALUES (151, 3, 'Tiêu đề bài báo 151', 4, 'Noi dung bai bao 151', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 151', 'Tom tat 151', NULL);
+INSERT INTO `articles` VALUES (152, 3, 'Tiêu đề bài báo 152', 1, 'Noi dung bai bao 152', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 152', 'Tom tat 152', 2);
+INSERT INTO `articles` VALUES (153, 3, 'Tiêu đề bài báo 153', 2, 'Noi dung bai bao 153', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 153', 'Tom tat 153', 2);
+INSERT INTO `articles` VALUES (154, 3, 'Tiêu đề bài báo 154', 3, 'Noi dung bai bao 154', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 154', 'Tom tat 154', NULL);
+INSERT INTO `articles` VALUES (155, 3, 'Tiêu đề bài báo 155', 4, 'Noi dung bai bao 155', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 155', 'Tom tat 155', NULL);
+INSERT INTO `articles` VALUES (156, 3, 'Tiêu đề bài báo 156', 1, 'Noi dung bai bao 156', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 156', 'Tom tat 156', 2);
+INSERT INTO `articles` VALUES (157, 3, 'Tiêu đề bài báo 157', 2, 'Noi dung bai bao 157', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 157', 'Tom tat 157', 7);
+INSERT INTO `articles` VALUES (158, 3, 'Tiêu đề bài báo 158', 3, 'Noi dung bai bao 158', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 158', 'Tom tat 158', NULL);
+INSERT INTO `articles` VALUES (159, 3, 'Tiêu đề bài báo 159', 4, 'Noi dung bai bao 159', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 159', 'Tom tat 159', NULL);
+INSERT INTO `articles` VALUES (160, 3, 'Tiêu đề bài báo 160', 1, 'Noi dung bai bao 160', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 160', 'Tom tat 160', 7);
+INSERT INTO `articles` VALUES (161, 3, 'Tiêu đề bài báo 161', 2, 'Noi dung bai bao 161', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 161', 'Tom tat 161', 7);
+INSERT INTO `articles` VALUES (162, 3, 'Tiêu đề bài báo 162', 3, 'Noi dung bai bao 162', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 162', 'Tom tat 162', NULL);
+INSERT INTO `articles` VALUES (163, 3, 'Tiêu đề bài báo 163', 4, 'Noi dung bai bao 163', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 163', 'Tom tat 163', NULL);
+INSERT INTO `articles` VALUES (164, 3, 'Tiêu đề bài báo 164', 1, 'Noi dung bai bao 164', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 164', 'Tom tat 164', 7);
+INSERT INTO `articles` VALUES (165, 3, 'Tiêu đề bài báo 165', 2, 'Noi dung bai bao 165', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 165', 'Tom tat 165', 2);
+INSERT INTO `articles` VALUES (166, 3, 'Tiêu đề bài báo 166', 3, 'Noi dung bai bao 166', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 166', 'Tom tat 166', NULL);
+INSERT INTO `articles` VALUES (167, 3, 'Tiêu đề bài báo 167', 4, 'Noi dung bai bao 167', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 167', 'Tom tat 167', NULL);
+INSERT INTO `articles` VALUES (168, 3, 'Tiêu đề bài báo 168', 1, 'Noi dung bai bao 168', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 168', 'Tom tat 168', 2);
+INSERT INTO `articles` VALUES (169, 3, 'Tiêu đề bài báo 169', 2, 'Noi dung bai bao 169', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 169', 'Tom tat 169', 2);
+INSERT INTO `articles` VALUES (170, 3, 'Tiêu đề bài báo 170', 3, 'Noi dung bai bao 170', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 170', 'Tom tat 170', NULL);
+INSERT INTO `articles` VALUES (171, 3, 'Tiêu đề bài báo 171', 4, 'Noi dung bai bao 171', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 171', 'Tom tat 171', NULL);
+INSERT INTO `articles` VALUES (172, 3, 'Tiêu đề bài báo 172', 1, 'Noi dung bai bao 172', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 172', 'Tom tat 172', 7);
+INSERT INTO `articles` VALUES (173, 3, 'Tiêu đề bài báo 173', 2, 'Noi dung bai bao 173', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 173', 'Tom tat 173', 7);
+INSERT INTO `articles` VALUES (174, 3, 'Tiêu đề bài báo 174', 3, 'Noi dung bai bao 174', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 174', 'Tom tat 174', NULL);
+INSERT INTO `articles` VALUES (175, 3, 'Tiêu đề bài báo 175', 4, 'Noi dung bai bao 175', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 175', 'Tom tat 175', NULL);
+INSERT INTO `articles` VALUES (176, 3, 'Tiêu đề bài báo 176', 1, 'Noi dung bai bao 176', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 176', 'Tom tat 176', 7);
+INSERT INTO `articles` VALUES (177, 3, 'Tiêu đề bài báo 177', 2, 'Noi dung bai bao 177', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 177', 'Tom tat 177', 7);
+INSERT INTO `articles` VALUES (178, 3, 'Tiêu đề bài báo 178', 3, 'Noi dung bai bao 178', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 178', 'Tom tat 178', NULL);
+INSERT INTO `articles` VALUES (179, 3, 'Tiêu đề bài báo 179', 4, 'Noi dung bai bao 179', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 179', 'Tom tat 179', NULL);
+INSERT INTO `articles` VALUES (180, 3, 'Tiêu đề bài báo 180', 1, 'Noi dung bai bao 180', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 180', 'Tom tat 180', 2);
+INSERT INTO `articles` VALUES (181, 3, 'Tiêu đề bài báo 181', 2, 'Noi dung bai bao 181', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 181', 'Tom tat 181', 2);
+INSERT INTO `articles` VALUES (182, 3, 'Tiêu đề bài báo 182', 3, 'Noi dung bai bao 182', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 182', 'Tom tat 182', NULL);
+INSERT INTO `articles` VALUES (183, 3, 'Tiêu đề bài báo 183', 4, 'Noi dung bai bao 183', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 183', 'Tom tat 183', NULL);
+INSERT INTO `articles` VALUES (184, 3, 'Tiêu đề bài báo 184', 1, 'Noi dung bai bao 184', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 184', 'Tom tat 184', 2);
+INSERT INTO `articles` VALUES (185, 3, 'Tiêu đề bài báo 185', 2, 'Noi dung bai bao 185', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 185', 'Tom tat 185', 2);
+INSERT INTO `articles` VALUES (186, 3, 'Tiêu đề bài báo 186', 3, 'Noi dung bai bao 186', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 186', 'Tom tat 186', NULL);
+INSERT INTO `articles` VALUES (187, 3, 'Tiêu đề bài báo 187', 4, 'Noi dung bai bao 187', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 187', 'Tom tat 187', NULL);
+INSERT INTO `articles` VALUES (188, 3, 'Tiêu đề bài báo 188', 1, 'Noi dung bai bao 188', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 188', 'Tom tat 188', 7);
+INSERT INTO `articles` VALUES (189, 3, 'Tiêu đề bài báo 189', 2, 'Noi dung bai bao 189', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 189', 'Tom tat 189', 7);
+INSERT INTO `articles` VALUES (190, 3, 'Tiêu đề bài báo 190', 3, 'Noi dung bai bao 190', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 190', 'Tom tat 190', NULL);
+INSERT INTO `articles` VALUES (191, 3, 'Tiêu đề bài báo 191', 4, 'Noi dung bai bao 191', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 191', 'Tom tat 191', NULL);
+INSERT INTO `articles` VALUES (192, 3, 'Tiêu đề bài báo 192', 1, 'Noi dung bai bao 192', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 192', 'Tom tat 192', 7);
+INSERT INTO `articles` VALUES (193, 3, 'Tiêu đề bài báo 193', 2, 'Noi dung bai bao 193', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 193', 'Tom tat 193', 7);
+INSERT INTO `articles` VALUES (194, 3, 'Tiêu đề bài báo 194', 3, 'Noi dung bai bao 194', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 194', 'Tom tat 194', NULL);
+INSERT INTO `articles` VALUES (195, 3, 'Tiêu đề bài báo 195', 4, 'Noi dung bai bao 195', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 195', 'Tom tat 195', NULL);
+INSERT INTO `articles` VALUES (196, 3, 'Tiêu đề bài báo 196', 1, 'Noi dung bai bao 196', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 196', 'Tom tat 196', 2);
+INSERT INTO `articles` VALUES (197, 3, 'Tiêu đề bài báo 197', 2, 'Noi dung bai bao 197', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 197', 'Tom tat 197', 2);
+INSERT INTO `articles` VALUES (198, 3, 'Tiêu đề bài báo 198', 3, 'Noi dung bai bao 198', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 198', 'Tom tat 198', NULL);
+INSERT INTO `articles` VALUES (199, 3, 'Tiêu đề bài báo 199', 4, 'Noi dung bai bao 199', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 199', 'Tom tat 199', NULL);
+INSERT INTO `articles` VALUES (200, 3, 'Tiêu đề bài báo 200', 1, 'Noi dung bai bao 200', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 200', 'Tom tat 200', 2);
+INSERT INTO `articles` VALUES (201, 3, 'Tiêu đề bài báo 201', 2, 'Noi dung bai bao 201', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 201', 'Tom tat 201', 2);
+INSERT INTO `articles` VALUES (202, 3, 'Tiêu đề bài báo 202', 3, 'Noi dung bai bao 202', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 202', 'Tom tat 202', NULL);
+INSERT INTO `articles` VALUES (203, 3, 'Tiêu đề bài báo 203', 4, 'Noi dung bai bao 203', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 203', 'Tom tat 203', NULL);
+INSERT INTO `articles` VALUES (204, 3, 'Tiêu đề bài báo 204', 1, 'Noi dung bai bao 204', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 204', 'Tom tat 204', 7);
+INSERT INTO `articles` VALUES (205, 3, 'Tiêu đề bài báo 205', 2, 'Noi dung bai bao 205', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 205', 'Tom tat 205', 7);
+INSERT INTO `articles` VALUES (206, 3, 'Tiêu đề bài báo 206', 3, 'Noi dung bai bao 206', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 206', 'Tom tat 206', NULL);
+INSERT INTO `articles` VALUES (207, 3, 'Tiêu đề bài báo 207', 4, 'Noi dung bai bao 207', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 207', 'Tom tat 207', NULL);
+INSERT INTO `articles` VALUES (208, 3, 'Tiêu đề bài báo 208', 1, 'Noi dung bai bao 208', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 208', 'Tom tat 208', 7);
+INSERT INTO `articles` VALUES (209, 3, 'Tiêu đề bài báo 209', 2, 'Noi dung bai bao 209', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 209', 'Tom tat 209', 7);
+INSERT INTO `articles` VALUES (210, 3, 'Tiêu đề bài báo 210', 3, 'Noi dung bai bao 210', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 210', 'Tom tat 210', NULL);
+INSERT INTO `articles` VALUES (211, 3, 'Tiêu đề bài báo 211', 4, 'Noi dung bai bao 211', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 211', 'Tom tat 211', NULL);
+INSERT INTO `articles` VALUES (212, 3, 'Tiêu đề bài báo 212', 1, 'Noi dung bai bao 212', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 212', 'Tom tat 212', 2);
+INSERT INTO `articles` VALUES (213, 3, 'Tiêu đề bài báo 213', 2, 'Noi dung bai bao 213', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 213', 'Tom tat 213', 2);
+INSERT INTO `articles` VALUES (214, 3, 'Tiêu đề bài báo 214', 3, 'Noi dung bai bao 214', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 214', 'Tom tat 214', NULL);
+INSERT INTO `articles` VALUES (215, 3, 'Tiêu đề bài báo 215', 4, 'Noi dung bai bao 215', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 215', 'Tom tat 215', NULL);
+INSERT INTO `articles` VALUES (216, 3, 'Tiêu đề bài báo 216', 1, 'Noi dung bai bao 216', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 216', 'Tom tat 216', 2);
+INSERT INTO `articles` VALUES (217, 3, 'Tiêu đề bài báo 217', 2, 'Noi dung bai bao 217', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 217', 'Tom tat 217', 7);
+INSERT INTO `articles` VALUES (218, 3, 'Tiêu đề bài báo 218', 3, 'Noi dung bai bao 218', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 218', 'Tom tat 218', NULL);
+INSERT INTO `articles` VALUES (219, 3, 'Tiêu đề bài báo 219', 4, 'Noi dung bai bao 219', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 219', 'Tom tat 219', NULL);
+INSERT INTO `articles` VALUES (220, 3, 'Tiêu đề bài báo 220', 1, 'Noi dung bai bao 220', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 220', 'Tom tat 220', 7);
+INSERT INTO `articles` VALUES (221, 3, 'Tiêu đề bài báo 221', 2, 'Noi dung bai bao 221', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 221', 'Tom tat 221', 7);
+INSERT INTO `articles` VALUES (222, 3, 'Tiêu đề bài báo 222', 3, 'Noi dung bai bao 222', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 222', 'Tom tat 222', NULL);
+INSERT INTO `articles` VALUES (223, 3, 'Tiêu đề bài báo 223', 4, 'Noi dung bai bao 223', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 223', 'Tom tat 223', NULL);
+INSERT INTO `articles` VALUES (224, 3, 'Tiêu đề bài báo 224', 1, 'Noi dung bai bao 224', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 224', 'Tom tat 224', 7);
+INSERT INTO `articles` VALUES (225, 3, 'Tiêu đề bài báo 225', 2, 'Noi dung bai bao 225', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 225', 'Tom tat 225', 2);
+INSERT INTO `articles` VALUES (226, 3, 'Tiêu đề bài báo 226', 3, 'Noi dung bai bao 226', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 226', 'Tom tat 226', NULL);
+INSERT INTO `articles` VALUES (227, 3, 'Tiêu đề bài báo 227', 4, 'Noi dung bai bao 227', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 227', 'Tom tat 227', NULL);
+INSERT INTO `articles` VALUES (228, 3, 'Tiêu đề bài báo 228', 1, 'Noi dung bai bao 228', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 228', 'Tom tat 228', 2);
+INSERT INTO `articles` VALUES (229, 3, 'Tiêu đề bài báo 229', 2, 'Noi dung bai bao 229', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 229', 'Tom tat 229', 2);
+INSERT INTO `articles` VALUES (230, 3, 'Tiêu đề bài báo 230', 3, 'Noi dung bai bao 230', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 230', 'Tom tat 230', NULL);
+INSERT INTO `articles` VALUES (231, 3, 'Tiêu đề bài báo 231', 4, 'Noi dung bai bao 231', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 231', 'Tom tat 231', NULL);
+INSERT INTO `articles` VALUES (232, 3, 'Tiêu đề bài báo 232', 1, 'Noi dung bai bao 232', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 232', 'Tom tat 232', 7);
+INSERT INTO `articles` VALUES (233, 3, 'Tiêu đề bài báo 233', 2, 'Noi dung bai bao 233', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 233', 'Tom tat 233', 7);
+INSERT INTO `articles` VALUES (234, 3, 'Tiêu đề bài báo 234', 3, 'Noi dung bai bao 234', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 234', 'Tom tat 234', NULL);
+INSERT INTO `articles` VALUES (235, 3, 'Tiêu đề bài báo 235', 4, 'Noi dung bai bao 235', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 235', 'Tom tat 235', NULL);
+INSERT INTO `articles` VALUES (236, 3, 'Tiêu đề bài báo 236', 1, 'Noi dung bai bao 236', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 236', 'Tom tat 236', 7);
+INSERT INTO `articles` VALUES (237, 3, 'Tiêu đề bài báo 237', 2, 'Noi dung bai bao 237', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 237', 'Tom tat 237', 7);
+INSERT INTO `articles` VALUES (238, 3, 'Tiêu đề bài báo 238', 3, 'Noi dung bai bao 238', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 238', 'Tom tat 238', NULL);
+INSERT INTO `articles` VALUES (239, 3, 'Tiêu đề bài báo 239', 4, 'Noi dung bai bao 239', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 239', 'Tom tat 239', NULL);
+INSERT INTO `articles` VALUES (240, 3, 'Tiêu đề bài báo 240', 1, 'Noi dung bai bao 240', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 240', 'Tom tat 240', 2);
+INSERT INTO `articles` VALUES (241, 3, 'Tiêu đề bài báo 241', 2, 'Noi dung bai bao 241', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 241', 'Tom tat 241', 2);
+INSERT INTO `articles` VALUES (242, 3, 'Tiêu đề bài báo 242', 3, 'Noi dung bai bao 242', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 242', 'Tom tat 242', NULL);
+INSERT INTO `articles` VALUES (243, 3, 'Tiêu đề bài báo 243', 4, 'Noi dung bai bao 243', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 243', 'Tom tat 243', NULL);
+INSERT INTO `articles` VALUES (244, 3, 'Tiêu đề bài báo 244', 1, 'Noi dung bai bao 244', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 244', 'Tom tat 244', 2);
+INSERT INTO `articles` VALUES (245, 3, 'Tiêu đề bài báo 245', 2, 'Noi dung bai bao 245', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 245', 'Tom tat 245', 2);
+INSERT INTO `articles` VALUES (246, 3, 'Tiêu đề bài báo 246', 3, 'Noi dung bai bao 246', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 246', 'Tom tat 246', NULL);
+INSERT INTO `articles` VALUES (247, 3, 'Tiêu đề bài báo 247', 4, 'Noi dung bai bao 247', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 247', 'Tom tat 247', NULL);
+INSERT INTO `articles` VALUES (248, 3, 'Tiêu đề bài báo 248', 1, 'Noi dung bai bao 248', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 248', 'Tom tat 248', 7);
+INSERT INTO `articles` VALUES (249, 3, 'Tiêu đề bài báo 249', 2, 'Noi dung bai bao 249', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 249', 'Tom tat 249', 7);
+INSERT INTO `articles` VALUES (250, 3, 'Tiêu đề bài báo 250', 3, 'Noi dung bai bao 250', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 250', 'Tom tat 250', NULL);
+INSERT INTO `articles` VALUES (251, 3, 'Tiêu đề bài báo 251', 4, 'Noi dung bai bao 251', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 251', 'Tom tat 251', NULL);
+INSERT INTO `articles` VALUES (252, 3, 'Tiêu đề bài báo 252', 1, 'Noi dung bai bao 252', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 252', 'Tom tat 252', 7);
+INSERT INTO `articles` VALUES (253, 3, 'Tiêu đề bài báo 253', 2, 'Noi dung bai bao 253', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 253', 'Tom tat 253', 7);
+INSERT INTO `articles` VALUES (254, 3, 'Tiêu đề bài báo 254', 3, 'Noi dung bai bao 254', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 254', 'Tom tat 254', NULL);
+INSERT INTO `articles` VALUES (255, 3, 'Tiêu đề bài báo 255', 4, 'Noi dung bai bao 255', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 255', 'Tom tat 255', NULL);
+INSERT INTO `articles` VALUES (256, 3, 'Tiêu đề bài báo 256', 1, 'Noi dung bai bao 256', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 256', 'Tom tat 256', 2);
+INSERT INTO `articles` VALUES (257, 3, 'Tiêu đề bài báo 257', 2, 'Noi dung bai bao 257', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 257', 'Tom tat 257', 2);
+INSERT INTO `articles` VALUES (258, 3, 'Tiêu đề bài báo 258', 3, 'Noi dung bai bao 258', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 258', 'Tom tat 258', NULL);
+INSERT INTO `articles` VALUES (259, 3, 'Tiêu đề bài báo 259', 4, 'Noi dung bai bao 259', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 259', 'Tom tat 259', NULL);
+INSERT INTO `articles` VALUES (260, 3, 'Tiêu đề bài báo 260', 1, 'Noi dung bai bao 260', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 260', 'Tom tat 260', 2);
+INSERT INTO `articles` VALUES (261, 3, 'Tiêu đề bài báo 261', 2, 'Noi dung bai bao 261', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 261', 'Tom tat 261', 2);
+INSERT INTO `articles` VALUES (262, 3, 'Tiêu đề bài báo 262', 3, 'Noi dung bai bao 262', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 262', 'Tom tat 262', NULL);
+INSERT INTO `articles` VALUES (263, 3, 'Tiêu đề bài báo 263', 4, 'Noi dung bai bao 263', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 263', 'Tom tat 263', NULL);
+INSERT INTO `articles` VALUES (264, 3, 'Tiêu đề bài báo 264', 1, 'Noi dung bai bao 264', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 264', 'Tom tat 264', 7);
+INSERT INTO `articles` VALUES (265, 3, 'Tiêu đề bài báo 265', 2, 'Noi dung bai bao 265', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 265', 'Tom tat 265', 7);
+INSERT INTO `articles` VALUES (266, 3, 'Tiêu đề bài báo 266', 3, 'Noi dung bai bao 266', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 266', 'Tom tat 266', NULL);
+INSERT INTO `articles` VALUES (267, 3, 'Tiêu đề bài báo 267', 4, 'Noi dung bai bao 267', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 267', 'Tom tat 267', NULL);
+INSERT INTO `articles` VALUES (268, 3, 'Tiêu đề bài báo 268', 1, 'Noi dung bai bao 268', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 268', 'Tom tat 268', 7);
+INSERT INTO `articles` VALUES (269, 3, 'Tiêu đề bài báo 269', 2, 'Noi dung bai bao 269', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 269', 'Tom tat 269', 7);
+INSERT INTO `articles` VALUES (270, 3, 'Tiêu đề bài báo 270', 3, 'Noi dung bai bao 270', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 270', 'Tom tat 270', NULL);
+INSERT INTO `articles` VALUES (271, 3, 'Tiêu đề bài báo 271', 4, 'Noi dung bai bao 271', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 271', 'Tom tat 271', NULL);
+INSERT INTO `articles` VALUES (272, 3, 'Tiêu đề bài báo 272', 1, 'Noi dung bai bao 272', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 272', 'Tom tat 272', 2);
+INSERT INTO `articles` VALUES (273, 3, 'Tiêu đề bài báo 273', 2, 'Noi dung bai bao 273', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 273', 'Tom tat 273', 2);
+INSERT INTO `articles` VALUES (274, 3, 'Tiêu đề bài báo 274', 3, 'Noi dung bai bao 274', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 274', 'Tom tat 274', NULL);
+INSERT INTO `articles` VALUES (275, 3, 'Tiêu đề bài báo 275', 4, 'Noi dung bai bao 275', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 275', 'Tom tat 275', NULL);
+INSERT INTO `articles` VALUES (276, 3, 'Tiêu đề bài báo 276', 1, 'Noi dung bai bao 276', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 276', 'Tom tat 276', 2);
+INSERT INTO `articles` VALUES (277, 3, 'Tiêu đề bài báo 277', 2, 'Noi dung bai bao 277', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 277', 'Tom tat 277', 7);
+INSERT INTO `articles` VALUES (278, 3, 'Tiêu đề bài báo 278', 3, 'Noi dung bai bao 278', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 278', 'Tom tat 278', NULL);
+INSERT INTO `articles` VALUES (279, 3, 'Tiêu đề bài báo 279', 4, 'Noi dung bai bao 279', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 279', 'Tom tat 279', NULL);
+INSERT INTO `articles` VALUES (280, 3, 'Tiêu đề bài báo 280', 1, 'Noi dung bai bao 280', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 280', 'Tom tat 280', 7);
+INSERT INTO `articles` VALUES (281, 3, 'Tiêu đề bài báo 281', 2, 'Noi dung bai bao 281', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 281', 'Tom tat 281', 7);
+INSERT INTO `articles` VALUES (282, 3, 'Tiêu đề bài báo 282', 3, 'Noi dung bai bao 282', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 282', 'Tom tat 282', NULL);
+INSERT INTO `articles` VALUES (283, 3, 'Tiêu đề bài báo 283', 4, 'Noi dung bai bao 283', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 283', 'Tom tat 283', NULL);
+INSERT INTO `articles` VALUES (284, 3, 'Tiêu đề bài báo 284', 1, 'Noi dung bai bao 284', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 284', 'Tom tat 284', 7);
+INSERT INTO `articles` VALUES (285, 3, 'Tiêu đề bài báo 285', 2, 'Noi dung bai bao 285', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 285', 'Tom tat 285', 2);
+INSERT INTO `articles` VALUES (286, 3, 'Tiêu đề bài báo 286', 3, 'Noi dung bai bao 286', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 286', 'Tom tat 286', NULL);
+INSERT INTO `articles` VALUES (287, 3, 'Tiêu đề bài báo 287', 4, 'Noi dung bai bao 287', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 287', 'Tom tat 287', NULL);
+INSERT INTO `articles` VALUES (288, 3, 'Tiêu đề bài báo 288', 1, 'Noi dung bai bao 288', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 288', 'Tom tat 288', 2);
+INSERT INTO `articles` VALUES (289, 3, 'Tiêu đề bài báo 289', 2, 'Noi dung bai bao 289', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 289', 'Tom tat 289', 2);
+INSERT INTO `articles` VALUES (290, 3, 'Tiêu đề bài báo 290', 3, 'Noi dung bai bao 290', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 290', 'Tom tat 290', NULL);
+INSERT INTO `articles` VALUES (291, 3, 'Tiêu đề bài báo 291', 4, 'Noi dung bai bao 291', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 291', 'Tom tat 291', NULL);
+INSERT INTO `articles` VALUES (292, 3, 'Tiêu đề bài báo 292', 1, 'Noi dung bai bao 292', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 292', 'Tom tat 292', 7);
+INSERT INTO `articles` VALUES (293, 3, 'Tiêu đề bài báo 293', 2, 'Noi dung bai bao 293', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 293', 'Tom tat 293', 7);
+INSERT INTO `articles` VALUES (294, 3, 'Tiêu đề bài báo 294', 3, 'Noi dung bai bao 294', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 294', 'Tom tat 294', NULL);
+INSERT INTO `articles` VALUES (295, 3, 'Tiêu đề bài báo 295', 4, 'Noi dung bai bao 295', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 295', 'Tom tat 295', NULL);
+INSERT INTO `articles` VALUES (296, 3, 'Tiêu đề bài báo 296', 1, 'Noi dung bai bao 296', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 296', 'Tom tat 296', 7);
+INSERT INTO `articles` VALUES (297, 3, 'Tiêu đề bài báo 297', 2, 'Noi dung bai bao 297', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 297', 'Tom tat 297', 7);
+INSERT INTO `articles` VALUES (298, 3, 'Tiêu đề bài báo 298', 3, 'Noi dung bai bao 298', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 298', 'Tom tat 298', NULL);
+INSERT INTO `articles` VALUES (299, 3, 'Tiêu đề bài báo 299', 4, 'Noi dung bai bao 299', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 299', 'Tom tat 299', NULL);
+INSERT INTO `articles` VALUES (300, 3, 'Tiêu đề bài báo 300', 1, 'Noi dung bai bao 300', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 300', 'Tom tat 300', 2);
+INSERT INTO `articles` VALUES (301, 3, 'Tiêu đề bài báo 301', 2, 'Noi dung bai bao 301', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 301', 'Tom tat 301', 2);
+INSERT INTO `articles` VALUES (302, 3, 'Tiêu đề bài báo 302', 3, 'Noi dung bai bao 302', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 302', 'Tom tat 302', NULL);
+INSERT INTO `articles` VALUES (303, 3, 'Tiêu đề bài báo 303', 4, 'Noi dung bai bao 303', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 303', 'Tom tat 303', NULL);
+INSERT INTO `articles` VALUES (304, 3, 'Tiêu đề bài báo 304', 1, 'Noi dung bai bao 304', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 304', 'Tom tat 304', 2);
+INSERT INTO `articles` VALUES (305, 3, 'Tiêu đề bài báo 305', 2, 'Noi dung bai bao 305', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 305', 'Tom tat 305', 2);
+INSERT INTO `articles` VALUES (306, 3, 'Tiêu đề bài báo 306', 3, 'Noi dung bai bao 306', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 306', 'Tom tat 306', NULL);
+INSERT INTO `articles` VALUES (307, 3, 'Tiêu đề bài báo 307', 4, 'Noi dung bai bao 307', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 307', 'Tom tat 307', NULL);
+INSERT INTO `articles` VALUES (308, 3, 'Tiêu đề bài báo 308', 1, 'Noi dung bai bao 308', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 308', 'Tom tat 308', 7);
+INSERT INTO `articles` VALUES (309, 3, 'Tiêu đề bài báo 309', 2, 'Noi dung bai bao 309', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 309', 'Tom tat 309', 7);
+INSERT INTO `articles` VALUES (310, 3, 'Tiêu đề bài báo 310', 3, 'Noi dung bai bao 310', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 310', 'Tom tat 310', NULL);
+INSERT INTO `articles` VALUES (311, 3, 'Tiêu đề bài báo 311', 4, 'Noi dung bai bao 311', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 311', 'Tom tat 311', NULL);
+INSERT INTO `articles` VALUES (312, 3, 'Tiêu đề bài báo 312', 1, 'Noi dung bai bao 312', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 312', 'Tom tat 312', 7);
+INSERT INTO `articles` VALUES (313, 3, 'Tiêu đề bài báo 313', 2, 'Noi dung bai bao 313', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 313', 'Tom tat 313', 7);
+INSERT INTO `articles` VALUES (314, 3, 'Tiêu đề bài báo 314', 3, 'Noi dung bai bao 314', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 314', 'Tom tat 314', NULL);
+INSERT INTO `articles` VALUES (315, 3, 'Tiêu đề bài báo 315', 4, 'Noi dung bai bao 315', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 315', 'Tom tat 315', NULL);
+INSERT INTO `articles` VALUES (316, 3, 'Tiêu đề bài báo 316', 1, 'Noi dung bai bao 316', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 316', 'Tom tat 316', 2);
+INSERT INTO `articles` VALUES (317, 3, 'Tiêu đề bài báo 317', 2, 'Noi dung bai bao 317', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 317', 'Tom tat 317', 2);
+INSERT INTO `articles` VALUES (318, 3, 'Tiêu đề bài báo 318', 3, 'Noi dung bai bao 318', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 318', 'Tom tat 318', NULL);
+INSERT INTO `articles` VALUES (319, 3, 'Tiêu đề bài báo 319', 4, 'Noi dung bai bao 319', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 319', 'Tom tat 319', NULL);
+INSERT INTO `articles` VALUES (320, 3, 'Tiêu đề bài báo 320', 1, 'Noi dung bai bao 320', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 320', 'Tom tat 320', 2);
+INSERT INTO `articles` VALUES (321, 3, 'Tiêu đề bài báo 321', 2, 'Noi dung bai bao 321', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 321', 'Tom tat 321', 2);
+INSERT INTO `articles` VALUES (322, 3, 'Tiêu đề bài báo 322', 3, 'Noi dung bai bao 322', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 322', 'Tom tat 322', NULL);
+INSERT INTO `articles` VALUES (323, 3, 'Tiêu đề bài báo 323', 4, 'Noi dung bai bao 323', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 323', 'Tom tat 323', NULL);
+INSERT INTO `articles` VALUES (324, 3, 'Tiêu đề bài báo 324', 1, 'Noi dung bai bao 324', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 324', 'Tom tat 324', 7);
+INSERT INTO `articles` VALUES (325, 3, 'Tiêu đề bài báo 325', 2, 'Noi dung bai bao 325', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 325', 'Tom tat 325', 7);
+INSERT INTO `articles` VALUES (326, 3, 'Tiêu đề bài báo 326', 3, 'Noi dung bai bao 326', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 326', 'Tom tat 326', NULL);
+INSERT INTO `articles` VALUES (327, 3, 'Tiêu đề bài báo 327', 4, 'Noi dung bai bao 327', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 327', 'Tom tat 327', NULL);
+INSERT INTO `articles` VALUES (328, 3, 'Tiêu đề bài báo 328', 1, 'Noi dung bai bao 328', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 328', 'Tom tat 328', 7);
+INSERT INTO `articles` VALUES (329, 3, 'Tiêu đề bài báo 329', 2, 'Noi dung bai bao 329', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 329', 'Tom tat 329', 7);
+INSERT INTO `articles` VALUES (330, 3, 'Tiêu đề bài báo 330', 3, 'Noi dung bai bao 330', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 330', 'Tom tat 330', NULL);
+INSERT INTO `articles` VALUES (331, 3, 'Tiêu đề bài báo 331', 4, 'Noi dung bai bao 331', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 331', 'Tom tat 331', NULL);
+INSERT INTO `articles` VALUES (332, 3, 'Tiêu đề bài báo 332', 1, 'Noi dung bai bao 332', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 332', 'Tom tat 332', 2);
+INSERT INTO `articles` VALUES (333, 3, 'Tiêu đề bài báo 333', 2, 'Noi dung bai bao 333', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 333', 'Tom tat 333', 2);
+INSERT INTO `articles` VALUES (334, 3, 'Tiêu đề bài báo 334', 3, 'Noi dung bai bao 334', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 334', 'Tom tat 334', NULL);
+INSERT INTO `articles` VALUES (335, 3, 'Tiêu đề bài báo 335', 4, 'Noi dung bai bao 335', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 335', 'Tom tat 335', NULL);
+INSERT INTO `articles` VALUES (336, 3, 'Tiêu đề bài báo 336', 1, 'Noi dung bai bao 336', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 336', 'Tom tat 336', 2);
+INSERT INTO `articles` VALUES (337, 3, 'Tiêu đề bài báo 337', 2, 'Noi dung bai bao 337', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 337', 'Tom tat 337', 7);
+INSERT INTO `articles` VALUES (338, 3, 'Tiêu đề bài báo 338', 3, 'Noi dung bai bao 338', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 338', 'Tom tat 338', NULL);
+INSERT INTO `articles` VALUES (339, 3, 'Tiêu đề bài báo 339', 4, 'Noi dung bai bao 339', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 339', 'Tom tat 339', NULL);
+INSERT INTO `articles` VALUES (340, 3, 'Tiêu đề bài báo 340', 1, 'Noi dung bai bao 340', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 340', 'Tom tat 340', 7);
+INSERT INTO `articles` VALUES (341, 3, 'Tiêu đề bài báo 341', 2, 'Noi dung bai bao 341', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 341', 'Tom tat 341', 7);
+INSERT INTO `articles` VALUES (342, 3, 'Tiêu đề bài báo 342', 3, 'Noi dung bai bao 342', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 342', 'Tom tat 342', NULL);
+INSERT INTO `articles` VALUES (343, 3, 'Tiêu đề bài báo 343', 4, 'Noi dung bai bao 343', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 343', 'Tom tat 343', NULL);
+INSERT INTO `articles` VALUES (344, 3, 'Tiêu đề bài báo 344', 1, 'Noi dung bai bao 344', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 344', 'Tom tat 344', 7);
+INSERT INTO `articles` VALUES (345, 3, 'Tiêu đề bài báo 345', 2, 'Noi dung bai bao 345', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 345', 'Tom tat 345', 2);
+INSERT INTO `articles` VALUES (346, 3, 'Tiêu đề bài báo 346', 3, 'Noi dung bai bao 346', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 346', 'Tom tat 346', NULL);
+INSERT INTO `articles` VALUES (347, 3, 'Tiêu đề bài báo 347', 4, 'Noi dung bai bao 347', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 347', 'Tom tat 347', NULL);
+INSERT INTO `articles` VALUES (348, 3, 'Tiêu đề bài báo 348', 1, 'Noi dung bai bao 348', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 348', 'Tom tat 348', 2);
+INSERT INTO `articles` VALUES (349, 3, 'Tiêu đề bài báo 349', 2, 'Noi dung bai bao 349', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 349', 'Tom tat 349', 2);
+INSERT INTO `articles` VALUES (350, 3, 'Tiêu đề bài báo 350', 3, 'Noi dung bai bao 350', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 350', 'Tom tat 350', NULL);
+INSERT INTO `articles` VALUES (351, 3, 'Tiêu đề bài báo 351', 4, 'Noi dung bai bao 351', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 351', 'Tom tat 351', NULL);
+INSERT INTO `articles` VALUES (352, 3, 'Tiêu đề bài báo 352', 1, 'Noi dung bai bao 352', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 352', 'Tom tat 352', 7);
+INSERT INTO `articles` VALUES (353, 3, 'Tiêu đề bài báo 353', 2, 'Noi dung bai bao 353', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 353', 'Tom tat 353', 7);
+INSERT INTO `articles` VALUES (354, 3, 'Tiêu đề bài báo 354', 3, 'Noi dung bai bao 354', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 354', 'Tom tat 354', NULL);
+INSERT INTO `articles` VALUES (355, 3, 'Tiêu đề bài báo 355', 4, 'Noi dung bai bao 355', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 355', 'Tom tat 355', NULL);
+INSERT INTO `articles` VALUES (356, 3, 'Tiêu đề bài báo 356', 1, 'Noi dung bai bao 356', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 356', 'Tom tat 356', 7);
+INSERT INTO `articles` VALUES (357, 3, 'Tiêu đề bài báo 357', 2, 'Noi dung bai bao 357', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 357', 'Tom tat 357', 7);
+INSERT INTO `articles` VALUES (358, 3, 'Tiêu đề bài báo 358', 3, 'Noi dung bai bao 358', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 358', 'Tom tat 358', NULL);
+INSERT INTO `articles` VALUES (359, 3, 'Tiêu đề bài báo 359', 4, 'Noi dung bai bao 359', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 359', 'Tom tat 359', NULL);
+INSERT INTO `articles` VALUES (360, 3, 'Tiêu đề bài báo 360', 1, 'Noi dung bai bao 360', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 360', 'Tom tat 360', 2);
+INSERT INTO `articles` VALUES (361, 3, 'Tiêu đề bài báo 361', 2, 'Noi dung bai bao 361', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 361', 'Tom tat 361', 2);
+INSERT INTO `articles` VALUES (362, 3, 'Tiêu đề bài báo 362', 3, 'Noi dung bai bao 362', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 362', 'Tom tat 362', NULL);
+INSERT INTO `articles` VALUES (363, 3, 'Tiêu đề bài báo 363', 4, 'Noi dung bai bao 363', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 363', 'Tom tat 363', NULL);
+INSERT INTO `articles` VALUES (364, 3, 'Tiêu đề bài báo 364', 1, 'Noi dung bai bao 364', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 364', 'Tom tat 364', 2);
+INSERT INTO `articles` VALUES (365, 3, 'Tiêu đề bài báo 365', 2, 'Noi dung bai bao 365', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 365', 'Tom tat 365', 2);
+INSERT INTO `articles` VALUES (366, 3, 'Tiêu đề bài báo 366', 3, 'Noi dung bai bao 366', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 366', 'Tom tat 366', NULL);
+INSERT INTO `articles` VALUES (367, 3, 'Tiêu đề bài báo 367', 4, 'Noi dung bai bao 367', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 367', 'Tom tat 367', NULL);
+INSERT INTO `articles` VALUES (368, 3, 'Tiêu đề bài báo 368', 1, 'Noi dung bai bao 368', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 368', 'Tom tat 368', 7);
+INSERT INTO `articles` VALUES (369, 3, 'Tiêu đề bài báo 369', 2, 'Noi dung bai bao 369', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 369', 'Tom tat 369', 7);
+INSERT INTO `articles` VALUES (370, 3, 'Tiêu đề bài báo 370', 3, 'Noi dung bai bao 370', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 370', 'Tom tat 370', NULL);
+INSERT INTO `articles` VALUES (371, 3, 'Tiêu đề bài báo 371', 4, 'Noi dung bai bao 371', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 371', 'Tom tat 371', NULL);
+INSERT INTO `articles` VALUES (372, 3, 'Tiêu đề bài báo 372', 1, 'Noi dung bai bao 372', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 372', 'Tom tat 372', 7);
+INSERT INTO `articles` VALUES (373, 3, 'Tiêu đề bài báo 373', 2, 'Noi dung bai bao 373', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 373', 'Tom tat 373', 7);
+INSERT INTO `articles` VALUES (374, 3, 'Tiêu đề bài báo 374', 3, 'Noi dung bai bao 374', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 374', 'Tom tat 374', NULL);
+INSERT INTO `articles` VALUES (375, 3, 'Tiêu đề bài báo 375', 4, 'Noi dung bai bao 375', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 375', 'Tom tat 375', NULL);
+INSERT INTO `articles` VALUES (376, 3, 'Tiêu đề bài báo 376', 1, 'Noi dung bai bao 376', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 376', 'Tom tat 376', 2);
+INSERT INTO `articles` VALUES (377, 3, 'Tiêu đề bài báo 377', 2, 'Noi dung bai bao 377', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 377', 'Tom tat 377', 2);
+INSERT INTO `articles` VALUES (378, 3, 'Tiêu đề bài báo 378', 3, 'Noi dung bai bao 378', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 378', 'Tom tat 378', NULL);
+INSERT INTO `articles` VALUES (379, 3, 'Tiêu đề bài báo 379', 4, 'Noi dung bai bao 379', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 379', 'Tom tat 379', NULL);
+INSERT INTO `articles` VALUES (380, 3, 'Tiêu đề bài báo 380', 1, 'Noi dung bai bao 380', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 380', 'Tom tat 380', 2);
+INSERT INTO `articles` VALUES (381, 3, 'Tiêu đề bài báo 381', 2, 'Noi dung bai bao 381', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 381', 'Tom tat 381', 2);
+INSERT INTO `articles` VALUES (382, 3, 'Tiêu đề bài báo 382', 3, 'Noi dung bai bao 382', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 382', 'Tom tat 382', NULL);
+INSERT INTO `articles` VALUES (383, 3, 'Tiêu đề bài báo 383', 4, 'Noi dung bai bao 383', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 383', 'Tom tat 383', NULL);
+INSERT INTO `articles` VALUES (384, 3, 'Tiêu đề bài báo 384', 1, 'Noi dung bai bao 384', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 384', 'Tom tat 384', 7);
+INSERT INTO `articles` VALUES (385, 3, 'Tiêu đề bài báo 385', 2, 'Noi dung bai bao 385', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 385', 'Tom tat 385', 7);
+INSERT INTO `articles` VALUES (386, 3, 'Tiêu đề bài báo 386', 3, 'Noi dung bai bao 386', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 386', 'Tom tat 386', NULL);
+INSERT INTO `articles` VALUES (387, 3, 'Tiêu đề bài báo 387', 4, 'Noi dung bai bao 387', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 387', 'Tom tat 387', NULL);
+INSERT INTO `articles` VALUES (388, 3, 'Tiêu đề bài báo 388', 1, 'Noi dung bai bao 388', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 388', 'Tom tat 388', 7);
+INSERT INTO `articles` VALUES (389, 3, 'Tiêu đề bài báo 389', 2, 'Noi dung bai bao 389', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 389', 'Tom tat 389', 7);
+INSERT INTO `articles` VALUES (390, 3, 'Tiêu đề bài báo 390', 3, 'Noi dung bai bao 390', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 390', 'Tom tat 390', NULL);
+INSERT INTO `articles` VALUES (391, 3, 'Tiêu đề bài báo 391', 4, 'Noi dung bai bao 391', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 391', 'Tom tat 391', NULL);
+INSERT INTO `articles` VALUES (392, 3, 'Tiêu đề bài báo 392', 1, 'Noi dung bai bao 392', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 392', 'Tom tat 392', 2);
+INSERT INTO `articles` VALUES (393, 3, 'Tiêu đề bài báo 393', 2, 'Noi dung bai bao 393', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 393', 'Tom tat 393', 2);
+INSERT INTO `articles` VALUES (394, 3, 'Tiêu đề bài báo 394', 3, 'Noi dung bai bao 394', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 394', 'Tom tat 394', NULL);
+INSERT INTO `articles` VALUES (395, 3, 'Tiêu đề bài báo 395', 4, 'Noi dung bai bao 395', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 395', 'Tom tat 395', NULL);
+INSERT INTO `articles` VALUES (396, 3, 'Tiêu đề bài báo 396', 1, 'Noi dung bai bao 396', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 396', 'Tom tat 396', 2);
+INSERT INTO `articles` VALUES (397, 3, 'Tiêu đề bài báo 397', 2, 'Noi dung bai bao 397', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 397', 'Tom tat 397', 7);
+INSERT INTO `articles` VALUES (398, 3, 'Tiêu đề bài báo 398', 3, 'Noi dung bai bao 398', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 398', 'Tom tat 398', NULL);
+INSERT INTO `articles` VALUES (399, 3, 'Tiêu đề bài báo 399', 4, 'Noi dung bai bao 399', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 399', 'Tom tat 399', NULL);
+INSERT INTO `articles` VALUES (400, 3, 'Tiêu đề bài báo 400', 1, 'Noi dung bai bao 400', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 400', 'Tom tat 400', 7);
+INSERT INTO `articles` VALUES (401, 3, 'Tiêu đề bài báo 401', 2, 'Noi dung bai bao 401', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 401', 'Tom tat 401', 7);
+INSERT INTO `articles` VALUES (402, 3, 'Tiêu đề bài báo 402', 3, 'Noi dung bai bao 402', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 402', 'Tom tat 402', NULL);
+INSERT INTO `articles` VALUES (403, 3, 'Tiêu đề bài báo 403', 4, 'Noi dung bai bao 403', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 403', 'Tom tat 403', NULL);
+INSERT INTO `articles` VALUES (404, 3, 'Tiêu đề bài báo 404', 1, 'Noi dung bai bao 404', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 404', 'Tom tat 404', 7);
+INSERT INTO `articles` VALUES (405, 3, 'Tiêu đề bài báo 405', 2, 'Noi dung bai bao 405', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 405', 'Tom tat 405', 2);
+INSERT INTO `articles` VALUES (406, 3, 'Tiêu đề bài báo 406', 3, 'Noi dung bai bao 406', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 406', 'Tom tat 406', NULL);
+INSERT INTO `articles` VALUES (407, 3, 'Tiêu đề bài báo 407', 4, 'Noi dung bai bao 407', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 407', 'Tom tat 407', NULL);
+INSERT INTO `articles` VALUES (408, 3, 'Tiêu đề bài báo 408', 1, 'Noi dung bai bao 408', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 408', 'Tom tat 408', 2);
+INSERT INTO `articles` VALUES (409, 3, 'Tiêu đề bài báo 409', 2, 'Noi dung bai bao 409', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 409', 'Tom tat 409', 2);
+INSERT INTO `articles` VALUES (410, 3, 'Tiêu đề bài báo 410', 3, 'Noi dung bai bao 410', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 410', 'Tom tat 410', NULL);
+INSERT INTO `articles` VALUES (411, 3, 'Tiêu đề bài báo 411', 4, 'Noi dung bai bao 411', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 411', 'Tom tat 411', NULL);
+INSERT INTO `articles` VALUES (412, 3, 'Tiêu đề bài báo 412', 1, 'Noi dung bai bao 412', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 412', 'Tom tat 412', 7);
+INSERT INTO `articles` VALUES (413, 3, 'Tiêu đề bài báo 413', 2, 'Noi dung bai bao 413', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 413', 'Tom tat 413', 7);
+INSERT INTO `articles` VALUES (414, 3, 'Tiêu đề bài báo 414', 3, 'Noi dung bai bao 414', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 414', 'Tom tat 414', NULL);
+INSERT INTO `articles` VALUES (415, 3, 'Tiêu đề bài báo 415', 4, 'Noi dung bai bao 415', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 415', 'Tom tat 415', NULL);
+INSERT INTO `articles` VALUES (416, 3, 'Tiêu đề bài báo 416', 1, 'Noi dung bai bao 416', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 416', 'Tom tat 416', 7);
+INSERT INTO `articles` VALUES (417, 3, 'Tiêu đề bài báo 417', 2, 'Noi dung bai bao 417', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 417', 'Tom tat 417', 7);
+INSERT INTO `articles` VALUES (418, 3, 'Tiêu đề bài báo 418', 3, 'Noi dung bai bao 418', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 418', 'Tom tat 418', NULL);
+INSERT INTO `articles` VALUES (419, 3, 'Tiêu đề bài báo 419', 4, 'Noi dung bai bao 419', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 419', 'Tom tat 419', NULL);
+INSERT INTO `articles` VALUES (420, 3, 'Tiêu đề bài báo 420', 1, 'Noi dung bai bao 420', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 420', 'Tom tat 420', 2);
+INSERT INTO `articles` VALUES (421, 3, 'Tiêu đề bài báo 421', 2, 'Noi dung bai bao 421', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 421', 'Tom tat 421', 2);
+INSERT INTO `articles` VALUES (422, 3, 'Tiêu đề bài báo 422', 3, 'Noi dung bai bao 422', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 422', 'Tom tat 422', NULL);
+INSERT INTO `articles` VALUES (423, 3, 'Tiêu đề bài báo 423', 4, 'Noi dung bai bao 423', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 423', 'Tom tat 423', NULL);
+INSERT INTO `articles` VALUES (424, 3, 'Tiêu đề bài báo 424', 1, 'Noi dung bai bao 424', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 424', 'Tom tat 424', 2);
+INSERT INTO `articles` VALUES (425, 3, 'Tiêu đề bài báo 425', 2, 'Noi dung bai bao 425', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 425', 'Tom tat 425', 2);
+INSERT INTO `articles` VALUES (426, 3, 'Tiêu đề bài báo 426', 3, 'Noi dung bai bao 426', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 426', 'Tom tat 426', NULL);
+INSERT INTO `articles` VALUES (427, 3, 'Tiêu đề bài báo 427', 4, 'Noi dung bai bao 427', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 427', 'Tom tat 427', NULL);
+INSERT INTO `articles` VALUES (428, 3, 'Tiêu đề bài báo 428', 1, 'Noi dung bai bao 428', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 428', 'Tom tat 428', 7);
+INSERT INTO `articles` VALUES (429, 3, 'Tiêu đề bài báo 429', 2, 'Noi dung bai bao 429', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 429', 'Tom tat 429', 7);
+INSERT INTO `articles` VALUES (430, 3, 'Tiêu đề bài báo 430', 3, 'Noi dung bai bao 430', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 430', 'Tom tat 430', NULL);
+INSERT INTO `articles` VALUES (431, 3, 'Tiêu đề bài báo 431', 4, 'Noi dung bai bao 431', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 431', 'Tom tat 431', NULL);
+INSERT INTO `articles` VALUES (432, 3, 'Tiêu đề bài báo 432', 1, 'Noi dung bai bao 432', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 432', 'Tom tat 432', 7);
+INSERT INTO `articles` VALUES (433, 3, 'Tiêu đề bài báo 433', 2, 'Noi dung bai bao 433', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 433', 'Tom tat 433', 7);
+INSERT INTO `articles` VALUES (434, 3, 'Tiêu đề bài báo 434', 3, 'Noi dung bai bao 434', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 434', 'Tom tat 434', NULL);
+INSERT INTO `articles` VALUES (435, 3, 'Tiêu đề bài báo 435', 4, 'Noi dung bai bao 435', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 435', 'Tom tat 435', NULL);
+INSERT INTO `articles` VALUES (436, 3, 'Tiêu đề bài báo 436', 1, 'Noi dung bai bao 436', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 436', 'Tom tat 436', 2);
+INSERT INTO `articles` VALUES (437, 3, 'Tiêu đề bài báo 437', 2, 'Noi dung bai bao 437', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 437', 'Tom tat 437', 2);
+INSERT INTO `articles` VALUES (438, 3, 'Tiêu đề bài báo 438', 3, 'Noi dung bai bao 438', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 438', 'Tom tat 438', NULL);
+INSERT INTO `articles` VALUES (439, 3, 'Tiêu đề bài báo 439', 4, 'Noi dung bai bao 439', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 439', 'Tom tat 439', NULL);
+INSERT INTO `articles` VALUES (440, 3, 'Tiêu đề bài báo 440', 1, 'Noi dung bai bao 440', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 440', 'Tom tat 440', 2);
+INSERT INTO `articles` VALUES (441, 3, 'Tiêu đề bài báo 441', 2, 'Noi dung bai bao 441', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 441', 'Tom tat 441', 2);
+INSERT INTO `articles` VALUES (442, 3, 'Tiêu đề bài báo 442', 3, 'Noi dung bai bao 442', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 442', 'Tom tat 442', NULL);
+INSERT INTO `articles` VALUES (443, 3, 'Tiêu đề bài báo 443', 4, 'Noi dung bai bao 443', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 443', 'Tom tat 443', NULL);
+INSERT INTO `articles` VALUES (444, 3, 'Tiêu đề bài báo 444', 1, 'Noi dung bai bao 444', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 444', 'Tom tat 444', 7);
+INSERT INTO `articles` VALUES (445, 3, 'Tiêu đề bài báo 445', 2, 'Noi dung bai bao 445', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 445', 'Tom tat 445', 7);
+INSERT INTO `articles` VALUES (446, 3, 'Tiêu đề bài báo 446', 3, 'Noi dung bai bao 446', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 446', 'Tom tat 446', NULL);
+INSERT INTO `articles` VALUES (447, 3, 'Tiêu đề bài báo 447', 4, 'Noi dung bai bao 447', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 447', 'Tom tat 447', NULL);
+INSERT INTO `articles` VALUES (448, 3, 'Tiêu đề bài báo 448', 1, 'Noi dung bai bao 448', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 448', 'Tom tat 448', 7);
+INSERT INTO `articles` VALUES (449, 3, 'Tiêu đề bài báo 449', 2, 'Noi dung bai bao 449', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 449', 'Tom tat 449', 7);
+INSERT INTO `articles` VALUES (450, 3, 'Tiêu đề bài báo 450', 3, 'Noi dung bai bao 450', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 450', 'Tom tat 450', NULL);
+INSERT INTO `articles` VALUES (451, 3, 'Tiêu đề bài báo 451', 4, 'Noi dung bai bao 451', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 451', 'Tom tat 451', NULL);
+INSERT INTO `articles` VALUES (452, 3, 'Tiêu đề bài báo 452', 1, 'Noi dung bai bao 452', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 452', 'Tom tat 452', 2);
+INSERT INTO `articles` VALUES (453, 3, 'Tiêu đề bài báo 453', 2, 'Noi dung bai bao 453', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 453', 'Tom tat 453', 2);
+INSERT INTO `articles` VALUES (454, 3, 'Tiêu đề bài báo 454', 3, 'Noi dung bai bao 454', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 454', 'Tom tat 454', NULL);
+INSERT INTO `articles` VALUES (455, 3, 'Tiêu đề bài báo 455', 4, 'Noi dung bai bao 455', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 455', 'Tom tat 455', NULL);
+INSERT INTO `articles` VALUES (456, 3, 'Tiêu đề bài báo 456', 1, 'Noi dung bai bao 456', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 456', 'Tom tat 456', 2);
+INSERT INTO `articles` VALUES (457, 3, 'Tiêu đề bài báo 457', 2, 'Noi dung bai bao 457', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 457', 'Tom tat 457', 7);
+INSERT INTO `articles` VALUES (458, 3, 'Tiêu đề bài báo 458', 3, 'Noi dung bai bao 458', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 458', 'Tom tat 458', NULL);
+INSERT INTO `articles` VALUES (459, 3, 'Tiêu đề bài báo 459', 4, 'Noi dung bai bao 459', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 459', 'Tom tat 459', NULL);
+INSERT INTO `articles` VALUES (460, 3, 'Tiêu đề bài báo 460', 1, 'Noi dung bai bao 460', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 460', 'Tom tat 460', 7);
+INSERT INTO `articles` VALUES (461, 3, 'Tiêu đề bài báo 461', 2, 'Noi dung bai bao 461', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 461', 'Tom tat 461', 7);
+INSERT INTO `articles` VALUES (462, 3, 'Tiêu đề bài báo 462', 3, 'Noi dung bai bao 462', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 462', 'Tom tat 462', NULL);
+INSERT INTO `articles` VALUES (463, 3, 'Tiêu đề bài báo 463', 4, 'Noi dung bai bao 463', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 463', 'Tom tat 463', NULL);
+INSERT INTO `articles` VALUES (464, 3, 'Tiêu đề bài báo 464', 1, 'Noi dung bai bao 464', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 464', 'Tom tat 464', 7);
+INSERT INTO `articles` VALUES (465, 3, 'Tiêu đề bài báo 465', 2, 'Noi dung bai bao 465', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 465', 'Tom tat 465', 2);
+INSERT INTO `articles` VALUES (466, 3, 'Tiêu đề bài báo 466', 3, 'Noi dung bai bao 466', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 466', 'Tom tat 466', NULL);
+INSERT INTO `articles` VALUES (467, 3, 'Tiêu đề bài báo 467', 4, 'Noi dung bai bao 467', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 467', 'Tom tat 467', NULL);
+INSERT INTO `articles` VALUES (468, 3, 'Tiêu đề bài báo 468', 1, 'Noi dung bai bao 468', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 468', 'Tom tat 468', 2);
+INSERT INTO `articles` VALUES (469, 3, 'Tiêu đề bài báo 469', 2, 'Noi dung bai bao 469', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 469', 'Tom tat 469', 2);
+INSERT INTO `articles` VALUES (470, 3, 'Tiêu đề bài báo 470', 3, 'Noi dung bai bao 470', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 470', 'Tom tat 470', NULL);
+INSERT INTO `articles` VALUES (471, 3, 'Tiêu đề bài báo 471', 4, 'Noi dung bai bao 471', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 471', 'Tom tat 471', NULL);
+INSERT INTO `articles` VALUES (472, 3, 'Tiêu đề bài báo 472', 1, 'Noi dung bai bao 472', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 472', 'Tom tat 472', 7);
+INSERT INTO `articles` VALUES (473, 3, 'Tiêu đề bài báo 473', 2, 'Noi dung bai bao 473', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 473', 'Tom tat 473', 7);
+INSERT INTO `articles` VALUES (474, 3, 'Tiêu đề bài báo 474', 3, 'Noi dung bai bao 474', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 474', 'Tom tat 474', NULL);
+INSERT INTO `articles` VALUES (475, 3, 'Tiêu đề bài báo 475', 4, 'Noi dung bai bao 475', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 475', 'Tom tat 475', NULL);
+INSERT INTO `articles` VALUES (476, 3, 'Tiêu đề bài báo 476', 1, 'Noi dung bai bao 476', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 476', 'Tom tat 476', 7);
+INSERT INTO `articles` VALUES (477, 3, 'Tiêu đề bài báo 477', 2, 'Noi dung bai bao 477', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 477', 'Tom tat 477', 7);
+INSERT INTO `articles` VALUES (478, 3, 'Tiêu đề bài báo 478', 3, 'Noi dung bai bao 478', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 478', 'Tom tat 478', NULL);
+INSERT INTO `articles` VALUES (479, 3, 'Tiêu đề bài báo 479', 4, 'Noi dung bai bao 479', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 479', 'Tom tat 479', NULL);
+INSERT INTO `articles` VALUES (480, 3, 'Tiêu đề bài báo 480', 1, 'Noi dung bai bao 480', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 480', 'Tom tat 480', 2);
+INSERT INTO `articles` VALUES (481, 3, 'Tiêu đề bài báo 481', 2, 'Noi dung bai bao 481', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 481', 'Tom tat 481', 2);
+INSERT INTO `articles` VALUES (482, 3, 'Tiêu đề bài báo 482', 3, 'Noi dung bai bao 482', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 482', 'Tom tat 482', NULL);
+INSERT INTO `articles` VALUES (483, 3, 'Tiêu đề bài báo 483', 4, 'Noi dung bai bao 483', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 483', 'Tom tat 483', NULL);
+INSERT INTO `articles` VALUES (484, 3, 'Tiêu đề bài báo 484', 1, 'Noi dung bai bao 484', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 484', 'Tom tat 484', 2);
+INSERT INTO `articles` VALUES (485, 3, 'Tiêu đề bài báo 485', 2, 'Noi dung bai bao 485', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 485', 'Tom tat 485', 2);
+INSERT INTO `articles` VALUES (486, 3, 'Tiêu đề bài báo 486', 3, 'Noi dung bai bao 486', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 486', 'Tom tat 486', NULL);
+INSERT INTO `articles` VALUES (487, 3, 'Tiêu đề bài báo 487', 4, 'Noi dung bai bao 487', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 487', 'Tom tat 487', NULL);
+INSERT INTO `articles` VALUES (488, 3, 'Tiêu đề bài báo 488', 1, 'Noi dung bai bao 488', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 488', 'Tom tat 488', 7);
+INSERT INTO `articles` VALUES (489, 3, 'Tiêu đề bài báo 489', 2, 'Noi dung bai bao 489', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 489', 'Tom tat 489', 7);
+INSERT INTO `articles` VALUES (490, 3, 'Tiêu đề bài báo 490', 3, 'Noi dung bai bao 490', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 490', 'Tom tat 490', NULL);
+INSERT INTO `articles` VALUES (491, 3, 'Tiêu đề bài báo 491', 4, 'Noi dung bai bao 491', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 491', 'Tom tat 491', NULL);
+INSERT INTO `articles` VALUES (492, 3, 'Tiêu đề bài báo 492', 1, 'Noi dung bai bao 492', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 492', 'Tom tat 492', 7);
+INSERT INTO `articles` VALUES (493, 3, 'Tiêu đề bài báo 493', 2, 'Noi dung bai bao 493', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 493', 'Tom tat 493', 7);
+INSERT INTO `articles` VALUES (494, 3, 'Tiêu đề bài báo 494', 3, 'Noi dung bai bao 494', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 494', 'Tom tat 494', NULL);
+INSERT INTO `articles` VALUES (495, 3, 'Tiêu đề bài báo 495', 4, 'Noi dung bai bao 495', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 495', 'Tom tat 495', NULL);
+INSERT INTO `articles` VALUES (496, 3, 'Tiêu đề bài báo 496', 1, 'Noi dung bai bao 496', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 496', 'Tom tat 496', 2);
+INSERT INTO `articles` VALUES (497, 3, 'Tiêu đề bài báo 497', 2, 'Noi dung bai bao 497', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 497', 'Tom tat 497', 2);
+INSERT INTO `articles` VALUES (498, 3, 'Tiêu đề bài báo 498', 3, 'Noi dung bai bao 498', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 498', 'Tom tat 498', NULL);
+INSERT INTO `articles` VALUES (499, 3, 'Tiêu đề bài báo 499', 4, 'Noi dung bai bao 499', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 499', 'Tom tat 499', NULL);
+INSERT INTO `articles` VALUES (500, 3, 'Tiêu đề bài báo 500', 1, 'Noi dung bai bao 500', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 500', 'Tom tat 500', 2);
+INSERT INTO `articles` VALUES (501, 3, 'Tiêu đề bài báo 501', 2, 'Noi dung bai bao 501', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 501', 'Tom tat 501', 2);
+INSERT INTO `articles` VALUES (502, 3, 'Tiêu đề bài báo 502', 3, 'Noi dung bai bao 502', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 502', 'Tom tat 502', NULL);
+INSERT INTO `articles` VALUES (503, 3, 'Tiêu đề bài báo 503', 4, 'Noi dung bai bao 503', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 503', 'Tom tat 503', NULL);
+INSERT INTO `articles` VALUES (504, 3, 'Tiêu đề bài báo 504', 1, 'Noi dung bai bao 504', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 504', 'Tom tat 504', 7);
+INSERT INTO `articles` VALUES (505, 3, 'Tiêu đề bài báo 505', 2, 'Noi dung bai bao 505', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 505', 'Tom tat 505', 7);
+INSERT INTO `articles` VALUES (506, 3, 'Tiêu đề bài báo 506', 3, 'Noi dung bai bao 506', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 506', 'Tom tat 506', NULL);
+INSERT INTO `articles` VALUES (507, 3, 'Tiêu đề bài báo 507', 4, 'Noi dung bai bao 507', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 507', 'Tom tat 507', NULL);
+INSERT INTO `articles` VALUES (508, 3, 'Tiêu đề bài báo 508', 1, 'Noi dung bai bao 508', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 508', 'Tom tat 508', 7);
+INSERT INTO `articles` VALUES (509, 3, 'Tiêu đề bài báo 509', 2, 'Noi dung bai bao 509', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 509', 'Tom tat 509', 7);
+INSERT INTO `articles` VALUES (510, 3, 'Tiêu đề bài báo 510', 3, 'Noi dung bai bao 510', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 510', 'Tom tat 510', NULL);
+INSERT INTO `articles` VALUES (511, 3, 'Tiêu đề bài báo 511', 4, 'Noi dung bai bao 511', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 511', 'Tom tat 511', NULL);
+INSERT INTO `articles` VALUES (512, 3, 'Tiêu đề bài báo 512', 1, 'Noi dung bai bao 512', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 512', 'Tom tat 512', 2);
+INSERT INTO `articles` VALUES (513, 3, 'Tiêu đề bài báo 513', 2, 'Noi dung bai bao 513', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 513', 'Tom tat 513', 2);
+INSERT INTO `articles` VALUES (514, 3, 'Tiêu đề bài báo 514', 3, 'Noi dung bai bao 514', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 514', 'Tom tat 514', NULL);
+INSERT INTO `articles` VALUES (515, 3, 'Tiêu đề bài báo 515', 4, 'Noi dung bai bao 515', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 515', 'Tom tat 515', NULL);
+INSERT INTO `articles` VALUES (516, 3, 'Tiêu đề bài báo 516', 1, 'Noi dung bai bao 516', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 516', 'Tom tat 516', 2);
+INSERT INTO `articles` VALUES (517, 3, 'Tiêu đề bài báo 517', 2, 'Noi dung bai bao 517', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 517', 'Tom tat 517', 7);
+INSERT INTO `articles` VALUES (518, 3, 'Tiêu đề bài báo 518', 3, 'Noi dung bai bao 518', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 518', 'Tom tat 518', NULL);
+INSERT INTO `articles` VALUES (519, 3, 'Tiêu đề bài báo 519', 4, 'Noi dung bai bao 519', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 519', 'Tom tat 519', NULL);
+INSERT INTO `articles` VALUES (520, 3, 'Tiêu đề bài báo 520', 1, 'Noi dung bai bao 520', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 520', 'Tom tat 520', 7);
+INSERT INTO `articles` VALUES (521, 3, 'Tiêu đề bài báo 521', 2, 'Noi dung bai bao 521', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 521', 'Tom tat 521', 7);
+INSERT INTO `articles` VALUES (522, 3, 'Tiêu đề bài báo 522', 3, 'Noi dung bai bao 522', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 522', 'Tom tat 522', NULL);
+INSERT INTO `articles` VALUES (523, 3, 'Tiêu đề bài báo 523', 4, 'Noi dung bai bao 523', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 523', 'Tom tat 523', NULL);
+INSERT INTO `articles` VALUES (524, 3, 'Tiêu đề bài báo 524', 1, 'Noi dung bai bao 524', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 524', 'Tom tat 524', 7);
+INSERT INTO `articles` VALUES (525, 3, 'Tiêu đề bài báo 525', 2, 'Noi dung bai bao 525', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 525', 'Tom tat 525', 2);
+INSERT INTO `articles` VALUES (526, 3, 'Tiêu đề bài báo 526', 3, 'Noi dung bai bao 526', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 526', 'Tom tat 526', NULL);
+INSERT INTO `articles` VALUES (527, 3, 'Tiêu đề bài báo 527', 4, 'Noi dung bai bao 527', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 527', 'Tom tat 527', NULL);
+INSERT INTO `articles` VALUES (528, 3, 'Tiêu đề bài báo 528', 1, 'Noi dung bai bao 528', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 528', 'Tom tat 528', 2);
+INSERT INTO `articles` VALUES (529, 3, 'Tiêu đề bài báo 529', 2, 'Noi dung bai bao 529', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 529', 'Tom tat 529', 2);
+INSERT INTO `articles` VALUES (530, 3, 'Tiêu đề bài báo 530', 3, 'Noi dung bai bao 530', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 530', 'Tom tat 530', NULL);
+INSERT INTO `articles` VALUES (531, 3, 'Tiêu đề bài báo 531', 4, 'Noi dung bai bao 531', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 531', 'Tom tat 531', NULL);
+INSERT INTO `articles` VALUES (532, 3, 'Tiêu đề bài báo 532', 1, 'Noi dung bai bao 532', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 532', 'Tom tat 532', 7);
+INSERT INTO `articles` VALUES (533, 3, 'Tiêu đề bài báo 533', 2, 'Noi dung bai bao 533', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 533', 'Tom tat 533', 7);
+INSERT INTO `articles` VALUES (534, 3, 'Tiêu đề bài báo 534', 3, 'Noi dung bai bao 534', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 534', 'Tom tat 534', NULL);
+INSERT INTO `articles` VALUES (535, 3, 'Tiêu đề bài báo 535', 4, 'Noi dung bai bao 535', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 535', 'Tom tat 535', NULL);
+INSERT INTO `articles` VALUES (536, 3, 'Tiêu đề bài báo 536', 1, 'Noi dung bai bao 536', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 536', 'Tom tat 536', 7);
+INSERT INTO `articles` VALUES (537, 3, 'Tiêu đề bài báo 537', 2, 'Noi dung bai bao 537', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 537', 'Tom tat 537', 7);
+INSERT INTO `articles` VALUES (538, 3, 'Tiêu đề bài báo 538', 3, 'Noi dung bai bao 538', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 538', 'Tom tat 538', NULL);
+INSERT INTO `articles` VALUES (539, 3, 'Tiêu đề bài báo 539', 4, 'Noi dung bai bao 539', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 539', 'Tom tat 539', NULL);
+INSERT INTO `articles` VALUES (540, 3, 'Tiêu đề bài báo 540', 1, 'Noi dung bai bao 540', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 540', 'Tom tat 540', 2);
+INSERT INTO `articles` VALUES (541, 3, 'Tiêu đề bài báo 541', 2, 'Noi dung bai bao 541', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 541', 'Tom tat 541', 2);
+INSERT INTO `articles` VALUES (542, 3, 'Tiêu đề bài báo 542', 3, 'Noi dung bai bao 542', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 542', 'Tom tat 542', NULL);
+INSERT INTO `articles` VALUES (543, 3, 'Tiêu đề bài báo 543', 4, 'Noi dung bai bao 543', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 543', 'Tom tat 543', NULL);
+INSERT INTO `articles` VALUES (544, 3, 'Tiêu đề bài báo 544', 1, 'Noi dung bai bao 544', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 544', 'Tom tat 544', 2);
+INSERT INTO `articles` VALUES (545, 3, 'Tiêu đề bài báo 545', 2, 'Noi dung bai bao 545', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 545', 'Tom tat 545', 2);
+INSERT INTO `articles` VALUES (546, 3, 'Tiêu đề bài báo 546', 3, 'Noi dung bai bao 546', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 546', 'Tom tat 546', NULL);
+INSERT INTO `articles` VALUES (547, 3, 'Tiêu đề bài báo 547', 4, 'Noi dung bai bao 547', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 547', 'Tom tat 547', NULL);
+INSERT INTO `articles` VALUES (548, 3, 'Tiêu đề bài báo 548', 1, 'Noi dung bai bao 548', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 548', 'Tom tat 548', 7);
+INSERT INTO `articles` VALUES (549, 3, 'Tiêu đề bài báo 549', 2, 'Noi dung bai bao 549', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 549', 'Tom tat 549', 7);
+INSERT INTO `articles` VALUES (550, 3, 'Tiêu đề bài báo 550', 3, 'Noi dung bai bao 550', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 550', 'Tom tat 550', NULL);
+INSERT INTO `articles` VALUES (551, 3, 'Tiêu đề bài báo 551', 4, 'Noi dung bai bao 551', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 551', 'Tom tat 551', NULL);
+INSERT INTO `articles` VALUES (552, 3, 'Tiêu đề bài báo 552', 1, 'Noi dung bai bao 552', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 552', 'Tom tat 552', 7);
+INSERT INTO `articles` VALUES (553, 3, 'Tiêu đề bài báo 553', 2, 'Noi dung bai bao 553', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 553', 'Tom tat 553', 7);
+INSERT INTO `articles` VALUES (554, 3, 'Tiêu đề bài báo 554', 3, 'Noi dung bai bao 554', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 554', 'Tom tat 554', NULL);
+INSERT INTO `articles` VALUES (555, 3, 'Tiêu đề bài báo 555', 4, 'Noi dung bai bao 555', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 555', 'Tom tat 555', NULL);
+INSERT INTO `articles` VALUES (556, 3, 'Tiêu đề bài báo 556', 1, 'Noi dung bai bao 556', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 556', 'Tom tat 556', 2);
+INSERT INTO `articles` VALUES (557, 3, 'Tiêu đề bài báo 557', 2, 'Noi dung bai bao 557', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 557', 'Tom tat 557', 2);
+INSERT INTO `articles` VALUES (558, 3, 'Tiêu đề bài báo 558', 3, 'Noi dung bai bao 558', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 558', 'Tom tat 558', NULL);
+INSERT INTO `articles` VALUES (559, 3, 'Tiêu đề bài báo 559', 4, 'Noi dung bai bao 559', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 559', 'Tom tat 559', NULL);
+INSERT INTO `articles` VALUES (560, 3, 'Tiêu đề bài báo 560', 1, 'Noi dung bai bao 560', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 560', 'Tom tat 560', 2);
+INSERT INTO `articles` VALUES (561, 3, 'Tiêu đề bài báo 561', 2, 'Noi dung bai bao 561', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 561', 'Tom tat 561', 2);
+INSERT INTO `articles` VALUES (562, 3, 'Tiêu đề bài báo 562', 3, 'Noi dung bai bao 562', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 562', 'Tom tat 562', NULL);
+INSERT INTO `articles` VALUES (563, 3, 'Tiêu đề bài báo 563', 4, 'Noi dung bai bao 563', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 563', 'Tom tat 563', NULL);
+INSERT INTO `articles` VALUES (564, 3, 'Tiêu đề bài báo 564', 1, 'Noi dung bai bao 564', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 564', 'Tom tat 564', 7);
+INSERT INTO `articles` VALUES (565, 3, 'Tiêu đề bài báo 565', 2, 'Noi dung bai bao 565', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 565', 'Tom tat 565', 7);
+INSERT INTO `articles` VALUES (566, 3, 'Tiêu đề bài báo 566', 3, 'Noi dung bai bao 566', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 566', 'Tom tat 566', NULL);
+INSERT INTO `articles` VALUES (567, 3, 'Tiêu đề bài báo 567', 4, 'Noi dung bai bao 567', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 567', 'Tom tat 567', NULL);
+INSERT INTO `articles` VALUES (568, 3, 'Tiêu đề bài báo 568', 1, 'Noi dung bai bao 568', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 568', 'Tom tat 568', 7);
+INSERT INTO `articles` VALUES (569, 3, 'Tiêu đề bài báo 569', 2, 'Noi dung bai bao 569', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 569', 'Tom tat 569', 7);
+INSERT INTO `articles` VALUES (570, 3, 'Tiêu đề bài báo 570', 3, 'Noi dung bai bao 570', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 570', 'Tom tat 570', NULL);
+INSERT INTO `articles` VALUES (571, 3, 'Tiêu đề bài báo 571', 4, 'Noi dung bai bao 571', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 571', 'Tom tat 571', NULL);
+INSERT INTO `articles` VALUES (572, 3, 'Tiêu đề bài báo 572', 1, 'Noi dung bai bao 572', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 572', 'Tom tat 572', 2);
+INSERT INTO `articles` VALUES (573, 3, 'Tiêu đề bài báo 573', 2, 'Noi dung bai bao 573', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 573', 'Tom tat 573', 2);
+INSERT INTO `articles` VALUES (574, 3, 'Tiêu đề bài báo 574', 3, 'Noi dung bai bao 574', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 574', 'Tom tat 574', NULL);
+INSERT INTO `articles` VALUES (575, 3, 'Tiêu đề bài báo 575', 4, 'Noi dung bai bao 575', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 575', 'Tom tat 575', NULL);
+INSERT INTO `articles` VALUES (576, 3, 'Tiêu đề bài báo 576', 1, 'Noi dung bai bao 576', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 576', 'Tom tat 576', 2);
+INSERT INTO `articles` VALUES (577, 3, 'Tiêu đề bài báo 577', 2, 'Noi dung bai bao 577', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 577', 'Tom tat 577', 7);
+INSERT INTO `articles` VALUES (578, 3, 'Tiêu đề bài báo 578', 3, 'Noi dung bai bao 578', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 578', 'Tom tat 578', NULL);
+INSERT INTO `articles` VALUES (579, 3, 'Tiêu đề bài báo 579', 4, 'Noi dung bai bao 579', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 579', 'Tom tat 579', NULL);
+INSERT INTO `articles` VALUES (580, 3, 'Tiêu đề bài báo 580', 1, 'Noi dung bai bao 580', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 580', 'Tom tat 580', 7);
+INSERT INTO `articles` VALUES (581, 3, 'Tiêu đề bài báo 581', 2, 'Noi dung bai bao 581', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 581', 'Tom tat 581', 7);
+INSERT INTO `articles` VALUES (582, 3, 'Tiêu đề bài báo 582', 3, 'Noi dung bai bao 582', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 582', 'Tom tat 582', NULL);
+INSERT INTO `articles` VALUES (583, 3, 'Tiêu đề bài báo 583', 4, 'Noi dung bai bao 583', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 583', 'Tom tat 583', NULL);
+INSERT INTO `articles` VALUES (584, 3, 'Tiêu đề bài báo 584', 1, 'Noi dung bai bao 584', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 584', 'Tom tat 584', 7);
+INSERT INTO `articles` VALUES (585, 3, 'Tiêu đề bài báo 585', 2, 'Noi dung bai bao 585', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 585', 'Tom tat 585', 2);
+INSERT INTO `articles` VALUES (586, 3, 'Tiêu đề bài báo 586', 3, 'Noi dung bai bao 586', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 586', 'Tom tat 586', NULL);
+INSERT INTO `articles` VALUES (587, 3, 'Tiêu đề bài báo 587', 4, 'Noi dung bai bao 587', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 587', 'Tom tat 587', NULL);
+INSERT INTO `articles` VALUES (588, 3, 'Tiêu đề bài báo 588', 1, 'Noi dung bai bao 588', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 588', 'Tom tat 588', 2);
+INSERT INTO `articles` VALUES (589, 3, 'Tiêu đề bài báo 589', 2, 'Noi dung bai bao 589', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 589', 'Tom tat 589', 2);
+INSERT INTO `articles` VALUES (590, 3, 'Tiêu đề bài báo 590', 3, 'Noi dung bai bao 590', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 590', 'Tom tat 590', NULL);
+INSERT INTO `articles` VALUES (591, 3, 'Tiêu đề bài báo 591', 4, 'Noi dung bai bao 591', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 591', 'Tom tat 591', NULL);
+INSERT INTO `articles` VALUES (592, 3, 'Tiêu đề bài báo 592', 1, 'Noi dung bai bao 592', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 592', 'Tom tat 592', 7);
+INSERT INTO `articles` VALUES (593, 3, 'Tiêu đề bài báo 593', 2, 'Noi dung bai bao 593', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 593', 'Tom tat 593', 7);
+INSERT INTO `articles` VALUES (594, 3, 'Tiêu đề bài báo 594', 3, 'Noi dung bai bao 594', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 594', 'Tom tat 594', NULL);
+INSERT INTO `articles` VALUES (595, 3, 'Tiêu đề bài báo 595', 4, 'Noi dung bai bao 595', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 595', 'Tom tat 595', NULL);
+INSERT INTO `articles` VALUES (596, 3, 'Tiêu đề bài báo 596', 1, 'Noi dung bai bao 596', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 596', 'Tom tat 596', 7);
+INSERT INTO `articles` VALUES (597, 3, 'Tiêu đề bài báo 597', 2, 'Noi dung bai bao 597', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 597', 'Tom tat 597', 7);
+INSERT INTO `articles` VALUES (598, 3, 'Tiêu đề bài báo 598', 3, 'Noi dung bai bao 598', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 598', 'Tom tat 598', NULL);
+INSERT INTO `articles` VALUES (599, 3, 'Tiêu đề bài báo 599', 4, 'Noi dung bai bao 599', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 599', 'Tom tat 599', NULL);
+INSERT INTO `articles` VALUES (600, 3, 'Tiêu đề bài báo 600', 1, 'Noi dung bai bao 600', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 600', 'Tom tat 600', 2);
+INSERT INTO `articles` VALUES (601, 3, 'Tiêu đề bài báo 601', 2, 'Noi dung bai bao 601', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 601', 'Tom tat 601', 2);
+INSERT INTO `articles` VALUES (602, 3, 'Tiêu đề bài báo 602', 3, 'Noi dung bai bao 602', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 602', 'Tom tat 602', NULL);
+INSERT INTO `articles` VALUES (603, 3, 'Tiêu đề bài báo 603', 4, 'Noi dung bai bao 603', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 603', 'Tom tat 603', NULL);
+INSERT INTO `articles` VALUES (604, 3, 'Tiêu đề bài báo 604', 1, 'Noi dung bai bao 604', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 604', 'Tom tat 604', 2);
+INSERT INTO `articles` VALUES (605, 3, 'Tiêu đề bài báo 605', 2, 'Noi dung bai bao 605', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 605', 'Tom tat 605', 2);
+INSERT INTO `articles` VALUES (606, 3, 'Tiêu đề bài báo 606', 3, 'Noi dung bai bao 606', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 606', 'Tom tat 606', NULL);
+INSERT INTO `articles` VALUES (607, 3, 'Tiêu đề bài báo 607', 4, 'Noi dung bai bao 607', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 607', 'Tom tat 607', NULL);
+INSERT INTO `articles` VALUES (608, 3, 'Tiêu đề bài báo 608', 1, 'Noi dung bai bao 608', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 608', 'Tom tat 608', 7);
+INSERT INTO `articles` VALUES (609, 3, 'Tiêu đề bài báo 609', 2, 'Noi dung bai bao 609', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 609', 'Tom tat 609', 7);
+INSERT INTO `articles` VALUES (610, 3, 'Tiêu đề bài báo 610', 3, 'Noi dung bai bao 610', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 610', 'Tom tat 610', NULL);
+INSERT INTO `articles` VALUES (611, 3, 'Tiêu đề bài báo 611', 4, 'Noi dung bai bao 611', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 611', 'Tom tat 611', NULL);
+INSERT INTO `articles` VALUES (612, 3, 'Tiêu đề bài báo 612', 1, 'Noi dung bai bao 612', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 612', 'Tom tat 612', 7);
+INSERT INTO `articles` VALUES (613, 3, 'Tiêu đề bài báo 613', 2, 'Noi dung bai bao 613', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 613', 'Tom tat 613', 7);
+INSERT INTO `articles` VALUES (614, 3, 'Tiêu đề bài báo 614', 3, 'Noi dung bai bao 614', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 614', 'Tom tat 614', NULL);
+INSERT INTO `articles` VALUES (615, 3, 'Tiêu đề bài báo 615', 4, 'Noi dung bai bao 615', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 615', 'Tom tat 615', NULL);
+INSERT INTO `articles` VALUES (616, 3, 'Tiêu đề bài báo 616', 1, 'Noi dung bai bao 616', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 616', 'Tom tat 616', 2);
+INSERT INTO `articles` VALUES (617, 3, 'Tiêu đề bài báo 617', 2, 'Noi dung bai bao 617', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 617', 'Tom tat 617', 2);
+INSERT INTO `articles` VALUES (618, 3, 'Tiêu đề bài báo 618', 3, 'Noi dung bai bao 618', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 618', 'Tom tat 618', NULL);
+INSERT INTO `articles` VALUES (619, 3, 'Tiêu đề bài báo 619', 4, 'Noi dung bai bao 619', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 619', 'Tom tat 619', NULL);
+INSERT INTO `articles` VALUES (620, 3, 'Tiêu đề bài báo 620', 1, 'Noi dung bai bao 620', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 620', 'Tom tat 620', 2);
+INSERT INTO `articles` VALUES (621, 3, 'Tiêu đề bài báo 621', 2, 'Noi dung bai bao 621', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 621', 'Tom tat 621', 2);
+INSERT INTO `articles` VALUES (622, 3, 'Tiêu đề bài báo 622', 3, 'Noi dung bai bao 622', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 622', 'Tom tat 622', NULL);
+INSERT INTO `articles` VALUES (623, 3, 'Tiêu đề bài báo 623', 4, 'Noi dung bai bao 623', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 623', 'Tom tat 623', NULL);
+INSERT INTO `articles` VALUES (624, 3, 'Tiêu đề bài báo 624', 1, 'Noi dung bai bao 624', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 624', 'Tom tat 624', 7);
+INSERT INTO `articles` VALUES (625, 3, 'Tiêu đề bài báo 625', 2, 'Noi dung bai bao 625', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 625', 'Tom tat 625', 7);
+INSERT INTO `articles` VALUES (626, 3, 'Tiêu đề bài báo 626', 3, 'Noi dung bai bao 626', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 626', 'Tom tat 626', NULL);
+INSERT INTO `articles` VALUES (627, 3, 'Tiêu đề bài báo 627', 4, 'Noi dung bai bao 627', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 627', 'Tom tat 627', NULL);
+INSERT INTO `articles` VALUES (628, 3, 'Tiêu đề bài báo 628', 1, 'Noi dung bai bao 628', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 628', 'Tom tat 628', 7);
+INSERT INTO `articles` VALUES (629, 3, 'Tiêu đề bài báo 629', 2, 'Noi dung bai bao 629', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 629', 'Tom tat 629', 7);
+INSERT INTO `articles` VALUES (630, 3, 'Tiêu đề bài báo 630', 3, 'Noi dung bai bao 630', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 630', 'Tom tat 630', NULL);
+INSERT INTO `articles` VALUES (631, 3, 'Tiêu đề bài báo 631', 4, 'Noi dung bai bao 631', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 631', 'Tom tat 631', NULL);
+INSERT INTO `articles` VALUES (632, 3, 'Tiêu đề bài báo 632', 1, 'Noi dung bai bao 632', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 632', 'Tom tat 632', 2);
+INSERT INTO `articles` VALUES (633, 3, 'Tiêu đề bài báo 633', 2, 'Noi dung bai bao 633', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 633', 'Tom tat 633', 2);
+INSERT INTO `articles` VALUES (634, 3, 'Tiêu đề bài báo 634', 3, 'Noi dung bai bao 634', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 634', 'Tom tat 634', NULL);
+INSERT INTO `articles` VALUES (635, 3, 'Tiêu đề bài báo 635', 4, 'Noi dung bai bao 635', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 635', 'Tom tat 635', NULL);
+INSERT INTO `articles` VALUES (636, 3, 'Tiêu đề bài báo 636', 1, 'Noi dung bai bao 636', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 636', 'Tom tat 636', 2);
+INSERT INTO `articles` VALUES (637, 3, 'Tiêu đề bài báo 637', 2, 'Noi dung bai bao 637', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 637', 'Tom tat 637', 7);
+INSERT INTO `articles` VALUES (638, 3, 'Tiêu đề bài báo 638', 3, 'Noi dung bai bao 638', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 638', 'Tom tat 638', NULL);
+INSERT INTO `articles` VALUES (639, 3, 'Tiêu đề bài báo 639', 4, 'Noi dung bai bao 639', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 639', 'Tom tat 639', NULL);
+INSERT INTO `articles` VALUES (640, 3, 'Tiêu đề bài báo 640', 1, 'Noi dung bai bao 640', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 640', 'Tom tat 640', 7);
+INSERT INTO `articles` VALUES (641, 3, 'Tiêu đề bài báo 641', 2, 'Noi dung bai bao 641', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 641', 'Tom tat 641', 7);
+INSERT INTO `articles` VALUES (642, 3, 'Tiêu đề bài báo 642', 3, 'Noi dung bai bao 642', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 642', 'Tom tat 642', NULL);
+INSERT INTO `articles` VALUES (643, 3, 'Tiêu đề bài báo 643', 4, 'Noi dung bai bao 643', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 643', 'Tom tat 643', NULL);
+INSERT INTO `articles` VALUES (644, 3, 'Tiêu đề bài báo 644', 1, 'Noi dung bai bao 644', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 644', 'Tom tat 644', 7);
+INSERT INTO `articles` VALUES (645, 3, 'Tiêu đề bài báo 645', 2, 'Noi dung bai bao 645', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 645', 'Tom tat 645', 2);
+INSERT INTO `articles` VALUES (646, 3, 'Tiêu đề bài báo 646', 3, 'Noi dung bai bao 646', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 646', 'Tom tat 646', NULL);
+INSERT INTO `articles` VALUES (647, 3, 'Tiêu đề bài báo 647', 4, 'Noi dung bai bao 647', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 647', 'Tom tat 647', NULL);
+INSERT INTO `articles` VALUES (648, 3, 'Tiêu đề bài báo 648', 1, 'Noi dung bai bao 648', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 648', 'Tom tat 648', 2);
+INSERT INTO `articles` VALUES (649, 3, 'Tiêu đề bài báo 649', 2, 'Noi dung bai bao 649', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 649', 'Tom tat 649', 2);
+INSERT INTO `articles` VALUES (650, 3, 'Tiêu đề bài báo 650', 3, 'Noi dung bai bao 650', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 650', 'Tom tat 650', NULL);
+INSERT INTO `articles` VALUES (651, 3, 'Tiêu đề bài báo 651', 4, 'Noi dung bai bao 651', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 651', 'Tom tat 651', NULL);
+INSERT INTO `articles` VALUES (652, 3, 'Tiêu đề bài báo 652', 1, 'Noi dung bai bao 652', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 652', 'Tom tat 652', 7);
+INSERT INTO `articles` VALUES (653, 3, 'Tiêu đề bài báo 653', 2, 'Noi dung bai bao 653', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 653', 'Tom tat 653', 7);
+INSERT INTO `articles` VALUES (654, 3, 'Tiêu đề bài báo 654', 3, 'Noi dung bai bao 654', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 654', 'Tom tat 654', NULL);
+INSERT INTO `articles` VALUES (655, 3, 'Tiêu đề bài báo 655', 4, 'Noi dung bai bao 655', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 655', 'Tom tat 655', NULL);
+INSERT INTO `articles` VALUES (656, 3, 'Tiêu đề bài báo 656', 1, 'Noi dung bai bao 656', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 656', 'Tom tat 656', 7);
+INSERT INTO `articles` VALUES (657, 3, 'Tiêu đề bài báo 657', 2, 'Noi dung bai bao 657', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 657', 'Tom tat 657', 7);
+INSERT INTO `articles` VALUES (658, 3, 'Tiêu đề bài báo 658', 3, 'Noi dung bai bao 658', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 658', 'Tom tat 658', NULL);
+INSERT INTO `articles` VALUES (659, 3, 'Tiêu đề bài báo 659', 4, 'Noi dung bai bao 659', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 659', 'Tom tat 659', NULL);
+INSERT INTO `articles` VALUES (660, 3, 'Tiêu đề bài báo 660', 1, 'Noi dung bai bao 660', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 660', 'Tom tat 660', 2);
+INSERT INTO `articles` VALUES (661, 3, 'Tiêu đề bài báo 661', 2, 'Noi dung bai bao 661', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 661', 'Tom tat 661', 2);
+INSERT INTO `articles` VALUES (662, 3, 'Tiêu đề bài báo 662', 3, 'Noi dung bai bao 662', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 662', 'Tom tat 662', NULL);
+INSERT INTO `articles` VALUES (663, 3, 'Tiêu đề bài báo 663', 4, 'Noi dung bai bao 663', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 663', 'Tom tat 663', NULL);
+INSERT INTO `articles` VALUES (664, 3, 'Tiêu đề bài báo 664', 1, 'Noi dung bai bao 664', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 664', 'Tom tat 664', 2);
+INSERT INTO `articles` VALUES (665, 3, 'Tiêu đề bài báo 665', 2, 'Noi dung bai bao 665', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 665', 'Tom tat 665', 2);
+INSERT INTO `articles` VALUES (666, 3, 'Tiêu đề bài báo 666', 3, 'Noi dung bai bao 666', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 666', 'Tom tat 666', NULL);
+INSERT INTO `articles` VALUES (667, 3, 'Tiêu đề bài báo 667', 4, 'Noi dung bai bao 667', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 667', 'Tom tat 667', NULL);
+INSERT INTO `articles` VALUES (668, 3, 'Tiêu đề bài báo 668', 1, 'Noi dung bai bao 668', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 668', 'Tom tat 668', 7);
+INSERT INTO `articles` VALUES (669, 3, 'Tiêu đề bài báo 669', 2, 'Noi dung bai bao 669', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 669', 'Tom tat 669', 7);
+INSERT INTO `articles` VALUES (670, 3, 'Tiêu đề bài báo 670', 3, 'Noi dung bai bao 670', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 670', 'Tom tat 670', NULL);
+INSERT INTO `articles` VALUES (671, 3, 'Tiêu đề bài báo 671', 4, 'Noi dung bai bao 671', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 671', 'Tom tat 671', NULL);
+INSERT INTO `articles` VALUES (672, 3, 'Tiêu đề bài báo 672', 1, 'Noi dung bai bao 672', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 672', 'Tom tat 672', 7);
+INSERT INTO `articles` VALUES (673, 3, 'Tiêu đề bài báo 673', 2, 'Noi dung bai bao 673', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 673', 'Tom tat 673', 7);
+INSERT INTO `articles` VALUES (674, 3, 'Tiêu đề bài báo 674', 3, 'Noi dung bai bao 674', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 674', 'Tom tat 674', NULL);
+INSERT INTO `articles` VALUES (675, 3, 'Tiêu đề bài báo 675', 4, 'Noi dung bai bao 675', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 675', 'Tom tat 675', NULL);
+INSERT INTO `articles` VALUES (676, 3, 'Tiêu đề bài báo 676', 1, 'Noi dung bai bao 676', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 676', 'Tom tat 676', 2);
+INSERT INTO `articles` VALUES (677, 3, 'Tiêu đề bài báo 677', 2, 'Noi dung bai bao 677', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 677', 'Tom tat 677', 2);
+INSERT INTO `articles` VALUES (678, 3, 'Tiêu đề bài báo 678', 3, 'Noi dung bai bao 678', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 678', 'Tom tat 678', NULL);
+INSERT INTO `articles` VALUES (679, 3, 'Tiêu đề bài báo 679', 4, 'Noi dung bai bao 679', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 679', 'Tom tat 679', NULL);
+INSERT INTO `articles` VALUES (680, 3, 'Tiêu đề bài báo 680', 1, 'Noi dung bai bao 680', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 680', 'Tom tat 680', 2);
+INSERT INTO `articles` VALUES (681, 3, 'Tiêu đề bài báo 681', 2, 'Noi dung bai bao 681', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 681', 'Tom tat 681', 2);
+INSERT INTO `articles` VALUES (682, 3, 'Tiêu đề bài báo 682', 3, 'Noi dung bai bao 682', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 682', 'Tom tat 682', NULL);
+INSERT INTO `articles` VALUES (683, 3, 'Tiêu đề bài báo 683', 4, 'Noi dung bai bao 683', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 683', 'Tom tat 683', NULL);
+INSERT INTO `articles` VALUES (684, 3, 'Tiêu đề bài báo 684', 1, 'Noi dung bai bao 684', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 684', 'Tom tat 684', 7);
+INSERT INTO `articles` VALUES (685, 3, 'Tiêu đề bài báo 685', 2, 'Noi dung bai bao 685', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 685', 'Tom tat 685', 7);
+INSERT INTO `articles` VALUES (686, 3, 'Tiêu đề bài báo 686', 3, 'Noi dung bai bao 686', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 686', 'Tom tat 686', NULL);
+INSERT INTO `articles` VALUES (687, 3, 'Tiêu đề bài báo 687', 4, 'Noi dung bai bao 687', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 687', 'Tom tat 687', NULL);
+INSERT INTO `articles` VALUES (688, 3, 'Tiêu đề bài báo 688', 1, 'Noi dung bai bao 688', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 688', 'Tom tat 688', 7);
+INSERT INTO `articles` VALUES (689, 3, 'Tiêu đề bài báo 689', 2, 'Noi dung bai bao 689', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 689', 'Tom tat 689', 7);
+INSERT INTO `articles` VALUES (690, 3, 'Tiêu đề bài báo 690', 3, 'Noi dung bai bao 690', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 690', 'Tom tat 690', NULL);
+INSERT INTO `articles` VALUES (691, 3, 'Tiêu đề bài báo 691', 4, 'Noi dung bai bao 691', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 691', 'Tom tat 691', NULL);
+INSERT INTO `articles` VALUES (692, 3, 'Tiêu đề bài báo 692', 1, 'Noi dung bai bao 692', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 692', 'Tom tat 692', 2);
+INSERT INTO `articles` VALUES (693, 3, 'Tiêu đề bài báo 693', 2, 'Noi dung bai bao 693', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 693', 'Tom tat 693', 2);
+INSERT INTO `articles` VALUES (694, 3, 'Tiêu đề bài báo 694', 3, 'Noi dung bai bao 694', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 694', 'Tom tat 694', NULL);
+INSERT INTO `articles` VALUES (695, 3, 'Tiêu đề bài báo 695', 4, 'Noi dung bai bao 695', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 695', 'Tom tat 695', NULL);
+INSERT INTO `articles` VALUES (696, 3, 'Tiêu đề bài báo 696', 1, 'Noi dung bai bao 696', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 696', 'Tom tat 696', 2);
+INSERT INTO `articles` VALUES (697, 3, 'Tiêu đề bài báo 697', 2, 'Noi dung bai bao 697', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 697', 'Tom tat 697', 7);
+INSERT INTO `articles` VALUES (698, 3, 'Tiêu đề bài báo 698', 3, 'Noi dung bai bao 698', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 698', 'Tom tat 698', NULL);
+INSERT INTO `articles` VALUES (699, 3, 'Tiêu đề bài báo 699', 4, 'Noi dung bai bao 699', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 699', 'Tom tat 699', NULL);
+INSERT INTO `articles` VALUES (700, 3, 'Tiêu đề bài báo 700', 1, 'Noi dung bai bao 700', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 700', 'Tom tat 700', 7);
+INSERT INTO `articles` VALUES (701, 3, 'Tiêu đề bài báo 701', 2, 'Noi dung bai bao 701', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 701', 'Tom tat 701', 7);
+INSERT INTO `articles` VALUES (702, 3, 'Tiêu đề bài báo 702', 3, 'Noi dung bai bao 702', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 702', 'Tom tat 702', NULL);
+INSERT INTO `articles` VALUES (703, 3, 'Tiêu đề bài báo 703', 4, 'Noi dung bai bao 703', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 703', 'Tom tat 703', NULL);
+INSERT INTO `articles` VALUES (704, 3, 'Tiêu đề bài báo 704', 1, 'Noi dung bai bao 704', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 704', 'Tom tat 704', 7);
+INSERT INTO `articles` VALUES (705, 3, 'Tiêu đề bài báo 705', 2, 'Noi dung bai bao 705', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 705', 'Tom tat 705', 2);
+INSERT INTO `articles` VALUES (706, 3, 'Tiêu đề bài báo 706', 3, 'Noi dung bai bao 706', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 706', 'Tom tat 706', NULL);
+INSERT INTO `articles` VALUES (707, 3, 'Tiêu đề bài báo 707', 4, 'Noi dung bai bao 707', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 707', 'Tom tat 707', NULL);
+INSERT INTO `articles` VALUES (708, 3, 'Tiêu đề bài báo 708', 1, 'Noi dung bai bao 708', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 708', 'Tom tat 708', 2);
+INSERT INTO `articles` VALUES (709, 3, 'Tiêu đề bài báo 709', 2, 'Noi dung bai bao 709', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 709', 'Tom tat 709', 2);
+INSERT INTO `articles` VALUES (710, 3, 'Tiêu đề bài báo 710', 3, 'Noi dung bai bao 710', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 710', 'Tom tat 710', NULL);
+INSERT INTO `articles` VALUES (711, 3, 'Tiêu đề bài báo 711', 4, 'Noi dung bai bao 711', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 711', 'Tom tat 711', NULL);
+INSERT INTO `articles` VALUES (712, 3, 'Tiêu đề bài báo 712', 1, 'Noi dung bai bao 712', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 712', 'Tom tat 712', 7);
+INSERT INTO `articles` VALUES (713, 3, 'Tiêu đề bài báo 713', 2, 'Noi dung bai bao 713', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 713', 'Tom tat 713', 7);
+INSERT INTO `articles` VALUES (714, 3, 'Tiêu đề bài báo 714', 3, 'Noi dung bai bao 714', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 714', 'Tom tat 714', NULL);
+INSERT INTO `articles` VALUES (715, 3, 'Tiêu đề bài báo 715', 4, 'Noi dung bai bao 715', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 715', 'Tom tat 715', NULL);
+INSERT INTO `articles` VALUES (716, 3, 'Tiêu đề bài báo 716', 1, 'Noi dung bai bao 716', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 716', 'Tom tat 716', 7);
+INSERT INTO `articles` VALUES (717, 3, 'Tiêu đề bài báo 717', 2, 'Noi dung bai bao 717', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 717', 'Tom tat 717', 7);
+INSERT INTO `articles` VALUES (718, 3, 'Tiêu đề bài báo 718', 3, 'Noi dung bai bao 718', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 718', 'Tom tat 718', NULL);
+INSERT INTO `articles` VALUES (719, 3, 'Tiêu đề bài báo 719', 4, 'Noi dung bai bao 719', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 719', 'Tom tat 719', NULL);
+INSERT INTO `articles` VALUES (720, 3, 'Tiêu đề bài báo 720', 1, 'Noi dung bai bao 720', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 720', 'Tom tat 720', 2);
+INSERT INTO `articles` VALUES (721, 3, 'Tiêu đề bài báo 721', 2, 'Noi dung bai bao 721', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 721', 'Tom tat 721', 2);
+INSERT INTO `articles` VALUES (722, 3, 'Tiêu đề bài báo 722', 3, 'Noi dung bai bao 722', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 722', 'Tom tat 722', NULL);
+INSERT INTO `articles` VALUES (723, 3, 'Tiêu đề bài báo 723', 4, 'Noi dung bai bao 723', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 723', 'Tom tat 723', NULL);
+INSERT INTO `articles` VALUES (724, 3, 'Tiêu đề bài báo 724', 1, 'Noi dung bai bao 724', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 724', 'Tom tat 724', 2);
+INSERT INTO `articles` VALUES (725, 3, 'Tiêu đề bài báo 725', 2, 'Noi dung bai bao 725', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 725', 'Tom tat 725', 2);
+INSERT INTO `articles` VALUES (726, 3, 'Tiêu đề bài báo 726', 3, 'Noi dung bai bao 726', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 726', 'Tom tat 726', NULL);
+INSERT INTO `articles` VALUES (727, 3, 'Tiêu đề bài báo 727', 4, 'Noi dung bai bao 727', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 727', 'Tom tat 727', NULL);
+INSERT INTO `articles` VALUES (728, 3, 'Tiêu đề bài báo 728', 1, 'Noi dung bai bao 728', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 728', 'Tom tat 728', 7);
+INSERT INTO `articles` VALUES (729, 3, 'Tiêu đề bài báo 729', 2, 'Noi dung bai bao 729', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 729', 'Tom tat 729', 7);
+INSERT INTO `articles` VALUES (730, 3, 'Tiêu đề bài báo 730', 3, 'Noi dung bai bao 730', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 730', 'Tom tat 730', NULL);
+INSERT INTO `articles` VALUES (731, 3, 'Tiêu đề bài báo 731', 4, 'Noi dung bai bao 731', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 731', 'Tom tat 731', NULL);
+INSERT INTO `articles` VALUES (732, 3, 'Tiêu đề bài báo 732', 1, 'Noi dung bai bao 732', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 732', 'Tom tat 732', 7);
+INSERT INTO `articles` VALUES (733, 3, 'Tiêu đề bài báo 733', 2, 'Noi dung bai bao 733', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 733', 'Tom tat 733', 7);
+INSERT INTO `articles` VALUES (734, 3, 'Tiêu đề bài báo 734', 3, 'Noi dung bai bao 734', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 734', 'Tom tat 734', NULL);
+INSERT INTO `articles` VALUES (735, 3, 'Tiêu đề bài báo 735', 4, 'Noi dung bai bao 735', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 735', 'Tom tat 735', NULL);
+INSERT INTO `articles` VALUES (736, 3, 'Tiêu đề bài báo 736', 1, 'Noi dung bai bao 736', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 736', 'Tom tat 736', 2);
+INSERT INTO `articles` VALUES (737, 3, 'Tiêu đề bài báo 737', 2, 'Noi dung bai bao 737', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 737', 'Tom tat 737', 2);
+INSERT INTO `articles` VALUES (738, 3, 'Tiêu đề bài báo 738', 3, 'Noi dung bai bao 738', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 738', 'Tom tat 738', NULL);
+INSERT INTO `articles` VALUES (739, 3, 'Tiêu đề bài báo 739', 4, 'Noi dung bai bao 739', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 739', 'Tom tat 739', NULL);
+INSERT INTO `articles` VALUES (740, 3, 'Tiêu đề bài báo 740', 1, 'Noi dung bai bao 740', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 740', 'Tom tat 740', 2);
+INSERT INTO `articles` VALUES (741, 3, 'Tiêu đề bài báo 741', 2, 'Noi dung bai bao 741', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 741', 'Tom tat 741', 2);
+INSERT INTO `articles` VALUES (742, 3, 'Tiêu đề bài báo 742', 3, 'Noi dung bai bao 742', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 742', 'Tom tat 742', NULL);
+INSERT INTO `articles` VALUES (743, 3, 'Tiêu đề bài báo 743', 4, 'Noi dung bai bao 743', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 743', 'Tom tat 743', NULL);
+INSERT INTO `articles` VALUES (744, 3, 'Tiêu đề bài báo 744', 1, 'Noi dung bai bao 744', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 744', 'Tom tat 744', 7);
+INSERT INTO `articles` VALUES (745, 3, 'Tiêu đề bài báo 745', 2, 'Noi dung bai bao 745', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 745', 'Tom tat 745', 7);
+INSERT INTO `articles` VALUES (746, 3, 'Tiêu đề bài báo 746', 3, 'Noi dung bai bao 746', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 746', 'Tom tat 746', NULL);
+INSERT INTO `articles` VALUES (747, 3, 'Tiêu đề bài báo 747', 4, 'Noi dung bai bao 747', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 747', 'Tom tat 747', NULL);
+INSERT INTO `articles` VALUES (748, 3, 'Tiêu đề bài báo 748', 1, 'Noi dung bai bao 748', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 748', 'Tom tat 748', 7);
+INSERT INTO `articles` VALUES (749, 3, 'Tiêu đề bài báo 749', 2, 'Noi dung bai bao 749', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 749', 'Tom tat 749', 7);
+INSERT INTO `articles` VALUES (750, 3, 'Tiêu đề bài báo 750', 3, 'Noi dung bai bao 750', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 750', 'Tom tat 750', NULL);
+INSERT INTO `articles` VALUES (751, 3, 'Tiêu đề bài báo 751', 4, 'Noi dung bai bao 751', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 751', 'Tom tat 751', NULL);
+INSERT INTO `articles` VALUES (752, 3, 'Tiêu đề bài báo 752', 1, 'Noi dung bai bao 752', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 752', 'Tom tat 752', 2);
+INSERT INTO `articles` VALUES (753, 3, 'Tiêu đề bài báo 753', 2, 'Noi dung bai bao 753', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 753', 'Tom tat 753', 2);
+INSERT INTO `articles` VALUES (754, 3, 'Tiêu đề bài báo 754', 3, 'Noi dung bai bao 754', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 754', 'Tom tat 754', NULL);
+INSERT INTO `articles` VALUES (755, 3, 'Tiêu đề bài báo 755', 4, 'Noi dung bai bao 755', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 755', 'Tom tat 755', NULL);
+INSERT INTO `articles` VALUES (756, 3, 'Tiêu đề bài báo 756', 1, 'Noi dung bai bao 756', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 756', 'Tom tat 756', 2);
+INSERT INTO `articles` VALUES (757, 3, 'Tiêu đề bài báo 757', 2, 'Noi dung bai bao 757', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 757', 'Tom tat 757', 7);
+INSERT INTO `articles` VALUES (758, 3, 'Tiêu đề bài báo 758', 3, 'Noi dung bai bao 758', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 758', 'Tom tat 758', NULL);
+INSERT INTO `articles` VALUES (759, 3, 'Tiêu đề bài báo 759', 4, 'Noi dung bai bao 759', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 759', 'Tom tat 759', NULL);
+INSERT INTO `articles` VALUES (760, 3, 'Tiêu đề bài báo 760', 1, 'Noi dung bai bao 760', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 760', 'Tom tat 760', 7);
+INSERT INTO `articles` VALUES (761, 3, 'Tiêu đề bài báo 761', 2, 'Noi dung bai bao 761', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 761', 'Tom tat 761', 7);
+INSERT INTO `articles` VALUES (762, 3, 'Tiêu đề bài báo 762', 3, 'Noi dung bai bao 762', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 762', 'Tom tat 762', NULL);
+INSERT INTO `articles` VALUES (763, 3, 'Tiêu đề bài báo 763', 4, 'Noi dung bai bao 763', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 763', 'Tom tat 763', NULL);
+INSERT INTO `articles` VALUES (764, 3, 'Tiêu đề bài báo 764', 1, 'Noi dung bai bao 764', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 764', 'Tom tat 764', 7);
+INSERT INTO `articles` VALUES (765, 3, 'Tiêu đề bài báo 765', 2, 'Noi dung bai bao 765', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 765', 'Tom tat 765', 2);
+INSERT INTO `articles` VALUES (766, 3, 'Tiêu đề bài báo 766', 3, 'Noi dung bai bao 766', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 766', 'Tom tat 766', NULL);
+INSERT INTO `articles` VALUES (767, 3, 'Tiêu đề bài báo 767', 4, 'Noi dung bai bao 767', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 767', 'Tom tat 767', NULL);
+INSERT INTO `articles` VALUES (768, 3, 'Tiêu đề bài báo 768', 1, 'Noi dung bai bao 768', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 768', 'Tom tat 768', 2);
+INSERT INTO `articles` VALUES (769, 3, 'Tiêu đề bài báo 769', 2, 'Noi dung bai bao 769', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 769', 'Tom tat 769', 2);
+INSERT INTO `articles` VALUES (770, 3, 'Tiêu đề bài báo 770', 3, 'Noi dung bai bao 770', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 770', 'Tom tat 770', NULL);
+INSERT INTO `articles` VALUES (771, 3, 'Tiêu đề bài báo 771', 4, 'Noi dung bai bao 771', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 771', 'Tom tat 771', NULL);
+INSERT INTO `articles` VALUES (772, 3, 'Tiêu đề bài báo 772', 1, 'Noi dung bai bao 772', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 772', 'Tom tat 772', 7);
+INSERT INTO `articles` VALUES (773, 3, 'Tiêu đề bài báo 773', 2, 'Noi dung bai bao 773', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 773', 'Tom tat 773', 7);
+INSERT INTO `articles` VALUES (774, 3, 'Tiêu đề bài báo 774', 3, 'Noi dung bai bao 774', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 774', 'Tom tat 774', NULL);
+INSERT INTO `articles` VALUES (775, 3, 'Tiêu đề bài báo 775', 4, 'Noi dung bai bao 775', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 775', 'Tom tat 775', NULL);
+INSERT INTO `articles` VALUES (776, 3, 'Tiêu đề bài báo 776', 1, 'Noi dung bai bao 776', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 776', 'Tom tat 776', 7);
+INSERT INTO `articles` VALUES (777, 3, 'Tiêu đề bài báo 777', 2, 'Noi dung bai bao 777', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 777', 'Tom tat 777', 7);
+INSERT INTO `articles` VALUES (778, 3, 'Tiêu đề bài báo 778', 3, 'Noi dung bai bao 778', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 778', 'Tom tat 778', NULL);
+INSERT INTO `articles` VALUES (779, 3, 'Tiêu đề bài báo 779', 4, 'Noi dung bai bao 779', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 779', 'Tom tat 779', NULL);
+INSERT INTO `articles` VALUES (780, 3, 'Tiêu đề bài báo 780', 1, 'Noi dung bai bao 780', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 780', 'Tom tat 780', 2);
+INSERT INTO `articles` VALUES (781, 3, 'Tiêu đề bài báo 781', 2, 'Noi dung bai bao 781', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 781', 'Tom tat 781', 2);
+INSERT INTO `articles` VALUES (782, 3, 'Tiêu đề bài báo 782', 3, 'Noi dung bai bao 782', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 782', 'Tom tat 782', NULL);
+INSERT INTO `articles` VALUES (783, 3, 'Tiêu đề bài báo 783', 4, 'Noi dung bai bao 783', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 783', 'Tom tat 783', NULL);
+INSERT INTO `articles` VALUES (784, 3, 'Tiêu đề bài báo 784', 1, 'Noi dung bai bao 784', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 784', 'Tom tat 784', 2);
+INSERT INTO `articles` VALUES (785, 3, 'Tiêu đề bài báo 785', 2, 'Noi dung bai bao 785', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 785', 'Tom tat 785', 2);
+INSERT INTO `articles` VALUES (786, 3, 'Tiêu đề bài báo 786', 3, 'Noi dung bai bao 786', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 786', 'Tom tat 786', NULL);
+INSERT INTO `articles` VALUES (787, 3, 'Tiêu đề bài báo 787', 4, 'Noi dung bai bao 787', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 787', 'Tom tat 787', NULL);
+INSERT INTO `articles` VALUES (788, 3, 'Tiêu đề bài báo 788', 1, 'Noi dung bai bao 788', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 788', 'Tom tat 788', 7);
+INSERT INTO `articles` VALUES (789, 3, 'Tiêu đề bài báo 789', 2, 'Noi dung bai bao 789', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 789', 'Tom tat 789', 7);
+INSERT INTO `articles` VALUES (790, 3, 'Tiêu đề bài báo 790', 3, 'Noi dung bai bao 790', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 790', 'Tom tat 790', NULL);
+INSERT INTO `articles` VALUES (791, 3, 'Tiêu đề bài báo 791', 4, 'Noi dung bai bao 791', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 791', 'Tom tat 791', NULL);
+INSERT INTO `articles` VALUES (792, 3, 'Tiêu đề bài báo 792', 1, 'Noi dung bai bao 792', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 792', 'Tom tat 792', 7);
+INSERT INTO `articles` VALUES (793, 3, 'Tiêu đề bài báo 793', 2, 'Noi dung bai bao 793', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 793', 'Tom tat 793', 7);
+INSERT INTO `articles` VALUES (794, 3, 'Tiêu đề bài báo 794', 3, 'Noi dung bai bao 794', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 794', 'Tom tat 794', NULL);
+INSERT INTO `articles` VALUES (795, 3, 'Tiêu đề bài báo 795', 4, 'Noi dung bai bao 795', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 795', 'Tom tat 795', NULL);
+INSERT INTO `articles` VALUES (796, 3, 'Tiêu đề bài báo 796', 1, 'Noi dung bai bao 796', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 796', 'Tom tat 796', 2);
+INSERT INTO `articles` VALUES (797, 3, 'Tiêu đề bài báo 797', 2, 'Noi dung bai bao 797', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 797', 'Tom tat 797', 2);
+INSERT INTO `articles` VALUES (798, 3, 'Tiêu đề bài báo 798', 3, 'Noi dung bai bao 798', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 798', 'Tom tat 798', NULL);
+INSERT INTO `articles` VALUES (799, 3, 'Tiêu đề bài báo 799', 4, 'Noi dung bai bao 799', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 799', 'Tom tat 799', NULL);
+INSERT INTO `articles` VALUES (800, 3, 'Tiêu đề bài báo 800', 1, 'Noi dung bai bao 800', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 800', 'Tom tat 800', 2);
+INSERT INTO `articles` VALUES (801, 3, 'Tiêu đề bài báo 801', 2, 'Noi dung bai bao 801', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 801', 'Tom tat 801', 2);
+INSERT INTO `articles` VALUES (802, 3, 'Tiêu đề bài báo 802', 3, 'Noi dung bai bao 802', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 802', 'Tom tat 802', NULL);
+INSERT INTO `articles` VALUES (803, 3, 'Tiêu đề bài báo 803', 4, 'Noi dung bai bao 803', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 803', 'Tom tat 803', NULL);
+INSERT INTO `articles` VALUES (804, 3, 'Tiêu đề bài báo 804', 1, 'Noi dung bai bao 804', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 804', 'Tom tat 804', 7);
+INSERT INTO `articles` VALUES (805, 3, 'Tiêu đề bài báo 805', 2, 'Noi dung bai bao 805', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 805', 'Tom tat 805', 7);
+INSERT INTO `articles` VALUES (806, 3, 'Tiêu đề bài báo 806', 3, 'Noi dung bai bao 806', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 806', 'Tom tat 806', NULL);
+INSERT INTO `articles` VALUES (807, 3, 'Tiêu đề bài báo 807', 4, 'Noi dung bai bao 807', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 807', 'Tom tat 807', NULL);
+INSERT INTO `articles` VALUES (808, 3, 'Tiêu đề bài báo 808', 1, 'Noi dung bai bao 808', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 808', 'Tom tat 808', 7);
+INSERT INTO `articles` VALUES (809, 3, 'Tiêu đề bài báo 809', 2, 'Noi dung bai bao 809', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 809', 'Tom tat 809', 7);
+INSERT INTO `articles` VALUES (810, 3, 'Tiêu đề bài báo 810', 3, 'Noi dung bai bao 810', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 810', 'Tom tat 810', NULL);
+INSERT INTO `articles` VALUES (811, 3, 'Tiêu đề bài báo 811', 4, 'Noi dung bai bao 811', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 811', 'Tom tat 811', NULL);
+INSERT INTO `articles` VALUES (812, 3, 'Tiêu đề bài báo 812', 1, 'Noi dung bai bao 812', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 812', 'Tom tat 812', 2);
+INSERT INTO `articles` VALUES (813, 3, 'Tiêu đề bài báo 813', 2, 'Noi dung bai bao 813', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 813', 'Tom tat 813', 2);
+INSERT INTO `articles` VALUES (814, 3, 'Tiêu đề bài báo 814', 3, 'Noi dung bai bao 814', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 814', 'Tom tat 814', NULL);
+INSERT INTO `articles` VALUES (815, 3, 'Tiêu đề bài báo 815', 4, 'Noi dung bai bao 815', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 815', 'Tom tat 815', NULL);
+INSERT INTO `articles` VALUES (816, 3, 'Tiêu đề bài báo 816', 1, 'Noi dung bai bao 816', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 816', 'Tom tat 816', 2);
+INSERT INTO `articles` VALUES (817, 3, 'Tiêu đề bài báo 817', 2, 'Noi dung bai bao 817', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 817', 'Tom tat 817', 7);
+INSERT INTO `articles` VALUES (818, 3, 'Tiêu đề bài báo 818', 3, 'Noi dung bai bao 818', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 818', 'Tom tat 818', NULL);
+INSERT INTO `articles` VALUES (819, 3, 'Tiêu đề bài báo 819', 4, 'Noi dung bai bao 819', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 819', 'Tom tat 819', NULL);
+INSERT INTO `articles` VALUES (820, 3, 'Tiêu đề bài báo 820', 1, 'Noi dung bai bao 820', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 820', 'Tom tat 820', 7);
+INSERT INTO `articles` VALUES (821, 3, 'Tiêu đề bài báo 821', 2, 'Noi dung bai bao 821', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 821', 'Tom tat 821', 7);
+INSERT INTO `articles` VALUES (822, 3, 'Tiêu đề bài báo 822', 3, 'Noi dung bai bao 822', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 822', 'Tom tat 822', NULL);
+INSERT INTO `articles` VALUES (823, 3, 'Tiêu đề bài báo 823', 4, 'Noi dung bai bao 823', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 823', 'Tom tat 823', NULL);
+INSERT INTO `articles` VALUES (824, 3, 'Tiêu đề bài báo 824', 1, 'Noi dung bai bao 824', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 824', 'Tom tat 824', 7);
+INSERT INTO `articles` VALUES (825, 3, 'Tiêu đề bài báo 825', 2, 'Noi dung bai bao 825', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 825', 'Tom tat 825', 2);
+INSERT INTO `articles` VALUES (826, 3, 'Tiêu đề bài báo 826', 3, 'Noi dung bai bao 826', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 826', 'Tom tat 826', NULL);
+INSERT INTO `articles` VALUES (827, 3, 'Tiêu đề bài báo 827', 4, 'Noi dung bai bao 827', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 827', 'Tom tat 827', NULL);
+INSERT INTO `articles` VALUES (828, 3, 'Tiêu đề bài báo 828', 1, 'Noi dung bai bao 828', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 828', 'Tom tat 828', 2);
+INSERT INTO `articles` VALUES (829, 3, 'Tiêu đề bài báo 829', 2, 'Noi dung bai bao 829', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 829', 'Tom tat 829', 2);
+INSERT INTO `articles` VALUES (830, 3, 'Tiêu đề bài báo 830', 3, 'Noi dung bai bao 830', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 830', 'Tom tat 830', NULL);
+INSERT INTO `articles` VALUES (831, 3, 'Tiêu đề bài báo 831', 4, 'Noi dung bai bao 831', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 831', 'Tom tat 831', NULL);
+INSERT INTO `articles` VALUES (832, 3, 'Tiêu đề bài báo 832', 1, 'Noi dung bai bao 832', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 832', 'Tom tat 832', 7);
+INSERT INTO `articles` VALUES (833, 3, 'Tiêu đề bài báo 833', 2, 'Noi dung bai bao 833', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 833', 'Tom tat 833', 7);
+INSERT INTO `articles` VALUES (834, 3, 'Tiêu đề bài báo 834', 3, 'Noi dung bai bao 834', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 834', 'Tom tat 834', NULL);
+INSERT INTO `articles` VALUES (835, 3, 'Tiêu đề bài báo 835', 4, 'Noi dung bai bao 835', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 835', 'Tom tat 835', NULL);
+INSERT INTO `articles` VALUES (836, 3, 'Tiêu đề bài báo 836', 1, 'Noi dung bai bao 836', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 836', 'Tom tat 836', 7);
+INSERT INTO `articles` VALUES (837, 3, 'Tiêu đề bài báo 837', 2, 'Noi dung bai bao 837', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 837', 'Tom tat 837', 7);
+INSERT INTO `articles` VALUES (838, 3, 'Tiêu đề bài báo 838', 3, 'Noi dung bai bao 838', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 838', 'Tom tat 838', NULL);
+INSERT INTO `articles` VALUES (839, 3, 'Tiêu đề bài báo 839', 4, 'Noi dung bai bao 839', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 839', 'Tom tat 839', NULL);
+INSERT INTO `articles` VALUES (840, 3, 'Tiêu đề bài báo 840', 1, 'Noi dung bai bao 840', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 840', 'Tom tat 840', 2);
+INSERT INTO `articles` VALUES (841, 3, 'Tiêu đề bài báo 841', 2, 'Noi dung bai bao 841', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 841', 'Tom tat 841', 2);
+INSERT INTO `articles` VALUES (842, 3, 'Tiêu đề bài báo 842', 3, 'Noi dung bai bao 842', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 842', 'Tom tat 842', NULL);
+INSERT INTO `articles` VALUES (843, 3, 'Tiêu đề bài báo 843', 4, 'Noi dung bai bao 843', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 843', 'Tom tat 843', NULL);
+INSERT INTO `articles` VALUES (844, 3, 'Tiêu đề bài báo 844', 1, 'Noi dung bai bao 844', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 844', 'Tom tat 844', 2);
+INSERT INTO `articles` VALUES (845, 3, 'Tiêu đề bài báo 845', 2, 'Noi dung bai bao 845', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 845', 'Tom tat 845', 2);
+INSERT INTO `articles` VALUES (846, 3, 'Tiêu đề bài báo 846', 3, 'Noi dung bai bao 846', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 846', 'Tom tat 846', NULL);
+INSERT INTO `articles` VALUES (847, 3, 'Tiêu đề bài báo 847', 4, 'Noi dung bai bao 847', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 847', 'Tom tat 847', NULL);
+INSERT INTO `articles` VALUES (848, 3, 'Tiêu đề bài báo 848', 1, 'Noi dung bai bao 848', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 848', 'Tom tat 848', 7);
+INSERT INTO `articles` VALUES (849, 3, 'Tiêu đề bài báo 849', 2, 'Noi dung bai bao 849', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 849', 'Tom tat 849', 7);
+INSERT INTO `articles` VALUES (850, 3, 'Tiêu đề bài báo 850', 3, 'Noi dung bai bao 850', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 850', 'Tom tat 850', NULL);
+INSERT INTO `articles` VALUES (851, 3, 'Tiêu đề bài báo 851', 4, 'Noi dung bai bao 851', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 851', 'Tom tat 851', NULL);
+INSERT INTO `articles` VALUES (852, 3, 'Tiêu đề bài báo 852', 1, 'Noi dung bai bao 852', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 852', 'Tom tat 852', 7);
+INSERT INTO `articles` VALUES (853, 3, 'Tiêu đề bài báo 853', 2, 'Noi dung bai bao 853', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 853', 'Tom tat 853', 7);
+INSERT INTO `articles` VALUES (854, 3, 'Tiêu đề bài báo 854', 3, 'Noi dung bai bao 854', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 854', 'Tom tat 854', NULL);
+INSERT INTO `articles` VALUES (855, 3, 'Tiêu đề bài báo 855', 4, 'Noi dung bai bao 855', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 855', 'Tom tat 855', NULL);
+INSERT INTO `articles` VALUES (856, 3, 'Tiêu đề bài báo 856', 1, 'Noi dung bai bao 856', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 856', 'Tom tat 856', 2);
+INSERT INTO `articles` VALUES (857, 3, 'Tiêu đề bài báo 857', 2, 'Noi dung bai bao 857', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 857', 'Tom tat 857', 2);
+INSERT INTO `articles` VALUES (858, 3, 'Tiêu đề bài báo 858', 3, 'Noi dung bai bao 858', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 858', 'Tom tat 858', NULL);
+INSERT INTO `articles` VALUES (859, 3, 'Tiêu đề bài báo 859', 4, 'Noi dung bai bao 859', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 859', 'Tom tat 859', NULL);
+INSERT INTO `articles` VALUES (860, 3, 'Tiêu đề bài báo 860', 1, 'Noi dung bai bao 860', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 860', 'Tom tat 860', 2);
+INSERT INTO `articles` VALUES (861, 3, 'Tiêu đề bài báo 861', 2, 'Noi dung bai bao 861', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 861', 'Tom tat 861', 2);
+INSERT INTO `articles` VALUES (862, 3, 'Tiêu đề bài báo 862', 3, 'Noi dung bai bao 862', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 862', 'Tom tat 862', NULL);
+INSERT INTO `articles` VALUES (863, 3, 'Tiêu đề bài báo 863', 4, 'Noi dung bai bao 863', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 863', 'Tom tat 863', NULL);
+INSERT INTO `articles` VALUES (864, 3, 'Tiêu đề bài báo 864', 1, 'Noi dung bai bao 864', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 864', 'Tom tat 864', 7);
+INSERT INTO `articles` VALUES (865, 3, 'Tiêu đề bài báo 865', 2, 'Noi dung bai bao 865', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 865', 'Tom tat 865', 7);
+INSERT INTO `articles` VALUES (866, 3, 'Tiêu đề bài báo 866', 3, 'Noi dung bai bao 866', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 866', 'Tom tat 866', NULL);
+INSERT INTO `articles` VALUES (867, 3, 'Tiêu đề bài báo 867', 4, 'Noi dung bai bao 867', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 867', 'Tom tat 867', NULL);
+INSERT INTO `articles` VALUES (868, 3, 'Tiêu đề bài báo 868', 1, 'Noi dung bai bao 868', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 868', 'Tom tat 868', 7);
+INSERT INTO `articles` VALUES (869, 3, 'Tiêu đề bài báo 869', 2, 'Noi dung bai bao 869', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 869', 'Tom tat 869', 7);
+INSERT INTO `articles` VALUES (870, 3, 'Tiêu đề bài báo 870', 3, 'Noi dung bai bao 870', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 870', 'Tom tat 870', NULL);
+INSERT INTO `articles` VALUES (871, 3, 'Tiêu đề bài báo 871', 4, 'Noi dung bai bao 871', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 871', 'Tom tat 871', NULL);
+INSERT INTO `articles` VALUES (872, 3, 'Tiêu đề bài báo 872', 1, 'Noi dung bai bao 872', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 872', 'Tom tat 872', 2);
+INSERT INTO `articles` VALUES (873, 3, 'Tiêu đề bài báo 873', 2, 'Noi dung bai bao 873', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 873', 'Tom tat 873', 2);
+INSERT INTO `articles` VALUES (874, 3, 'Tiêu đề bài báo 874', 3, 'Noi dung bai bao 874', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 874', 'Tom tat 874', NULL);
+INSERT INTO `articles` VALUES (875, 3, 'Tiêu đề bài báo 875', 4, 'Noi dung bai bao 875', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 875', 'Tom tat 875', NULL);
+INSERT INTO `articles` VALUES (876, 3, 'Tiêu đề bài báo 876', 1, 'Noi dung bai bao 876', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 876', 'Tom tat 876', 2);
+INSERT INTO `articles` VALUES (877, 3, 'Tiêu đề bài báo 877', 2, 'Noi dung bai bao 877', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 877', 'Tom tat 877', 7);
+INSERT INTO `articles` VALUES (878, 3, 'Tiêu đề bài báo 878', 3, 'Noi dung bai bao 878', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 878', 'Tom tat 878', NULL);
+INSERT INTO `articles` VALUES (879, 3, 'Tiêu đề bài báo 879', 4, 'Noi dung bai bao 879', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 879', 'Tom tat 879', NULL);
+INSERT INTO `articles` VALUES (880, 3, 'Tiêu đề bài báo 880', 1, 'Noi dung bai bao 880', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 880', 'Tom tat 880', 7);
+INSERT INTO `articles` VALUES (881, 3, 'Tiêu đề bài báo 881', 2, 'Noi dung bai bao 881', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 881', 'Tom tat 881', 7);
+INSERT INTO `articles` VALUES (882, 3, 'Tiêu đề bài báo 882', 3, 'Noi dung bai bao 882', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 882', 'Tom tat 882', NULL);
+INSERT INTO `articles` VALUES (883, 3, 'Tiêu đề bài báo 883', 4, 'Noi dung bai bao 883', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 883', 'Tom tat 883', NULL);
+INSERT INTO `articles` VALUES (884, 3, 'Tiêu đề bài báo 884', 1, 'Noi dung bai bao 884', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 884', 'Tom tat 884', 7);
+INSERT INTO `articles` VALUES (885, 3, 'Tiêu đề bài báo 885', 2, 'Noi dung bai bao 885', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 885', 'Tom tat 885', 2);
+INSERT INTO `articles` VALUES (886, 3, 'Tiêu đề bài báo 886', 3, 'Noi dung bai bao 886', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 886', 'Tom tat 886', NULL);
+INSERT INTO `articles` VALUES (887, 3, 'Tiêu đề bài báo 887', 4, 'Noi dung bai bao 887', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 887', 'Tom tat 887', NULL);
+INSERT INTO `articles` VALUES (888, 3, 'Tiêu đề bài báo 888', 1, 'Noi dung bai bao 888', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 888', 'Tom tat 888', 2);
+INSERT INTO `articles` VALUES (889, 3, 'Tiêu đề bài báo 889', 2, 'Noi dung bai bao 889', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 889', 'Tom tat 889', 2);
+INSERT INTO `articles` VALUES (890, 3, 'Tiêu đề bài báo 890', 3, 'Noi dung bai bao 890', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 890', 'Tom tat 890', NULL);
+INSERT INTO `articles` VALUES (891, 3, 'Tiêu đề bài báo 891', 4, 'Noi dung bai bao 891', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 891', 'Tom tat 891', NULL);
+INSERT INTO `articles` VALUES (892, 3, 'Tiêu đề bài báo 892', 1, 'Noi dung bai bao 892', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 892', 'Tom tat 892', 7);
+INSERT INTO `articles` VALUES (893, 3, 'Tiêu đề bài báo 893', 2, 'Noi dung bai bao 893', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 893', 'Tom tat 893', 7);
+INSERT INTO `articles` VALUES (894, 3, 'Tiêu đề bài báo 894', 3, 'Noi dung bai bao 894', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 894', 'Tom tat 894', NULL);
+INSERT INTO `articles` VALUES (895, 3, 'Tiêu đề bài báo 895', 4, 'Noi dung bai bao 895', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 895', 'Tom tat 895', NULL);
+INSERT INTO `articles` VALUES (896, 3, 'Tiêu đề bài báo 896', 1, 'Noi dung bai bao 896', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 896', 'Tom tat 896', 7);
+INSERT INTO `articles` VALUES (897, 3, 'Tiêu đề bài báo 897', 2, 'Noi dung bai bao 897', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 897', 'Tom tat 897', 7);
+INSERT INTO `articles` VALUES (898, 3, 'Tiêu đề bài báo 898', 3, 'Noi dung bai bao 898', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 898', 'Tom tat 898', NULL);
+INSERT INTO `articles` VALUES (899, 3, 'Tiêu đề bài báo 899', 4, 'Noi dung bai bao 899', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 899', 'Tom tat 899', NULL);
+INSERT INTO `articles` VALUES (900, 3, 'Tiêu đề bài báo 900', 1, 'Noi dung bai bao 900', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 900', 'Tom tat 900', 2);
+INSERT INTO `articles` VALUES (901, 3, 'Tiêu đề bài báo 901', 2, 'Noi dung bai bao 901', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 901', 'Tom tat 901', 2);
+INSERT INTO `articles` VALUES (902, 3, 'Tiêu đề bài báo 902', 3, 'Noi dung bai bao 902', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 902', 'Tom tat 902', NULL);
+INSERT INTO `articles` VALUES (903, 3, 'Tiêu đề bài báo 903', 4, 'Noi dung bai bao 903', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 903', 'Tom tat 903', NULL);
+INSERT INTO `articles` VALUES (904, 3, 'Tiêu đề bài báo 904', 1, 'Noi dung bai bao 904', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 904', 'Tom tat 904', 2);
+INSERT INTO `articles` VALUES (905, 3, 'Tiêu đề bài báo 905', 2, 'Noi dung bai bao 905', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 905', 'Tom tat 905', 2);
+INSERT INTO `articles` VALUES (906, 3, 'Tiêu đề bài báo 906', 3, 'Noi dung bai bao 906', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 906', 'Tom tat 906', NULL);
+INSERT INTO `articles` VALUES (907, 3, 'Tiêu đề bài báo 907', 4, 'Noi dung bai bao 907', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 907', 'Tom tat 907', NULL);
+INSERT INTO `articles` VALUES (908, 3, 'Tiêu đề bài báo 908', 1, 'Noi dung bai bao 908', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 908', 'Tom tat 908', 7);
+INSERT INTO `articles` VALUES (909, 3, 'Tiêu đề bài báo 909', 2, 'Noi dung bai bao 909', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 909', 'Tom tat 909', 7);
+INSERT INTO `articles` VALUES (910, 3, 'Tiêu đề bài báo 910', 3, 'Noi dung bai bao 910', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 910', 'Tom tat 910', NULL);
+INSERT INTO `articles` VALUES (911, 3, 'Tiêu đề bài báo 911', 4, 'Noi dung bai bao 911', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 911', 'Tom tat 911', NULL);
+INSERT INTO `articles` VALUES (912, 3, 'Tiêu đề bài báo 912', 1, 'Noi dung bai bao 912', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 912', 'Tom tat 912', 7);
+INSERT INTO `articles` VALUES (913, 3, 'Tiêu đề bài báo 913', 2, 'Noi dung bai bao 913', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 913', 'Tom tat 913', 7);
+INSERT INTO `articles` VALUES (914, 3, 'Tiêu đề bài báo 914', 3, 'Noi dung bai bao 914', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 914', 'Tom tat 914', NULL);
+INSERT INTO `articles` VALUES (915, 3, 'Tiêu đề bài báo 915', 4, 'Noi dung bai bao 915', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 915', 'Tom tat 915', NULL);
+INSERT INTO `articles` VALUES (916, 3, 'Tiêu đề bài báo 916', 1, 'Noi dung bai bao 916', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 916', 'Tom tat 916', 2);
+INSERT INTO `articles` VALUES (917, 3, 'Tiêu đề bài báo 917', 2, 'Noi dung bai bao 917', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 917', 'Tom tat 917', 2);
+INSERT INTO `articles` VALUES (918, 3, 'Tiêu đề bài báo 918', 3, 'Noi dung bai bao 918', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 918', 'Tom tat 918', NULL);
+INSERT INTO `articles` VALUES (919, 3, 'Tiêu đề bài báo 919', 4, 'Noi dung bai bao 919', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 919', 'Tom tat 919', NULL);
+INSERT INTO `articles` VALUES (920, 3, 'Tiêu đề bài báo 920', 1, 'Noi dung bai bao 920', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 920', 'Tom tat 920', 2);
+INSERT INTO `articles` VALUES (921, 3, 'Tiêu đề bài báo 921', 2, 'Noi dung bai bao 921', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 921', 'Tom tat 921', 2);
+INSERT INTO `articles` VALUES (922, 3, 'Tiêu đề bài báo 922', 3, 'Noi dung bai bao 922', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 922', 'Tom tat 922', NULL);
+INSERT INTO `articles` VALUES (923, 3, 'Tiêu đề bài báo 923', 4, 'Noi dung bai bao 923', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 923', 'Tom tat 923', NULL);
+INSERT INTO `articles` VALUES (924, 3, 'Tiêu đề bài báo 924', 1, 'Noi dung bai bao 924', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 924', 'Tom tat 924', 7);
+INSERT INTO `articles` VALUES (925, 3, 'Tiêu đề bài báo 925', 2, 'Noi dung bai bao 925', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 925', 'Tom tat 925', 7);
+INSERT INTO `articles` VALUES (926, 3, 'Tiêu đề bài báo 926', 3, 'Noi dung bai bao 926', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 926', 'Tom tat 926', NULL);
+INSERT INTO `articles` VALUES (927, 3, 'Tiêu đề bài báo 927', 4, 'Noi dung bai bao 927', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 927', 'Tom tat 927', NULL);
+INSERT INTO `articles` VALUES (928, 3, 'Tiêu đề bài báo 928', 1, 'Noi dung bai bao 928', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 928', 'Tom tat 928', 7);
+INSERT INTO `articles` VALUES (929, 3, 'Tiêu đề bài báo 929', 2, 'Noi dung bai bao 929', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 929', 'Tom tat 929', 7);
+INSERT INTO `articles` VALUES (930, 3, 'Tiêu đề bài báo 930', 3, 'Noi dung bai bao 930', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 930', 'Tom tat 930', NULL);
+INSERT INTO `articles` VALUES (931, 3, 'Tiêu đề bài báo 931', 4, 'Noi dung bai bao 931', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 931', 'Tom tat 931', NULL);
+INSERT INTO `articles` VALUES (932, 3, 'Tiêu đề bài báo 932', 1, 'Noi dung bai bao 932', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 932', 'Tom tat 932', 2);
+INSERT INTO `articles` VALUES (933, 3, 'Tiêu đề bài báo 933', 2, 'Noi dung bai bao 933', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 933', 'Tom tat 933', 2);
+INSERT INTO `articles` VALUES (934, 3, 'Tiêu đề bài báo 934', 3, 'Noi dung bai bao 934', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 934', 'Tom tat 934', NULL);
+INSERT INTO `articles` VALUES (935, 3, 'Tiêu đề bài báo 935', 4, 'Noi dung bai bao 935', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 935', 'Tom tat 935', NULL);
+INSERT INTO `articles` VALUES (936, 3, 'Tiêu đề bài báo 936', 1, 'Noi dung bai bao 936', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 936', 'Tom tat 936', 2);
+INSERT INTO `articles` VALUES (937, 3, 'Tiêu đề bài báo 937', 2, 'Noi dung bai bao 937', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 937', 'Tom tat 937', 7);
+INSERT INTO `articles` VALUES (938, 3, 'Tiêu đề bài báo 938', 3, 'Noi dung bai bao 938', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 938', 'Tom tat 938', NULL);
+INSERT INTO `articles` VALUES (939, 3, 'Tiêu đề bài báo 939', 4, 'Noi dung bai bao 939', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 939', 'Tom tat 939', NULL);
+INSERT INTO `articles` VALUES (940, 3, 'Tiêu đề bài báo 940', 1, 'Noi dung bai bao 940', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 940', 'Tom tat 940', 7);
+INSERT INTO `articles` VALUES (941, 3, 'Tiêu đề bài báo 941', 2, 'Noi dung bai bao 941', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 941', 'Tom tat 941', 7);
+INSERT INTO `articles` VALUES (942, 3, 'Tiêu đề bài báo 942', 3, 'Noi dung bai bao 942', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 942', 'Tom tat 942', NULL);
+INSERT INTO `articles` VALUES (943, 3, 'Tiêu đề bài báo 943', 4, 'Noi dung bai bao 943', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 943', 'Tom tat 943', NULL);
+INSERT INTO `articles` VALUES (944, 3, 'Tiêu đề bài báo 944', 1, 'Noi dung bai bao 944', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 944', 'Tom tat 944', 7);
+INSERT INTO `articles` VALUES (945, 3, 'Tiêu đề bài báo 945', 2, 'Noi dung bai bao 945', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 945', 'Tom tat 945', 2);
+INSERT INTO `articles` VALUES (946, 3, 'Tiêu đề bài báo 946', 3, 'Noi dung bai bao 946', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 946', 'Tom tat 946', NULL);
+INSERT INTO `articles` VALUES (947, 3, 'Tiêu đề bài báo 947', 4, 'Noi dung bai bao 947', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 947', 'Tom tat 947', NULL);
+INSERT INTO `articles` VALUES (948, 3, 'Tiêu đề bài báo 948', 1, 'Noi dung bai bao 948', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 948', 'Tom tat 948', 2);
+INSERT INTO `articles` VALUES (949, 3, 'Tiêu đề bài báo 949', 2, 'Noi dung bai bao 949', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 949', 'Tom tat 949', 2);
+INSERT INTO `articles` VALUES (950, 3, 'Tiêu đề bài báo 950', 3, 'Noi dung bai bao 950', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 950', 'Tom tat 950', NULL);
+INSERT INTO `articles` VALUES (951, 3, 'Tiêu đề bài báo 951', 4, 'Noi dung bai bao 951', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 951', 'Tom tat 951', NULL);
+INSERT INTO `articles` VALUES (952, 3, 'Tiêu đề bài báo 952', 1, 'Noi dung bai bao 952', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 952', 'Tom tat 952', 7);
+INSERT INTO `articles` VALUES (953, 3, 'Tiêu đề bài báo 953', 2, 'Noi dung bai bao 953', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 953', 'Tom tat 953', 7);
+INSERT INTO `articles` VALUES (954, 3, 'Tiêu đề bài báo 954', 3, 'Noi dung bai bao 954', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 954', 'Tom tat 954', NULL);
+INSERT INTO `articles` VALUES (955, 3, 'Tiêu đề bài báo 955', 4, 'Noi dung bai bao 955', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 955', 'Tom tat 955', NULL);
+INSERT INTO `articles` VALUES (956, 3, 'Tiêu đề bài báo 956', 1, 'Noi dung bai bao 956', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 956', 'Tom tat 956', 7);
+INSERT INTO `articles` VALUES (957, 3, 'Tiêu đề bài báo 957', 2, 'Noi dung bai bao 957', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 957', 'Tom tat 957', 7);
+INSERT INTO `articles` VALUES (958, 3, 'Tiêu đề bài báo 958', 3, 'Noi dung bai bao 958', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 958', 'Tom tat 958', NULL);
+INSERT INTO `articles` VALUES (959, 3, 'Tiêu đề bài báo 959', 4, 'Noi dung bai bao 959', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 959', 'Tom tat 959', NULL);
+INSERT INTO `articles` VALUES (960, 3, 'Tiêu đề bài báo 960', 1, 'Noi dung bai bao 960', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 960', 'Tom tat 960', 2);
+INSERT INTO `articles` VALUES (961, 3, 'Tiêu đề bài báo 961', 2, 'Noi dung bai bao 961', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 961', 'Tom tat 961', 2);
+INSERT INTO `articles` VALUES (962, 3, 'Tiêu đề bài báo 962', 3, 'Noi dung bai bao 962', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 962', 'Tom tat 962', NULL);
+INSERT INTO `articles` VALUES (963, 3, 'Tiêu đề bài báo 963', 4, 'Noi dung bai bao 963', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 963', 'Tom tat 963', NULL);
+INSERT INTO `articles` VALUES (964, 3, 'Tiêu đề bài báo 964', 1, 'Noi dung bai bao 964', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 964', 'Tom tat 964', 2);
+INSERT INTO `articles` VALUES (965, 3, 'Tiêu đề bài báo 965', 2, 'Noi dung bai bao 965', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 965', 'Tom tat 965', 2);
+INSERT INTO `articles` VALUES (966, 3, 'Tiêu đề bài báo 966', 3, 'Noi dung bai bao 966', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 966', 'Tom tat 966', NULL);
+INSERT INTO `articles` VALUES (967, 3, 'Tiêu đề bài báo 967', 4, 'Noi dung bai bao 967', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 967', 'Tom tat 967', NULL);
+INSERT INTO `articles` VALUES (968, 3, 'Tiêu đề bài báo 968', 1, 'Noi dung bai bao 968', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 968', 'Tom tat 968', 7);
+INSERT INTO `articles` VALUES (969, 3, 'Tiêu đề bài báo 969', 2, 'Noi dung bai bao 969', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 969', 'Tom tat 969', 7);
+INSERT INTO `articles` VALUES (970, 3, 'Tiêu đề bài báo 970', 3, 'Noi dung bai bao 970', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 970', 'Tom tat 970', NULL);
+INSERT INTO `articles` VALUES (971, 3, 'Tiêu đề bài báo 971', 4, 'Noi dung bai bao 971', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 971', 'Tom tat 971', NULL);
+INSERT INTO `articles` VALUES (972, 3, 'Tiêu đề bài báo 972', 1, 'Noi dung bai bao 972', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 972', 'Tom tat 972', 7);
+INSERT INTO `articles` VALUES (973, 3, 'Tiêu đề bài báo 973', 2, 'Noi dung bai bao 973', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 973', 'Tom tat 973', 7);
+INSERT INTO `articles` VALUES (974, 3, 'Tiêu đề bài báo 974', 3, 'Noi dung bai bao 974', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 974', 'Tom tat 974', NULL);
+INSERT INTO `articles` VALUES (975, 3, 'Tiêu đề bài báo 975', 4, 'Noi dung bai bao 975', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 975', 'Tom tat 975', NULL);
+INSERT INTO `articles` VALUES (976, 3, 'Tiêu đề bài báo 976', 1, 'Noi dung bai bao 976', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 976', 'Tom tat 976', 2);
+INSERT INTO `articles` VALUES (977, 3, 'Tiêu đề bài báo 977', 2, 'Noi dung bai bao 977', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 977', 'Tom tat 977', 2);
+INSERT INTO `articles` VALUES (978, 3, 'Tiêu đề bài báo 978', 3, 'Noi dung bai bao 978', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 978', 'Tom tat 978', NULL);
+INSERT INTO `articles` VALUES (979, 3, 'Tiêu đề bài báo 979', 4, 'Noi dung bai bao 979', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 979', 'Tom tat 979', NULL);
+INSERT INTO `articles` VALUES (980, 3, 'Tiêu đề bài báo 980', 1, 'Noi dung bai bao 980', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 980', 'Tom tat 980', 2);
+INSERT INTO `articles` VALUES (981, 3, 'Tiêu đề bài báo 981', 2, 'Noi dung bai bao 981', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 981', 'Tom tat 981', 2);
+INSERT INTO `articles` VALUES (982, 3, 'Tiêu đề bài báo 982', 3, 'Noi dung bai bao 982', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 982', 'Tom tat 982', NULL);
+INSERT INTO `articles` VALUES (983, 3, 'Tiêu đề bài báo 983', 4, 'Noi dung bai bao 983', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 983', 'Tom tat 983', NULL);
+INSERT INTO `articles` VALUES (984, 3, 'Tiêu đề bài báo 984', 1, 'Noi dung bai bao 984', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 984', 'Tom tat 984', 7);
+INSERT INTO `articles` VALUES (985, 3, 'Tiêu đề bài báo 985', 2, 'Noi dung bai bao 985', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 985', 'Tom tat 985', 7);
+INSERT INTO `articles` VALUES (986, 3, 'Tiêu đề bài báo 986', 3, 'Noi dung bai bao 986', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 986', 'Tom tat 986', NULL);
+INSERT INTO `articles` VALUES (987, 3, 'Tiêu đề bài báo 987', 4, 'Noi dung bai bao 987', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 987', 'Tom tat 987', NULL);
+INSERT INTO `articles` VALUES (988, 3, 'Tiêu đề bài báo 988', 1, 'Noi dung bai bao 988', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 988', 'Tom tat 988', 7);
+INSERT INTO `articles` VALUES (989, 3, 'Tiêu đề bài báo 989', 2, 'Noi dung bai bao 989', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 989', 'Tom tat 989', 7);
+INSERT INTO `articles` VALUES (990, 3, 'Tiêu đề bài báo 990', 3, 'Noi dung bai bao 990', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 990', 'Tom tat 990', NULL);
+INSERT INTO `articles` VALUES (991, 3, 'Tiêu đề bài báo 991', 4, 'Noi dung bai bao 991', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 991', 'Tom tat 991', NULL);
+INSERT INTO `articles` VALUES (992, 3, 'Tiêu đề bài báo 992', 1, 'Noi dung bai bao 992', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 992', 'Tom tat 992', 2);
+INSERT INTO `articles` VALUES (993, 3, 'Tiêu đề bài báo 993', 2, 'Noi dung bai bao 993', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 993', 'Tom tat 993', 2);
+INSERT INTO `articles` VALUES (994, 3, 'Tiêu đề bài báo 994', 3, 'Noi dung bai bao 994', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 994', 'Tom tat 994', NULL);
+INSERT INTO `articles` VALUES (995, 3, 'Tiêu đề bài báo 995', 4, 'Noi dung bai bao 995', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 995', 'Tom tat 995', NULL);
+INSERT INTO `articles` VALUES (996, 3, 'Tiêu đề bài báo 996', 1, 'Noi dung bai bao 996', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 996', 'Tom tat 996', 2);
+INSERT INTO `articles` VALUES (997, 3, 'Tiêu đề bài báo 997', 2, 'Noi dung bai bao 997', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 997', 'Tom tat 997', 7);
+INSERT INTO `articles` VALUES (998, 3, 'Tiêu đề bài báo 998', 3, 'Noi dung bai bao 998', 500, 1, 0, '2021-07-27 23:14:32', 'fake path 998', 'Tom tat 998', NULL);
+INSERT INTO `articles` VALUES (999, 3, 'Tiêu đề bài báo 999', 4, 'Noi dung bai bao 999', 500, 1, 1, '2021-07-27 23:14:32', 'fake path 999', 'Tom tat 999', NULL);
+INSERT INTO `articles` VALUES (1001, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1002, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1003, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1004, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1005, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1006, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
+INSERT INTO `articles` VALUES (1007, 3, '999', 1, '999', 500, 1, 0, '2021-07-22 15:27:31', '999', '999', 2);
 
-LOCK TABLES `articles` WRITE;
-/*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,3,'Tiêu đề bài báo 1',2,'Noi dung bai bao 1',500,1,0,'2021-07-27 23:14:32','fake path 1','Tom tat 1',2),(2,3,'Tiêu đề bài báo 2',3,'Noi dung bai bao 2',500,1,0,'2021-07-27 23:14:32','fake path 2','Tom tat 2',NULL),(3,3,'Tiêu đề bài báo 3',4,'Noi dung bai bao 3',500,1,0,'2021-07-27 23:14:32','fake path 3','Tom tat 3',NULL),(4,3,'Tiêu đề bài báo 4',1,'Noi dung bai bao 4',500,1,0,'2021-07-27 23:14:32','fake path 4','Tom tat 4',2),(5,3,'Tiêu đề bài báo 5',2,'Noi dung bai bao 5',500,1,0,'2021-07-27 23:14:32','fake path 5','Tom tat 5',2),(6,3,'Tiêu đề bài báo 6',3,'Noi dung bai bao 6',500,1,0,'2021-07-27 23:14:32','fake path 6','Tom tat 6',NULL),(7,3,'Tiêu đề bài báo 7',4,'Noi dung bai bao 7',500,1,0,'2021-07-27 23:14:32','fake path 7','Tom tat 7',NULL),(8,3,'Tiêu đề bài báo 8',1,'Noi dung bai bao 8',500,1,0,'2021-07-27 23:14:32','fake path 8','Tom tat 8',7),(9,3,'Tiêu đề bài báo 9',2,'Noi dung bai bao 9',500,1,0,'2021-07-27 23:14:32','fake path 9','Tom tat 9',7),(10,3,'Tiêu đề bài báo 10',3,'Noi dung bai bao 10',500,1,0,'2021-07-27 23:14:32','fake path 10','Tom tat 10',NULL),(11,3,'Tiêu đề bài báo 11',4,'Noi dung bai bao 11',500,1,0,'2021-07-27 23:14:32','fake path 11','Tom tat 11',NULL),(12,3,'Tiêu đề bài báo 12',1,'Noi dung bai bao 12',500,1,0,'2021-07-27 23:14:32','fake path 12','Tom tat 12',7),(13,3,'Tiêu đề bài báo 13',2,'Noi dung bai bao 13',500,1,0,'2021-07-27 23:14:32','fake path 13','Tom tat 13',7),(14,3,'Tiêu đề bài báo 14',3,'Noi dung bai bao 14',500,1,0,'2021-07-27 23:14:32','fake path 14','Tom tat 14',NULL),(15,3,'Tiêu đề bài báo 15',4,'Noi dung bai bao 15',2222,1,1,'2021-07-27 23:14:32','fake path 15','Tom tat 15',NULL),(16,3,'Tiêu đề bài báo 16',1,'Noi dung bai bao 16',500,1,0,'2021-07-27 23:14:32','fake path 16','Tom tat 16',2),(17,3,'Tiêu đề bài báo 17',2,'Noi dung bai bao 17',500,1,0,'2021-07-27 23:14:32','fake path 17','Tom tat 17',2),(18,3,'Tiêu đề bài báo 18',3,'Noi dung bai bao 18',500,1,0,'2021-07-27 23:14:32','fake path 18','Tom tat 18',NULL),(19,3,'Tiêu đề bài báo 19',4,'Noi dung bai bao 19',500,1,0,'2021-07-27 23:14:32','fake path 19','Tom tat 19',NULL),(20,3,'Tiêu đề bài báo 20',1,'Noi dung bai bao 20',500,1,0,'2021-07-27 23:14:32','fake path 20','Tom tat 20',2),(21,3,'Tiêu đề bài báo 21',2,'Noi dung bai bao 21',500,1,0,'2021-07-27 23:14:32','fake path 21','Tom tat 21',2),(22,3,'Tiêu đề bài báo 22',3,'Noi dung bai bao 22',500,1,0,'2021-07-27 23:14:32','fake path 22','Tom tat 22',NULL),(23,3,'Tiêu đề bài báo 23',4,'Noi dung bai bao 23',500,1,0,'2021-07-27 23:14:32','fake path 23','Tom tat 23',NULL),(24,3,'Tiêu đề bài báo 24',1,'Noi dung bai bao 24',500,1,0,'2021-07-27 23:14:32','fake path 24','Tom tat 24',7),(25,3,'Tiêu đề bài báo 25',2,'Noi dung bai bao 25',500,1,0,'2021-07-27 23:14:32','fake path 25','Tom tat 25',7),(26,3,'Tiêu đề bài báo 26',3,'Noi dung bai bao 26',500,1,0,'2021-07-27 23:14:32','fake path 26','Tom tat 26',NULL),(27,3,'Tiêu đề bài báo 27',4,'Noi dung bai bao 27',500,1,0,'2021-07-27 23:14:32','fake path 27','Tom tat 27',NULL),(28,3,'Tiêu đề bài báo 28',1,'Noi dung bai bao 28',500,1,0,'2021-07-27 23:14:32','fake path 28','Tom tat 28',7),(29,3,'Tiêu đề bài báo 29',2,'Noi dung bai bao 29',500,1,0,'2021-07-27 23:14:32','fake path 29','Tom tat 29',7),(30,3,'Tiêu đề bài báo 30',3,'Noi dung bai bao 30',500,1,0,'2021-07-27 23:14:32','fake path 30','Tom tat 30',NULL),(31,3,'Tiêu đề bài báo 31',4,'Noi dung bai bao 31',500,1,0,'2021-07-27 23:14:32','fake path 31','Tom tat 31',NULL),(32,3,'Tiêu đề bài báo 32',1,'Noi dung bai bao 32',500,1,0,'2021-07-27 23:14:32','fake path 32','Tom tat 32',2),(33,3,'Tiêu đề bài báo 33',2,'Noi dung bai bao 33',500,1,0,'2021-07-27 23:14:32','fake path 33','Tom tat 33',2),(34,3,'Tiêu đề bài báo 34',3,'Noi dung bai bao 34',500,1,0,'2021-07-27 23:14:32','fake path 34','Tom tat 34',NULL),(35,3,'Tiêu đề bài báo 35',4,'Noi dung bai bao 35',500,1,0,'2021-07-27 23:14:32','fake path 35','Tom tat 35',NULL),(36,3,'Tiêu đề bài báo 36',1,'Noi dung bai bao 36',500,1,0,'2021-07-27 23:14:32','fake path 36','Tom tat 36',2),(37,3,'Tiêu đề bài báo 37',2,'Noi dung bai bao 37',500,1,0,'2021-07-27 23:14:32','fake path 37','Tom tat 37',7),(38,3,'Tiêu đề bài báo 38',3,'Noi dung bai bao 38',500,1,0,'2021-07-27 23:14:32','fake path 38','Tom tat 38',NULL),(39,3,'Tiêu đề bài báo 39',4,'Noi dung bai bao 39',500,1,0,'2021-07-27 23:14:32','fake path 39','Tom tat 39',NULL),(40,3,'Tiêu đề bài báo 40',1,'Noi dung bai bao 40',500,1,0,'2021-07-27 23:14:32','fake path 40','Tom tat 40',7),(41,3,'Tiêu đề bài báo 41',2,'Noi dung bai bao 41',500,1,0,'2021-07-27 23:14:32','fake path 41','Tom tat 41',7),(42,3,'Tiêu đề bài báo 42',3,'Noi dung bai bao 42',500,1,0,'2021-07-27 23:14:32','fake path 42','Tom tat 42',NULL),(43,3,'Tiêu đề bài báo 43',4,'Noi dung bai bao 43',500,1,0,'2021-07-27 23:14:32','fake path 43','Tom tat 43',NULL),(44,3,'Tiêu đề bài báo 44',1,'Noi dung bai bao 44',500,1,0,'2021-07-27 23:14:32','fake path 44','Tom tat 44',7),(45,3,'Tiêu đề bài báo 45',2,'Noi dung bai bao 45',500,1,0,'2021-07-27 23:14:32','fake path 45','Tom tat 45',2),(46,3,'Tiêu đề bài báo 46',3,'Noi dung bai bao 46',500,1,0,'2021-07-27 23:14:32','fake path 46','Tom tat 46',NULL),(47,3,'Tiêu đề bài báo 47',4,'Noi dung bai bao 47',500,1,0,'2021-07-27 23:14:32','fake path 47','Tom tat 47',NULL),(48,3,'Tiêu đề bài báo 48',1,'Noi dung bai bao 48',500,1,0,'2021-07-27 23:14:32','fake path 48','Tom tat 48',2),(49,3,'Tiêu đề bài báo 49',2,'Noi dung bai bao 49',500,1,0,'2021-07-27 23:14:32','fake path 49','Tom tat 49',2),(50,3,'Tiêu đề bài báo 50',3,'Noi dung bai bao 50',500,1,0,'2021-07-27 23:14:32','fake path 50','Tom tat 50',NULL),(51,3,'Tiêu đề bài báo 51',4,'Noi dung bai bao 51',500,1,0,'2021-07-27 23:14:32','fake path 51','Tom tat 51',NULL),(52,3,'Tiêu đề bài báo 52',1,'Noi dung bai bao 52',500,1,0,'2021-07-27 23:14:32','fake path 52','Tom tat 52',7),(53,3,'Tiêu đề bài báo 53',2,'Noi dung bai bao 53',500,1,0,'2021-07-27 23:14:32','fake path 53','Tom tat 53',7),(54,3,'Tiêu đề bài báo 54',3,'Noi dung bai bao 54',500,1,0,'2021-07-27 23:14:32','fake path 54','Tom tat 54',NULL),(55,3,'Tiêu đề bài báo 55',4,'Noi dung bai bao 55',500,1,0,'2021-07-27 23:14:32','fake path 55','Tom tat 55',NULL),(56,3,'Tiêu đề bài báo 56',1,'Noi dung bai bao 56',500,1,0,'2021-07-27 23:14:32','fake path 56','Tom tat 56',7),(57,3,'Tiêu đề bài báo 57',2,'Noi dung bai bao 57',500,1,0,'2021-07-27 23:14:32','fake path 57','Tom tat 57',7),(58,3,'Tiêu đề bài báo 58',3,'Noi dung bai bao 58',500,1,0,'2021-07-27 23:14:32','fake path 58','Tom tat 58',NULL),(59,3,'Tiêu đề bài báo 59',4,'Noi dung bai bao 59',500,1,0,'2021-07-27 23:14:32','fake path 59','Tom tat 59',NULL),(60,3,'Tiêu đề bài báo 60',1,'Noi dung bai bao 60',500,1,0,'2021-07-27 23:14:32','fake path 60','Tom tat 60',2),(61,3,'Tiêu đề bài báo 61',2,'Noi dung bai bao 61',500,1,0,'2021-07-27 23:14:32','fake path 61','Tom tat 61',2),(62,3,'Tiêu đề bài báo 62',3,'Noi dung bai bao 62',500,1,0,'2021-07-27 23:14:32','fake path 62','Tom tat 62',NULL),(63,3,'Tiêu đề bài báo 63',4,'Noi dung bai bao 63',500,1,0,'2021-07-27 23:14:32','fake path 63','Tom tat 63',NULL),(64,3,'Tiêu đề bài báo 64',1,'Noi dung bai bao 64',500,1,0,'2021-07-27 23:14:32','fake path 64','Tom tat 64',2),(65,3,'Tiêu đề bài báo 65',2,'Noi dung bai bao 65',500,1,0,'2021-07-27 23:14:32','fake path 65','Tom tat 65',2),(66,3,'Tiêu đề bài báo 66',3,'Noi dung bai bao 66',500,1,0,'2021-07-27 23:14:32','fake path 66','Tom tat 66',NULL),(67,3,'Tiêu đề bài báo 67',4,'Noi dung bai bao 67',500,1,0,'2021-07-27 23:14:32','fake path 67','Tom tat 67',NULL),(68,3,'Tiêu đề bài báo 68',1,'Noi dung bai bao 68',500,1,0,'2021-07-27 23:14:32','fake path 68','Tom tat 68',7),(69,3,'Tiêu đề bài báo 69',2,'Noi dung bai bao 69',500,1,0,'2021-07-27 23:14:32','fake path 69','Tom tat 69',7),(70,3,'Tiêu đề bài báo 70',3,'Noi dung bai bao 70',500,1,0,'2021-07-27 23:14:32','fake path 70','Tom tat 70',NULL),(71,3,'Tiêu đề bài báo 71',4,'Noi dung bai bao 71',500,1,0,'2021-07-27 23:14:32','fake path 71','Tom tat 71',NULL),(72,3,'Tiêu đề bài báo 72',1,'Noi dung bai bao 72',500,1,0,'2021-07-27 23:14:32','fake path 72','Tom tat 72',7),(73,3,'Tiêu đề bài báo 73',2,'Noi dung bai bao 73',500,1,0,'2021-07-27 23:14:32','fake path 73','Tom tat 73',7),(74,3,'Tiêu đề bài báo 74',3,'Noi dung bai bao 74',500,1,0,'2021-07-27 23:14:32','fake path 74','Tom tat 74',NULL),(75,3,'Tiêu đề bài báo 75',4,'Noi dung bai bao 75',500,1,0,'2021-07-27 23:14:32','fake path 75','Tom tat 75',NULL),(76,3,'Tiêu đề bài báo 76',1,'Noi dung bai bao 76',500,1,0,'2021-07-27 23:14:32','fake path 76','Tom tat 76',2),(77,3,'Tiêu đề bài báo 77',2,'Noi dung bai bao 77',500,1,0,'2021-07-27 23:14:32','fake path 77','Tom tat 77',2),(78,3,'Tiêu đề bài báo 78',3,'Noi dung bai bao 78',500,1,0,'2021-07-27 23:14:32','fake path 78','Tom tat 78',NULL),(79,3,'Tiêu đề bài báo 79',4,'Noi dung bai bao 79',500,1,0,'2021-07-27 23:14:32','fake path 79','Tom tat 79',NULL),(80,3,'Tiêu đề bài báo 80',1,'Noi dung bai bao 80',500,1,0,'2021-07-27 23:14:32','fake path 80','Tom tat 80',2),(81,3,'Tiêu đề bài báo 81',2,'Noi dung bai bao 81',500,1,0,'2021-07-27 23:14:32','fake path 81','Tom tat 81',2),(82,3,'Tiêu đề bài báo 82',3,'Noi dung bai bao 82',500,1,0,'2021-07-27 23:14:32','fake path 82','Tom tat 82',NULL),(83,3,'Tiêu đề bài báo 83',4,'Noi dung bai bao 83',500,1,0,'2021-07-27 23:14:32','fake path 83','Tom tat 83',NULL),(84,3,'Tiêu đề bài báo 84',1,'Noi dung bai bao 84',500,1,0,'2021-07-27 23:14:32','fake path 84','Tom tat 84',7),(85,3,'Tiêu đề bài báo 85',2,'Noi dung bai bao 85',500,1,0,'2021-07-27 23:14:32','fake path 85','Tom tat 85',7),(86,3,'Tiêu đề bài báo 86',3,'Noi dung bai bao 86',500,1,0,'2021-07-27 23:14:32','fake path 86','Tom tat 86',NULL),(87,3,'Tiêu đề bài báo 87',4,'Noi dung bai bao 87',500,1,0,'2021-07-27 23:14:32','fake path 87','Tom tat 87',NULL),(88,3,'Tiêu đề bài báo 88',1,'Noi dung bai bao 88',500,1,0,'2021-07-27 23:14:32','fake path 88','Tom tat 88',7),(89,3,'Tiêu đề bài báo 89',2,'Noi dung bai bao 89',500,1,0,'2021-07-27 23:14:32','fake path 89','Tom tat 89',7),(90,3,'Tiêu đề bài báo 90',3,'Noi dung bai bao 90',500,1,0,'2021-07-27 23:14:32','fake path 90','Tom tat 90',NULL),(91,3,'Tiêu đề bài báo 91',4,'Noi dung bai bao 91',500,1,0,'2021-07-27 23:14:32','fake path 91','Tom tat 91',NULL),(92,3,'Tiêu đề bài báo 92',1,'Noi dung bai bao 92',500,1,0,'2021-07-27 23:14:32','fake path 92','Tom tat 92',2),(93,3,'Tiêu đề bài báo 93',2,'Noi dung bai bao 93',500,1,0,'2021-07-27 23:14:32','fake path 93','Tom tat 93',2),(94,3,'Tiêu đề bài báo 94',3,'Noi dung bai bao 94',500,1,0,'2021-07-27 23:14:32','fake path 94','Tom tat 94',NULL),(95,3,'Tiêu đề bài báo 95',4,'Noi dung bai bao 95',500,1,0,'2021-07-27 23:14:32','fake path 95','Tom tat 95',NULL),(96,3,'Tiêu đề bài báo 96',1,'Noi dung bai bao 96',500,1,0,'2021-07-27 23:14:32','fake path 96','Tom tat 96',2),(97,3,'Tiêu đề bài báo 97',2,'Noi dung bai bao 97',500,1,0,'2021-07-27 23:14:32','fake path 97','Tom tat 97',7),(98,3,'Tiêu đề bài báo 98',3,'Noi dung bai bao 98',500,1,0,'2021-07-27 23:14:32','fake path 98','Tom tat 98',NULL),(99,3,'Tiêu đề bài báo 99',4,'Noi dung bai bao 99',500,1,0,'2021-07-27 23:14:32','fake path 99','Tom tat 99',NULL),(100,3,'Tiêu đề bài báo 100',1,'Noi dung bai bao 100',500,1,0,'2021-07-27 23:14:32','fake path 100','Tom tat 100',7),(101,3,'Tiêu đề bài báo 101',2,'Noi dung bai bao 101',500,1,0,'2021-07-27 23:14:32','fake path 101','Tom tat 101',7),(102,3,'Tiêu đề bài báo 102',3,'Noi dung bai bao 102',500,1,0,'2021-07-27 23:14:32','fake path 102','Tom tat 102',NULL),(103,3,'Tiêu đề bài báo 103',4,'Noi dung bai bao 103',500,1,0,'2021-07-27 23:14:32','fake path 103','Tom tat 103',NULL),(104,3,'Tiêu đề bài báo 104',1,'Noi dung bai bao 104',500,1,0,'2021-07-27 23:14:32','fake path 104','Tom tat 104',7),(105,3,'Tiêu đề bài báo 105',2,'Noi dung bai bao 105',500,1,0,'2021-07-27 23:14:32','fake path 105','Tom tat 105',2),(106,3,'Tiêu đề bài báo 106',3,'Noi dung bai bao 106',500,1,0,'2021-07-27 23:14:32','fake path 106','Tom tat 106',NULL),(107,3,'Tiêu đề bài báo 107',4,'Noi dung bai bao 107',500,1,0,'2021-07-27 23:14:32','fake path 107','Tom tat 107',NULL),(108,3,'Tiêu đề bài báo 108',1,'Noi dung bai bao 108',500,1,0,'2021-07-27 23:14:32','fake path 108','Tom tat 108',2),(109,3,'Tiêu đề bài báo 109',2,'Noi dung bai bao 109',500,1,0,'2021-07-27 23:14:32','fake path 109','Tom tat 109',2),(110,3,'Tiêu đề bài báo 110',3,'Noi dung bai bao 110',500,1,0,'2021-07-27 23:14:32','fake path 110','Tom tat 110',NULL),(111,3,'Tiêu đề bài báo 111',4,'Noi dung bai bao 111',500,1,0,'2021-07-27 23:14:32','fake path 111','Tom tat 111',NULL),(112,3,'Tiêu đề bài báo 112',1,'Noi dung bai bao 112',500,1,0,'2021-07-27 23:14:32','fake path 112','Tom tat 112',7),(113,3,'Tiêu đề bài báo 113',2,'Noi dung bai bao 113',500,1,0,'2021-07-27 23:14:32','fake path 113','Tom tat 113',7),(114,3,'Tiêu đề bài báo 114',3,'Noi dung bai bao 114',500,1,0,'2021-07-27 23:14:32','fake path 114','Tom tat 114',NULL),(115,3,'Tiêu đề bài báo 115',4,'Noi dung bai bao 115',500,1,0,'2021-07-27 23:14:32','fake path 115','Tom tat 115',NULL),(116,3,'Tiêu đề bài báo 116',1,'Noi dung bai bao 116',500,1,0,'2021-07-27 23:14:32','fake path 116','Tom tat 116',7),(117,3,'Tiêu đề bài báo 117',2,'Noi dung bai bao 117',500,1,0,'2021-07-27 23:14:32','fake path 117','Tom tat 117',7),(118,3,'Tiêu đề bài báo 118',3,'Noi dung bai bao 118',500,1,0,'2021-07-27 23:14:32','fake path 118','Tom tat 118',NULL),(119,3,'Tiêu đề bài báo 119',4,'Noi dung bai bao 119',500,1,0,'2021-07-27 23:14:32','fake path 119','Tom tat 119',NULL),(120,3,'Tiêu đề bài báo 120',1,'Noi dung bai bao 120',500,1,0,'2021-07-27 23:14:32','fake path 120','Tom tat 120',2),(121,3,'Tiêu đề bài báo 121',2,'Noi dung bai bao 121',500,1,0,'2021-07-27 23:14:32','fake path 121','Tom tat 121',2),(122,3,'Tiêu đề bài báo 122',3,'Noi dung bai bao 122',500,1,0,'2021-07-27 23:14:32','fake path 122','Tom tat 122',NULL),(123,3,'Tiêu đề bài báo 123',4,'Noi dung bai bao 123',500,1,0,'2021-07-27 23:14:32','fake path 123','Tom tat 123',NULL),(124,3,'Tiêu đề bài báo 124',1,'Noi dung bai bao 124',500,1,0,'2021-07-27 23:14:32','fake path 124','Tom tat 124',2),(125,3,'Tiêu đề bài báo 125',2,'Noi dung bai bao 125',500,1,0,'2021-07-27 23:14:32','fake path 125','Tom tat 125',2),(126,3,'Tiêu đề bài báo 126',3,'Noi dung bai bao 126',500,1,0,'2021-07-27 23:14:32','fake path 126','Tom tat 126',NULL),(127,3,'Tiêu đề bài báo 127',4,'Noi dung bai bao 127',500,1,0,'2021-07-27 23:14:32','fake path 127','Tom tat 127',NULL),(128,3,'Tiêu đề bài báo 128',1,'Noi dung bai bao 128',500,1,0,'2021-07-27 23:14:32','fake path 128','Tom tat 128',7),(129,3,'Tiêu đề bài báo 129',2,'Noi dung bai bao 129',500,1,0,'2021-07-27 23:14:32','fake path 129','Tom tat 129',7),(130,3,'Tiêu đề bài báo 130',3,'Noi dung bai bao 130',500,1,0,'2021-07-27 23:14:32','fake path 130','Tom tat 130',NULL),(131,3,'Tiêu đề bài báo 131',4,'Noi dung bai bao 131',500,1,0,'2021-07-27 23:14:32','fake path 131','Tom tat 131',NULL),(132,3,'Tiêu đề bài báo 132',1,'Noi dung bai bao 132',500,1,0,'2021-07-27 23:14:32','fake path 132','Tom tat 132',7),(133,3,'Tiêu đề bài báo 133',2,'Noi dung bai bao 133',500,1,0,'2021-07-27 23:14:32','fake path 133','Tom tat 133',7),(134,3,'Tiêu đề bài báo 134',3,'Noi dung bai bao 134',500,1,0,'2021-07-27 23:14:32','fake path 134','Tom tat 134',NULL),(135,3,'Tiêu đề bài báo 135',4,'Noi dung bai bao 135',500,1,0,'2021-07-27 23:14:32','fake path 135','Tom tat 135',NULL),(136,3,'Tiêu đề bài báo 136',1,'Noi dung bai bao 136',500,1,0,'2021-07-27 23:14:32','fake path 136','Tom tat 136',2),(137,3,'Tiêu đề bài báo 137',2,'Noi dung bai bao 137',500,1,0,'2021-07-27 23:14:32','fake path 137','Tom tat 137',2),(138,3,'Tiêu đề bài báo 138',3,'Noi dung bai bao 138',500,1,0,'2021-07-27 23:14:32','fake path 138','Tom tat 138',NULL),(139,3,'Tiêu đề bài báo 139',4,'Noi dung bai bao 139',500,1,0,'2021-07-27 23:14:32','fake path 139','Tom tat 139',NULL),(140,3,'Tiêu đề bài báo 140',1,'Noi dung bai bao 140',500,1,0,'2021-07-27 23:14:32','fake path 140','Tom tat 140',2),(141,3,'Tiêu đề bài báo 141',2,'Noi dung bai bao 141',500,1,0,'2021-07-27 23:14:32','fake path 141','Tom tat 141',2),(142,3,'Tiêu đề bài báo 142',3,'Noi dung bai bao 142',500,1,0,'2021-07-27 23:14:32','fake path 142','Tom tat 142',NULL),(143,3,'Tiêu đề bài báo 143',4,'Noi dung bai bao 143',500,1,0,'2021-07-27 23:14:32','fake path 143','Tom tat 143',NULL),(144,3,'Tiêu đề bài báo 144',1,'Noi dung bai bao 144',500,1,0,'2021-07-27 23:14:32','fake path 144','Tom tat 144',7),(145,3,'Tiêu đề bài báo 145',2,'Noi dung bai bao 145',500,1,0,'2021-07-27 23:14:32','fake path 145','Tom tat 145',7),(146,3,'Tiêu đề bài báo 146',3,'Noi dung bai bao 146',500,1,0,'2021-07-27 23:14:32','fake path 146','Tom tat 146',NULL),(147,3,'Tiêu đề bài báo 147',4,'Noi dung bai bao 147',500,1,0,'2021-07-27 23:14:32','fake path 147','Tom tat 147',NULL),(148,3,'Tiêu đề bài báo 148',1,'Noi dung bai bao 148',500,1,0,'2021-07-27 23:14:32','fake path 148','Tom tat 148',7),(149,3,'Tiêu đề bài báo 149',2,'Noi dung bai bao 149',500,1,0,'2021-07-27 23:14:32','fake path 149','Tom tat 149',7),(150,3,'Tiêu đề bài báo 150',3,'Noi dung bai bao 150',500,1,0,'2021-07-27 23:14:32','fake path 150','Tom tat 150',NULL),(151,3,'Tiêu đề bài báo 151',4,'Noi dung bai bao 151',500,1,0,'2021-07-27 23:14:32','fake path 151','Tom tat 151',NULL),(152,3,'Tiêu đề bài báo 152',1,'Noi dung bai bao 152',500,1,0,'2021-07-27 23:14:32','fake path 152','Tom tat 152',2),(153,3,'Tiêu đề bài báo 153',2,'Noi dung bai bao 153',500,1,0,'2021-07-27 23:14:32','fake path 153','Tom tat 153',2),(154,3,'Tiêu đề bài báo 154',3,'Noi dung bai bao 154',500,1,0,'2021-07-27 23:14:32','fake path 154','Tom tat 154',NULL),(155,3,'Tiêu đề bài báo 155',4,'Noi dung bai bao 155',500,1,0,'2021-07-27 23:14:32','fake path 155','Tom tat 155',NULL),(156,3,'Tiêu đề bài báo 156',1,'Noi dung bai bao 156',500,1,0,'2021-07-27 23:14:32','fake path 156','Tom tat 156',2),(157,3,'Tiêu đề bài báo 157',2,'Noi dung bai bao 157',500,1,0,'2021-07-27 23:14:32','fake path 157','Tom tat 157',7),(158,3,'Tiêu đề bài báo 158',3,'Noi dung bai bao 158',500,1,0,'2021-07-27 23:14:32','fake path 158','Tom tat 158',NULL),(159,3,'Tiêu đề bài báo 159',4,'Noi dung bai bao 159',500,1,0,'2021-07-27 23:14:32','fake path 159','Tom tat 159',NULL),(160,3,'Tiêu đề bài báo 160',1,'Noi dung bai bao 160',500,1,0,'2021-07-27 23:14:32','fake path 160','Tom tat 160',7),(161,3,'Tiêu đề bài báo 161',2,'Noi dung bai bao 161',500,1,0,'2021-07-27 23:14:32','fake path 161','Tom tat 161',7),(162,3,'Tiêu đề bài báo 162',3,'Noi dung bai bao 162',500,1,0,'2021-07-27 23:14:32','fake path 162','Tom tat 162',NULL),(163,3,'Tiêu đề bài báo 163',4,'Noi dung bai bao 163',500,1,0,'2021-07-27 23:14:32','fake path 163','Tom tat 163',NULL),(164,3,'Tiêu đề bài báo 164',1,'Noi dung bai bao 164',500,1,0,'2021-07-27 23:14:32','fake path 164','Tom tat 164',7),(165,3,'Tiêu đề bài báo 165',2,'Noi dung bai bao 165',500,1,0,'2021-07-27 23:14:32','fake path 165','Tom tat 165',2),(166,3,'Tiêu đề bài báo 166',3,'Noi dung bai bao 166',500,1,0,'2021-07-27 23:14:32','fake path 166','Tom tat 166',NULL),(167,3,'Tiêu đề bài báo 167',4,'Noi dung bai bao 167',500,1,0,'2021-07-27 23:14:32','fake path 167','Tom tat 167',NULL),(168,3,'Tiêu đề bài báo 168',1,'Noi dung bai bao 168',500,1,0,'2021-07-27 23:14:32','fake path 168','Tom tat 168',2),(169,3,'Tiêu đề bài báo 169',2,'Noi dung bai bao 169',500,1,0,'2021-07-27 23:14:32','fake path 169','Tom tat 169',2),(170,3,'Tiêu đề bài báo 170',3,'Noi dung bai bao 170',500,1,0,'2021-07-27 23:14:32','fake path 170','Tom tat 170',NULL),(171,3,'Tiêu đề bài báo 171',4,'Noi dung bai bao 171',500,1,0,'2021-07-27 23:14:32','fake path 171','Tom tat 171',NULL),(172,3,'Tiêu đề bài báo 172',1,'Noi dung bai bao 172',500,1,0,'2021-07-27 23:14:32','fake path 172','Tom tat 172',7),(173,3,'Tiêu đề bài báo 173',2,'Noi dung bai bao 173',500,1,0,'2021-07-27 23:14:32','fake path 173','Tom tat 173',7),(174,3,'Tiêu đề bài báo 174',3,'Noi dung bai bao 174',500,1,0,'2021-07-27 23:14:32','fake path 174','Tom tat 174',NULL),(175,3,'Tiêu đề bài báo 175',4,'Noi dung bai bao 175',500,1,0,'2021-07-27 23:14:32','fake path 175','Tom tat 175',NULL),(176,3,'Tiêu đề bài báo 176',1,'Noi dung bai bao 176',500,1,0,'2021-07-27 23:14:32','fake path 176','Tom tat 176',7),(177,3,'Tiêu đề bài báo 177',2,'Noi dung bai bao 177',500,1,0,'2021-07-27 23:14:32','fake path 177','Tom tat 177',7),(178,3,'Tiêu đề bài báo 178',3,'Noi dung bai bao 178',500,1,0,'2021-07-27 23:14:32','fake path 178','Tom tat 178',NULL),(179,3,'Tiêu đề bài báo 179',4,'Noi dung bai bao 179',500,1,0,'2021-07-27 23:14:32','fake path 179','Tom tat 179',NULL),(180,3,'Tiêu đề bài báo 180',1,'Noi dung bai bao 180',500,1,0,'2021-07-27 23:14:32','fake path 180','Tom tat 180',2),(181,3,'Tiêu đề bài báo 181',2,'Noi dung bai bao 181',500,1,0,'2021-07-27 23:14:32','fake path 181','Tom tat 181',2),(182,3,'Tiêu đề bài báo 182',3,'Noi dung bai bao 182',500,1,0,'2021-07-27 23:14:32','fake path 182','Tom tat 182',NULL),(183,3,'Tiêu đề bài báo 183',4,'Noi dung bai bao 183',500,1,0,'2021-07-27 23:14:32','fake path 183','Tom tat 183',NULL),(184,3,'Tiêu đề bài báo 184',1,'Noi dung bai bao 184',500,1,0,'2021-07-27 23:14:32','fake path 184','Tom tat 184',2),(185,3,'Tiêu đề bài báo 185',2,'Noi dung bai bao 185',500,1,0,'2021-07-27 23:14:32','fake path 185','Tom tat 185',2),(186,3,'Tiêu đề bài báo 186',3,'Noi dung bai bao 186',500,1,0,'2021-07-27 23:14:32','fake path 186','Tom tat 186',NULL),(187,3,'Tiêu đề bài báo 187',4,'Noi dung bai bao 187',500,1,0,'2021-07-27 23:14:32','fake path 187','Tom tat 187',NULL),(188,3,'Tiêu đề bài báo 188',1,'Noi dung bai bao 188',500,1,0,'2021-07-27 23:14:32','fake path 188','Tom tat 188',7),(189,3,'Tiêu đề bài báo 189',2,'Noi dung bai bao 189',500,1,0,'2021-07-27 23:14:32','fake path 189','Tom tat 189',7),(190,3,'Tiêu đề bài báo 190',3,'Noi dung bai bao 190',500,1,0,'2021-07-27 23:14:32','fake path 190','Tom tat 190',NULL),(191,3,'Tiêu đề bài báo 191',4,'Noi dung bai bao 191',500,1,0,'2021-07-27 23:14:32','fake path 191','Tom tat 191',NULL),(192,3,'Tiêu đề bài báo 192',1,'Noi dung bai bao 192',500,1,0,'2021-07-27 23:14:32','fake path 192','Tom tat 192',7),(193,3,'Tiêu đề bài báo 193',2,'Noi dung bai bao 193',500,1,0,'2021-07-27 23:14:32','fake path 193','Tom tat 193',7),(194,3,'Tiêu đề bài báo 194',3,'Noi dung bai bao 194',500,1,0,'2021-07-27 23:14:32','fake path 194','Tom tat 194',NULL),(195,3,'Tiêu đề bài báo 195',4,'Noi dung bai bao 195',500,1,0,'2021-07-27 23:14:32','fake path 195','Tom tat 195',NULL),(196,3,'Tiêu đề bài báo 196',1,'Noi dung bai bao 196',500,1,0,'2021-07-27 23:14:32','fake path 196','Tom tat 196',2),(197,3,'Tiêu đề bài báo 197',2,'Noi dung bai bao 197',500,1,0,'2021-07-27 23:14:32','fake path 197','Tom tat 197',2),(198,3,'Tiêu đề bài báo 198',3,'Noi dung bai bao 198',500,1,0,'2021-07-27 23:14:32','fake path 198','Tom tat 198',NULL),(199,3,'Tiêu đề bài báo 199',4,'Noi dung bai bao 199',500,1,0,'2021-07-27 23:14:32','fake path 199','Tom tat 199',NULL),(200,3,'Tiêu đề bài báo 200',1,'Noi dung bai bao 200',500,1,0,'2021-07-27 23:14:32','fake path 200','Tom tat 200',2),(201,3,'Tiêu đề bài báo 201',2,'Noi dung bai bao 201',500,1,0,'2021-07-27 23:14:32','fake path 201','Tom tat 201',2),(202,3,'Tiêu đề bài báo 202',3,'Noi dung bai bao 202',500,1,0,'2021-07-27 23:14:32','fake path 202','Tom tat 202',NULL),(203,3,'Tiêu đề bài báo 203',4,'Noi dung bai bao 203',500,1,0,'2021-07-27 23:14:32','fake path 203','Tom tat 203',NULL),(204,3,'Tiêu đề bài báo 204',1,'Noi dung bai bao 204',500,1,0,'2021-07-27 23:14:32','fake path 204','Tom tat 204',7),(205,3,'Tiêu đề bài báo 205',2,'Noi dung bai bao 205',500,1,0,'2021-07-27 23:14:32','fake path 205','Tom tat 205',7),(206,3,'Tiêu đề bài báo 206',3,'Noi dung bai bao 206',500,1,0,'2021-07-27 23:14:32','fake path 206','Tom tat 206',NULL),(207,3,'Tiêu đề bài báo 207',4,'Noi dung bai bao 207',500,1,0,'2021-07-27 23:14:32','fake path 207','Tom tat 207',NULL),(208,3,'Tiêu đề bài báo 208',1,'Noi dung bai bao 208',500,1,0,'2021-07-27 23:14:32','fake path 208','Tom tat 208',7),(209,3,'Tiêu đề bài báo 209',2,'Noi dung bai bao 209',500,1,0,'2021-07-27 23:14:32','fake path 209','Tom tat 209',7),(210,3,'Tiêu đề bài báo 210',3,'Noi dung bai bao 210',500,1,0,'2021-07-27 23:14:32','fake path 210','Tom tat 210',NULL),(211,3,'Tiêu đề bài báo 211',4,'Noi dung bai bao 211',500,1,0,'2021-07-27 23:14:32','fake path 211','Tom tat 211',NULL),(212,3,'Tiêu đề bài báo 212',1,'Noi dung bai bao 212',500,1,0,'2021-07-27 23:14:32','fake path 212','Tom tat 212',2),(213,3,'Tiêu đề bài báo 213',2,'Noi dung bai bao 213',500,1,0,'2021-07-27 23:14:32','fake path 213','Tom tat 213',2),(214,3,'Tiêu đề bài báo 214',3,'Noi dung bai bao 214',500,1,0,'2021-07-27 23:14:32','fake path 214','Tom tat 214',NULL),(215,3,'Tiêu đề bài báo 215',4,'Noi dung bai bao 215',500,1,0,'2021-07-27 23:14:32','fake path 215','Tom tat 215',NULL),(216,3,'Tiêu đề bài báo 216',1,'Noi dung bai bao 216',500,1,0,'2021-07-27 23:14:32','fake path 216','Tom tat 216',2),(217,3,'Tiêu đề bài báo 217',2,'Noi dung bai bao 217',500,1,0,'2021-07-27 23:14:32','fake path 217','Tom tat 217',7),(218,3,'Tiêu đề bài báo 218',3,'Noi dung bai bao 218',500,1,0,'2021-07-27 23:14:32','fake path 218','Tom tat 218',NULL),(219,3,'Tiêu đề bài báo 219',4,'Noi dung bai bao 219',500,1,0,'2021-07-27 23:14:32','fake path 219','Tom tat 219',NULL),(220,3,'Tiêu đề bài báo 220',1,'Noi dung bai bao 220',500,1,0,'2021-07-27 23:14:32','fake path 220','Tom tat 220',7),(221,3,'Tiêu đề bài báo 221',2,'Noi dung bai bao 221',500,1,0,'2021-07-27 23:14:32','fake path 221','Tom tat 221',7),(222,3,'Tiêu đề bài báo 222',3,'Noi dung bai bao 222',500,1,0,'2021-07-27 23:14:32','fake path 222','Tom tat 222',NULL),(223,3,'Tiêu đề bài báo 223',4,'Noi dung bai bao 223',500,1,0,'2021-07-27 23:14:32','fake path 223','Tom tat 223',NULL),(224,3,'Tiêu đề bài báo 224',1,'Noi dung bai bao 224',500,1,0,'2021-07-27 23:14:32','fake path 224','Tom tat 224',7),(225,3,'Tiêu đề bài báo 225',2,'Noi dung bai bao 225',500,1,0,'2021-07-27 23:14:32','fake path 225','Tom tat 225',2),(226,3,'Tiêu đề bài báo 226',3,'Noi dung bai bao 226',500,1,0,'2021-07-27 23:14:32','fake path 226','Tom tat 226',NULL),(227,3,'Tiêu đề bài báo 227',4,'Noi dung bai bao 227',500,1,0,'2021-07-27 23:14:32','fake path 227','Tom tat 227',NULL),(228,3,'Tiêu đề bài báo 228',1,'Noi dung bai bao 228',500,1,0,'2021-07-27 23:14:32','fake path 228','Tom tat 228',2),(229,3,'Tiêu đề bài báo 229',2,'Noi dung bai bao 229',500,1,0,'2021-07-27 23:14:32','fake path 229','Tom tat 229',2),(230,3,'Tiêu đề bài báo 230',3,'Noi dung bai bao 230',500,1,0,'2021-07-27 23:14:32','fake path 230','Tom tat 230',NULL),(231,3,'Tiêu đề bài báo 231',4,'Noi dung bai bao 231',500,1,0,'2021-07-27 23:14:32','fake path 231','Tom tat 231',NULL),(232,3,'Tiêu đề bài báo 232',1,'Noi dung bai bao 232',500,1,0,'2021-07-27 23:14:32','fake path 232','Tom tat 232',7),(233,3,'Tiêu đề bài báo 233',2,'Noi dung bai bao 233',500,1,0,'2021-07-27 23:14:32','fake path 233','Tom tat 233',7),(234,3,'Tiêu đề bài báo 234',3,'Noi dung bai bao 234',500,1,0,'2021-07-27 23:14:32','fake path 234','Tom tat 234',NULL),(235,3,'Tiêu đề bài báo 235',4,'Noi dung bai bao 235',500,1,0,'2021-07-27 23:14:32','fake path 235','Tom tat 235',NULL),(236,3,'Tiêu đề bài báo 236',1,'Noi dung bai bao 236',500,1,0,'2021-07-27 23:14:32','fake path 236','Tom tat 236',7),(237,3,'Tiêu đề bài báo 237',2,'Noi dung bai bao 237',500,1,0,'2021-07-27 23:14:32','fake path 237','Tom tat 237',7),(238,3,'Tiêu đề bài báo 238',3,'Noi dung bai bao 238',500,1,0,'2021-07-27 23:14:32','fake path 238','Tom tat 238',NULL),(239,3,'Tiêu đề bài báo 239',4,'Noi dung bai bao 239',500,1,0,'2021-07-27 23:14:32','fake path 239','Tom tat 239',NULL),(240,3,'Tiêu đề bài báo 240',1,'Noi dung bai bao 240',500,1,0,'2021-07-27 23:14:32','fake path 240','Tom tat 240',2),(241,3,'Tiêu đề bài báo 241',2,'Noi dung bai bao 241',500,1,0,'2021-07-27 23:14:32','fake path 241','Tom tat 241',2),(242,3,'Tiêu đề bài báo 242',3,'Noi dung bai bao 242',500,1,0,'2021-07-27 23:14:32','fake path 242','Tom tat 242',NULL),(243,3,'Tiêu đề bài báo 243',4,'Noi dung bai bao 243',500,1,0,'2021-07-27 23:14:32','fake path 243','Tom tat 243',NULL),(244,3,'Tiêu đề bài báo 244',1,'Noi dung bai bao 244',500,1,0,'2021-07-27 23:14:32','fake path 244','Tom tat 244',2),(245,3,'Tiêu đề bài báo 245',2,'Noi dung bai bao 245',500,1,0,'2021-07-27 23:14:32','fake path 245','Tom tat 245',2),(246,3,'Tiêu đề bài báo 246',3,'Noi dung bai bao 246',500,1,0,'2021-07-27 23:14:32','fake path 246','Tom tat 246',NULL),(247,3,'Tiêu đề bài báo 247',4,'Noi dung bai bao 247',500,1,0,'2021-07-27 23:14:32','fake path 247','Tom tat 247',NULL),(248,3,'Tiêu đề bài báo 248',1,'Noi dung bai bao 248',500,1,0,'2021-07-27 23:14:32','fake path 248','Tom tat 248',7),(249,3,'Tiêu đề bài báo 249',2,'Noi dung bai bao 249',500,1,0,'2021-07-27 23:14:32','fake path 249','Tom tat 249',7),(250,3,'Tiêu đề bài báo 250',3,'Noi dung bai bao 250',500,1,0,'2021-07-27 23:14:32','fake path 250','Tom tat 250',NULL),(251,3,'Tiêu đề bài báo 251',4,'Noi dung bai bao 251',500,1,0,'2021-07-27 23:14:32','fake path 251','Tom tat 251',NULL),(252,3,'Tiêu đề bài báo 252',1,'Noi dung bai bao 252',500,1,0,'2021-07-27 23:14:32','fake path 252','Tom tat 252',7),(253,3,'Tiêu đề bài báo 253',2,'Noi dung bai bao 253',500,1,0,'2021-07-27 23:14:32','fake path 253','Tom tat 253',7),(254,3,'Tiêu đề bài báo 254',3,'Noi dung bai bao 254',500,1,0,'2021-07-27 23:14:32','fake path 254','Tom tat 254',NULL),(255,3,'Tiêu đề bài báo 255',4,'Noi dung bai bao 255',500,1,0,'2021-07-27 23:14:32','fake path 255','Tom tat 255',NULL),(256,3,'Tiêu đề bài báo 256',1,'Noi dung bai bao 256',500,1,0,'2021-07-27 23:14:32','fake path 256','Tom tat 256',2),(257,3,'Tiêu đề bài báo 257',2,'Noi dung bai bao 257',500,1,0,'2021-07-27 23:14:32','fake path 257','Tom tat 257',2),(258,3,'Tiêu đề bài báo 258',3,'Noi dung bai bao 258',500,1,0,'2021-07-27 23:14:32','fake path 258','Tom tat 258',NULL),(259,3,'Tiêu đề bài báo 259',4,'Noi dung bai bao 259',500,1,0,'2021-07-27 23:14:32','fake path 259','Tom tat 259',NULL),(260,3,'Tiêu đề bài báo 260',1,'Noi dung bai bao 260',500,1,0,'2021-07-27 23:14:32','fake path 260','Tom tat 260',2),(261,3,'Tiêu đề bài báo 261',2,'Noi dung bai bao 261',500,1,0,'2021-07-27 23:14:32','fake path 261','Tom tat 261',2),(262,3,'Tiêu đề bài báo 262',3,'Noi dung bai bao 262',500,1,0,'2021-07-27 23:14:32','fake path 262','Tom tat 262',NULL),(263,3,'Tiêu đề bài báo 263',4,'Noi dung bai bao 263',500,1,0,'2021-07-27 23:14:32','fake path 263','Tom tat 263',NULL),(264,3,'Tiêu đề bài báo 264',1,'Noi dung bai bao 264',500,1,0,'2021-07-27 23:14:32','fake path 264','Tom tat 264',7),(265,3,'Tiêu đề bài báo 265',2,'Noi dung bai bao 265',500,1,0,'2021-07-27 23:14:32','fake path 265','Tom tat 265',7),(266,3,'Tiêu đề bài báo 266',3,'Noi dung bai bao 266',500,1,0,'2021-07-27 23:14:32','fake path 266','Tom tat 266',NULL),(267,3,'Tiêu đề bài báo 267',4,'Noi dung bai bao 267',500,1,0,'2021-07-27 23:14:32','fake path 267','Tom tat 267',NULL),(268,3,'Tiêu đề bài báo 268',1,'Noi dung bai bao 268',500,1,0,'2021-07-27 23:14:32','fake path 268','Tom tat 268',7),(269,3,'Tiêu đề bài báo 269',2,'Noi dung bai bao 269',500,1,0,'2021-07-27 23:14:32','fake path 269','Tom tat 269',7),(270,3,'Tiêu đề bài báo 270',3,'Noi dung bai bao 270',500,1,0,'2021-07-27 23:14:32','fake path 270','Tom tat 270',NULL),(271,3,'Tiêu đề bài báo 271',4,'Noi dung bai bao 271',500,1,0,'2021-07-27 23:14:32','fake path 271','Tom tat 271',NULL),(272,3,'Tiêu đề bài báo 272',1,'Noi dung bai bao 272',500,1,0,'2021-07-27 23:14:32','fake path 272','Tom tat 272',2),(273,3,'Tiêu đề bài báo 273',2,'Noi dung bai bao 273',500,1,0,'2021-07-27 23:14:32','fake path 273','Tom tat 273',2),(274,3,'Tiêu đề bài báo 274',3,'Noi dung bai bao 274',500,1,0,'2021-07-27 23:14:32','fake path 274','Tom tat 274',NULL),(275,3,'Tiêu đề bài báo 275',4,'Noi dung bai bao 275',500,1,0,'2021-07-27 23:14:32','fake path 275','Tom tat 275',NULL),(276,3,'Tiêu đề bài báo 276',1,'Noi dung bai bao 276',500,1,0,'2021-07-27 23:14:32','fake path 276','Tom tat 276',2),(277,3,'Tiêu đề bài báo 277',2,'Noi dung bai bao 277',500,1,0,'2021-07-27 23:14:32','fake path 277','Tom tat 277',7),(278,3,'Tiêu đề bài báo 278',3,'Noi dung bai bao 278',500,1,0,'2021-07-27 23:14:32','fake path 278','Tom tat 278',NULL),(279,3,'Tiêu đề bài báo 279',4,'Noi dung bai bao 279',500,1,0,'2021-07-27 23:14:32','fake path 279','Tom tat 279',NULL),(280,3,'Tiêu đề bài báo 280',1,'Noi dung bai bao 280',500,1,0,'2021-07-27 23:14:32','fake path 280','Tom tat 280',7),(281,3,'Tiêu đề bài báo 281',2,'Noi dung bai bao 281',500,1,0,'2021-07-27 23:14:32','fake path 281','Tom tat 281',7),(282,3,'Tiêu đề bài báo 282',3,'Noi dung bai bao 282',500,1,0,'2021-07-27 23:14:32','fake path 282','Tom tat 282',NULL),(283,3,'Tiêu đề bài báo 283',4,'Noi dung bai bao 283',500,1,0,'2021-07-27 23:14:32','fake path 283','Tom tat 283',NULL),(284,3,'Tiêu đề bài báo 284',1,'Noi dung bai bao 284',500,1,0,'2021-07-27 23:14:32','fake path 284','Tom tat 284',7),(285,3,'Tiêu đề bài báo 285',2,'Noi dung bai bao 285',500,1,0,'2021-07-27 23:14:32','fake path 285','Tom tat 285',2),(286,3,'Tiêu đề bài báo 286',3,'Noi dung bai bao 286',500,1,0,'2021-07-27 23:14:32','fake path 286','Tom tat 286',NULL),(287,3,'Tiêu đề bài báo 287',4,'Noi dung bai bao 287',500,1,0,'2021-07-27 23:14:32','fake path 287','Tom tat 287',NULL),(288,3,'Tiêu đề bài báo 288',1,'Noi dung bai bao 288',500,1,0,'2021-07-27 23:14:32','fake path 288','Tom tat 288',2),(289,3,'Tiêu đề bài báo 289',2,'Noi dung bai bao 289',500,1,0,'2021-07-27 23:14:32','fake path 289','Tom tat 289',2),(290,3,'Tiêu đề bài báo 290',3,'Noi dung bai bao 290',500,1,0,'2021-07-27 23:14:32','fake path 290','Tom tat 290',NULL),(291,3,'Tiêu đề bài báo 291',4,'Noi dung bai bao 291',500,1,0,'2021-07-27 23:14:32','fake path 291','Tom tat 291',NULL),(292,3,'Tiêu đề bài báo 292',1,'Noi dung bai bao 292',500,1,0,'2021-07-27 23:14:32','fake path 292','Tom tat 292',7),(293,3,'Tiêu đề bài báo 293',2,'Noi dung bai bao 293',500,1,0,'2021-07-27 23:14:32','fake path 293','Tom tat 293',7),(294,3,'Tiêu đề bài báo 294',3,'Noi dung bai bao 294',500,1,0,'2021-07-27 23:14:32','fake path 294','Tom tat 294',NULL),(295,3,'Tiêu đề bài báo 295',4,'Noi dung bai bao 295',500,1,0,'2021-07-27 23:14:32','fake path 295','Tom tat 295',NULL),(296,3,'Tiêu đề bài báo 296',1,'Noi dung bai bao 296',500,1,0,'2021-07-27 23:14:32','fake path 296','Tom tat 296',7),(297,3,'Tiêu đề bài báo 297',2,'Noi dung bai bao 297',500,1,0,'2021-07-27 23:14:32','fake path 297','Tom tat 297',7),(298,3,'Tiêu đề bài báo 298',3,'Noi dung bai bao 298',500,1,0,'2021-07-27 23:14:32','fake path 298','Tom tat 298',NULL),(299,3,'Tiêu đề bài báo 299',4,'Noi dung bai bao 299',500,1,0,'2021-07-27 23:14:32','fake path 299','Tom tat 299',NULL),(300,3,'Tiêu đề bài báo 300',1,'Noi dung bai bao 300',500,1,0,'2021-07-27 23:14:32','fake path 300','Tom tat 300',2),(301,3,'Tiêu đề bài báo 301',2,'Noi dung bai bao 301',500,1,0,'2021-07-27 23:14:32','fake path 301','Tom tat 301',2),(302,3,'Tiêu đề bài báo 302',3,'Noi dung bai bao 302',500,1,0,'2021-07-27 23:14:32','fake path 302','Tom tat 302',NULL),(303,3,'Tiêu đề bài báo 303',4,'Noi dung bai bao 303',500,1,0,'2021-07-27 23:14:32','fake path 303','Tom tat 303',NULL),(304,3,'Tiêu đề bài báo 304',1,'Noi dung bai bao 304',500,1,0,'2021-07-27 23:14:32','fake path 304','Tom tat 304',2),(305,3,'Tiêu đề bài báo 305',2,'Noi dung bai bao 305',500,1,0,'2021-07-27 23:14:32','fake path 305','Tom tat 305',2),(306,3,'Tiêu đề bài báo 306',3,'Noi dung bai bao 306',500,1,0,'2021-07-27 23:14:32','fake path 306','Tom tat 306',NULL),(307,3,'Tiêu đề bài báo 307',4,'Noi dung bai bao 307',500,1,0,'2021-07-27 23:14:32','fake path 307','Tom tat 307',NULL),(308,3,'Tiêu đề bài báo 308',1,'Noi dung bai bao 308',500,1,0,'2021-07-27 23:14:32','fake path 308','Tom tat 308',7),(309,3,'Tiêu đề bài báo 309',2,'Noi dung bai bao 309',500,1,0,'2021-07-27 23:14:32','fake path 309','Tom tat 309',7),(310,3,'Tiêu đề bài báo 310',3,'Noi dung bai bao 310',500,1,0,'2021-07-27 23:14:32','fake path 310','Tom tat 310',NULL),(311,3,'Tiêu đề bài báo 311',4,'Noi dung bai bao 311',500,1,0,'2021-07-27 23:14:32','fake path 311','Tom tat 311',NULL),(312,3,'Tiêu đề bài báo 312',1,'Noi dung bai bao 312',500,1,0,'2021-07-27 23:14:32','fake path 312','Tom tat 312',7),(313,3,'Tiêu đề bài báo 313',2,'Noi dung bai bao 313',500,1,0,'2021-07-27 23:14:32','fake path 313','Tom tat 313',7),(314,3,'Tiêu đề bài báo 314',3,'Noi dung bai bao 314',500,1,0,'2021-07-27 23:14:32','fake path 314','Tom tat 314',NULL),(315,3,'Tiêu đề bài báo 315',4,'Noi dung bai bao 315',500,1,0,'2021-07-27 23:14:32','fake path 315','Tom tat 315',NULL),(316,3,'Tiêu đề bài báo 316',1,'Noi dung bai bao 316',500,1,0,'2021-07-27 23:14:32','fake path 316','Tom tat 316',2),(317,3,'Tiêu đề bài báo 317',2,'Noi dung bai bao 317',500,1,0,'2021-07-27 23:14:32','fake path 317','Tom tat 317',2),(318,3,'Tiêu đề bài báo 318',3,'Noi dung bai bao 318',500,1,0,'2021-07-27 23:14:32','fake path 318','Tom tat 318',NULL),(319,3,'Tiêu đề bài báo 319',4,'Noi dung bai bao 319',500,1,0,'2021-07-27 23:14:32','fake path 319','Tom tat 319',NULL),(320,3,'Tiêu đề bài báo 320',1,'Noi dung bai bao 320',500,1,0,'2021-07-27 23:14:32','fake path 320','Tom tat 320',2),(321,3,'Tiêu đề bài báo 321',2,'Noi dung bai bao 321',500,1,0,'2021-07-27 23:14:32','fake path 321','Tom tat 321',2),(322,3,'Tiêu đề bài báo 322',3,'Noi dung bai bao 322',500,1,0,'2021-07-27 23:14:32','fake path 322','Tom tat 322',NULL),(323,3,'Tiêu đề bài báo 323',4,'Noi dung bai bao 323',500,1,0,'2021-07-27 23:14:32','fake path 323','Tom tat 323',NULL),(324,3,'Tiêu đề bài báo 324',1,'Noi dung bai bao 324',500,1,0,'2021-07-27 23:14:32','fake path 324','Tom tat 324',7),(325,3,'Tiêu đề bài báo 325',2,'Noi dung bai bao 325',500,1,0,'2021-07-27 23:14:32','fake path 325','Tom tat 325',7),(326,3,'Tiêu đề bài báo 326',3,'Noi dung bai bao 326',500,1,0,'2021-07-27 23:14:32','fake path 326','Tom tat 326',NULL),(327,3,'Tiêu đề bài báo 327',4,'Noi dung bai bao 327',500,1,0,'2021-07-27 23:14:32','fake path 327','Tom tat 327',NULL),(328,3,'Tiêu đề bài báo 328',1,'Noi dung bai bao 328',500,1,0,'2021-07-27 23:14:32','fake path 328','Tom tat 328',7),(329,3,'Tiêu đề bài báo 329',2,'Noi dung bai bao 329',500,1,0,'2021-07-27 23:14:32','fake path 329','Tom tat 329',7),(330,3,'Tiêu đề bài báo 330',3,'Noi dung bai bao 330',500,1,0,'2021-07-27 23:14:32','fake path 330','Tom tat 330',NULL),(331,3,'Tiêu đề bài báo 331',4,'Noi dung bai bao 331',500,1,0,'2021-07-27 23:14:32','fake path 331','Tom tat 331',NULL),(332,3,'Tiêu đề bài báo 332',1,'Noi dung bai bao 332',500,1,0,'2021-07-27 23:14:32','fake path 332','Tom tat 332',2),(333,3,'Tiêu đề bài báo 333',2,'Noi dung bai bao 333',500,1,0,'2021-07-27 23:14:32','fake path 333','Tom tat 333',2),(334,3,'Tiêu đề bài báo 334',3,'Noi dung bai bao 334',500,1,0,'2021-07-27 23:14:32','fake path 334','Tom tat 334',NULL),(335,3,'Tiêu đề bài báo 335',4,'Noi dung bai bao 335',500,1,0,'2021-07-27 23:14:32','fake path 335','Tom tat 335',NULL),(336,3,'Tiêu đề bài báo 336',1,'Noi dung bai bao 336',500,1,0,'2021-07-27 23:14:32','fake path 336','Tom tat 336',2),(337,3,'Tiêu đề bài báo 337',2,'Noi dung bai bao 337',500,1,0,'2021-07-27 23:14:32','fake path 337','Tom tat 337',7),(338,3,'Tiêu đề bài báo 338',3,'Noi dung bai bao 338',500,1,0,'2021-07-27 23:14:32','fake path 338','Tom tat 338',NULL),(339,3,'Tiêu đề bài báo 339',4,'Noi dung bai bao 339',500,1,0,'2021-07-27 23:14:32','fake path 339','Tom tat 339',NULL),(340,3,'Tiêu đề bài báo 340',1,'Noi dung bai bao 340',500,1,0,'2021-07-27 23:14:32','fake path 340','Tom tat 340',7),(341,3,'Tiêu đề bài báo 341',2,'Noi dung bai bao 341',500,1,0,'2021-07-27 23:14:32','fake path 341','Tom tat 341',7),(342,3,'Tiêu đề bài báo 342',3,'Noi dung bai bao 342',500,1,0,'2021-07-27 23:14:32','fake path 342','Tom tat 342',NULL),(343,3,'Tiêu đề bài báo 343',4,'Noi dung bai bao 343',500,1,0,'2021-07-27 23:14:32','fake path 343','Tom tat 343',NULL),(344,3,'Tiêu đề bài báo 344',1,'Noi dung bai bao 344',500,1,0,'2021-07-27 23:14:32','fake path 344','Tom tat 344',7),(345,3,'Tiêu đề bài báo 345',2,'Noi dung bai bao 345',500,1,0,'2021-07-27 23:14:32','fake path 345','Tom tat 345',2),(346,3,'Tiêu đề bài báo 346',3,'Noi dung bai bao 346',500,1,0,'2021-07-27 23:14:32','fake path 346','Tom tat 346',NULL),(347,3,'Tiêu đề bài báo 347',4,'Noi dung bai bao 347',500,1,0,'2021-07-27 23:14:32','fake path 347','Tom tat 347',NULL),(348,3,'Tiêu đề bài báo 348',1,'Noi dung bai bao 348',500,1,0,'2021-07-27 23:14:32','fake path 348','Tom tat 348',2),(349,3,'Tiêu đề bài báo 349',2,'Noi dung bai bao 349',500,1,0,'2021-07-27 23:14:32','fake path 349','Tom tat 349',2),(350,3,'Tiêu đề bài báo 350',3,'Noi dung bai bao 350',500,1,0,'2021-07-27 23:14:32','fake path 350','Tom tat 350',NULL),(351,3,'Tiêu đề bài báo 351',4,'Noi dung bai bao 351',500,1,0,'2021-07-27 23:14:32','fake path 351','Tom tat 351',NULL),(352,3,'Tiêu đề bài báo 352',1,'Noi dung bai bao 352',500,1,0,'2021-07-27 23:14:32','fake path 352','Tom tat 352',7),(353,3,'Tiêu đề bài báo 353',2,'Noi dung bai bao 353',500,1,0,'2021-07-27 23:14:32','fake path 353','Tom tat 353',7),(354,3,'Tiêu đề bài báo 354',3,'Noi dung bai bao 354',500,1,0,'2021-07-27 23:14:32','fake path 354','Tom tat 354',NULL),(355,3,'Tiêu đề bài báo 355',4,'Noi dung bai bao 355',500,1,0,'2021-07-27 23:14:32','fake path 355','Tom tat 355',NULL),(356,3,'Tiêu đề bài báo 356',1,'Noi dung bai bao 356',500,1,0,'2021-07-27 23:14:32','fake path 356','Tom tat 356',7),(357,3,'Tiêu đề bài báo 357',2,'Noi dung bai bao 357',500,1,0,'2021-07-27 23:14:32','fake path 357','Tom tat 357',7),(358,3,'Tiêu đề bài báo 358',3,'Noi dung bai bao 358',500,1,0,'2021-07-27 23:14:32','fake path 358','Tom tat 358',NULL),(359,3,'Tiêu đề bài báo 359',4,'Noi dung bai bao 359',500,1,0,'2021-07-27 23:14:32','fake path 359','Tom tat 359',NULL),(360,3,'Tiêu đề bài báo 360',1,'Noi dung bai bao 360',500,1,0,'2021-07-27 23:14:32','fake path 360','Tom tat 360',2),(361,3,'Tiêu đề bài báo 361',2,'Noi dung bai bao 361',500,1,0,'2021-07-27 23:14:32','fake path 361','Tom tat 361',2),(362,3,'Tiêu đề bài báo 362',3,'Noi dung bai bao 362',500,1,0,'2021-07-27 23:14:32','fake path 362','Tom tat 362',NULL),(363,3,'Tiêu đề bài báo 363',4,'Noi dung bai bao 363',500,1,0,'2021-07-27 23:14:32','fake path 363','Tom tat 363',NULL),(364,3,'Tiêu đề bài báo 364',1,'Noi dung bai bao 364',500,1,0,'2021-07-27 23:14:32','fake path 364','Tom tat 364',2),(365,3,'Tiêu đề bài báo 365',2,'Noi dung bai bao 365',500,1,0,'2021-07-27 23:14:32','fake path 365','Tom tat 365',2),(366,3,'Tiêu đề bài báo 366',3,'Noi dung bai bao 366',500,1,0,'2021-07-27 23:14:32','fake path 366','Tom tat 366',NULL),(367,3,'Tiêu đề bài báo 367',4,'Noi dung bai bao 367',500,1,0,'2021-07-27 23:14:32','fake path 367','Tom tat 367',NULL),(368,3,'Tiêu đề bài báo 368',1,'Noi dung bai bao 368',500,1,0,'2021-07-27 23:14:32','fake path 368','Tom tat 368',7),(369,3,'Tiêu đề bài báo 369',2,'Noi dung bai bao 369',500,1,0,'2021-07-27 23:14:32','fake path 369','Tom tat 369',7),(370,3,'Tiêu đề bài báo 370',3,'Noi dung bai bao 370',500,1,0,'2021-07-27 23:14:32','fake path 370','Tom tat 370',NULL),(371,3,'Tiêu đề bài báo 371',4,'Noi dung bai bao 371',500,1,0,'2021-07-27 23:14:32','fake path 371','Tom tat 371',NULL),(372,3,'Tiêu đề bài báo 372',1,'Noi dung bai bao 372',500,1,0,'2021-07-27 23:14:32','fake path 372','Tom tat 372',7),(373,3,'Tiêu đề bài báo 373',2,'Noi dung bai bao 373',500,1,0,'2021-07-27 23:14:32','fake path 373','Tom tat 373',7),(374,3,'Tiêu đề bài báo 374',3,'Noi dung bai bao 374',500,1,0,'2021-07-27 23:14:32','fake path 374','Tom tat 374',NULL),(375,3,'Tiêu đề bài báo 375',4,'Noi dung bai bao 375',500,1,0,'2021-07-27 23:14:32','fake path 375','Tom tat 375',NULL),(376,3,'Tiêu đề bài báo 376',1,'Noi dung bai bao 376',500,1,0,'2021-07-27 23:14:32','fake path 376','Tom tat 376',2),(377,3,'Tiêu đề bài báo 377',2,'Noi dung bai bao 377',500,1,0,'2021-07-27 23:14:32','fake path 377','Tom tat 377',2),(378,3,'Tiêu đề bài báo 378',3,'Noi dung bai bao 378',500,1,0,'2021-07-27 23:14:32','fake path 378','Tom tat 378',NULL),(379,3,'Tiêu đề bài báo 379',4,'Noi dung bai bao 379',500,1,0,'2021-07-27 23:14:32','fake path 379','Tom tat 379',NULL),(380,3,'Tiêu đề bài báo 380',1,'Noi dung bai bao 380',500,1,0,'2021-07-27 23:14:32','fake path 380','Tom tat 380',2),(381,3,'Tiêu đề bài báo 381',2,'Noi dung bai bao 381',500,1,0,'2021-07-27 23:14:32','fake path 381','Tom tat 381',2),(382,3,'Tiêu đề bài báo 382',3,'Noi dung bai bao 382',500,1,0,'2021-07-27 23:14:32','fake path 382','Tom tat 382',NULL),(383,3,'Tiêu đề bài báo 383',4,'Noi dung bai bao 383',500,1,0,'2021-07-27 23:14:32','fake path 383','Tom tat 383',NULL),(384,3,'Tiêu đề bài báo 384',1,'Noi dung bai bao 384',500,1,0,'2021-07-27 23:14:32','fake path 384','Tom tat 384',7),(385,3,'Tiêu đề bài báo 385',2,'Noi dung bai bao 385',500,1,0,'2021-07-27 23:14:32','fake path 385','Tom tat 385',7),(386,3,'Tiêu đề bài báo 386',3,'Noi dung bai bao 386',500,1,0,'2021-07-27 23:14:32','fake path 386','Tom tat 386',NULL),(387,3,'Tiêu đề bài báo 387',4,'Noi dung bai bao 387',500,1,0,'2021-07-27 23:14:32','fake path 387','Tom tat 387',NULL),(388,3,'Tiêu đề bài báo 388',1,'Noi dung bai bao 388',500,1,0,'2021-07-27 23:14:32','fake path 388','Tom tat 388',7),(389,3,'Tiêu đề bài báo 389',2,'Noi dung bai bao 389',500,1,0,'2021-07-27 23:14:32','fake path 389','Tom tat 389',7),(390,3,'Tiêu đề bài báo 390',3,'Noi dung bai bao 390',500,1,0,'2021-07-27 23:14:32','fake path 390','Tom tat 390',NULL),(391,3,'Tiêu đề bài báo 391',4,'Noi dung bai bao 391',500,1,0,'2021-07-27 23:14:32','fake path 391','Tom tat 391',NULL),(392,3,'Tiêu đề bài báo 392',1,'Noi dung bai bao 392',500,1,0,'2021-07-27 23:14:32','fake path 392','Tom tat 392',2),(393,3,'Tiêu đề bài báo 393',2,'Noi dung bai bao 393',500,1,0,'2021-07-27 23:14:32','fake path 393','Tom tat 393',2),(394,3,'Tiêu đề bài báo 394',3,'Noi dung bai bao 394',500,1,0,'2021-07-27 23:14:32','fake path 394','Tom tat 394',NULL),(395,3,'Tiêu đề bài báo 395',4,'Noi dung bai bao 395',500,1,0,'2021-07-27 23:14:32','fake path 395','Tom tat 395',NULL),(396,3,'Tiêu đề bài báo 396',1,'Noi dung bai bao 396',500,1,0,'2021-07-27 23:14:32','fake path 396','Tom tat 396',2),(397,3,'Tiêu đề bài báo 397',2,'Noi dung bai bao 397',500,1,0,'2021-07-27 23:14:32','fake path 397','Tom tat 397',7),(398,3,'Tiêu đề bài báo 398',3,'Noi dung bai bao 398',500,1,0,'2021-07-27 23:14:32','fake path 398','Tom tat 398',NULL),(399,3,'Tiêu đề bài báo 399',4,'Noi dung bai bao 399',500,1,0,'2021-07-27 23:14:32','fake path 399','Tom tat 399',NULL),(400,3,'Tiêu đề bài báo 400',1,'Noi dung bai bao 400',500,1,0,'2021-07-27 23:14:32','fake path 400','Tom tat 400',7),(401,3,'Tiêu đề bài báo 401',2,'Noi dung bai bao 401',500,1,0,'2021-07-27 23:14:32','fake path 401','Tom tat 401',7),(402,3,'Tiêu đề bài báo 402',3,'Noi dung bai bao 402',500,1,0,'2021-07-27 23:14:32','fake path 402','Tom tat 402',NULL),(403,3,'Tiêu đề bài báo 403',4,'Noi dung bai bao 403',500,1,0,'2021-07-27 23:14:32','fake path 403','Tom tat 403',NULL),(404,3,'Tiêu đề bài báo 404',1,'Noi dung bai bao 404',500,1,0,'2021-07-27 23:14:32','fake path 404','Tom tat 404',7),(405,3,'Tiêu đề bài báo 405',2,'Noi dung bai bao 405',500,1,0,'2021-07-27 23:14:32','fake path 405','Tom tat 405',2),(406,3,'Tiêu đề bài báo 406',3,'Noi dung bai bao 406',500,1,0,'2021-07-27 23:14:32','fake path 406','Tom tat 406',NULL),(407,3,'Tiêu đề bài báo 407',4,'Noi dung bai bao 407',500,1,0,'2021-07-27 23:14:32','fake path 407','Tom tat 407',NULL),(408,3,'Tiêu đề bài báo 408',1,'Noi dung bai bao 408',500,1,0,'2021-07-27 23:14:32','fake path 408','Tom tat 408',2),(409,3,'Tiêu đề bài báo 409',2,'Noi dung bai bao 409',500,1,0,'2021-07-27 23:14:32','fake path 409','Tom tat 409',2),(410,3,'Tiêu đề bài báo 410',3,'Noi dung bai bao 410',500,1,0,'2021-07-27 23:14:32','fake path 410','Tom tat 410',NULL),(411,3,'Tiêu đề bài báo 411',4,'Noi dung bai bao 411',500,1,0,'2021-07-27 23:14:32','fake path 411','Tom tat 411',NULL),(412,3,'Tiêu đề bài báo 412',1,'Noi dung bai bao 412',500,1,0,'2021-07-27 23:14:32','fake path 412','Tom tat 412',7),(413,3,'Tiêu đề bài báo 413',2,'Noi dung bai bao 413',500,1,0,'2021-07-27 23:14:32','fake path 413','Tom tat 413',7),(414,3,'Tiêu đề bài báo 414',3,'Noi dung bai bao 414',500,1,0,'2021-07-27 23:14:32','fake path 414','Tom tat 414',NULL),(415,3,'Tiêu đề bài báo 415',4,'Noi dung bai bao 415',500,1,0,'2021-07-27 23:14:32','fake path 415','Tom tat 415',NULL),(416,3,'Tiêu đề bài báo 416',1,'Noi dung bai bao 416',500,1,0,'2021-07-27 23:14:32','fake path 416','Tom tat 416',7),(417,3,'Tiêu đề bài báo 417',2,'Noi dung bai bao 417',500,1,0,'2021-07-27 23:14:32','fake path 417','Tom tat 417',7),(418,3,'Tiêu đề bài báo 418',3,'Noi dung bai bao 418',500,1,0,'2021-07-27 23:14:32','fake path 418','Tom tat 418',NULL),(419,3,'Tiêu đề bài báo 419',4,'Noi dung bai bao 419',500,1,0,'2021-07-27 23:14:32','fake path 419','Tom tat 419',NULL),(420,3,'Tiêu đề bài báo 420',1,'Noi dung bai bao 420',500,1,0,'2021-07-27 23:14:32','fake path 420','Tom tat 420',2),(421,3,'Tiêu đề bài báo 421',2,'Noi dung bai bao 421',500,1,0,'2021-07-27 23:14:32','fake path 421','Tom tat 421',2),(422,3,'Tiêu đề bài báo 422',3,'Noi dung bai bao 422',500,1,0,'2021-07-27 23:14:32','fake path 422','Tom tat 422',NULL),(423,3,'Tiêu đề bài báo 423',4,'Noi dung bai bao 423',500,1,0,'2021-07-27 23:14:32','fake path 423','Tom tat 423',NULL),(424,3,'Tiêu đề bài báo 424',1,'Noi dung bai bao 424',500,1,0,'2021-07-27 23:14:32','fake path 424','Tom tat 424',2),(425,3,'Tiêu đề bài báo 425',2,'Noi dung bai bao 425',500,1,0,'2021-07-27 23:14:32','fake path 425','Tom tat 425',2),(426,3,'Tiêu đề bài báo 426',3,'Noi dung bai bao 426',500,1,0,'2021-07-27 23:14:32','fake path 426','Tom tat 426',NULL),(427,3,'Tiêu đề bài báo 427',4,'Noi dung bai bao 427',500,1,0,'2021-07-27 23:14:32','fake path 427','Tom tat 427',NULL),(428,3,'Tiêu đề bài báo 428',1,'Noi dung bai bao 428',500,1,0,'2021-07-27 23:14:32','fake path 428','Tom tat 428',7),(429,3,'Tiêu đề bài báo 429',2,'Noi dung bai bao 429',500,1,0,'2021-07-27 23:14:32','fake path 429','Tom tat 429',7),(430,3,'Tiêu đề bài báo 430',3,'Noi dung bai bao 430',500,1,0,'2021-07-27 23:14:32','fake path 430','Tom tat 430',NULL),(431,3,'Tiêu đề bài báo 431',4,'Noi dung bai bao 431',500,1,0,'2021-07-27 23:14:32','fake path 431','Tom tat 431',NULL),(432,3,'Tiêu đề bài báo 432',1,'Noi dung bai bao 432',500,1,0,'2021-07-27 23:14:32','fake path 432','Tom tat 432',7),(433,3,'Tiêu đề bài báo 433',2,'Noi dung bai bao 433',500,1,0,'2021-07-27 23:14:32','fake path 433','Tom tat 433',7),(434,3,'Tiêu đề bài báo 434',3,'Noi dung bai bao 434',500,1,0,'2021-07-27 23:14:32','fake path 434','Tom tat 434',NULL),(435,3,'Tiêu đề bài báo 435',4,'Noi dung bai bao 435',500,1,0,'2021-07-27 23:14:32','fake path 435','Tom tat 435',NULL),(436,3,'Tiêu đề bài báo 436',1,'Noi dung bai bao 436',500,1,0,'2021-07-27 23:14:32','fake path 436','Tom tat 436',2),(437,3,'Tiêu đề bài báo 437',2,'Noi dung bai bao 437',500,1,0,'2021-07-27 23:14:32','fake path 437','Tom tat 437',2),(438,3,'Tiêu đề bài báo 438',3,'Noi dung bai bao 438',500,1,0,'2021-07-27 23:14:32','fake path 438','Tom tat 438',NULL),(439,3,'Tiêu đề bài báo 439',4,'Noi dung bai bao 439',500,1,0,'2021-07-27 23:14:32','fake path 439','Tom tat 439',NULL),(440,3,'Tiêu đề bài báo 440',1,'Noi dung bai bao 440',500,1,0,'2021-07-27 23:14:32','fake path 440','Tom tat 440',2),(441,3,'Tiêu đề bài báo 441',2,'Noi dung bai bao 441',500,1,0,'2021-07-27 23:14:32','fake path 441','Tom tat 441',2),(442,3,'Tiêu đề bài báo 442',3,'Noi dung bai bao 442',500,1,0,'2021-07-27 23:14:32','fake path 442','Tom tat 442',NULL),(443,3,'Tiêu đề bài báo 443',4,'Noi dung bai bao 443',500,1,0,'2021-07-27 23:14:32','fake path 443','Tom tat 443',NULL),(444,3,'Tiêu đề bài báo 444',1,'Noi dung bai bao 444',500,1,0,'2021-07-27 23:14:32','fake path 444','Tom tat 444',7),(445,3,'Tiêu đề bài báo 445',2,'Noi dung bai bao 445',500,1,0,'2021-07-27 23:14:32','fake path 445','Tom tat 445',7),(446,3,'Tiêu đề bài báo 446',3,'Noi dung bai bao 446',500,1,0,'2021-07-27 23:14:32','fake path 446','Tom tat 446',NULL),(447,3,'Tiêu đề bài báo 447',4,'Noi dung bai bao 447',500,1,0,'2021-07-27 23:14:32','fake path 447','Tom tat 447',NULL),(448,3,'Tiêu đề bài báo 448',1,'Noi dung bai bao 448',500,1,0,'2021-07-27 23:14:32','fake path 448','Tom tat 448',7),(449,3,'Tiêu đề bài báo 449',2,'Noi dung bai bao 449',500,1,0,'2021-07-27 23:14:32','fake path 449','Tom tat 449',7),(450,3,'Tiêu đề bài báo 450',3,'Noi dung bai bao 450',500,1,0,'2021-07-27 23:14:32','fake path 450','Tom tat 450',NULL),(451,3,'Tiêu đề bài báo 451',4,'Noi dung bai bao 451',500,1,0,'2021-07-27 23:14:32','fake path 451','Tom tat 451',NULL),(452,3,'Tiêu đề bài báo 452',1,'Noi dung bai bao 452',500,1,0,'2021-07-27 23:14:32','fake path 452','Tom tat 452',2),(453,3,'Tiêu đề bài báo 453',2,'Noi dung bai bao 453',500,1,0,'2021-07-27 23:14:32','fake path 453','Tom tat 453',2),(454,3,'Tiêu đề bài báo 454',3,'Noi dung bai bao 454',500,1,0,'2021-07-27 23:14:32','fake path 454','Tom tat 454',NULL),(455,3,'Tiêu đề bài báo 455',4,'Noi dung bai bao 455',500,1,0,'2021-07-27 23:14:32','fake path 455','Tom tat 455',NULL),(456,3,'Tiêu đề bài báo 456',1,'Noi dung bai bao 456',500,1,0,'2021-07-27 23:14:32','fake path 456','Tom tat 456',2),(457,3,'Tiêu đề bài báo 457',2,'Noi dung bai bao 457',500,1,0,'2021-07-27 23:14:32','fake path 457','Tom tat 457',7),(458,3,'Tiêu đề bài báo 458',3,'Noi dung bai bao 458',500,1,0,'2021-07-27 23:14:32','fake path 458','Tom tat 458',NULL),(459,3,'Tiêu đề bài báo 459',4,'Noi dung bai bao 459',500,1,0,'2021-07-27 23:14:32','fake path 459','Tom tat 459',NULL),(460,3,'Tiêu đề bài báo 460',1,'Noi dung bai bao 460',500,1,0,'2021-07-27 23:14:32','fake path 460','Tom tat 460',7),(461,3,'Tiêu đề bài báo 461',2,'Noi dung bai bao 461',500,1,0,'2021-07-27 23:14:32','fake path 461','Tom tat 461',7),(462,3,'Tiêu đề bài báo 462',3,'Noi dung bai bao 462',500,1,0,'2021-07-27 23:14:32','fake path 462','Tom tat 462',NULL),(463,3,'Tiêu đề bài báo 463',4,'Noi dung bai bao 463',500,1,0,'2021-07-27 23:14:32','fake path 463','Tom tat 463',NULL),(464,3,'Tiêu đề bài báo 464',1,'Noi dung bai bao 464',500,1,0,'2021-07-27 23:14:32','fake path 464','Tom tat 464',7),(465,3,'Tiêu đề bài báo 465',2,'Noi dung bai bao 465',500,1,0,'2021-07-27 23:14:32','fake path 465','Tom tat 465',2),(466,3,'Tiêu đề bài báo 466',3,'Noi dung bai bao 466',500,1,0,'2021-07-27 23:14:32','fake path 466','Tom tat 466',NULL),(467,3,'Tiêu đề bài báo 467',4,'Noi dung bai bao 467',500,1,0,'2021-07-27 23:14:32','fake path 467','Tom tat 467',NULL),(468,3,'Tiêu đề bài báo 468',1,'Noi dung bai bao 468',500,1,0,'2021-07-27 23:14:32','fake path 468','Tom tat 468',2),(469,3,'Tiêu đề bài báo 469',2,'Noi dung bai bao 469',500,1,0,'2021-07-27 23:14:32','fake path 469','Tom tat 469',2),(470,3,'Tiêu đề bài báo 470',3,'Noi dung bai bao 470',500,1,0,'2021-07-27 23:14:32','fake path 470','Tom tat 470',NULL),(471,3,'Tiêu đề bài báo 471',4,'Noi dung bai bao 471',500,1,0,'2021-07-27 23:14:32','fake path 471','Tom tat 471',NULL),(472,3,'Tiêu đề bài báo 472',1,'Noi dung bai bao 472',500,1,0,'2021-07-27 23:14:32','fake path 472','Tom tat 472',7),(473,3,'Tiêu đề bài báo 473',2,'Noi dung bai bao 473',500,1,0,'2021-07-27 23:14:32','fake path 473','Tom tat 473',7),(474,3,'Tiêu đề bài báo 474',3,'Noi dung bai bao 474',500,1,0,'2021-07-27 23:14:32','fake path 474','Tom tat 474',NULL),(475,3,'Tiêu đề bài báo 475',4,'Noi dung bai bao 475',500,1,0,'2021-07-27 23:14:32','fake path 475','Tom tat 475',NULL),(476,3,'Tiêu đề bài báo 476',1,'Noi dung bai bao 476',500,1,0,'2021-07-27 23:14:32','fake path 476','Tom tat 476',7),(477,3,'Tiêu đề bài báo 477',2,'Noi dung bai bao 477',500,1,0,'2021-07-27 23:14:32','fake path 477','Tom tat 477',7),(478,3,'Tiêu đề bài báo 478',3,'Noi dung bai bao 478',500,1,0,'2021-07-27 23:14:32','fake path 478','Tom tat 478',NULL),(479,3,'Tiêu đề bài báo 479',4,'Noi dung bai bao 479',500,1,0,'2021-07-27 23:14:32','fake path 479','Tom tat 479',NULL),(480,3,'Tiêu đề bài báo 480',1,'Noi dung bai bao 480',500,1,0,'2021-07-27 23:14:32','fake path 480','Tom tat 480',2),(481,3,'Tiêu đề bài báo 481',2,'Noi dung bai bao 481',500,1,0,'2021-07-27 23:14:32','fake path 481','Tom tat 481',2),(482,3,'Tiêu đề bài báo 482',3,'Noi dung bai bao 482',500,1,0,'2021-07-27 23:14:32','fake path 482','Tom tat 482',NULL),(483,3,'Tiêu đề bài báo 483',4,'Noi dung bai bao 483',500,1,0,'2021-07-27 23:14:32','fake path 483','Tom tat 483',NULL),(484,3,'Tiêu đề bài báo 484',1,'Noi dung bai bao 484',500,1,0,'2021-07-27 23:14:32','fake path 484','Tom tat 484',2),(485,3,'Tiêu đề bài báo 485',2,'Noi dung bai bao 485',500,1,0,'2021-07-27 23:14:32','fake path 485','Tom tat 485',2),(486,3,'Tiêu đề bài báo 486',3,'Noi dung bai bao 486',500,1,0,'2021-07-27 23:14:32','fake path 486','Tom tat 486',NULL),(487,3,'Tiêu đề bài báo 487',4,'Noi dung bai bao 487',500,1,0,'2021-07-27 23:14:32','fake path 487','Tom tat 487',NULL),(488,3,'Tiêu đề bài báo 488',1,'Noi dung bai bao 488',500,1,0,'2021-07-27 23:14:32','fake path 488','Tom tat 488',7),(489,3,'Tiêu đề bài báo 489',2,'Noi dung bai bao 489',500,1,0,'2021-07-27 23:14:32','fake path 489','Tom tat 489',7),(490,3,'Tiêu đề bài báo 490',3,'Noi dung bai bao 490',500,1,0,'2021-07-27 23:14:32','fake path 490','Tom tat 490',NULL),(491,3,'Tiêu đề bài báo 491',4,'Noi dung bai bao 491',500,1,0,'2021-07-27 23:14:32','fake path 491','Tom tat 491',NULL),(492,3,'Tiêu đề bài báo 492',1,'Noi dung bai bao 492',500,1,0,'2021-07-27 23:14:32','fake path 492','Tom tat 492',7),(493,3,'Tiêu đề bài báo 493',2,'Noi dung bai bao 493',500,1,0,'2021-07-27 23:14:32','fake path 493','Tom tat 493',7),(494,3,'Tiêu đề bài báo 494',3,'Noi dung bai bao 494',500,1,0,'2021-07-27 23:14:32','fake path 494','Tom tat 494',NULL),(495,3,'Tiêu đề bài báo 495',4,'Noi dung bai bao 495',500,1,0,'2021-07-27 23:14:32','fake path 495','Tom tat 495',NULL),(496,3,'Tiêu đề bài báo 496',1,'Noi dung bai bao 496',500,1,0,'2021-07-27 23:14:32','fake path 496','Tom tat 496',2),(497,3,'Tiêu đề bài báo 497',2,'Noi dung bai bao 497',500,1,0,'2021-07-27 23:14:32','fake path 497','Tom tat 497',2),(498,3,'Tiêu đề bài báo 498',3,'Noi dung bai bao 498',500,1,0,'2021-07-27 23:14:32','fake path 498','Tom tat 498',NULL),(499,3,'Tiêu đề bài báo 499',4,'Noi dung bai bao 499',500,1,0,'2021-07-27 23:14:32','fake path 499','Tom tat 499',NULL),(500,3,'Tiêu đề bài báo 500',1,'Noi dung bai bao 500',500,1,0,'2021-07-27 23:14:32','fake path 500','Tom tat 500',2),(501,3,'Tiêu đề bài báo 501',2,'Noi dung bai bao 501',500,1,0,'2021-07-27 23:14:32','fake path 501','Tom tat 501',2),(502,3,'Tiêu đề bài báo 502',3,'Noi dung bai bao 502',500,1,0,'2021-07-27 23:14:32','fake path 502','Tom tat 502',NULL),(503,3,'Tiêu đề bài báo 503',4,'Noi dung bai bao 503',500,1,0,'2021-07-27 23:14:32','fake path 503','Tom tat 503',NULL),(504,3,'Tiêu đề bài báo 504',1,'Noi dung bai bao 504',500,1,0,'2021-07-27 23:14:32','fake path 504','Tom tat 504',7),(505,3,'Tiêu đề bài báo 505',2,'Noi dung bai bao 505',500,1,0,'2021-07-27 23:14:32','fake path 505','Tom tat 505',7),(506,3,'Tiêu đề bài báo 506',3,'Noi dung bai bao 506',500,1,0,'2021-07-27 23:14:32','fake path 506','Tom tat 506',NULL),(507,3,'Tiêu đề bài báo 507',4,'Noi dung bai bao 507',500,1,0,'2021-07-27 23:14:32','fake path 507','Tom tat 507',NULL),(508,3,'Tiêu đề bài báo 508',1,'Noi dung bai bao 508',500,1,0,'2021-07-27 23:14:32','fake path 508','Tom tat 508',7),(509,3,'Tiêu đề bài báo 509',2,'Noi dung bai bao 509',500,1,0,'2021-07-27 23:14:32','fake path 509','Tom tat 509',7),(510,3,'Tiêu đề bài báo 510',3,'Noi dung bai bao 510',500,1,0,'2021-07-27 23:14:32','fake path 510','Tom tat 510',NULL),(511,3,'Tiêu đề bài báo 511',4,'Noi dung bai bao 511',500,1,0,'2021-07-27 23:14:32','fake path 511','Tom tat 511',NULL),(512,3,'Tiêu đề bài báo 512',1,'Noi dung bai bao 512',500,1,0,'2021-07-27 23:14:32','fake path 512','Tom tat 512',2),(513,3,'Tiêu đề bài báo 513',2,'Noi dung bai bao 513',500,1,0,'2021-07-27 23:14:32','fake path 513','Tom tat 513',2),(514,3,'Tiêu đề bài báo 514',3,'Noi dung bai bao 514',500,1,0,'2021-07-27 23:14:32','fake path 514','Tom tat 514',NULL),(515,3,'Tiêu đề bài báo 515',4,'Noi dung bai bao 515',500,1,0,'2021-07-27 23:14:32','fake path 515','Tom tat 515',NULL),(516,3,'Tiêu đề bài báo 516',1,'Noi dung bai bao 516',500,1,0,'2021-07-27 23:14:32','fake path 516','Tom tat 516',2),(517,3,'Tiêu đề bài báo 517',2,'Noi dung bai bao 517',500,1,0,'2021-07-27 23:14:32','fake path 517','Tom tat 517',7),(518,3,'Tiêu đề bài báo 518',3,'Noi dung bai bao 518',500,1,0,'2021-07-27 23:14:32','fake path 518','Tom tat 518',NULL),(519,3,'Tiêu đề bài báo 519',4,'Noi dung bai bao 519',500,1,0,'2021-07-27 23:14:32','fake path 519','Tom tat 519',NULL),(520,3,'Tiêu đề bài báo 520',1,'Noi dung bai bao 520',500,1,0,'2021-07-27 23:14:32','fake path 520','Tom tat 520',7),(521,3,'Tiêu đề bài báo 521',2,'Noi dung bai bao 521',500,1,0,'2021-07-27 23:14:32','fake path 521','Tom tat 521',7),(522,3,'Tiêu đề bài báo 522',3,'Noi dung bai bao 522',500,1,0,'2021-07-27 23:14:32','fake path 522','Tom tat 522',NULL),(523,3,'Tiêu đề bài báo 523',4,'Noi dung bai bao 523',500,1,0,'2021-07-27 23:14:32','fake path 523','Tom tat 523',NULL),(524,3,'Tiêu đề bài báo 524',1,'Noi dung bai bao 524',500,1,0,'2021-07-27 23:14:32','fake path 524','Tom tat 524',7),(525,3,'Tiêu đề bài báo 525',2,'Noi dung bai bao 525',500,1,0,'2021-07-27 23:14:32','fake path 525','Tom tat 525',2),(526,3,'Tiêu đề bài báo 526',3,'Noi dung bai bao 526',500,1,0,'2021-07-27 23:14:32','fake path 526','Tom tat 526',NULL),(527,3,'Tiêu đề bài báo 527',4,'Noi dung bai bao 527',500,1,0,'2021-07-27 23:14:32','fake path 527','Tom tat 527',NULL),(528,3,'Tiêu đề bài báo 528',1,'Noi dung bai bao 528',500,1,0,'2021-07-27 23:14:32','fake path 528','Tom tat 528',2),(529,3,'Tiêu đề bài báo 529',2,'Noi dung bai bao 529',500,1,0,'2021-07-27 23:14:32','fake path 529','Tom tat 529',2),(530,3,'Tiêu đề bài báo 530',3,'Noi dung bai bao 530',500,1,0,'2021-07-27 23:14:32','fake path 530','Tom tat 530',NULL),(531,3,'Tiêu đề bài báo 531',4,'Noi dung bai bao 531',500,1,0,'2021-07-27 23:14:32','fake path 531','Tom tat 531',NULL),(532,3,'Tiêu đề bài báo 532',1,'Noi dung bai bao 532',500,1,0,'2021-07-27 23:14:32','fake path 532','Tom tat 532',7),(533,3,'Tiêu đề bài báo 533',2,'Noi dung bai bao 533',500,1,0,'2021-07-27 23:14:32','fake path 533','Tom tat 533',7),(534,3,'Tiêu đề bài báo 534',3,'Noi dung bai bao 534',500,1,0,'2021-07-27 23:14:32','fake path 534','Tom tat 534',NULL),(535,3,'Tiêu đề bài báo 535',4,'Noi dung bai bao 535',500,1,0,'2021-07-27 23:14:32','fake path 535','Tom tat 535',NULL),(536,3,'Tiêu đề bài báo 536',1,'Noi dung bai bao 536',500,1,0,'2021-07-27 23:14:32','fake path 536','Tom tat 536',7),(537,3,'Tiêu đề bài báo 537',2,'Noi dung bai bao 537',500,1,0,'2021-07-27 23:14:32','fake path 537','Tom tat 537',7),(538,3,'Tiêu đề bài báo 538',3,'Noi dung bai bao 538',500,1,0,'2021-07-27 23:14:32','fake path 538','Tom tat 538',NULL),(539,3,'Tiêu đề bài báo 539',4,'Noi dung bai bao 539',500,1,0,'2021-07-27 23:14:32','fake path 539','Tom tat 539',NULL),(540,3,'Tiêu đề bài báo 540',1,'Noi dung bai bao 540',500,1,0,'2021-07-27 23:14:32','fake path 540','Tom tat 540',2),(541,3,'Tiêu đề bài báo 541',2,'Noi dung bai bao 541',500,1,0,'2021-07-27 23:14:32','fake path 541','Tom tat 541',2),(542,3,'Tiêu đề bài báo 542',3,'Noi dung bai bao 542',500,1,0,'2021-07-27 23:14:32','fake path 542','Tom tat 542',NULL),(543,3,'Tiêu đề bài báo 543',4,'Noi dung bai bao 543',500,1,0,'2021-07-27 23:14:32','fake path 543','Tom tat 543',NULL),(544,3,'Tiêu đề bài báo 544',1,'Noi dung bai bao 544',500,1,0,'2021-07-27 23:14:32','fake path 544','Tom tat 544',2),(545,3,'Tiêu đề bài báo 545',2,'Noi dung bai bao 545',500,1,0,'2021-07-27 23:14:32','fake path 545','Tom tat 545',2),(546,3,'Tiêu đề bài báo 546',3,'Noi dung bai bao 546',500,1,0,'2021-07-27 23:14:32','fake path 546','Tom tat 546',NULL),(547,3,'Tiêu đề bài báo 547',4,'Noi dung bai bao 547',500,1,0,'2021-07-27 23:14:32','fake path 547','Tom tat 547',NULL),(548,3,'Tiêu đề bài báo 548',1,'Noi dung bai bao 548',500,1,0,'2021-07-27 23:14:32','fake path 548','Tom tat 548',7),(549,3,'Tiêu đề bài báo 549',2,'Noi dung bai bao 549',500,1,0,'2021-07-27 23:14:32','fake path 549','Tom tat 549',7),(550,3,'Tiêu đề bài báo 550',3,'Noi dung bai bao 550',500,1,0,'2021-07-27 23:14:32','fake path 550','Tom tat 550',NULL),(551,3,'Tiêu đề bài báo 551',4,'Noi dung bai bao 551',500,1,0,'2021-07-27 23:14:32','fake path 551','Tom tat 551',NULL),(552,3,'Tiêu đề bài báo 552',1,'Noi dung bai bao 552',500,1,0,'2021-07-27 23:14:32','fake path 552','Tom tat 552',7),(553,3,'Tiêu đề bài báo 553',2,'Noi dung bai bao 553',500,1,0,'2021-07-27 23:14:32','fake path 553','Tom tat 553',7),(554,3,'Tiêu đề bài báo 554',3,'Noi dung bai bao 554',500,1,0,'2021-07-27 23:14:32','fake path 554','Tom tat 554',NULL),(555,3,'Tiêu đề bài báo 555',4,'Noi dung bai bao 555',500,1,0,'2021-07-27 23:14:32','fake path 555','Tom tat 555',NULL),(556,3,'Tiêu đề bài báo 556',1,'Noi dung bai bao 556',500,1,0,'2021-07-27 23:14:32','fake path 556','Tom tat 556',2),(557,3,'Tiêu đề bài báo 557',2,'Noi dung bai bao 557',500,1,0,'2021-07-27 23:14:32','fake path 557','Tom tat 557',2),(558,3,'Tiêu đề bài báo 558',3,'Noi dung bai bao 558',500,1,0,'2021-07-27 23:14:32','fake path 558','Tom tat 558',NULL),(559,3,'Tiêu đề bài báo 559',4,'Noi dung bai bao 559',500,1,0,'2021-07-27 23:14:32','fake path 559','Tom tat 559',NULL),(560,3,'Tiêu đề bài báo 560',1,'Noi dung bai bao 560',500,1,0,'2021-07-27 23:14:32','fake path 560','Tom tat 560',2),(561,3,'Tiêu đề bài báo 561',2,'Noi dung bai bao 561',500,1,0,'2021-07-27 23:14:32','fake path 561','Tom tat 561',2),(562,3,'Tiêu đề bài báo 562',3,'Noi dung bai bao 562',500,1,0,'2021-07-27 23:14:32','fake path 562','Tom tat 562',NULL),(563,3,'Tiêu đề bài báo 563',4,'Noi dung bai bao 563',500,1,0,'2021-07-27 23:14:32','fake path 563','Tom tat 563',NULL),(564,3,'Tiêu đề bài báo 564',1,'Noi dung bai bao 564',500,1,0,'2021-07-27 23:14:32','fake path 564','Tom tat 564',7),(565,3,'Tiêu đề bài báo 565',2,'Noi dung bai bao 565',500,1,0,'2021-07-27 23:14:32','fake path 565','Tom tat 565',7),(566,3,'Tiêu đề bài báo 566',3,'Noi dung bai bao 566',500,1,0,'2021-07-27 23:14:32','fake path 566','Tom tat 566',NULL),(567,3,'Tiêu đề bài báo 567',4,'Noi dung bai bao 567',500,1,0,'2021-07-27 23:14:32','fake path 567','Tom tat 567',NULL),(568,3,'Tiêu đề bài báo 568',1,'Noi dung bai bao 568',500,1,0,'2021-07-27 23:14:32','fake path 568','Tom tat 568',7),(569,3,'Tiêu đề bài báo 569',2,'Noi dung bai bao 569',500,1,0,'2021-07-27 23:14:32','fake path 569','Tom tat 569',7),(570,3,'Tiêu đề bài báo 570',3,'Noi dung bai bao 570',500,1,0,'2021-07-27 23:14:32','fake path 570','Tom tat 570',NULL),(571,3,'Tiêu đề bài báo 571',4,'Noi dung bai bao 571',500,1,0,'2021-07-27 23:14:32','fake path 571','Tom tat 571',NULL),(572,3,'Tiêu đề bài báo 572',1,'Noi dung bai bao 572',500,1,0,'2021-07-27 23:14:32','fake path 572','Tom tat 572',2),(573,3,'Tiêu đề bài báo 573',2,'Noi dung bai bao 573',500,1,0,'2021-07-27 23:14:32','fake path 573','Tom tat 573',2),(574,3,'Tiêu đề bài báo 574',3,'Noi dung bai bao 574',500,1,0,'2021-07-27 23:14:32','fake path 574','Tom tat 574',NULL),(575,3,'Tiêu đề bài báo 575',4,'Noi dung bai bao 575',500,1,0,'2021-07-27 23:14:32','fake path 575','Tom tat 575',NULL),(576,3,'Tiêu đề bài báo 576',1,'Noi dung bai bao 576',500,1,0,'2021-07-27 23:14:32','fake path 576','Tom tat 576',2),(577,3,'Tiêu đề bài báo 577',2,'Noi dung bai bao 577',500,1,0,'2021-07-27 23:14:32','fake path 577','Tom tat 577',7),(578,3,'Tiêu đề bài báo 578',3,'Noi dung bai bao 578',500,1,0,'2021-07-27 23:14:32','fake path 578','Tom tat 578',NULL),(579,3,'Tiêu đề bài báo 579',4,'Noi dung bai bao 579',500,1,0,'2021-07-27 23:14:32','fake path 579','Tom tat 579',NULL),(580,3,'Tiêu đề bài báo 580',1,'Noi dung bai bao 580',500,1,0,'2021-07-27 23:14:32','fake path 580','Tom tat 580',7),(581,3,'Tiêu đề bài báo 581',2,'Noi dung bai bao 581',500,1,0,'2021-07-27 23:14:32','fake path 581','Tom tat 581',7),(582,3,'Tiêu đề bài báo 582',3,'Noi dung bai bao 582',500,1,0,'2021-07-27 23:14:32','fake path 582','Tom tat 582',NULL),(583,3,'Tiêu đề bài báo 583',4,'Noi dung bai bao 583',500,1,0,'2021-07-27 23:14:32','fake path 583','Tom tat 583',NULL),(584,3,'Tiêu đề bài báo 584',1,'Noi dung bai bao 584',500,1,0,'2021-07-27 23:14:32','fake path 584','Tom tat 584',7),(585,3,'Tiêu đề bài báo 585',2,'Noi dung bai bao 585',500,1,0,'2021-07-27 23:14:32','fake path 585','Tom tat 585',2),(586,3,'Tiêu đề bài báo 586',3,'Noi dung bai bao 586',500,1,0,'2021-07-27 23:14:32','fake path 586','Tom tat 586',NULL),(587,3,'Tiêu đề bài báo 587',4,'Noi dung bai bao 587',500,1,0,'2021-07-27 23:14:32','fake path 587','Tom tat 587',NULL),(588,3,'Tiêu đề bài báo 588',1,'Noi dung bai bao 588',500,1,0,'2021-07-27 23:14:32','fake path 588','Tom tat 588',2),(589,3,'Tiêu đề bài báo 589',2,'Noi dung bai bao 589',500,1,0,'2021-07-27 23:14:32','fake path 589','Tom tat 589',2),(590,3,'Tiêu đề bài báo 590',3,'Noi dung bai bao 590',500,1,0,'2021-07-27 23:14:32','fake path 590','Tom tat 590',NULL),(591,3,'Tiêu đề bài báo 591',4,'Noi dung bai bao 591',500,1,0,'2021-07-27 23:14:32','fake path 591','Tom tat 591',NULL),(592,3,'Tiêu đề bài báo 592',1,'Noi dung bai bao 592',500,1,0,'2021-07-27 23:14:32','fake path 592','Tom tat 592',7),(593,3,'Tiêu đề bài báo 593',2,'Noi dung bai bao 593',500,1,0,'2021-07-27 23:14:32','fake path 593','Tom tat 593',7),(594,3,'Tiêu đề bài báo 594',3,'Noi dung bai bao 594',500,1,0,'2021-07-27 23:14:32','fake path 594','Tom tat 594',NULL),(595,3,'Tiêu đề bài báo 595',4,'Noi dung bai bao 595',500,1,0,'2021-07-27 23:14:32','fake path 595','Tom tat 595',NULL),(596,3,'Tiêu đề bài báo 596',1,'Noi dung bai bao 596',500,1,0,'2021-07-27 23:14:32','fake path 596','Tom tat 596',7),(597,3,'Tiêu đề bài báo 597',2,'Noi dung bai bao 597',500,1,0,'2021-07-27 23:14:32','fake path 597','Tom tat 597',7),(598,3,'Tiêu đề bài báo 598',3,'Noi dung bai bao 598',500,1,0,'2021-07-27 23:14:32','fake path 598','Tom tat 598',NULL),(599,3,'Tiêu đề bài báo 599',4,'Noi dung bai bao 599',500,1,0,'2021-07-27 23:14:32','fake path 599','Tom tat 599',NULL),(600,3,'Tiêu đề bài báo 600',1,'Noi dung bai bao 600',500,1,0,'2021-07-27 23:14:32','fake path 600','Tom tat 600',2),(601,3,'Tiêu đề bài báo 601',2,'Noi dung bai bao 601',500,1,0,'2021-07-27 23:14:32','fake path 601','Tom tat 601',2),(602,3,'Tiêu đề bài báo 602',3,'Noi dung bai bao 602',500,1,0,'2021-07-27 23:14:32','fake path 602','Tom tat 602',NULL),(603,3,'Tiêu đề bài báo 603',4,'Noi dung bai bao 603',500,1,0,'2021-07-27 23:14:32','fake path 603','Tom tat 603',NULL),(604,3,'Tiêu đề bài báo 604',1,'Noi dung bai bao 604',500,1,0,'2021-07-27 23:14:32','fake path 604','Tom tat 604',2),(605,3,'Tiêu đề bài báo 605',2,'Noi dung bai bao 605',500,1,0,'2021-07-27 23:14:32','fake path 605','Tom tat 605',2),(606,3,'Tiêu đề bài báo 606',3,'Noi dung bai bao 606',500,1,0,'2021-07-27 23:14:32','fake path 606','Tom tat 606',NULL),(607,3,'Tiêu đề bài báo 607',4,'Noi dung bai bao 607',500,1,0,'2021-07-27 23:14:32','fake path 607','Tom tat 607',NULL),(608,3,'Tiêu đề bài báo 608',1,'Noi dung bai bao 608',500,1,0,'2021-07-27 23:14:32','fake path 608','Tom tat 608',7),(609,3,'Tiêu đề bài báo 609',2,'Noi dung bai bao 609',500,1,0,'2021-07-27 23:14:32','fake path 609','Tom tat 609',7),(610,3,'Tiêu đề bài báo 610',3,'Noi dung bai bao 610',500,1,0,'2021-07-27 23:14:32','fake path 610','Tom tat 610',NULL),(611,3,'Tiêu đề bài báo 611',4,'Noi dung bai bao 611',500,1,0,'2021-07-27 23:14:32','fake path 611','Tom tat 611',NULL),(612,3,'Tiêu đề bài báo 612',1,'Noi dung bai bao 612',500,1,0,'2021-07-27 23:14:32','fake path 612','Tom tat 612',7),(613,3,'Tiêu đề bài báo 613',2,'Noi dung bai bao 613',500,1,0,'2021-07-27 23:14:32','fake path 613','Tom tat 613',7),(614,3,'Tiêu đề bài báo 614',3,'Noi dung bai bao 614',500,1,0,'2021-07-27 23:14:32','fake path 614','Tom tat 614',NULL),(615,3,'Tiêu đề bài báo 615',4,'Noi dung bai bao 615',500,1,0,'2021-07-27 23:14:32','fake path 615','Tom tat 615',NULL),(616,3,'Tiêu đề bài báo 616',1,'Noi dung bai bao 616',500,1,0,'2021-07-27 23:14:32','fake path 616','Tom tat 616',2),(617,3,'Tiêu đề bài báo 617',2,'Noi dung bai bao 617',500,1,0,'2021-07-27 23:14:32','fake path 617','Tom tat 617',2),(618,3,'Tiêu đề bài báo 618',3,'Noi dung bai bao 618',500,1,0,'2021-07-27 23:14:32','fake path 618','Tom tat 618',NULL),(619,3,'Tiêu đề bài báo 619',4,'Noi dung bai bao 619',500,1,0,'2021-07-27 23:14:32','fake path 619','Tom tat 619',NULL),(620,3,'Tiêu đề bài báo 620',1,'Noi dung bai bao 620',500,1,0,'2021-07-27 23:14:32','fake path 620','Tom tat 620',2),(621,3,'Tiêu đề bài báo 621',2,'Noi dung bai bao 621',500,1,0,'2021-07-27 23:14:32','fake path 621','Tom tat 621',2),(622,3,'Tiêu đề bài báo 622',3,'Noi dung bai bao 622',500,1,0,'2021-07-27 23:14:32','fake path 622','Tom tat 622',NULL),(623,3,'Tiêu đề bài báo 623',4,'Noi dung bai bao 623',500,1,0,'2021-07-27 23:14:32','fake path 623','Tom tat 623',NULL),(624,3,'Tiêu đề bài báo 624',1,'Noi dung bai bao 624',500,1,0,'2021-07-27 23:14:32','fake path 624','Tom tat 624',7),(625,3,'Tiêu đề bài báo 625',2,'Noi dung bai bao 625',500,1,0,'2021-07-27 23:14:32','fake path 625','Tom tat 625',7),(626,3,'Tiêu đề bài báo 626',3,'Noi dung bai bao 626',500,1,0,'2021-07-27 23:14:32','fake path 626','Tom tat 626',NULL),(627,3,'Tiêu đề bài báo 627',4,'Noi dung bai bao 627',500,1,0,'2021-07-27 23:14:32','fake path 627','Tom tat 627',NULL),(628,3,'Tiêu đề bài báo 628',1,'Noi dung bai bao 628',500,1,0,'2021-07-27 23:14:32','fake path 628','Tom tat 628',7),(629,3,'Tiêu đề bài báo 629',2,'Noi dung bai bao 629',500,1,0,'2021-07-27 23:14:32','fake path 629','Tom tat 629',7),(630,3,'Tiêu đề bài báo 630',3,'Noi dung bai bao 630',500,1,0,'2021-07-27 23:14:32','fake path 630','Tom tat 630',NULL),(631,3,'Tiêu đề bài báo 631',4,'Noi dung bai bao 631',500,1,0,'2021-07-27 23:14:32','fake path 631','Tom tat 631',NULL),(632,3,'Tiêu đề bài báo 632',1,'Noi dung bai bao 632',500,1,0,'2021-07-27 23:14:32','fake path 632','Tom tat 632',2),(633,3,'Tiêu đề bài báo 633',2,'Noi dung bai bao 633',500,1,0,'2021-07-27 23:14:32','fake path 633','Tom tat 633',2),(634,3,'Tiêu đề bài báo 634',3,'Noi dung bai bao 634',500,1,0,'2021-07-27 23:14:32','fake path 634','Tom tat 634',NULL),(635,3,'Tiêu đề bài báo 635',4,'Noi dung bai bao 635',500,1,0,'2021-07-27 23:14:32','fake path 635','Tom tat 635',NULL),(636,3,'Tiêu đề bài báo 636',1,'Noi dung bai bao 636',500,1,0,'2021-07-27 23:14:32','fake path 636','Tom tat 636',2),(637,3,'Tiêu đề bài báo 637',2,'Noi dung bai bao 637',500,1,0,'2021-07-27 23:14:32','fake path 637','Tom tat 637',7),(638,3,'Tiêu đề bài báo 638',3,'Noi dung bai bao 638',500,1,0,'2021-07-27 23:14:32','fake path 638','Tom tat 638',NULL),(639,3,'Tiêu đề bài báo 639',4,'Noi dung bai bao 639',500,1,0,'2021-07-27 23:14:32','fake path 639','Tom tat 639',NULL),(640,3,'Tiêu đề bài báo 640',1,'Noi dung bai bao 640',500,1,0,'2021-07-27 23:14:32','fake path 640','Tom tat 640',7),(641,3,'Tiêu đề bài báo 641',2,'Noi dung bai bao 641',500,1,0,'2021-07-27 23:14:32','fake path 641','Tom tat 641',7),(642,3,'Tiêu đề bài báo 642',3,'Noi dung bai bao 642',500,1,0,'2021-07-27 23:14:32','fake path 642','Tom tat 642',NULL),(643,3,'Tiêu đề bài báo 643',4,'Noi dung bai bao 643',500,1,0,'2021-07-27 23:14:32','fake path 643','Tom tat 643',NULL),(644,3,'Tiêu đề bài báo 644',1,'Noi dung bai bao 644',500,1,0,'2021-07-27 23:14:32','fake path 644','Tom tat 644',7),(645,3,'Tiêu đề bài báo 645',2,'Noi dung bai bao 645',500,1,0,'2021-07-27 23:14:32','fake path 645','Tom tat 645',2),(646,3,'Tiêu đề bài báo 646',3,'Noi dung bai bao 646',500,1,0,'2021-07-27 23:14:32','fake path 646','Tom tat 646',NULL),(647,3,'Tiêu đề bài báo 647',4,'Noi dung bai bao 647',500,1,0,'2021-07-27 23:14:32','fake path 647','Tom tat 647',NULL),(648,3,'Tiêu đề bài báo 648',1,'Noi dung bai bao 648',500,1,0,'2021-07-27 23:14:32','fake path 648','Tom tat 648',2),(649,3,'Tiêu đề bài báo 649',2,'Noi dung bai bao 649',500,1,0,'2021-07-27 23:14:32','fake path 649','Tom tat 649',2),(650,3,'Tiêu đề bài báo 650',3,'Noi dung bai bao 650',500,1,0,'2021-07-27 23:14:32','fake path 650','Tom tat 650',NULL),(651,3,'Tiêu đề bài báo 651',4,'Noi dung bai bao 651',500,1,0,'2021-07-27 23:14:32','fake path 651','Tom tat 651',NULL),(652,3,'Tiêu đề bài báo 652',1,'Noi dung bai bao 652',500,1,0,'2021-07-27 23:14:32','fake path 652','Tom tat 652',7),(653,3,'Tiêu đề bài báo 653',2,'Noi dung bai bao 653',500,1,0,'2021-07-27 23:14:32','fake path 653','Tom tat 653',7),(654,3,'Tiêu đề bài báo 654',3,'Noi dung bai bao 654',500,1,0,'2021-07-27 23:14:32','fake path 654','Tom tat 654',NULL),(655,3,'Tiêu đề bài báo 655',4,'Noi dung bai bao 655',500,1,0,'2021-07-27 23:14:32','fake path 655','Tom tat 655',NULL),(656,3,'Tiêu đề bài báo 656',1,'Noi dung bai bao 656',500,1,0,'2021-07-27 23:14:32','fake path 656','Tom tat 656',7),(657,3,'Tiêu đề bài báo 657',2,'Noi dung bai bao 657',500,1,0,'2021-07-27 23:14:32','fake path 657','Tom tat 657',7),(658,3,'Tiêu đề bài báo 658',3,'Noi dung bai bao 658',500,1,0,'2021-07-27 23:14:32','fake path 658','Tom tat 658',NULL),(659,3,'Tiêu đề bài báo 659',4,'Noi dung bai bao 659',500,1,0,'2021-07-27 23:14:32','fake path 659','Tom tat 659',NULL),(660,3,'Tiêu đề bài báo 660',1,'Noi dung bai bao 660',500,1,0,'2021-07-27 23:14:32','fake path 660','Tom tat 660',2),(661,3,'Tiêu đề bài báo 661',2,'Noi dung bai bao 661',500,1,0,'2021-07-27 23:14:32','fake path 661','Tom tat 661',2),(662,3,'Tiêu đề bài báo 662',3,'Noi dung bai bao 662',500,1,0,'2021-07-27 23:14:32','fake path 662','Tom tat 662',NULL),(663,3,'Tiêu đề bài báo 663',4,'Noi dung bai bao 663',500,1,0,'2021-07-27 23:14:32','fake path 663','Tom tat 663',NULL),(664,3,'Tiêu đề bài báo 664',1,'Noi dung bai bao 664',500,1,0,'2021-07-27 23:14:32','fake path 664','Tom tat 664',2),(665,3,'Tiêu đề bài báo 665',2,'Noi dung bai bao 665',500,1,0,'2021-07-27 23:14:32','fake path 665','Tom tat 665',2),(666,3,'Tiêu đề bài báo 666',3,'Noi dung bai bao 666',500,1,0,'2021-07-27 23:14:32','fake path 666','Tom tat 666',NULL),(667,3,'Tiêu đề bài báo 667',4,'Noi dung bai bao 667',500,1,0,'2021-07-27 23:14:32','fake path 667','Tom tat 667',NULL),(668,3,'Tiêu đề bài báo 668',1,'Noi dung bai bao 668',500,1,0,'2021-07-27 23:14:32','fake path 668','Tom tat 668',7),(669,3,'Tiêu đề bài báo 669',2,'Noi dung bai bao 669',500,1,0,'2021-07-27 23:14:32','fake path 669','Tom tat 669',7),(670,3,'Tiêu đề bài báo 670',3,'Noi dung bai bao 670',500,1,0,'2021-07-27 23:14:32','fake path 670','Tom tat 670',NULL),(671,3,'Tiêu đề bài báo 671',4,'Noi dung bai bao 671',500,1,0,'2021-07-27 23:14:32','fake path 671','Tom tat 671',NULL),(672,3,'Tiêu đề bài báo 672',1,'Noi dung bai bao 672',500,1,0,'2021-07-27 23:14:32','fake path 672','Tom tat 672',7),(673,3,'Tiêu đề bài báo 673',2,'Noi dung bai bao 673',500,1,0,'2021-07-27 23:14:32','fake path 673','Tom tat 673',7),(674,3,'Tiêu đề bài báo 674',3,'Noi dung bai bao 674',500,1,0,'2021-07-27 23:14:32','fake path 674','Tom tat 674',NULL),(675,3,'Tiêu đề bài báo 675',4,'Noi dung bai bao 675',500,1,0,'2021-07-27 23:14:32','fake path 675','Tom tat 675',NULL),(676,3,'Tiêu đề bài báo 676',1,'Noi dung bai bao 676',500,1,0,'2021-07-27 23:14:32','fake path 676','Tom tat 676',2),(677,3,'Tiêu đề bài báo 677',2,'Noi dung bai bao 677',500,1,0,'2021-07-27 23:14:32','fake path 677','Tom tat 677',2),(678,3,'Tiêu đề bài báo 678',3,'Noi dung bai bao 678',500,1,0,'2021-07-27 23:14:32','fake path 678','Tom tat 678',NULL),(679,3,'Tiêu đề bài báo 679',4,'Noi dung bai bao 679',500,1,0,'2021-07-27 23:14:32','fake path 679','Tom tat 679',NULL),(680,3,'Tiêu đề bài báo 680',1,'Noi dung bai bao 680',500,1,0,'2021-07-27 23:14:32','fake path 680','Tom tat 680',2),(681,3,'Tiêu đề bài báo 681',2,'Noi dung bai bao 681',500,1,0,'2021-07-27 23:14:32','fake path 681','Tom tat 681',2),(682,3,'Tiêu đề bài báo 682',3,'Noi dung bai bao 682',500,1,0,'2021-07-27 23:14:32','fake path 682','Tom tat 682',NULL),(683,3,'Tiêu đề bài báo 683',4,'Noi dung bai bao 683',500,1,0,'2021-07-27 23:14:32','fake path 683','Tom tat 683',NULL),(684,3,'Tiêu đề bài báo 684',1,'Noi dung bai bao 684',500,1,0,'2021-07-27 23:14:32','fake path 684','Tom tat 684',7),(685,3,'Tiêu đề bài báo 685',2,'Noi dung bai bao 685',500,1,0,'2021-07-27 23:14:32','fake path 685','Tom tat 685',7),(686,3,'Tiêu đề bài báo 686',3,'Noi dung bai bao 686',500,1,0,'2021-07-27 23:14:32','fake path 686','Tom tat 686',NULL),(687,3,'Tiêu đề bài báo 687',4,'Noi dung bai bao 687',500,1,0,'2021-07-27 23:14:32','fake path 687','Tom tat 687',NULL),(688,3,'Tiêu đề bài báo 688',1,'Noi dung bai bao 688',500,1,0,'2021-07-27 23:14:32','fake path 688','Tom tat 688',7),(689,3,'Tiêu đề bài báo 689',2,'Noi dung bai bao 689',500,1,0,'2021-07-27 23:14:32','fake path 689','Tom tat 689',7),(690,3,'Tiêu đề bài báo 690',3,'Noi dung bai bao 690',500,1,0,'2021-07-27 23:14:32','fake path 690','Tom tat 690',NULL),(691,3,'Tiêu đề bài báo 691',4,'Noi dung bai bao 691',500,1,0,'2021-07-27 23:14:32','fake path 691','Tom tat 691',NULL),(692,3,'Tiêu đề bài báo 692',1,'Noi dung bai bao 692',500,1,0,'2021-07-27 23:14:32','fake path 692','Tom tat 692',2),(693,3,'Tiêu đề bài báo 693',2,'Noi dung bai bao 693',500,1,0,'2021-07-27 23:14:32','fake path 693','Tom tat 693',2),(694,3,'Tiêu đề bài báo 694',3,'Noi dung bai bao 694',500,1,0,'2021-07-27 23:14:32','fake path 694','Tom tat 694',NULL),(695,3,'Tiêu đề bài báo 695',4,'Noi dung bai bao 695',500,1,0,'2021-07-27 23:14:32','fake path 695','Tom tat 695',NULL),(696,3,'Tiêu đề bài báo 696',1,'Noi dung bai bao 696',500,1,0,'2021-07-27 23:14:32','fake path 696','Tom tat 696',2),(697,3,'Tiêu đề bài báo 697',2,'Noi dung bai bao 697',500,1,0,'2021-07-27 23:14:32','fake path 697','Tom tat 697',7),(698,3,'Tiêu đề bài báo 698',3,'Noi dung bai bao 698',500,1,0,'2021-07-27 23:14:32','fake path 698','Tom tat 698',NULL),(699,3,'Tiêu đề bài báo 699',4,'Noi dung bai bao 699',500,1,0,'2021-07-27 23:14:32','fake path 699','Tom tat 699',NULL),(700,3,'Tiêu đề bài báo 700',1,'Noi dung bai bao 700',500,1,0,'2021-07-27 23:14:32','fake path 700','Tom tat 700',7),(701,3,'Tiêu đề bài báo 701',2,'Noi dung bai bao 701',500,1,0,'2021-07-27 23:14:32','fake path 701','Tom tat 701',7),(702,3,'Tiêu đề bài báo 702',3,'Noi dung bai bao 702',500,1,0,'2021-07-27 23:14:32','fake path 702','Tom tat 702',NULL),(703,3,'Tiêu đề bài báo 703',4,'Noi dung bai bao 703',500,1,0,'2021-07-27 23:14:32','fake path 703','Tom tat 703',NULL),(704,3,'Tiêu đề bài báo 704',1,'Noi dung bai bao 704',500,1,0,'2021-07-27 23:14:32','fake path 704','Tom tat 704',7),(705,3,'Tiêu đề bài báo 705',2,'Noi dung bai bao 705',500,1,0,'2021-07-27 23:14:32','fake path 705','Tom tat 705',2),(706,3,'Tiêu đề bài báo 706',3,'Noi dung bai bao 706',500,1,0,'2021-07-27 23:14:32','fake path 706','Tom tat 706',NULL),(707,3,'Tiêu đề bài báo 707',4,'Noi dung bai bao 707',500,1,0,'2021-07-27 23:14:32','fake path 707','Tom tat 707',NULL),(708,3,'Tiêu đề bài báo 708',1,'Noi dung bai bao 708',500,1,0,'2021-07-27 23:14:32','fake path 708','Tom tat 708',2),(709,3,'Tiêu đề bài báo 709',2,'Noi dung bai bao 709',500,1,0,'2021-07-27 23:14:32','fake path 709','Tom tat 709',2),(710,3,'Tiêu đề bài báo 710',3,'Noi dung bai bao 710',500,1,0,'2021-07-27 23:14:32','fake path 710','Tom tat 710',NULL),(711,3,'Tiêu đề bài báo 711',4,'Noi dung bai bao 711',500,1,0,'2021-07-27 23:14:32','fake path 711','Tom tat 711',NULL),(712,3,'Tiêu đề bài báo 712',1,'Noi dung bai bao 712',500,1,0,'2021-07-27 23:14:32','fake path 712','Tom tat 712',7),(713,3,'Tiêu đề bài báo 713',2,'Noi dung bai bao 713',500,1,0,'2021-07-27 23:14:32','fake path 713','Tom tat 713',7),(714,3,'Tiêu đề bài báo 714',3,'Noi dung bai bao 714',500,1,0,'2021-07-27 23:14:32','fake path 714','Tom tat 714',NULL),(715,3,'Tiêu đề bài báo 715',4,'Noi dung bai bao 715',500,1,0,'2021-07-27 23:14:32','fake path 715','Tom tat 715',NULL),(716,3,'Tiêu đề bài báo 716',1,'Noi dung bai bao 716',500,1,0,'2021-07-27 23:14:32','fake path 716','Tom tat 716',7),(717,3,'Tiêu đề bài báo 717',2,'Noi dung bai bao 717',500,1,0,'2021-07-27 23:14:32','fake path 717','Tom tat 717',7),(718,3,'Tiêu đề bài báo 718',3,'Noi dung bai bao 718',500,1,0,'2021-07-27 23:14:32','fake path 718','Tom tat 718',NULL),(719,3,'Tiêu đề bài báo 719',4,'Noi dung bai bao 719',500,1,0,'2021-07-27 23:14:32','fake path 719','Tom tat 719',NULL),(720,3,'Tiêu đề bài báo 720',1,'Noi dung bai bao 720',500,1,0,'2021-07-27 23:14:32','fake path 720','Tom tat 720',2),(721,3,'Tiêu đề bài báo 721',2,'Noi dung bai bao 721',500,1,0,'2021-07-27 23:14:32','fake path 721','Tom tat 721',2),(722,3,'Tiêu đề bài báo 722',3,'Noi dung bai bao 722',500,1,0,'2021-07-27 23:14:32','fake path 722','Tom tat 722',NULL),(723,3,'Tiêu đề bài báo 723',4,'Noi dung bai bao 723',500,1,0,'2021-07-27 23:14:32','fake path 723','Tom tat 723',NULL),(724,3,'Tiêu đề bài báo 724',1,'Noi dung bai bao 724',500,1,0,'2021-07-27 23:14:32','fake path 724','Tom tat 724',2),(725,3,'Tiêu đề bài báo 725',2,'Noi dung bai bao 725',500,1,0,'2021-07-27 23:14:32','fake path 725','Tom tat 725',2),(726,3,'Tiêu đề bài báo 726',3,'Noi dung bai bao 726',500,1,0,'2021-07-27 23:14:32','fake path 726','Tom tat 726',NULL),(727,3,'Tiêu đề bài báo 727',4,'Noi dung bai bao 727',500,1,0,'2021-07-27 23:14:32','fake path 727','Tom tat 727',NULL),(728,3,'Tiêu đề bài báo 728',1,'Noi dung bai bao 728',500,1,0,'2021-07-27 23:14:32','fake path 728','Tom tat 728',7),(729,3,'Tiêu đề bài báo 729',2,'Noi dung bai bao 729',500,1,0,'2021-07-27 23:14:32','fake path 729','Tom tat 729',7),(730,3,'Tiêu đề bài báo 730',3,'Noi dung bai bao 730',500,1,0,'2021-07-27 23:14:32','fake path 730','Tom tat 730',NULL),(731,3,'Tiêu đề bài báo 731',4,'Noi dung bai bao 731',500,1,0,'2021-07-27 23:14:32','fake path 731','Tom tat 731',NULL),(732,3,'Tiêu đề bài báo 732',1,'Noi dung bai bao 732',500,1,0,'2021-07-27 23:14:32','fake path 732','Tom tat 732',7),(733,3,'Tiêu đề bài báo 733',2,'Noi dung bai bao 733',500,1,0,'2021-07-27 23:14:32','fake path 733','Tom tat 733',7),(734,3,'Tiêu đề bài báo 734',3,'Noi dung bai bao 734',500,1,0,'2021-07-27 23:14:32','fake path 734','Tom tat 734',NULL),(735,3,'Tiêu đề bài báo 735',4,'Noi dung bai bao 735',500,1,0,'2021-07-27 23:14:32','fake path 735','Tom tat 735',NULL),(736,3,'Tiêu đề bài báo 736',1,'Noi dung bai bao 736',500,1,0,'2021-07-27 23:14:32','fake path 736','Tom tat 736',2),(737,3,'Tiêu đề bài báo 737',2,'Noi dung bai bao 737',500,1,0,'2021-07-27 23:14:32','fake path 737','Tom tat 737',2),(738,3,'Tiêu đề bài báo 738',3,'Noi dung bai bao 738',500,1,0,'2021-07-27 23:14:32','fake path 738','Tom tat 738',NULL),(739,3,'Tiêu đề bài báo 739',4,'Noi dung bai bao 739',500,1,0,'2021-07-27 23:14:32','fake path 739','Tom tat 739',NULL),(740,3,'Tiêu đề bài báo 740',1,'Noi dung bai bao 740',500,1,0,'2021-07-27 23:14:32','fake path 740','Tom tat 740',2),(741,3,'Tiêu đề bài báo 741',2,'Noi dung bai bao 741',500,1,0,'2021-07-27 23:14:32','fake path 741','Tom tat 741',2),(742,3,'Tiêu đề bài báo 742',3,'Noi dung bai bao 742',500,1,0,'2021-07-27 23:14:32','fake path 742','Tom tat 742',NULL),(743,3,'Tiêu đề bài báo 743',4,'Noi dung bai bao 743',500,1,0,'2021-07-27 23:14:32','fake path 743','Tom tat 743',NULL),(744,3,'Tiêu đề bài báo 744',1,'Noi dung bai bao 744',500,1,0,'2021-07-27 23:14:32','fake path 744','Tom tat 744',7),(745,3,'Tiêu đề bài báo 745',2,'Noi dung bai bao 745',500,1,0,'2021-07-27 23:14:32','fake path 745','Tom tat 745',7),(746,3,'Tiêu đề bài báo 746',3,'Noi dung bai bao 746',500,1,0,'2021-07-27 23:14:32','fake path 746','Tom tat 746',NULL),(747,3,'Tiêu đề bài báo 747',4,'Noi dung bai bao 747',500,1,0,'2021-07-27 23:14:32','fake path 747','Tom tat 747',NULL),(748,3,'Tiêu đề bài báo 748',1,'Noi dung bai bao 748',500,1,0,'2021-07-27 23:14:32','fake path 748','Tom tat 748',7),(749,3,'Tiêu đề bài báo 749',2,'Noi dung bai bao 749',500,1,0,'2021-07-27 23:14:32','fake path 749','Tom tat 749',7),(750,3,'Tiêu đề bài báo 750',3,'Noi dung bai bao 750',500,1,0,'2021-07-27 23:14:32','fake path 750','Tom tat 750',NULL),(751,3,'Tiêu đề bài báo 751',4,'Noi dung bai bao 751',500,1,0,'2021-07-27 23:14:32','fake path 751','Tom tat 751',NULL),(752,3,'Tiêu đề bài báo 752',1,'Noi dung bai bao 752',500,1,0,'2021-07-27 23:14:32','fake path 752','Tom tat 752',2),(753,3,'Tiêu đề bài báo 753',2,'Noi dung bai bao 753',500,1,0,'2021-07-27 23:14:32','fake path 753','Tom tat 753',2),(754,3,'Tiêu đề bài báo 754',3,'Noi dung bai bao 754',500,1,0,'2021-07-27 23:14:32','fake path 754','Tom tat 754',NULL),(755,3,'Tiêu đề bài báo 755',4,'Noi dung bai bao 755',500,1,0,'2021-07-27 23:14:32','fake path 755','Tom tat 755',NULL),(756,3,'Tiêu đề bài báo 756',1,'Noi dung bai bao 756',500,1,0,'2021-07-27 23:14:32','fake path 756','Tom tat 756',2),(757,3,'Tiêu đề bài báo 757',2,'Noi dung bai bao 757',500,1,0,'2021-07-27 23:14:32','fake path 757','Tom tat 757',7),(758,3,'Tiêu đề bài báo 758',3,'Noi dung bai bao 758',500,1,0,'2021-07-27 23:14:32','fake path 758','Tom tat 758',NULL),(759,3,'Tiêu đề bài báo 759',4,'Noi dung bai bao 759',500,1,0,'2021-07-27 23:14:32','fake path 759','Tom tat 759',NULL),(760,3,'Tiêu đề bài báo 760',1,'Noi dung bai bao 760',500,1,0,'2021-07-27 23:14:32','fake path 760','Tom tat 760',7),(761,3,'Tiêu đề bài báo 761',2,'Noi dung bai bao 761',500,1,0,'2021-07-27 23:14:32','fake path 761','Tom tat 761',7),(762,3,'Tiêu đề bài báo 762',3,'Noi dung bai bao 762',500,1,0,'2021-07-27 23:14:32','fake path 762','Tom tat 762',NULL),(763,3,'Tiêu đề bài báo 763',4,'Noi dung bai bao 763',500,1,0,'2021-07-27 23:14:32','fake path 763','Tom tat 763',NULL),(764,3,'Tiêu đề bài báo 764',1,'Noi dung bai bao 764',500,1,0,'2021-07-27 23:14:32','fake path 764','Tom tat 764',7),(765,3,'Tiêu đề bài báo 765',2,'Noi dung bai bao 765',500,1,0,'2021-07-27 23:14:32','fake path 765','Tom tat 765',2),(766,3,'Tiêu đề bài báo 766',3,'Noi dung bai bao 766',500,1,0,'2021-07-27 23:14:32','fake path 766','Tom tat 766',NULL),(767,3,'Tiêu đề bài báo 767',4,'Noi dung bai bao 767',500,1,0,'2021-07-27 23:14:32','fake path 767','Tom tat 767',NULL),(768,3,'Tiêu đề bài báo 768',1,'Noi dung bai bao 768',500,1,0,'2021-07-27 23:14:32','fake path 768','Tom tat 768',2),(769,3,'Tiêu đề bài báo 769',2,'Noi dung bai bao 769',500,1,0,'2021-07-27 23:14:32','fake path 769','Tom tat 769',2),(770,3,'Tiêu đề bài báo 770',3,'Noi dung bai bao 770',500,1,0,'2021-07-27 23:14:32','fake path 770','Tom tat 770',NULL),(771,3,'Tiêu đề bài báo 771',4,'Noi dung bai bao 771',500,1,0,'2021-07-27 23:14:32','fake path 771','Tom tat 771',NULL),(772,3,'Tiêu đề bài báo 772',1,'Noi dung bai bao 772',500,1,0,'2021-07-27 23:14:32','fake path 772','Tom tat 772',7),(773,3,'Tiêu đề bài báo 773',2,'Noi dung bai bao 773',500,1,0,'2021-07-27 23:14:32','fake path 773','Tom tat 773',7),(774,3,'Tiêu đề bài báo 774',3,'Noi dung bai bao 774',500,1,0,'2021-07-27 23:14:32','fake path 774','Tom tat 774',NULL),(775,3,'Tiêu đề bài báo 775',4,'Noi dung bai bao 775',500,1,0,'2021-07-27 23:14:32','fake path 775','Tom tat 775',NULL),(776,3,'Tiêu đề bài báo 776',1,'Noi dung bai bao 776',500,1,0,'2021-07-27 23:14:32','fake path 776','Tom tat 776',7),(777,3,'Tiêu đề bài báo 777',2,'Noi dung bai bao 777',500,1,0,'2021-07-27 23:14:32','fake path 777','Tom tat 777',7),(778,3,'Tiêu đề bài báo 778',3,'Noi dung bai bao 778',500,1,0,'2021-07-27 23:14:32','fake path 778','Tom tat 778',NULL),(779,3,'Tiêu đề bài báo 779',4,'Noi dung bai bao 779',500,1,0,'2021-07-27 23:14:32','fake path 779','Tom tat 779',NULL),(780,3,'Tiêu đề bài báo 780',1,'Noi dung bai bao 780',500,1,0,'2021-07-27 23:14:32','fake path 780','Tom tat 780',2),(781,3,'Tiêu đề bài báo 781',2,'Noi dung bai bao 781',500,1,0,'2021-07-27 23:14:32','fake path 781','Tom tat 781',2),(782,3,'Tiêu đề bài báo 782',3,'Noi dung bai bao 782',500,1,0,'2021-07-27 23:14:32','fake path 782','Tom tat 782',NULL),(783,3,'Tiêu đề bài báo 783',4,'Noi dung bai bao 783',500,1,0,'2021-07-27 23:14:32','fake path 783','Tom tat 783',NULL),(784,3,'Tiêu đề bài báo 784',1,'Noi dung bai bao 784',500,1,0,'2021-07-27 23:14:32','fake path 784','Tom tat 784',2),(785,3,'Tiêu đề bài báo 785',2,'Noi dung bai bao 785',500,1,0,'2021-07-27 23:14:32','fake path 785','Tom tat 785',2),(786,3,'Tiêu đề bài báo 786',3,'Noi dung bai bao 786',500,1,0,'2021-07-27 23:14:32','fake path 786','Tom tat 786',NULL),(787,3,'Tiêu đề bài báo 787',4,'Noi dung bai bao 787',500,1,0,'2021-07-27 23:14:32','fake path 787','Tom tat 787',NULL),(788,3,'Tiêu đề bài báo 788',1,'Noi dung bai bao 788',500,1,0,'2021-07-27 23:14:32','fake path 788','Tom tat 788',7),(789,3,'Tiêu đề bài báo 789',2,'Noi dung bai bao 789',500,1,0,'2021-07-27 23:14:32','fake path 789','Tom tat 789',7),(790,3,'Tiêu đề bài báo 790',3,'Noi dung bai bao 790',500,1,0,'2021-07-27 23:14:32','fake path 790','Tom tat 790',NULL),(791,3,'Tiêu đề bài báo 791',4,'Noi dung bai bao 791',500,1,0,'2021-07-27 23:14:32','fake path 791','Tom tat 791',NULL),(792,3,'Tiêu đề bài báo 792',1,'Noi dung bai bao 792',500,1,0,'2021-07-27 23:14:32','fake path 792','Tom tat 792',7),(793,3,'Tiêu đề bài báo 793',2,'Noi dung bai bao 793',500,1,0,'2021-07-27 23:14:32','fake path 793','Tom tat 793',7),(794,3,'Tiêu đề bài báo 794',3,'Noi dung bai bao 794',500,1,0,'2021-07-27 23:14:32','fake path 794','Tom tat 794',NULL),(795,3,'Tiêu đề bài báo 795',4,'Noi dung bai bao 795',500,1,0,'2021-07-27 23:14:32','fake path 795','Tom tat 795',NULL),(796,3,'Tiêu đề bài báo 796',1,'Noi dung bai bao 796',500,1,0,'2021-07-27 23:14:32','fake path 796','Tom tat 796',2),(797,3,'Tiêu đề bài báo 797',2,'Noi dung bai bao 797',500,1,0,'2021-07-27 23:14:32','fake path 797','Tom tat 797',2),(798,3,'Tiêu đề bài báo 798',3,'Noi dung bai bao 798',500,1,0,'2021-07-27 23:14:32','fake path 798','Tom tat 798',NULL),(799,3,'Tiêu đề bài báo 799',4,'Noi dung bai bao 799',500,1,0,'2021-07-27 23:14:32','fake path 799','Tom tat 799',NULL),(800,3,'Tiêu đề bài báo 800',1,'Noi dung bai bao 800',500,1,0,'2021-07-27 23:14:32','fake path 800','Tom tat 800',2),(801,3,'Tiêu đề bài báo 801',2,'Noi dung bai bao 801',500,1,0,'2021-07-27 23:14:32','fake path 801','Tom tat 801',2),(802,3,'Tiêu đề bài báo 802',3,'Noi dung bai bao 802',500,1,0,'2021-07-27 23:14:32','fake path 802','Tom tat 802',NULL),(803,3,'Tiêu đề bài báo 803',4,'Noi dung bai bao 803',500,1,0,'2021-07-27 23:14:32','fake path 803','Tom tat 803',NULL),(804,3,'Tiêu đề bài báo 804',1,'Noi dung bai bao 804',500,1,0,'2021-07-27 23:14:32','fake path 804','Tom tat 804',7),(805,3,'Tiêu đề bài báo 805',2,'Noi dung bai bao 805',500,1,0,'2021-07-27 23:14:32','fake path 805','Tom tat 805',7),(806,3,'Tiêu đề bài báo 806',3,'Noi dung bai bao 806',500,1,0,'2021-07-27 23:14:32','fake path 806','Tom tat 806',NULL),(807,3,'Tiêu đề bài báo 807',4,'Noi dung bai bao 807',500,1,0,'2021-07-27 23:14:32','fake path 807','Tom tat 807',NULL),(808,3,'Tiêu đề bài báo 808',1,'Noi dung bai bao 808',500,1,0,'2021-07-27 23:14:32','fake path 808','Tom tat 808',7),(809,3,'Tiêu đề bài báo 809',2,'Noi dung bai bao 809',500,1,0,'2021-07-27 23:14:32','fake path 809','Tom tat 809',7),(810,3,'Tiêu đề bài báo 810',3,'Noi dung bai bao 810',500,1,0,'2021-07-27 23:14:32','fake path 810','Tom tat 810',NULL),(811,3,'Tiêu đề bài báo 811',4,'Noi dung bai bao 811',500,1,0,'2021-07-27 23:14:32','fake path 811','Tom tat 811',NULL),(812,3,'Tiêu đề bài báo 812',1,'Noi dung bai bao 812',500,1,0,'2021-07-27 23:14:32','fake path 812','Tom tat 812',2),(813,3,'Tiêu đề bài báo 813',2,'Noi dung bai bao 813',500,1,0,'2021-07-27 23:14:32','fake path 813','Tom tat 813',2),(814,3,'Tiêu đề bài báo 814',3,'Noi dung bai bao 814',500,1,0,'2021-07-27 23:14:32','fake path 814','Tom tat 814',NULL),(815,3,'Tiêu đề bài báo 815',4,'Noi dung bai bao 815',500,1,0,'2021-07-27 23:14:32','fake path 815','Tom tat 815',NULL),(816,3,'Tiêu đề bài báo 816',1,'Noi dung bai bao 816',500,1,0,'2021-07-27 23:14:32','fake path 816','Tom tat 816',2),(817,3,'Tiêu đề bài báo 817',2,'Noi dung bai bao 817',500,1,0,'2021-07-27 23:14:32','fake path 817','Tom tat 817',7),(818,3,'Tiêu đề bài báo 818',3,'Noi dung bai bao 818',500,1,0,'2021-07-27 23:14:32','fake path 818','Tom tat 818',NULL),(819,3,'Tiêu đề bài báo 819',4,'Noi dung bai bao 819',500,1,0,'2021-07-27 23:14:32','fake path 819','Tom tat 819',NULL),(820,3,'Tiêu đề bài báo 820',1,'Noi dung bai bao 820',500,1,0,'2021-07-27 23:14:32','fake path 820','Tom tat 820',7),(821,3,'Tiêu đề bài báo 821',2,'Noi dung bai bao 821',500,1,0,'2021-07-27 23:14:32','fake path 821','Tom tat 821',7),(822,3,'Tiêu đề bài báo 822',3,'Noi dung bai bao 822',500,1,0,'2021-07-27 23:14:32','fake path 822','Tom tat 822',NULL),(823,3,'Tiêu đề bài báo 823',4,'Noi dung bai bao 823',500,1,0,'2021-07-27 23:14:32','fake path 823','Tom tat 823',NULL),(824,3,'Tiêu đề bài báo 824',1,'Noi dung bai bao 824',500,1,0,'2021-07-27 23:14:32','fake path 824','Tom tat 824',7),(825,3,'Tiêu đề bài báo 825',2,'Noi dung bai bao 825',500,1,0,'2021-07-27 23:14:32','fake path 825','Tom tat 825',2),(826,3,'Tiêu đề bài báo 826',3,'Noi dung bai bao 826',500,1,0,'2021-07-27 23:14:32','fake path 826','Tom tat 826',NULL),(827,3,'Tiêu đề bài báo 827',4,'Noi dung bai bao 827',500,1,0,'2021-07-27 23:14:32','fake path 827','Tom tat 827',NULL),(828,3,'Tiêu đề bài báo 828',1,'Noi dung bai bao 828',500,1,0,'2021-07-27 23:14:32','fake path 828','Tom tat 828',2),(829,3,'Tiêu đề bài báo 829',2,'Noi dung bai bao 829',500,1,0,'2021-07-27 23:14:32','fake path 829','Tom tat 829',2),(830,3,'Tiêu đề bài báo 830',3,'Noi dung bai bao 830',500,1,0,'2021-07-27 23:14:32','fake path 830','Tom tat 830',NULL),(831,3,'Tiêu đề bài báo 831',4,'Noi dung bai bao 831',500,1,0,'2021-07-27 23:14:32','fake path 831','Tom tat 831',NULL),(832,3,'Tiêu đề bài báo 832',1,'Noi dung bai bao 832',500,1,0,'2021-07-27 23:14:32','fake path 832','Tom tat 832',7),(833,3,'Tiêu đề bài báo 833',2,'Noi dung bai bao 833',500,1,0,'2021-07-27 23:14:32','fake path 833','Tom tat 833',7),(834,3,'Tiêu đề bài báo 834',3,'Noi dung bai bao 834',500,1,0,'2021-07-27 23:14:32','fake path 834','Tom tat 834',NULL),(835,3,'Tiêu đề bài báo 835',4,'Noi dung bai bao 835',500,1,0,'2021-07-27 23:14:32','fake path 835','Tom tat 835',NULL),(836,3,'Tiêu đề bài báo 836',1,'Noi dung bai bao 836',500,1,0,'2021-07-27 23:14:32','fake path 836','Tom tat 836',7),(837,3,'Tiêu đề bài báo 837',2,'Noi dung bai bao 837',500,1,0,'2021-07-27 23:14:32','fake path 837','Tom tat 837',7),(838,3,'Tiêu đề bài báo 838',3,'Noi dung bai bao 838',500,1,0,'2021-07-27 23:14:32','fake path 838','Tom tat 838',NULL),(839,3,'Tiêu đề bài báo 839',4,'Noi dung bai bao 839',500,1,0,'2021-07-27 23:14:32','fake path 839','Tom tat 839',NULL),(840,3,'Tiêu đề bài báo 840',1,'Noi dung bai bao 840',500,1,0,'2021-07-27 23:14:32','fake path 840','Tom tat 840',2),(841,3,'Tiêu đề bài báo 841',2,'Noi dung bai bao 841',500,1,0,'2021-07-27 23:14:32','fake path 841','Tom tat 841',2),(842,3,'Tiêu đề bài báo 842',3,'Noi dung bai bao 842',500,1,0,'2021-07-27 23:14:32','fake path 842','Tom tat 842',NULL),(843,3,'Tiêu đề bài báo 843',4,'Noi dung bai bao 843',500,1,0,'2021-07-27 23:14:32','fake path 843','Tom tat 843',NULL),(844,3,'Tiêu đề bài báo 844',1,'Noi dung bai bao 844',500,1,0,'2021-07-27 23:14:32','fake path 844','Tom tat 844',2),(845,3,'Tiêu đề bài báo 845',2,'Noi dung bai bao 845',500,1,0,'2021-07-27 23:14:32','fake path 845','Tom tat 845',2),(846,3,'Tiêu đề bài báo 846',3,'Noi dung bai bao 846',500,1,0,'2021-07-27 23:14:32','fake path 846','Tom tat 846',NULL),(847,3,'Tiêu đề bài báo 847',4,'Noi dung bai bao 847',500,1,0,'2021-07-27 23:14:32','fake path 847','Tom tat 847',NULL),(848,3,'Tiêu đề bài báo 848',1,'Noi dung bai bao 848',500,1,0,'2021-07-27 23:14:32','fake path 848','Tom tat 848',7),(849,3,'Tiêu đề bài báo 849',2,'Noi dung bai bao 849',500,1,0,'2021-07-27 23:14:32','fake path 849','Tom tat 849',7),(850,3,'Tiêu đề bài báo 850',3,'Noi dung bai bao 850',500,1,0,'2021-07-27 23:14:32','fake path 850','Tom tat 850',NULL),(851,3,'Tiêu đề bài báo 851',4,'Noi dung bai bao 851',500,1,0,'2021-07-27 23:14:32','fake path 851','Tom tat 851',NULL),(852,3,'Tiêu đề bài báo 852',1,'Noi dung bai bao 852',500,1,0,'2021-07-27 23:14:32','fake path 852','Tom tat 852',7),(853,3,'Tiêu đề bài báo 853',2,'Noi dung bai bao 853',500,1,0,'2021-07-27 23:14:32','fake path 853','Tom tat 853',7),(854,3,'Tiêu đề bài báo 854',3,'Noi dung bai bao 854',500,1,0,'2021-07-27 23:14:32','fake path 854','Tom tat 854',NULL),(855,3,'Tiêu đề bài báo 855',4,'Noi dung bai bao 855',500,1,0,'2021-07-27 23:14:32','fake path 855','Tom tat 855',NULL),(856,3,'Tiêu đề bài báo 856',1,'Noi dung bai bao 856',500,1,0,'2021-07-27 23:14:32','fake path 856','Tom tat 856',2),(857,3,'Tiêu đề bài báo 857',2,'Noi dung bai bao 857',500,1,0,'2021-07-27 23:14:32','fake path 857','Tom tat 857',2),(858,3,'Tiêu đề bài báo 858',3,'Noi dung bai bao 858',500,1,0,'2021-07-27 23:14:32','fake path 858','Tom tat 858',NULL),(859,3,'Tiêu đề bài báo 859',4,'Noi dung bai bao 859',500,1,0,'2021-07-27 23:14:32','fake path 859','Tom tat 859',NULL),(860,3,'Tiêu đề bài báo 860',1,'Noi dung bai bao 860',500,1,0,'2021-07-27 23:14:32','fake path 860','Tom tat 860',2),(861,3,'Tiêu đề bài báo 861',2,'Noi dung bai bao 861',500,1,0,'2021-07-27 23:14:32','fake path 861','Tom tat 861',2),(862,3,'Tiêu đề bài báo 862',3,'Noi dung bai bao 862',500,1,0,'2021-07-27 23:14:32','fake path 862','Tom tat 862',NULL),(863,3,'Tiêu đề bài báo 863',4,'Noi dung bai bao 863',500,1,0,'2021-07-27 23:14:32','fake path 863','Tom tat 863',NULL),(864,3,'Tiêu đề bài báo 864',1,'Noi dung bai bao 864',500,1,0,'2021-07-27 23:14:32','fake path 864','Tom tat 864',7),(865,3,'Tiêu đề bài báo 865',2,'Noi dung bai bao 865',500,1,0,'2021-07-27 23:14:32','fake path 865','Tom tat 865',7),(866,3,'Tiêu đề bài báo 866',3,'Noi dung bai bao 866',500,1,0,'2021-07-27 23:14:32','fake path 866','Tom tat 866',NULL),(867,3,'Tiêu đề bài báo 867',4,'Noi dung bai bao 867',500,1,0,'2021-07-27 23:14:32','fake path 867','Tom tat 867',NULL),(868,3,'Tiêu đề bài báo 868',1,'Noi dung bai bao 868',500,1,0,'2021-07-27 23:14:32','fake path 868','Tom tat 868',7),(869,3,'Tiêu đề bài báo 869',2,'Noi dung bai bao 869',500,1,0,'2021-07-27 23:14:32','fake path 869','Tom tat 869',7),(870,3,'Tiêu đề bài báo 870',3,'Noi dung bai bao 870',500,1,0,'2021-07-27 23:14:32','fake path 870','Tom tat 870',NULL),(871,3,'Tiêu đề bài báo 871',4,'Noi dung bai bao 871',500,1,0,'2021-07-27 23:14:32','fake path 871','Tom tat 871',NULL),(872,3,'Tiêu đề bài báo 872',1,'Noi dung bai bao 872',500,1,0,'2021-07-27 23:14:32','fake path 872','Tom tat 872',2),(873,3,'Tiêu đề bài báo 873',2,'Noi dung bai bao 873',500,1,0,'2021-07-27 23:14:32','fake path 873','Tom tat 873',2),(874,3,'Tiêu đề bài báo 874',3,'Noi dung bai bao 874',500,1,0,'2021-07-27 23:14:32','fake path 874','Tom tat 874',NULL),(875,3,'Tiêu đề bài báo 875',4,'Noi dung bai bao 875',500,1,0,'2021-07-27 23:14:32','fake path 875','Tom tat 875',NULL),(876,3,'Tiêu đề bài báo 876',1,'Noi dung bai bao 876',500,1,0,'2021-07-27 23:14:32','fake path 876','Tom tat 876',2),(877,3,'Tiêu đề bài báo 877',2,'Noi dung bai bao 877',500,1,0,'2021-07-27 23:14:32','fake path 877','Tom tat 877',7),(878,3,'Tiêu đề bài báo 878',3,'Noi dung bai bao 878',500,1,0,'2021-07-27 23:14:32','fake path 878','Tom tat 878',NULL),(879,3,'Tiêu đề bài báo 879',4,'Noi dung bai bao 879',500,1,0,'2021-07-27 23:14:32','fake path 879','Tom tat 879',NULL),(880,3,'Tiêu đề bài báo 880',1,'Noi dung bai bao 880',500,1,0,'2021-07-27 23:14:32','fake path 880','Tom tat 880',7),(881,3,'Tiêu đề bài báo 881',2,'Noi dung bai bao 881',500,1,0,'2021-07-27 23:14:32','fake path 881','Tom tat 881',7),(882,3,'Tiêu đề bài báo 882',3,'Noi dung bai bao 882',500,1,0,'2021-07-27 23:14:32','fake path 882','Tom tat 882',NULL),(883,3,'Tiêu đề bài báo 883',4,'Noi dung bai bao 883',500,1,0,'2021-07-27 23:14:32','fake path 883','Tom tat 883',NULL),(884,3,'Tiêu đề bài báo 884',1,'Noi dung bai bao 884',500,1,0,'2021-07-27 23:14:32','fake path 884','Tom tat 884',7),(885,3,'Tiêu đề bài báo 885',2,'Noi dung bai bao 885',500,1,0,'2021-07-27 23:14:32','fake path 885','Tom tat 885',2),(886,3,'Tiêu đề bài báo 886',3,'Noi dung bai bao 886',500,1,0,'2021-07-27 23:14:32','fake path 886','Tom tat 886',NULL),(887,3,'Tiêu đề bài báo 887',4,'Noi dung bai bao 887',500,1,0,'2021-07-27 23:14:32','fake path 887','Tom tat 887',NULL),(888,3,'Tiêu đề bài báo 888',1,'Noi dung bai bao 888',500,1,0,'2021-07-27 23:14:32','fake path 888','Tom tat 888',2),(889,3,'Tiêu đề bài báo 889',2,'Noi dung bai bao 889',500,1,0,'2021-07-27 23:14:32','fake path 889','Tom tat 889',2),(890,3,'Tiêu đề bài báo 890',3,'Noi dung bai bao 890',500,1,0,'2021-07-27 23:14:32','fake path 890','Tom tat 890',NULL),(891,3,'Tiêu đề bài báo 891',4,'Noi dung bai bao 891',500,1,0,'2021-07-27 23:14:32','fake path 891','Tom tat 891',NULL),(892,3,'Tiêu đề bài báo 892',1,'Noi dung bai bao 892',500,1,0,'2021-07-27 23:14:32','fake path 892','Tom tat 892',7),(893,3,'Tiêu đề bài báo 893',2,'Noi dung bai bao 893',500,1,0,'2021-07-27 23:14:32','fake path 893','Tom tat 893',7),(894,3,'Tiêu đề bài báo 894',3,'Noi dung bai bao 894',500,1,0,'2021-07-27 23:14:32','fake path 894','Tom tat 894',NULL),(895,3,'Tiêu đề bài báo 895',4,'Noi dung bai bao 895',500,1,0,'2021-07-27 23:14:32','fake path 895','Tom tat 895',NULL),(896,3,'Tiêu đề bài báo 896',1,'Noi dung bai bao 896',500,1,0,'2021-07-27 23:14:32','fake path 896','Tom tat 896',7),(897,3,'Tiêu đề bài báo 897',2,'Noi dung bai bao 897',500,1,0,'2021-07-27 23:14:32','fake path 897','Tom tat 897',7),(898,3,'Tiêu đề bài báo 898',3,'Noi dung bai bao 898',500,1,0,'2021-07-27 23:14:32','fake path 898','Tom tat 898',NULL),(899,3,'Tiêu đề bài báo 899',4,'Noi dung bai bao 899',500,1,0,'2021-07-27 23:14:32','fake path 899','Tom tat 899',NULL),(900,3,'Tiêu đề bài báo 900',1,'Noi dung bai bao 900',500,1,0,'2021-07-27 23:14:32','fake path 900','Tom tat 900',2),(901,3,'Tiêu đề bài báo 901',2,'Noi dung bai bao 901',500,1,0,'2021-07-27 23:14:32','fake path 901','Tom tat 901',2),(902,3,'Tiêu đề bài báo 902',3,'Noi dung bai bao 902',500,1,0,'2021-07-27 23:14:32','fake path 902','Tom tat 902',NULL),(903,3,'Tiêu đề bài báo 903',4,'Noi dung bai bao 903',500,1,0,'2021-07-27 23:14:32','fake path 903','Tom tat 903',NULL),(904,3,'Tiêu đề bài báo 904',1,'Noi dung bai bao 904',500,1,0,'2021-07-27 23:14:32','fake path 904','Tom tat 904',2),(905,3,'Tiêu đề bài báo 905',2,'Noi dung bai bao 905',500,1,0,'2021-07-27 23:14:32','fake path 905','Tom tat 905',2),(906,3,'Tiêu đề bài báo 906',3,'Noi dung bai bao 906',500,1,0,'2021-07-27 23:14:32','fake path 906','Tom tat 906',NULL),(907,3,'Tiêu đề bài báo 907',4,'Noi dung bai bao 907',500,1,0,'2021-07-27 23:14:32','fake path 907','Tom tat 907',NULL),(908,3,'Tiêu đề bài báo 908',1,'Noi dung bai bao 908',500,1,0,'2021-07-27 23:14:32','fake path 908','Tom tat 908',7),(909,3,'Tiêu đề bài báo 909',2,'Noi dung bai bao 909',500,1,0,'2021-07-27 23:14:32','fake path 909','Tom tat 909',7),(910,3,'Tiêu đề bài báo 910',3,'Noi dung bai bao 910',500,1,0,'2021-07-27 23:14:32','fake path 910','Tom tat 910',NULL),(911,3,'Tiêu đề bài báo 911',4,'Noi dung bai bao 911',500,1,0,'2021-07-27 23:14:32','fake path 911','Tom tat 911',NULL),(912,3,'Tiêu đề bài báo 912',1,'Noi dung bai bao 912',500,1,0,'2021-07-27 23:14:32','fake path 912','Tom tat 912',7),(913,3,'Tiêu đề bài báo 913',2,'Noi dung bai bao 913',500,1,0,'2021-07-27 23:14:32','fake path 913','Tom tat 913',7),(914,3,'Tiêu đề bài báo 914',3,'Noi dung bai bao 914',500,1,0,'2021-07-27 23:14:32','fake path 914','Tom tat 914',NULL),(915,3,'Tiêu đề bài báo 915',4,'Noi dung bai bao 915',500,1,0,'2021-07-27 23:14:32','fake path 915','Tom tat 915',NULL),(916,3,'Tiêu đề bài báo 916',1,'Noi dung bai bao 916',500,1,0,'2021-07-27 23:14:32','fake path 916','Tom tat 916',2),(917,3,'Tiêu đề bài báo 917',2,'Noi dung bai bao 917',500,1,0,'2021-07-27 23:14:32','fake path 917','Tom tat 917',2),(918,3,'Tiêu đề bài báo 918',3,'Noi dung bai bao 918',500,1,0,'2021-07-27 23:14:32','fake path 918','Tom tat 918',NULL),(919,3,'Tiêu đề bài báo 919',4,'Noi dung bai bao 919',500,1,0,'2021-07-27 23:14:32','fake path 919','Tom tat 919',NULL),(920,3,'Tiêu đề bài báo 920',1,'Noi dung bai bao 920',500,1,0,'2021-07-27 23:14:32','fake path 920','Tom tat 920',2),(921,3,'Tiêu đề bài báo 921',2,'Noi dung bai bao 921',500,1,0,'2021-07-27 23:14:32','fake path 921','Tom tat 921',2),(922,3,'Tiêu đề bài báo 922',3,'Noi dung bai bao 922',500,1,0,'2021-07-27 23:14:32','fake path 922','Tom tat 922',NULL),(923,3,'Tiêu đề bài báo 923',4,'Noi dung bai bao 923',500,1,0,'2021-07-27 23:14:32','fake path 923','Tom tat 923',NULL),(924,3,'Tiêu đề bài báo 924',1,'Noi dung bai bao 924',500,1,0,'2021-07-27 23:14:32','fake path 924','Tom tat 924',7),(925,3,'Tiêu đề bài báo 925',2,'Noi dung bai bao 925',500,1,0,'2021-07-27 23:14:32','fake path 925','Tom tat 925',7),(926,3,'Tiêu đề bài báo 926',3,'Noi dung bai bao 926',500,1,0,'2021-07-27 23:14:32','fake path 926','Tom tat 926',NULL),(927,3,'Tiêu đề bài báo 927',4,'Noi dung bai bao 927',500,1,0,'2021-07-27 23:14:32','fake path 927','Tom tat 927',NULL),(928,3,'Tiêu đề bài báo 928',1,'Noi dung bai bao 928',500,1,0,'2021-07-27 23:14:32','fake path 928','Tom tat 928',7),(929,3,'Tiêu đề bài báo 929',2,'Noi dung bai bao 929',500,1,0,'2021-07-27 23:14:32','fake path 929','Tom tat 929',7),(930,3,'Tiêu đề bài báo 930',3,'Noi dung bai bao 930',500,1,0,'2021-07-27 23:14:32','fake path 930','Tom tat 930',NULL),(931,3,'Tiêu đề bài báo 931',4,'Noi dung bai bao 931',500,1,0,'2021-07-27 23:14:32','fake path 931','Tom tat 931',NULL),(932,3,'Tiêu đề bài báo 932',1,'Noi dung bai bao 932',500,1,0,'2021-07-27 23:14:32','fake path 932','Tom tat 932',2),(933,3,'Tiêu đề bài báo 933',2,'Noi dung bai bao 933',500,1,0,'2021-07-27 23:14:32','fake path 933','Tom tat 933',2),(934,3,'Tiêu đề bài báo 934',3,'Noi dung bai bao 934',500,1,0,'2021-07-27 23:14:32','fake path 934','Tom tat 934',NULL),(935,3,'Tiêu đề bài báo 935',4,'Noi dung bai bao 935',500,1,0,'2021-07-27 23:14:32','fake path 935','Tom tat 935',NULL),(936,3,'Tiêu đề bài báo 936',1,'Noi dung bai bao 936',500,1,0,'2021-07-27 23:14:32','fake path 936','Tom tat 936',2),(937,3,'Tiêu đề bài báo 937',2,'Noi dung bai bao 937',500,1,0,'2021-07-27 23:14:32','fake path 937','Tom tat 937',7),(938,3,'Tiêu đề bài báo 938',3,'Noi dung bai bao 938',500,1,0,'2021-07-27 23:14:32','fake path 938','Tom tat 938',NULL),(939,3,'Tiêu đề bài báo 939',4,'Noi dung bai bao 939',500,1,0,'2021-07-27 23:14:32','fake path 939','Tom tat 939',NULL),(940,3,'Tiêu đề bài báo 940',1,'Noi dung bai bao 940',500,1,0,'2021-07-27 23:14:32','fake path 940','Tom tat 940',7),(941,3,'Tiêu đề bài báo 941',2,'Noi dung bai bao 941',500,1,0,'2021-07-27 23:14:32','fake path 941','Tom tat 941',7),(942,3,'Tiêu đề bài báo 942',3,'Noi dung bai bao 942',500,1,0,'2021-07-27 23:14:32','fake path 942','Tom tat 942',NULL),(943,3,'Tiêu đề bài báo 943',4,'Noi dung bai bao 943',500,1,0,'2021-07-27 23:14:32','fake path 943','Tom tat 943',NULL),(944,3,'Tiêu đề bài báo 944',1,'Noi dung bai bao 944',500,1,0,'2021-07-27 23:14:32','fake path 944','Tom tat 944',7),(945,3,'Tiêu đề bài báo 945',2,'Noi dung bai bao 945',500,1,0,'2021-07-27 23:14:32','fake path 945','Tom tat 945',2),(946,3,'Tiêu đề bài báo 946',3,'Noi dung bai bao 946',500,1,0,'2021-07-27 23:14:32','fake path 946','Tom tat 946',NULL),(947,3,'Tiêu đề bài báo 947',4,'Noi dung bai bao 947',500,1,0,'2021-07-27 23:14:32','fake path 947','Tom tat 947',NULL),(948,3,'Tiêu đề bài báo 948',1,'Noi dung bai bao 948',500,1,0,'2021-07-27 23:14:32','fake path 948','Tom tat 948',2),(949,3,'Tiêu đề bài báo 949',2,'Noi dung bai bao 949',500,1,0,'2021-07-27 23:14:32','fake path 949','Tom tat 949',2),(950,3,'Tiêu đề bài báo 950',3,'Noi dung bai bao 950',500,1,0,'2021-07-27 23:14:32','fake path 950','Tom tat 950',NULL),(951,3,'Tiêu đề bài báo 951',4,'Noi dung bai bao 951',500,1,0,'2021-07-27 23:14:32','fake path 951','Tom tat 951',NULL),(952,3,'Tiêu đề bài báo 952',1,'Noi dung bai bao 952',500,1,0,'2021-07-27 23:14:32','fake path 952','Tom tat 952',7),(953,3,'Tiêu đề bài báo 953',2,'Noi dung bai bao 953',500,1,0,'2021-07-27 23:14:32','fake path 953','Tom tat 953',7),(954,3,'Tiêu đề bài báo 954',3,'Noi dung bai bao 954',500,1,0,'2021-07-27 23:14:32','fake path 954','Tom tat 954',NULL),(955,3,'Tiêu đề bài báo 955',4,'Noi dung bai bao 955',500,1,0,'2021-07-27 23:14:32','fake path 955','Tom tat 955',NULL),(956,3,'Tiêu đề bài báo 956',1,'Noi dung bai bao 956',500,1,0,'2021-07-27 23:14:32','fake path 956','Tom tat 956',7),(957,3,'Tiêu đề bài báo 957',2,'Noi dung bai bao 957',500,1,0,'2021-07-27 23:14:32','fake path 957','Tom tat 957',7),(958,3,'Tiêu đề bài báo 958',3,'Noi dung bai bao 958',500,1,0,'2021-07-27 23:14:32','fake path 958','Tom tat 958',NULL),(959,3,'Tiêu đề bài báo 959',4,'Noi dung bai bao 959',500,1,0,'2021-07-27 23:14:32','fake path 959','Tom tat 959',NULL),(960,3,'Tiêu đề bài báo 960',1,'Noi dung bai bao 960',500,1,0,'2021-07-27 23:14:32','fake path 960','Tom tat 960',2),(961,3,'Tiêu đề bài báo 961',2,'Noi dung bai bao 961',500,1,0,'2021-07-27 23:14:32','fake path 961','Tom tat 961',2),(962,3,'Tiêu đề bài báo 962',3,'Noi dung bai bao 962',500,1,0,'2021-07-27 23:14:32','fake path 962','Tom tat 962',NULL),(963,3,'Tiêu đề bài báo 963',4,'Noi dung bai bao 963',500,1,0,'2021-07-27 23:14:32','fake path 963','Tom tat 963',NULL),(964,3,'Tiêu đề bài báo 964',1,'Noi dung bai bao 964',500,1,0,'2021-07-27 23:14:32','fake path 964','Tom tat 964',2),(965,3,'Tiêu đề bài báo 965',2,'Noi dung bai bao 965',500,1,0,'2021-07-27 23:14:32','fake path 965','Tom tat 965',2),(966,3,'Tiêu đề bài báo 966',3,'Noi dung bai bao 966',500,1,0,'2021-07-27 23:14:32','fake path 966','Tom tat 966',NULL),(967,3,'Tiêu đề bài báo 967',4,'Noi dung bai bao 967',500,1,0,'2021-07-27 23:14:32','fake path 967','Tom tat 967',NULL),(968,3,'Tiêu đề bài báo 968',1,'Noi dung bai bao 968',500,1,0,'2021-07-27 23:14:32','fake path 968','Tom tat 968',7),(969,3,'Tiêu đề bài báo 969',2,'Noi dung bai bao 969',500,1,0,'2021-07-27 23:14:32','fake path 969','Tom tat 969',7),(970,3,'Tiêu đề bài báo 970',3,'Noi dung bai bao 970',500,1,0,'2021-07-27 23:14:32','fake path 970','Tom tat 970',NULL),(971,3,'Tiêu đề bài báo 971',4,'Noi dung bai bao 971',500,1,0,'2021-07-27 23:14:32','fake path 971','Tom tat 971',NULL),(972,3,'Tiêu đề bài báo 972',1,'Noi dung bai bao 972',500,1,0,'2021-07-27 23:14:32','fake path 972','Tom tat 972',7),(973,3,'Tiêu đề bài báo 973',2,'Noi dung bai bao 973',500,1,0,'2021-07-27 23:14:32','fake path 973','Tom tat 973',7),(974,3,'Tiêu đề bài báo 974',3,'Noi dung bai bao 974',500,1,0,'2021-07-27 23:14:32','fake path 974','Tom tat 974',NULL),(975,3,'Tiêu đề bài báo 975',4,'Noi dung bai bao 975',500,1,0,'2021-07-27 23:14:32','fake path 975','Tom tat 975',NULL),(976,3,'Tiêu đề bài báo 976',1,'Noi dung bai bao 976',500,1,0,'2021-07-27 23:14:32','fake path 976','Tom tat 976',2),(977,3,'Tiêu đề bài báo 977',2,'Noi dung bai bao 977',500,1,0,'2021-07-27 23:14:32','fake path 977','Tom tat 977',2),(978,3,'Tiêu đề bài báo 978',3,'Noi dung bai bao 978',500,1,0,'2021-07-27 23:14:32','fake path 978','Tom tat 978',NULL),(979,3,'Tiêu đề bài báo 979',4,'Noi dung bai bao 979',500,1,0,'2021-07-27 23:14:32','fake path 979','Tom tat 979',NULL),(980,3,'Tiêu đề bài báo 980',1,'Noi dung bai bao 980',500,1,0,'2021-07-27 23:14:32','fake path 980','Tom tat 980',2),(981,3,'Tiêu đề bài báo 981',2,'Noi dung bai bao 981',500,1,0,'2021-07-27 23:14:32','fake path 981','Tom tat 981',2),(982,3,'Tiêu đề bài báo 982',3,'Noi dung bai bao 982',500,1,0,'2021-07-27 23:14:32','fake path 982','Tom tat 982',NULL),(983,3,'Tiêu đề bài báo 983',4,'Noi dung bai bao 983',500,1,0,'2021-07-27 23:14:32','fake path 983','Tom tat 983',NULL),(984,3,'Tiêu đề bài báo 984',1,'Noi dung bai bao 984',500,1,0,'2021-07-27 23:14:32','fake path 984','Tom tat 984',7),(985,3,'Tiêu đề bài báo 985',2,'Noi dung bai bao 985',500,1,0,'2021-07-27 23:14:32','fake path 985','Tom tat 985',7),(986,3,'Tiêu đề bài báo 986',3,'Noi dung bai bao 986',500,1,0,'2021-07-27 23:14:32','fake path 986','Tom tat 986',NULL),(987,3,'Tiêu đề bài báo 987',4,'Noi dung bai bao 987',500,1,0,'2021-07-27 23:14:32','fake path 987','Tom tat 987',NULL),(988,3,'Tiêu đề bài báo 988',1,'Noi dung bai bao 988',500,1,0,'2021-07-27 23:14:32','fake path 988','Tom tat 988',7),(989,3,'Tiêu đề bài báo 989',2,'Noi dung bai bao 989',500,1,0,'2021-07-27 23:14:32','fake path 989','Tom tat 989',7),(990,3,'Tiêu đề bài báo 990',3,'Noi dung bai bao 990',500,1,0,'2021-07-27 23:14:32','fake path 990','Tom tat 990',NULL),(991,3,'Tiêu đề bài báo 991',4,'Noi dung bai bao 991',500,1,0,'2021-07-27 23:14:32','fake path 991','Tom tat 991',NULL),(992,3,'Tiêu đề bài báo 992',1,'Noi dung bai bao 992',500,1,0,'2021-07-27 23:14:32','fake path 992','Tom tat 992',2),(993,3,'Tiêu đề bài báo 993',2,'Noi dung bai bao 993',500,1,0,'2021-07-27 23:14:32','fake path 993','Tom tat 993',2),(994,3,'Tiêu đề bài báo 994',3,'Noi dung bai bao 994',500,1,0,'2021-07-27 23:14:32','fake path 994','Tom tat 994',NULL),(995,3,'Tiêu đề bài báo 995',4,'Noi dung bai bao 995',500,1,0,'2021-07-27 23:14:32','fake path 995','Tom tat 995',NULL),(996,3,'Tiêu đề bài báo 996',1,'Noi dung bai bao 996',500,1,0,'2021-07-27 23:14:32','fake path 996','Tom tat 996',2),(997,3,'Tiêu đề bài báo 997',2,'Noi dung bai bao 997',500,1,0,'2021-07-27 23:14:32','fake path 997','Tom tat 997',7),(998,3,'Tiêu đề bài báo 998',3,'Noi dung bai bao 998',500,1,0,'2021-07-27 23:14:32','fake path 998','Tom tat 998',NULL),(999,3,'Tiêu đề bài báo 999',4,'Noi dung bai bao 999',500,1,1,'2021-07-27 23:14:32','fake path 999','Tom tat 999',NULL),(1001,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1002,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1003,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1004,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1005,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1006,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2),(1007,3,'999',1,'999',500,1,0,'2021-07-22 15:27:31','999','999',2);
-/*!40000 ALTER TABLE `articles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `articles_tags`
---
-
+-- ----------------------------
+-- Table structure for articles_tags
+-- ----------------------------
 DROP TABLE IF EXISTS `articles_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `articles_tags` (
-  `article_id` int(10) unsigned NOT NULL,
-  `tag_id` int(10) unsigned NOT NULL,
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `articles_tags`  (
+  `article_id` int(10) UNSIGNED NOT NULL,
+  `tag_id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`) USING BTREE,
-  KEY `fk_article_id` (`article_id`),
-  KEY `fk_tag_id` (`tag_id`),
+  INDEX `fk_article_id`(`article_id`) USING BTREE,
+  INDEX `fk_tag_id`(`tag_id`) USING BTREE,
   CONSTRAINT `fk_article_id` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 1000 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `articles_tags`
---
+-- ----------------------------
+-- Records of articles_tags
+-- ----------------------------
+INSERT INTO `articles_tags` VALUES (1, 2, 1);
+INSERT INTO `articles_tags` VALUES (2, 1, 2);
+INSERT INTO `articles_tags` VALUES (3, 2, 3);
+INSERT INTO `articles_tags` VALUES (4, 1, 4);
+INSERT INTO `articles_tags` VALUES (5, 2, 5);
+INSERT INTO `articles_tags` VALUES (6, 1, 6);
+INSERT INTO `articles_tags` VALUES (7, 2, 7);
+INSERT INTO `articles_tags` VALUES (8, 1, 8);
+INSERT INTO `articles_tags` VALUES (9, 2, 9);
+INSERT INTO `articles_tags` VALUES (10, 1, 10);
+INSERT INTO `articles_tags` VALUES (11, 2, 11);
+INSERT INTO `articles_tags` VALUES (12, 1, 12);
+INSERT INTO `articles_tags` VALUES (13, 2, 13);
+INSERT INTO `articles_tags` VALUES (14, 1, 14);
+INSERT INTO `articles_tags` VALUES (15, 2, 15);
+INSERT INTO `articles_tags` VALUES (16, 1, 16);
+INSERT INTO `articles_tags` VALUES (17, 2, 17);
+INSERT INTO `articles_tags` VALUES (18, 1, 18);
+INSERT INTO `articles_tags` VALUES (19, 2, 19);
+INSERT INTO `articles_tags` VALUES (20, 1, 20);
+INSERT INTO `articles_tags` VALUES (21, 2, 21);
+INSERT INTO `articles_tags` VALUES (22, 1, 22);
+INSERT INTO `articles_tags` VALUES (23, 2, 23);
+INSERT INTO `articles_tags` VALUES (24, 1, 24);
+INSERT INTO `articles_tags` VALUES (25, 2, 25);
+INSERT INTO `articles_tags` VALUES (26, 1, 26);
+INSERT INTO `articles_tags` VALUES (27, 2, 27);
+INSERT INTO `articles_tags` VALUES (28, 1, 28);
+INSERT INTO `articles_tags` VALUES (29, 2, 29);
+INSERT INTO `articles_tags` VALUES (30, 1, 30);
+INSERT INTO `articles_tags` VALUES (31, 2, 31);
+INSERT INTO `articles_tags` VALUES (32, 1, 32);
+INSERT INTO `articles_tags` VALUES (33, 2, 33);
+INSERT INTO `articles_tags` VALUES (34, 1, 34);
+INSERT INTO `articles_tags` VALUES (35, 2, 35);
+INSERT INTO `articles_tags` VALUES (36, 1, 36);
+INSERT INTO `articles_tags` VALUES (37, 2, 37);
+INSERT INTO `articles_tags` VALUES (38, 1, 38);
+INSERT INTO `articles_tags` VALUES (39, 2, 39);
+INSERT INTO `articles_tags` VALUES (40, 1, 40);
+INSERT INTO `articles_tags` VALUES (41, 2, 41);
+INSERT INTO `articles_tags` VALUES (42, 1, 42);
+INSERT INTO `articles_tags` VALUES (43, 2, 43);
+INSERT INTO `articles_tags` VALUES (44, 1, 44);
+INSERT INTO `articles_tags` VALUES (45, 2, 45);
+INSERT INTO `articles_tags` VALUES (46, 1, 46);
+INSERT INTO `articles_tags` VALUES (47, 2, 47);
+INSERT INTO `articles_tags` VALUES (48, 1, 48);
+INSERT INTO `articles_tags` VALUES (49, 2, 49);
+INSERT INTO `articles_tags` VALUES (50, 1, 50);
+INSERT INTO `articles_tags` VALUES (51, 2, 51);
+INSERT INTO `articles_tags` VALUES (52, 1, 52);
+INSERT INTO `articles_tags` VALUES (53, 2, 53);
+INSERT INTO `articles_tags` VALUES (54, 1, 54);
+INSERT INTO `articles_tags` VALUES (55, 2, 55);
+INSERT INTO `articles_tags` VALUES (56, 1, 56);
+INSERT INTO `articles_tags` VALUES (57, 2, 57);
+INSERT INTO `articles_tags` VALUES (58, 1, 58);
+INSERT INTO `articles_tags` VALUES (59, 2, 59);
+INSERT INTO `articles_tags` VALUES (60, 1, 60);
+INSERT INTO `articles_tags` VALUES (61, 2, 61);
+INSERT INTO `articles_tags` VALUES (62, 1, 62);
+INSERT INTO `articles_tags` VALUES (63, 2, 63);
+INSERT INTO `articles_tags` VALUES (64, 1, 64);
+INSERT INTO `articles_tags` VALUES (65, 2, 65);
+INSERT INTO `articles_tags` VALUES (66, 1, 66);
+INSERT INTO `articles_tags` VALUES (67, 2, 67);
+INSERT INTO `articles_tags` VALUES (68, 1, 68);
+INSERT INTO `articles_tags` VALUES (69, 2, 69);
+INSERT INTO `articles_tags` VALUES (70, 1, 70);
+INSERT INTO `articles_tags` VALUES (71, 2, 71);
+INSERT INTO `articles_tags` VALUES (72, 1, 72);
+INSERT INTO `articles_tags` VALUES (73, 2, 73);
+INSERT INTO `articles_tags` VALUES (74, 1, 74);
+INSERT INTO `articles_tags` VALUES (75, 2, 75);
+INSERT INTO `articles_tags` VALUES (76, 1, 76);
+INSERT INTO `articles_tags` VALUES (77, 2, 77);
+INSERT INTO `articles_tags` VALUES (78, 1, 78);
+INSERT INTO `articles_tags` VALUES (79, 2, 79);
+INSERT INTO `articles_tags` VALUES (80, 1, 80);
+INSERT INTO `articles_tags` VALUES (81, 2, 81);
+INSERT INTO `articles_tags` VALUES (82, 1, 82);
+INSERT INTO `articles_tags` VALUES (83, 2, 83);
+INSERT INTO `articles_tags` VALUES (84, 1, 84);
+INSERT INTO `articles_tags` VALUES (85, 2, 85);
+INSERT INTO `articles_tags` VALUES (86, 1, 86);
+INSERT INTO `articles_tags` VALUES (87, 2, 87);
+INSERT INTO `articles_tags` VALUES (88, 1, 88);
+INSERT INTO `articles_tags` VALUES (89, 2, 89);
+INSERT INTO `articles_tags` VALUES (90, 1, 90);
+INSERT INTO `articles_tags` VALUES (91, 2, 91);
+INSERT INTO `articles_tags` VALUES (92, 1, 92);
+INSERT INTO `articles_tags` VALUES (93, 2, 93);
+INSERT INTO `articles_tags` VALUES (94, 1, 94);
+INSERT INTO `articles_tags` VALUES (95, 2, 95);
+INSERT INTO `articles_tags` VALUES (96, 1, 96);
+INSERT INTO `articles_tags` VALUES (97, 2, 97);
+INSERT INTO `articles_tags` VALUES (98, 1, 98);
+INSERT INTO `articles_tags` VALUES (99, 2, 99);
+INSERT INTO `articles_tags` VALUES (100, 1, 100);
+INSERT INTO `articles_tags` VALUES (101, 2, 101);
+INSERT INTO `articles_tags` VALUES (102, 1, 102);
+INSERT INTO `articles_tags` VALUES (103, 2, 103);
+INSERT INTO `articles_tags` VALUES (104, 1, 104);
+INSERT INTO `articles_tags` VALUES (105, 2, 105);
+INSERT INTO `articles_tags` VALUES (106, 1, 106);
+INSERT INTO `articles_tags` VALUES (107, 2, 107);
+INSERT INTO `articles_tags` VALUES (108, 1, 108);
+INSERT INTO `articles_tags` VALUES (109, 2, 109);
+INSERT INTO `articles_tags` VALUES (110, 1, 110);
+INSERT INTO `articles_tags` VALUES (111, 2, 111);
+INSERT INTO `articles_tags` VALUES (112, 1, 112);
+INSERT INTO `articles_tags` VALUES (113, 2, 113);
+INSERT INTO `articles_tags` VALUES (114, 1, 114);
+INSERT INTO `articles_tags` VALUES (115, 2, 115);
+INSERT INTO `articles_tags` VALUES (116, 1, 116);
+INSERT INTO `articles_tags` VALUES (117, 2, 117);
+INSERT INTO `articles_tags` VALUES (118, 1, 118);
+INSERT INTO `articles_tags` VALUES (119, 2, 119);
+INSERT INTO `articles_tags` VALUES (120, 1, 120);
+INSERT INTO `articles_tags` VALUES (121, 2, 121);
+INSERT INTO `articles_tags` VALUES (122, 1, 122);
+INSERT INTO `articles_tags` VALUES (123, 2, 123);
+INSERT INTO `articles_tags` VALUES (124, 1, 124);
+INSERT INTO `articles_tags` VALUES (125, 2, 125);
+INSERT INTO `articles_tags` VALUES (126, 1, 126);
+INSERT INTO `articles_tags` VALUES (127, 2, 127);
+INSERT INTO `articles_tags` VALUES (128, 1, 128);
+INSERT INTO `articles_tags` VALUES (129, 2, 129);
+INSERT INTO `articles_tags` VALUES (130, 1, 130);
+INSERT INTO `articles_tags` VALUES (131, 2, 131);
+INSERT INTO `articles_tags` VALUES (132, 1, 132);
+INSERT INTO `articles_tags` VALUES (133, 2, 133);
+INSERT INTO `articles_tags` VALUES (134, 1, 134);
+INSERT INTO `articles_tags` VALUES (135, 2, 135);
+INSERT INTO `articles_tags` VALUES (136, 1, 136);
+INSERT INTO `articles_tags` VALUES (137, 2, 137);
+INSERT INTO `articles_tags` VALUES (138, 1, 138);
+INSERT INTO `articles_tags` VALUES (139, 2, 139);
+INSERT INTO `articles_tags` VALUES (140, 1, 140);
+INSERT INTO `articles_tags` VALUES (141, 2, 141);
+INSERT INTO `articles_tags` VALUES (142, 1, 142);
+INSERT INTO `articles_tags` VALUES (143, 2, 143);
+INSERT INTO `articles_tags` VALUES (144, 1, 144);
+INSERT INTO `articles_tags` VALUES (145, 2, 145);
+INSERT INTO `articles_tags` VALUES (146, 1, 146);
+INSERT INTO `articles_tags` VALUES (147, 2, 147);
+INSERT INTO `articles_tags` VALUES (148, 1, 148);
+INSERT INTO `articles_tags` VALUES (149, 2, 149);
+INSERT INTO `articles_tags` VALUES (150, 1, 150);
+INSERT INTO `articles_tags` VALUES (151, 2, 151);
+INSERT INTO `articles_tags` VALUES (152, 1, 152);
+INSERT INTO `articles_tags` VALUES (153, 2, 153);
+INSERT INTO `articles_tags` VALUES (154, 1, 154);
+INSERT INTO `articles_tags` VALUES (155, 2, 155);
+INSERT INTO `articles_tags` VALUES (156, 1, 156);
+INSERT INTO `articles_tags` VALUES (157, 2, 157);
+INSERT INTO `articles_tags` VALUES (158, 1, 158);
+INSERT INTO `articles_tags` VALUES (159, 2, 159);
+INSERT INTO `articles_tags` VALUES (160, 1, 160);
+INSERT INTO `articles_tags` VALUES (161, 2, 161);
+INSERT INTO `articles_tags` VALUES (162, 1, 162);
+INSERT INTO `articles_tags` VALUES (163, 2, 163);
+INSERT INTO `articles_tags` VALUES (164, 1, 164);
+INSERT INTO `articles_tags` VALUES (165, 2, 165);
+INSERT INTO `articles_tags` VALUES (166, 1, 166);
+INSERT INTO `articles_tags` VALUES (167, 2, 167);
+INSERT INTO `articles_tags` VALUES (168, 1, 168);
+INSERT INTO `articles_tags` VALUES (169, 2, 169);
+INSERT INTO `articles_tags` VALUES (170, 1, 170);
+INSERT INTO `articles_tags` VALUES (171, 2, 171);
+INSERT INTO `articles_tags` VALUES (172, 1, 172);
+INSERT INTO `articles_tags` VALUES (173, 2, 173);
+INSERT INTO `articles_tags` VALUES (174, 1, 174);
+INSERT INTO `articles_tags` VALUES (175, 2, 175);
+INSERT INTO `articles_tags` VALUES (176, 1, 176);
+INSERT INTO `articles_tags` VALUES (177, 2, 177);
+INSERT INTO `articles_tags` VALUES (178, 1, 178);
+INSERT INTO `articles_tags` VALUES (179, 2, 179);
+INSERT INTO `articles_tags` VALUES (180, 1, 180);
+INSERT INTO `articles_tags` VALUES (181, 2, 181);
+INSERT INTO `articles_tags` VALUES (182, 1, 182);
+INSERT INTO `articles_tags` VALUES (183, 2, 183);
+INSERT INTO `articles_tags` VALUES (184, 1, 184);
+INSERT INTO `articles_tags` VALUES (185, 2, 185);
+INSERT INTO `articles_tags` VALUES (186, 1, 186);
+INSERT INTO `articles_tags` VALUES (187, 2, 187);
+INSERT INTO `articles_tags` VALUES (188, 1, 188);
+INSERT INTO `articles_tags` VALUES (189, 2, 189);
+INSERT INTO `articles_tags` VALUES (190, 1, 190);
+INSERT INTO `articles_tags` VALUES (191, 2, 191);
+INSERT INTO `articles_tags` VALUES (192, 1, 192);
+INSERT INTO `articles_tags` VALUES (193, 2, 193);
+INSERT INTO `articles_tags` VALUES (194, 1, 194);
+INSERT INTO `articles_tags` VALUES (195, 2, 195);
+INSERT INTO `articles_tags` VALUES (196, 1, 196);
+INSERT INTO `articles_tags` VALUES (197, 2, 197);
+INSERT INTO `articles_tags` VALUES (198, 1, 198);
+INSERT INTO `articles_tags` VALUES (199, 2, 199);
+INSERT INTO `articles_tags` VALUES (200, 1, 200);
+INSERT INTO `articles_tags` VALUES (201, 2, 201);
+INSERT INTO `articles_tags` VALUES (202, 1, 202);
+INSERT INTO `articles_tags` VALUES (203, 2, 203);
+INSERT INTO `articles_tags` VALUES (204, 1, 204);
+INSERT INTO `articles_tags` VALUES (205, 2, 205);
+INSERT INTO `articles_tags` VALUES (206, 1, 206);
+INSERT INTO `articles_tags` VALUES (207, 2, 207);
+INSERT INTO `articles_tags` VALUES (208, 1, 208);
+INSERT INTO `articles_tags` VALUES (209, 2, 209);
+INSERT INTO `articles_tags` VALUES (210, 1, 210);
+INSERT INTO `articles_tags` VALUES (211, 2, 211);
+INSERT INTO `articles_tags` VALUES (212, 1, 212);
+INSERT INTO `articles_tags` VALUES (213, 2, 213);
+INSERT INTO `articles_tags` VALUES (214, 1, 214);
+INSERT INTO `articles_tags` VALUES (215, 2, 215);
+INSERT INTO `articles_tags` VALUES (216, 1, 216);
+INSERT INTO `articles_tags` VALUES (217, 2, 217);
+INSERT INTO `articles_tags` VALUES (218, 1, 218);
+INSERT INTO `articles_tags` VALUES (219, 2, 219);
+INSERT INTO `articles_tags` VALUES (220, 1, 220);
+INSERT INTO `articles_tags` VALUES (221, 2, 221);
+INSERT INTO `articles_tags` VALUES (222, 1, 222);
+INSERT INTO `articles_tags` VALUES (223, 2, 223);
+INSERT INTO `articles_tags` VALUES (224, 1, 224);
+INSERT INTO `articles_tags` VALUES (225, 2, 225);
+INSERT INTO `articles_tags` VALUES (226, 1, 226);
+INSERT INTO `articles_tags` VALUES (227, 2, 227);
+INSERT INTO `articles_tags` VALUES (228, 1, 228);
+INSERT INTO `articles_tags` VALUES (229, 2, 229);
+INSERT INTO `articles_tags` VALUES (230, 1, 230);
+INSERT INTO `articles_tags` VALUES (231, 2, 231);
+INSERT INTO `articles_tags` VALUES (232, 1, 232);
+INSERT INTO `articles_tags` VALUES (233, 2, 233);
+INSERT INTO `articles_tags` VALUES (234, 1, 234);
+INSERT INTO `articles_tags` VALUES (235, 2, 235);
+INSERT INTO `articles_tags` VALUES (236, 1, 236);
+INSERT INTO `articles_tags` VALUES (237, 2, 237);
+INSERT INTO `articles_tags` VALUES (238, 1, 238);
+INSERT INTO `articles_tags` VALUES (239, 2, 239);
+INSERT INTO `articles_tags` VALUES (240, 1, 240);
+INSERT INTO `articles_tags` VALUES (241, 2, 241);
+INSERT INTO `articles_tags` VALUES (242, 1, 242);
+INSERT INTO `articles_tags` VALUES (243, 2, 243);
+INSERT INTO `articles_tags` VALUES (244, 1, 244);
+INSERT INTO `articles_tags` VALUES (245, 2, 245);
+INSERT INTO `articles_tags` VALUES (246, 1, 246);
+INSERT INTO `articles_tags` VALUES (247, 2, 247);
+INSERT INTO `articles_tags` VALUES (248, 1, 248);
+INSERT INTO `articles_tags` VALUES (249, 2, 249);
+INSERT INTO `articles_tags` VALUES (250, 1, 250);
+INSERT INTO `articles_tags` VALUES (251, 2, 251);
+INSERT INTO `articles_tags` VALUES (252, 1, 252);
+INSERT INTO `articles_tags` VALUES (253, 2, 253);
+INSERT INTO `articles_tags` VALUES (254, 1, 254);
+INSERT INTO `articles_tags` VALUES (255, 2, 255);
+INSERT INTO `articles_tags` VALUES (256, 1, 256);
+INSERT INTO `articles_tags` VALUES (257, 2, 257);
+INSERT INTO `articles_tags` VALUES (258, 1, 258);
+INSERT INTO `articles_tags` VALUES (259, 2, 259);
+INSERT INTO `articles_tags` VALUES (260, 1, 260);
+INSERT INTO `articles_tags` VALUES (261, 2, 261);
+INSERT INTO `articles_tags` VALUES (262, 1, 262);
+INSERT INTO `articles_tags` VALUES (263, 2, 263);
+INSERT INTO `articles_tags` VALUES (264, 1, 264);
+INSERT INTO `articles_tags` VALUES (265, 2, 265);
+INSERT INTO `articles_tags` VALUES (266, 1, 266);
+INSERT INTO `articles_tags` VALUES (267, 2, 267);
+INSERT INTO `articles_tags` VALUES (268, 1, 268);
+INSERT INTO `articles_tags` VALUES (269, 2, 269);
+INSERT INTO `articles_tags` VALUES (270, 1, 270);
+INSERT INTO `articles_tags` VALUES (271, 2, 271);
+INSERT INTO `articles_tags` VALUES (272, 1, 272);
+INSERT INTO `articles_tags` VALUES (273, 2, 273);
+INSERT INTO `articles_tags` VALUES (274, 1, 274);
+INSERT INTO `articles_tags` VALUES (275, 2, 275);
+INSERT INTO `articles_tags` VALUES (276, 1, 276);
+INSERT INTO `articles_tags` VALUES (277, 2, 277);
+INSERT INTO `articles_tags` VALUES (278, 1, 278);
+INSERT INTO `articles_tags` VALUES (279, 2, 279);
+INSERT INTO `articles_tags` VALUES (280, 1, 280);
+INSERT INTO `articles_tags` VALUES (281, 2, 281);
+INSERT INTO `articles_tags` VALUES (282, 1, 282);
+INSERT INTO `articles_tags` VALUES (283, 2, 283);
+INSERT INTO `articles_tags` VALUES (284, 1, 284);
+INSERT INTO `articles_tags` VALUES (285, 2, 285);
+INSERT INTO `articles_tags` VALUES (286, 1, 286);
+INSERT INTO `articles_tags` VALUES (287, 2, 287);
+INSERT INTO `articles_tags` VALUES (288, 1, 288);
+INSERT INTO `articles_tags` VALUES (289, 2, 289);
+INSERT INTO `articles_tags` VALUES (290, 1, 290);
+INSERT INTO `articles_tags` VALUES (291, 2, 291);
+INSERT INTO `articles_tags` VALUES (292, 1, 292);
+INSERT INTO `articles_tags` VALUES (293, 2, 293);
+INSERT INTO `articles_tags` VALUES (294, 1, 294);
+INSERT INTO `articles_tags` VALUES (295, 2, 295);
+INSERT INTO `articles_tags` VALUES (296, 1, 296);
+INSERT INTO `articles_tags` VALUES (297, 2, 297);
+INSERT INTO `articles_tags` VALUES (298, 1, 298);
+INSERT INTO `articles_tags` VALUES (299, 2, 299);
+INSERT INTO `articles_tags` VALUES (300, 1, 300);
+INSERT INTO `articles_tags` VALUES (301, 2, 301);
+INSERT INTO `articles_tags` VALUES (302, 1, 302);
+INSERT INTO `articles_tags` VALUES (303, 2, 303);
+INSERT INTO `articles_tags` VALUES (304, 1, 304);
+INSERT INTO `articles_tags` VALUES (305, 2, 305);
+INSERT INTO `articles_tags` VALUES (306, 1, 306);
+INSERT INTO `articles_tags` VALUES (307, 2, 307);
+INSERT INTO `articles_tags` VALUES (308, 1, 308);
+INSERT INTO `articles_tags` VALUES (309, 2, 309);
+INSERT INTO `articles_tags` VALUES (310, 1, 310);
+INSERT INTO `articles_tags` VALUES (311, 2, 311);
+INSERT INTO `articles_tags` VALUES (312, 1, 312);
+INSERT INTO `articles_tags` VALUES (313, 2, 313);
+INSERT INTO `articles_tags` VALUES (314, 1, 314);
+INSERT INTO `articles_tags` VALUES (315, 2, 315);
+INSERT INTO `articles_tags` VALUES (316, 1, 316);
+INSERT INTO `articles_tags` VALUES (317, 2, 317);
+INSERT INTO `articles_tags` VALUES (318, 1, 318);
+INSERT INTO `articles_tags` VALUES (319, 2, 319);
+INSERT INTO `articles_tags` VALUES (320, 1, 320);
+INSERT INTO `articles_tags` VALUES (321, 2, 321);
+INSERT INTO `articles_tags` VALUES (322, 1, 322);
+INSERT INTO `articles_tags` VALUES (323, 2, 323);
+INSERT INTO `articles_tags` VALUES (324, 1, 324);
+INSERT INTO `articles_tags` VALUES (325, 2, 325);
+INSERT INTO `articles_tags` VALUES (326, 1, 326);
+INSERT INTO `articles_tags` VALUES (327, 2, 327);
+INSERT INTO `articles_tags` VALUES (328, 1, 328);
+INSERT INTO `articles_tags` VALUES (329, 2, 329);
+INSERT INTO `articles_tags` VALUES (330, 1, 330);
+INSERT INTO `articles_tags` VALUES (331, 2, 331);
+INSERT INTO `articles_tags` VALUES (332, 1, 332);
+INSERT INTO `articles_tags` VALUES (333, 2, 333);
+INSERT INTO `articles_tags` VALUES (334, 1, 334);
+INSERT INTO `articles_tags` VALUES (335, 2, 335);
+INSERT INTO `articles_tags` VALUES (336, 1, 336);
+INSERT INTO `articles_tags` VALUES (337, 2, 337);
+INSERT INTO `articles_tags` VALUES (338, 1, 338);
+INSERT INTO `articles_tags` VALUES (339, 2, 339);
+INSERT INTO `articles_tags` VALUES (340, 1, 340);
+INSERT INTO `articles_tags` VALUES (341, 2, 341);
+INSERT INTO `articles_tags` VALUES (342, 1, 342);
+INSERT INTO `articles_tags` VALUES (343, 2, 343);
+INSERT INTO `articles_tags` VALUES (344, 1, 344);
+INSERT INTO `articles_tags` VALUES (345, 2, 345);
+INSERT INTO `articles_tags` VALUES (346, 1, 346);
+INSERT INTO `articles_tags` VALUES (347, 2, 347);
+INSERT INTO `articles_tags` VALUES (348, 1, 348);
+INSERT INTO `articles_tags` VALUES (349, 2, 349);
+INSERT INTO `articles_tags` VALUES (350, 1, 350);
+INSERT INTO `articles_tags` VALUES (351, 2, 351);
+INSERT INTO `articles_tags` VALUES (352, 1, 352);
+INSERT INTO `articles_tags` VALUES (353, 2, 353);
+INSERT INTO `articles_tags` VALUES (354, 1, 354);
+INSERT INTO `articles_tags` VALUES (355, 2, 355);
+INSERT INTO `articles_tags` VALUES (356, 1, 356);
+INSERT INTO `articles_tags` VALUES (357, 2, 357);
+INSERT INTO `articles_tags` VALUES (358, 1, 358);
+INSERT INTO `articles_tags` VALUES (359, 2, 359);
+INSERT INTO `articles_tags` VALUES (360, 1, 360);
+INSERT INTO `articles_tags` VALUES (361, 2, 361);
+INSERT INTO `articles_tags` VALUES (362, 1, 362);
+INSERT INTO `articles_tags` VALUES (363, 2, 363);
+INSERT INTO `articles_tags` VALUES (364, 1, 364);
+INSERT INTO `articles_tags` VALUES (365, 2, 365);
+INSERT INTO `articles_tags` VALUES (366, 1, 366);
+INSERT INTO `articles_tags` VALUES (367, 2, 367);
+INSERT INTO `articles_tags` VALUES (368, 1, 368);
+INSERT INTO `articles_tags` VALUES (369, 2, 369);
+INSERT INTO `articles_tags` VALUES (370, 1, 370);
+INSERT INTO `articles_tags` VALUES (371, 2, 371);
+INSERT INTO `articles_tags` VALUES (372, 1, 372);
+INSERT INTO `articles_tags` VALUES (373, 2, 373);
+INSERT INTO `articles_tags` VALUES (374, 1, 374);
+INSERT INTO `articles_tags` VALUES (375, 2, 375);
+INSERT INTO `articles_tags` VALUES (376, 1, 376);
+INSERT INTO `articles_tags` VALUES (377, 2, 377);
+INSERT INTO `articles_tags` VALUES (378, 1, 378);
+INSERT INTO `articles_tags` VALUES (379, 2, 379);
+INSERT INTO `articles_tags` VALUES (380, 1, 380);
+INSERT INTO `articles_tags` VALUES (381, 2, 381);
+INSERT INTO `articles_tags` VALUES (382, 1, 382);
+INSERT INTO `articles_tags` VALUES (383, 2, 383);
+INSERT INTO `articles_tags` VALUES (384, 1, 384);
+INSERT INTO `articles_tags` VALUES (385, 2, 385);
+INSERT INTO `articles_tags` VALUES (386, 1, 386);
+INSERT INTO `articles_tags` VALUES (387, 2, 387);
+INSERT INTO `articles_tags` VALUES (388, 1, 388);
+INSERT INTO `articles_tags` VALUES (389, 2, 389);
+INSERT INTO `articles_tags` VALUES (390, 1, 390);
+INSERT INTO `articles_tags` VALUES (391, 2, 391);
+INSERT INTO `articles_tags` VALUES (392, 1, 392);
+INSERT INTO `articles_tags` VALUES (393, 2, 393);
+INSERT INTO `articles_tags` VALUES (394, 1, 394);
+INSERT INTO `articles_tags` VALUES (395, 2, 395);
+INSERT INTO `articles_tags` VALUES (396, 1, 396);
+INSERT INTO `articles_tags` VALUES (397, 2, 397);
+INSERT INTO `articles_tags` VALUES (398, 1, 398);
+INSERT INTO `articles_tags` VALUES (399, 2, 399);
+INSERT INTO `articles_tags` VALUES (400, 1, 400);
+INSERT INTO `articles_tags` VALUES (401, 2, 401);
+INSERT INTO `articles_tags` VALUES (402, 1, 402);
+INSERT INTO `articles_tags` VALUES (403, 2, 403);
+INSERT INTO `articles_tags` VALUES (404, 1, 404);
+INSERT INTO `articles_tags` VALUES (405, 2, 405);
+INSERT INTO `articles_tags` VALUES (406, 1, 406);
+INSERT INTO `articles_tags` VALUES (407, 2, 407);
+INSERT INTO `articles_tags` VALUES (408, 1, 408);
+INSERT INTO `articles_tags` VALUES (409, 2, 409);
+INSERT INTO `articles_tags` VALUES (410, 1, 410);
+INSERT INTO `articles_tags` VALUES (411, 2, 411);
+INSERT INTO `articles_tags` VALUES (412, 1, 412);
+INSERT INTO `articles_tags` VALUES (413, 2, 413);
+INSERT INTO `articles_tags` VALUES (414, 1, 414);
+INSERT INTO `articles_tags` VALUES (415, 2, 415);
+INSERT INTO `articles_tags` VALUES (416, 1, 416);
+INSERT INTO `articles_tags` VALUES (417, 2, 417);
+INSERT INTO `articles_tags` VALUES (418, 1, 418);
+INSERT INTO `articles_tags` VALUES (419, 2, 419);
+INSERT INTO `articles_tags` VALUES (420, 1, 420);
+INSERT INTO `articles_tags` VALUES (421, 2, 421);
+INSERT INTO `articles_tags` VALUES (422, 1, 422);
+INSERT INTO `articles_tags` VALUES (423, 2, 423);
+INSERT INTO `articles_tags` VALUES (424, 1, 424);
+INSERT INTO `articles_tags` VALUES (425, 2, 425);
+INSERT INTO `articles_tags` VALUES (426, 1, 426);
+INSERT INTO `articles_tags` VALUES (427, 2, 427);
+INSERT INTO `articles_tags` VALUES (428, 1, 428);
+INSERT INTO `articles_tags` VALUES (429, 2, 429);
+INSERT INTO `articles_tags` VALUES (430, 1, 430);
+INSERT INTO `articles_tags` VALUES (431, 2, 431);
+INSERT INTO `articles_tags` VALUES (432, 1, 432);
+INSERT INTO `articles_tags` VALUES (433, 2, 433);
+INSERT INTO `articles_tags` VALUES (434, 1, 434);
+INSERT INTO `articles_tags` VALUES (435, 2, 435);
+INSERT INTO `articles_tags` VALUES (436, 1, 436);
+INSERT INTO `articles_tags` VALUES (437, 2, 437);
+INSERT INTO `articles_tags` VALUES (438, 1, 438);
+INSERT INTO `articles_tags` VALUES (439, 2, 439);
+INSERT INTO `articles_tags` VALUES (440, 1, 440);
+INSERT INTO `articles_tags` VALUES (441, 2, 441);
+INSERT INTO `articles_tags` VALUES (442, 1, 442);
+INSERT INTO `articles_tags` VALUES (443, 2, 443);
+INSERT INTO `articles_tags` VALUES (444, 1, 444);
+INSERT INTO `articles_tags` VALUES (445, 2, 445);
+INSERT INTO `articles_tags` VALUES (446, 1, 446);
+INSERT INTO `articles_tags` VALUES (447, 2, 447);
+INSERT INTO `articles_tags` VALUES (448, 1, 448);
+INSERT INTO `articles_tags` VALUES (449, 2, 449);
+INSERT INTO `articles_tags` VALUES (450, 1, 450);
+INSERT INTO `articles_tags` VALUES (451, 2, 451);
+INSERT INTO `articles_tags` VALUES (452, 1, 452);
+INSERT INTO `articles_tags` VALUES (453, 2, 453);
+INSERT INTO `articles_tags` VALUES (454, 1, 454);
+INSERT INTO `articles_tags` VALUES (455, 2, 455);
+INSERT INTO `articles_tags` VALUES (456, 1, 456);
+INSERT INTO `articles_tags` VALUES (457, 2, 457);
+INSERT INTO `articles_tags` VALUES (458, 1, 458);
+INSERT INTO `articles_tags` VALUES (459, 2, 459);
+INSERT INTO `articles_tags` VALUES (460, 1, 460);
+INSERT INTO `articles_tags` VALUES (461, 2, 461);
+INSERT INTO `articles_tags` VALUES (462, 1, 462);
+INSERT INTO `articles_tags` VALUES (463, 2, 463);
+INSERT INTO `articles_tags` VALUES (464, 1, 464);
+INSERT INTO `articles_tags` VALUES (465, 2, 465);
+INSERT INTO `articles_tags` VALUES (466, 1, 466);
+INSERT INTO `articles_tags` VALUES (467, 2, 467);
+INSERT INTO `articles_tags` VALUES (468, 1, 468);
+INSERT INTO `articles_tags` VALUES (469, 2, 469);
+INSERT INTO `articles_tags` VALUES (470, 1, 470);
+INSERT INTO `articles_tags` VALUES (471, 2, 471);
+INSERT INTO `articles_tags` VALUES (472, 1, 472);
+INSERT INTO `articles_tags` VALUES (473, 2, 473);
+INSERT INTO `articles_tags` VALUES (474, 1, 474);
+INSERT INTO `articles_tags` VALUES (475, 2, 475);
+INSERT INTO `articles_tags` VALUES (476, 1, 476);
+INSERT INTO `articles_tags` VALUES (477, 2, 477);
+INSERT INTO `articles_tags` VALUES (478, 1, 478);
+INSERT INTO `articles_tags` VALUES (479, 2, 479);
+INSERT INTO `articles_tags` VALUES (480, 1, 480);
+INSERT INTO `articles_tags` VALUES (481, 2, 481);
+INSERT INTO `articles_tags` VALUES (482, 1, 482);
+INSERT INTO `articles_tags` VALUES (483, 2, 483);
+INSERT INTO `articles_tags` VALUES (484, 1, 484);
+INSERT INTO `articles_tags` VALUES (485, 2, 485);
+INSERT INTO `articles_tags` VALUES (486, 1, 486);
+INSERT INTO `articles_tags` VALUES (487, 2, 487);
+INSERT INTO `articles_tags` VALUES (488, 1, 488);
+INSERT INTO `articles_tags` VALUES (489, 2, 489);
+INSERT INTO `articles_tags` VALUES (490, 1, 490);
+INSERT INTO `articles_tags` VALUES (491, 2, 491);
+INSERT INTO `articles_tags` VALUES (492, 1, 492);
+INSERT INTO `articles_tags` VALUES (493, 2, 493);
+INSERT INTO `articles_tags` VALUES (494, 1, 494);
+INSERT INTO `articles_tags` VALUES (495, 2, 495);
+INSERT INTO `articles_tags` VALUES (496, 1, 496);
+INSERT INTO `articles_tags` VALUES (497, 2, 497);
+INSERT INTO `articles_tags` VALUES (498, 1, 498);
+INSERT INTO `articles_tags` VALUES (499, 2, 499);
+INSERT INTO `articles_tags` VALUES (500, 1, 500);
+INSERT INTO `articles_tags` VALUES (501, 2, 501);
+INSERT INTO `articles_tags` VALUES (502, 1, 502);
+INSERT INTO `articles_tags` VALUES (503, 2, 503);
+INSERT INTO `articles_tags` VALUES (504, 1, 504);
+INSERT INTO `articles_tags` VALUES (505, 2, 505);
+INSERT INTO `articles_tags` VALUES (506, 1, 506);
+INSERT INTO `articles_tags` VALUES (507, 2, 507);
+INSERT INTO `articles_tags` VALUES (508, 1, 508);
+INSERT INTO `articles_tags` VALUES (509, 2, 509);
+INSERT INTO `articles_tags` VALUES (510, 1, 510);
+INSERT INTO `articles_tags` VALUES (511, 2, 511);
+INSERT INTO `articles_tags` VALUES (512, 1, 512);
+INSERT INTO `articles_tags` VALUES (513, 2, 513);
+INSERT INTO `articles_tags` VALUES (514, 1, 514);
+INSERT INTO `articles_tags` VALUES (515, 2, 515);
+INSERT INTO `articles_tags` VALUES (516, 1, 516);
+INSERT INTO `articles_tags` VALUES (517, 2, 517);
+INSERT INTO `articles_tags` VALUES (518, 1, 518);
+INSERT INTO `articles_tags` VALUES (519, 2, 519);
+INSERT INTO `articles_tags` VALUES (520, 1, 520);
+INSERT INTO `articles_tags` VALUES (521, 2, 521);
+INSERT INTO `articles_tags` VALUES (522, 1, 522);
+INSERT INTO `articles_tags` VALUES (523, 2, 523);
+INSERT INTO `articles_tags` VALUES (524, 1, 524);
+INSERT INTO `articles_tags` VALUES (525, 2, 525);
+INSERT INTO `articles_tags` VALUES (526, 1, 526);
+INSERT INTO `articles_tags` VALUES (527, 2, 527);
+INSERT INTO `articles_tags` VALUES (528, 1, 528);
+INSERT INTO `articles_tags` VALUES (529, 2, 529);
+INSERT INTO `articles_tags` VALUES (530, 1, 530);
+INSERT INTO `articles_tags` VALUES (531, 2, 531);
+INSERT INTO `articles_tags` VALUES (532, 1, 532);
+INSERT INTO `articles_tags` VALUES (533, 2, 533);
+INSERT INTO `articles_tags` VALUES (534, 1, 534);
+INSERT INTO `articles_tags` VALUES (535, 2, 535);
+INSERT INTO `articles_tags` VALUES (536, 1, 536);
+INSERT INTO `articles_tags` VALUES (537, 2, 537);
+INSERT INTO `articles_tags` VALUES (538, 1, 538);
+INSERT INTO `articles_tags` VALUES (539, 2, 539);
+INSERT INTO `articles_tags` VALUES (540, 1, 540);
+INSERT INTO `articles_tags` VALUES (541, 2, 541);
+INSERT INTO `articles_tags` VALUES (542, 1, 542);
+INSERT INTO `articles_tags` VALUES (543, 2, 543);
+INSERT INTO `articles_tags` VALUES (544, 1, 544);
+INSERT INTO `articles_tags` VALUES (545, 2, 545);
+INSERT INTO `articles_tags` VALUES (546, 1, 546);
+INSERT INTO `articles_tags` VALUES (547, 2, 547);
+INSERT INTO `articles_tags` VALUES (548, 1, 548);
+INSERT INTO `articles_tags` VALUES (549, 2, 549);
+INSERT INTO `articles_tags` VALUES (550, 1, 550);
+INSERT INTO `articles_tags` VALUES (551, 2, 551);
+INSERT INTO `articles_tags` VALUES (552, 1, 552);
+INSERT INTO `articles_tags` VALUES (553, 2, 553);
+INSERT INTO `articles_tags` VALUES (554, 1, 554);
+INSERT INTO `articles_tags` VALUES (555, 2, 555);
+INSERT INTO `articles_tags` VALUES (556, 1, 556);
+INSERT INTO `articles_tags` VALUES (557, 2, 557);
+INSERT INTO `articles_tags` VALUES (558, 1, 558);
+INSERT INTO `articles_tags` VALUES (559, 2, 559);
+INSERT INTO `articles_tags` VALUES (560, 1, 560);
+INSERT INTO `articles_tags` VALUES (561, 2, 561);
+INSERT INTO `articles_tags` VALUES (562, 1, 562);
+INSERT INTO `articles_tags` VALUES (563, 2, 563);
+INSERT INTO `articles_tags` VALUES (564, 1, 564);
+INSERT INTO `articles_tags` VALUES (565, 2, 565);
+INSERT INTO `articles_tags` VALUES (566, 1, 566);
+INSERT INTO `articles_tags` VALUES (567, 2, 567);
+INSERT INTO `articles_tags` VALUES (568, 1, 568);
+INSERT INTO `articles_tags` VALUES (569, 2, 569);
+INSERT INTO `articles_tags` VALUES (570, 1, 570);
+INSERT INTO `articles_tags` VALUES (571, 2, 571);
+INSERT INTO `articles_tags` VALUES (572, 1, 572);
+INSERT INTO `articles_tags` VALUES (573, 2, 573);
+INSERT INTO `articles_tags` VALUES (574, 1, 574);
+INSERT INTO `articles_tags` VALUES (575, 2, 575);
+INSERT INTO `articles_tags` VALUES (576, 1, 576);
+INSERT INTO `articles_tags` VALUES (577, 2, 577);
+INSERT INTO `articles_tags` VALUES (578, 1, 578);
+INSERT INTO `articles_tags` VALUES (579, 2, 579);
+INSERT INTO `articles_tags` VALUES (580, 1, 580);
+INSERT INTO `articles_tags` VALUES (581, 2, 581);
+INSERT INTO `articles_tags` VALUES (582, 1, 582);
+INSERT INTO `articles_tags` VALUES (583, 2, 583);
+INSERT INTO `articles_tags` VALUES (584, 1, 584);
+INSERT INTO `articles_tags` VALUES (585, 2, 585);
+INSERT INTO `articles_tags` VALUES (586, 1, 586);
+INSERT INTO `articles_tags` VALUES (587, 2, 587);
+INSERT INTO `articles_tags` VALUES (588, 1, 588);
+INSERT INTO `articles_tags` VALUES (589, 2, 589);
+INSERT INTO `articles_tags` VALUES (590, 1, 590);
+INSERT INTO `articles_tags` VALUES (591, 2, 591);
+INSERT INTO `articles_tags` VALUES (592, 1, 592);
+INSERT INTO `articles_tags` VALUES (593, 2, 593);
+INSERT INTO `articles_tags` VALUES (594, 1, 594);
+INSERT INTO `articles_tags` VALUES (595, 2, 595);
+INSERT INTO `articles_tags` VALUES (596, 1, 596);
+INSERT INTO `articles_tags` VALUES (597, 2, 597);
+INSERT INTO `articles_tags` VALUES (598, 1, 598);
+INSERT INTO `articles_tags` VALUES (599, 2, 599);
+INSERT INTO `articles_tags` VALUES (600, 1, 600);
+INSERT INTO `articles_tags` VALUES (601, 2, 601);
+INSERT INTO `articles_tags` VALUES (602, 1, 602);
+INSERT INTO `articles_tags` VALUES (603, 2, 603);
+INSERT INTO `articles_tags` VALUES (604, 1, 604);
+INSERT INTO `articles_tags` VALUES (605, 2, 605);
+INSERT INTO `articles_tags` VALUES (606, 1, 606);
+INSERT INTO `articles_tags` VALUES (607, 2, 607);
+INSERT INTO `articles_tags` VALUES (608, 1, 608);
+INSERT INTO `articles_tags` VALUES (609, 2, 609);
+INSERT INTO `articles_tags` VALUES (610, 1, 610);
+INSERT INTO `articles_tags` VALUES (611, 2, 611);
+INSERT INTO `articles_tags` VALUES (612, 1, 612);
+INSERT INTO `articles_tags` VALUES (613, 2, 613);
+INSERT INTO `articles_tags` VALUES (614, 1, 614);
+INSERT INTO `articles_tags` VALUES (615, 2, 615);
+INSERT INTO `articles_tags` VALUES (616, 1, 616);
+INSERT INTO `articles_tags` VALUES (617, 2, 617);
+INSERT INTO `articles_tags` VALUES (618, 1, 618);
+INSERT INTO `articles_tags` VALUES (619, 2, 619);
+INSERT INTO `articles_tags` VALUES (620, 1, 620);
+INSERT INTO `articles_tags` VALUES (621, 2, 621);
+INSERT INTO `articles_tags` VALUES (622, 1, 622);
+INSERT INTO `articles_tags` VALUES (623, 2, 623);
+INSERT INTO `articles_tags` VALUES (624, 1, 624);
+INSERT INTO `articles_tags` VALUES (625, 2, 625);
+INSERT INTO `articles_tags` VALUES (626, 1, 626);
+INSERT INTO `articles_tags` VALUES (627, 2, 627);
+INSERT INTO `articles_tags` VALUES (628, 1, 628);
+INSERT INTO `articles_tags` VALUES (629, 2, 629);
+INSERT INTO `articles_tags` VALUES (630, 1, 630);
+INSERT INTO `articles_tags` VALUES (631, 2, 631);
+INSERT INTO `articles_tags` VALUES (632, 1, 632);
+INSERT INTO `articles_tags` VALUES (633, 2, 633);
+INSERT INTO `articles_tags` VALUES (634, 1, 634);
+INSERT INTO `articles_tags` VALUES (635, 2, 635);
+INSERT INTO `articles_tags` VALUES (636, 1, 636);
+INSERT INTO `articles_tags` VALUES (637, 2, 637);
+INSERT INTO `articles_tags` VALUES (638, 1, 638);
+INSERT INTO `articles_tags` VALUES (639, 2, 639);
+INSERT INTO `articles_tags` VALUES (640, 1, 640);
+INSERT INTO `articles_tags` VALUES (641, 2, 641);
+INSERT INTO `articles_tags` VALUES (642, 1, 642);
+INSERT INTO `articles_tags` VALUES (643, 2, 643);
+INSERT INTO `articles_tags` VALUES (644, 1, 644);
+INSERT INTO `articles_tags` VALUES (645, 2, 645);
+INSERT INTO `articles_tags` VALUES (646, 1, 646);
+INSERT INTO `articles_tags` VALUES (647, 2, 647);
+INSERT INTO `articles_tags` VALUES (648, 1, 648);
+INSERT INTO `articles_tags` VALUES (649, 2, 649);
+INSERT INTO `articles_tags` VALUES (650, 1, 650);
+INSERT INTO `articles_tags` VALUES (651, 2, 651);
+INSERT INTO `articles_tags` VALUES (652, 1, 652);
+INSERT INTO `articles_tags` VALUES (653, 2, 653);
+INSERT INTO `articles_tags` VALUES (654, 1, 654);
+INSERT INTO `articles_tags` VALUES (655, 2, 655);
+INSERT INTO `articles_tags` VALUES (656, 1, 656);
+INSERT INTO `articles_tags` VALUES (657, 2, 657);
+INSERT INTO `articles_tags` VALUES (658, 1, 658);
+INSERT INTO `articles_tags` VALUES (659, 2, 659);
+INSERT INTO `articles_tags` VALUES (660, 1, 660);
+INSERT INTO `articles_tags` VALUES (661, 2, 661);
+INSERT INTO `articles_tags` VALUES (662, 1, 662);
+INSERT INTO `articles_tags` VALUES (663, 2, 663);
+INSERT INTO `articles_tags` VALUES (664, 1, 664);
+INSERT INTO `articles_tags` VALUES (665, 2, 665);
+INSERT INTO `articles_tags` VALUES (666, 1, 666);
+INSERT INTO `articles_tags` VALUES (667, 2, 667);
+INSERT INTO `articles_tags` VALUES (668, 1, 668);
+INSERT INTO `articles_tags` VALUES (669, 2, 669);
+INSERT INTO `articles_tags` VALUES (670, 1, 670);
+INSERT INTO `articles_tags` VALUES (671, 2, 671);
+INSERT INTO `articles_tags` VALUES (672, 1, 672);
+INSERT INTO `articles_tags` VALUES (673, 2, 673);
+INSERT INTO `articles_tags` VALUES (674, 1, 674);
+INSERT INTO `articles_tags` VALUES (675, 2, 675);
+INSERT INTO `articles_tags` VALUES (676, 1, 676);
+INSERT INTO `articles_tags` VALUES (677, 2, 677);
+INSERT INTO `articles_tags` VALUES (678, 1, 678);
+INSERT INTO `articles_tags` VALUES (679, 2, 679);
+INSERT INTO `articles_tags` VALUES (680, 1, 680);
+INSERT INTO `articles_tags` VALUES (681, 2, 681);
+INSERT INTO `articles_tags` VALUES (682, 1, 682);
+INSERT INTO `articles_tags` VALUES (683, 2, 683);
+INSERT INTO `articles_tags` VALUES (684, 1, 684);
+INSERT INTO `articles_tags` VALUES (685, 2, 685);
+INSERT INTO `articles_tags` VALUES (686, 1, 686);
+INSERT INTO `articles_tags` VALUES (687, 2, 687);
+INSERT INTO `articles_tags` VALUES (688, 1, 688);
+INSERT INTO `articles_tags` VALUES (689, 2, 689);
+INSERT INTO `articles_tags` VALUES (690, 1, 690);
+INSERT INTO `articles_tags` VALUES (691, 2, 691);
+INSERT INTO `articles_tags` VALUES (692, 1, 692);
+INSERT INTO `articles_tags` VALUES (693, 2, 693);
+INSERT INTO `articles_tags` VALUES (694, 1, 694);
+INSERT INTO `articles_tags` VALUES (695, 2, 695);
+INSERT INTO `articles_tags` VALUES (696, 1, 696);
+INSERT INTO `articles_tags` VALUES (697, 2, 697);
+INSERT INTO `articles_tags` VALUES (698, 1, 698);
+INSERT INTO `articles_tags` VALUES (699, 2, 699);
+INSERT INTO `articles_tags` VALUES (700, 1, 700);
+INSERT INTO `articles_tags` VALUES (701, 2, 701);
+INSERT INTO `articles_tags` VALUES (702, 1, 702);
+INSERT INTO `articles_tags` VALUES (703, 2, 703);
+INSERT INTO `articles_tags` VALUES (704, 1, 704);
+INSERT INTO `articles_tags` VALUES (705, 2, 705);
+INSERT INTO `articles_tags` VALUES (706, 1, 706);
+INSERT INTO `articles_tags` VALUES (707, 2, 707);
+INSERT INTO `articles_tags` VALUES (708, 1, 708);
+INSERT INTO `articles_tags` VALUES (709, 2, 709);
+INSERT INTO `articles_tags` VALUES (710, 1, 710);
+INSERT INTO `articles_tags` VALUES (711, 2, 711);
+INSERT INTO `articles_tags` VALUES (712, 1, 712);
+INSERT INTO `articles_tags` VALUES (713, 2, 713);
+INSERT INTO `articles_tags` VALUES (714, 1, 714);
+INSERT INTO `articles_tags` VALUES (715, 2, 715);
+INSERT INTO `articles_tags` VALUES (716, 1, 716);
+INSERT INTO `articles_tags` VALUES (717, 2, 717);
+INSERT INTO `articles_tags` VALUES (718, 1, 718);
+INSERT INTO `articles_tags` VALUES (719, 2, 719);
+INSERT INTO `articles_tags` VALUES (720, 1, 720);
+INSERT INTO `articles_tags` VALUES (721, 2, 721);
+INSERT INTO `articles_tags` VALUES (722, 1, 722);
+INSERT INTO `articles_tags` VALUES (723, 2, 723);
+INSERT INTO `articles_tags` VALUES (724, 1, 724);
+INSERT INTO `articles_tags` VALUES (725, 2, 725);
+INSERT INTO `articles_tags` VALUES (726, 1, 726);
+INSERT INTO `articles_tags` VALUES (727, 2, 727);
+INSERT INTO `articles_tags` VALUES (728, 1, 728);
+INSERT INTO `articles_tags` VALUES (729, 2, 729);
+INSERT INTO `articles_tags` VALUES (730, 1, 730);
+INSERT INTO `articles_tags` VALUES (731, 2, 731);
+INSERT INTO `articles_tags` VALUES (732, 1, 732);
+INSERT INTO `articles_tags` VALUES (733, 2, 733);
+INSERT INTO `articles_tags` VALUES (734, 1, 734);
+INSERT INTO `articles_tags` VALUES (735, 2, 735);
+INSERT INTO `articles_tags` VALUES (736, 1, 736);
+INSERT INTO `articles_tags` VALUES (737, 2, 737);
+INSERT INTO `articles_tags` VALUES (738, 1, 738);
+INSERT INTO `articles_tags` VALUES (739, 2, 739);
+INSERT INTO `articles_tags` VALUES (740, 1, 740);
+INSERT INTO `articles_tags` VALUES (741, 2, 741);
+INSERT INTO `articles_tags` VALUES (742, 1, 742);
+INSERT INTO `articles_tags` VALUES (743, 2, 743);
+INSERT INTO `articles_tags` VALUES (744, 1, 744);
+INSERT INTO `articles_tags` VALUES (745, 2, 745);
+INSERT INTO `articles_tags` VALUES (746, 1, 746);
+INSERT INTO `articles_tags` VALUES (747, 2, 747);
+INSERT INTO `articles_tags` VALUES (748, 1, 748);
+INSERT INTO `articles_tags` VALUES (749, 2, 749);
+INSERT INTO `articles_tags` VALUES (750, 1, 750);
+INSERT INTO `articles_tags` VALUES (751, 2, 751);
+INSERT INTO `articles_tags` VALUES (752, 1, 752);
+INSERT INTO `articles_tags` VALUES (753, 2, 753);
+INSERT INTO `articles_tags` VALUES (754, 1, 754);
+INSERT INTO `articles_tags` VALUES (755, 2, 755);
+INSERT INTO `articles_tags` VALUES (756, 1, 756);
+INSERT INTO `articles_tags` VALUES (757, 2, 757);
+INSERT INTO `articles_tags` VALUES (758, 1, 758);
+INSERT INTO `articles_tags` VALUES (759, 2, 759);
+INSERT INTO `articles_tags` VALUES (760, 1, 760);
+INSERT INTO `articles_tags` VALUES (761, 2, 761);
+INSERT INTO `articles_tags` VALUES (762, 1, 762);
+INSERT INTO `articles_tags` VALUES (763, 2, 763);
+INSERT INTO `articles_tags` VALUES (764, 1, 764);
+INSERT INTO `articles_tags` VALUES (765, 2, 765);
+INSERT INTO `articles_tags` VALUES (766, 1, 766);
+INSERT INTO `articles_tags` VALUES (767, 2, 767);
+INSERT INTO `articles_tags` VALUES (768, 1, 768);
+INSERT INTO `articles_tags` VALUES (769, 2, 769);
+INSERT INTO `articles_tags` VALUES (770, 1, 770);
+INSERT INTO `articles_tags` VALUES (771, 2, 771);
+INSERT INTO `articles_tags` VALUES (772, 1, 772);
+INSERT INTO `articles_tags` VALUES (773, 2, 773);
+INSERT INTO `articles_tags` VALUES (774, 1, 774);
+INSERT INTO `articles_tags` VALUES (775, 2, 775);
+INSERT INTO `articles_tags` VALUES (776, 1, 776);
+INSERT INTO `articles_tags` VALUES (777, 2, 777);
+INSERT INTO `articles_tags` VALUES (778, 1, 778);
+INSERT INTO `articles_tags` VALUES (779, 2, 779);
+INSERT INTO `articles_tags` VALUES (780, 1, 780);
+INSERT INTO `articles_tags` VALUES (781, 2, 781);
+INSERT INTO `articles_tags` VALUES (782, 1, 782);
+INSERT INTO `articles_tags` VALUES (783, 2, 783);
+INSERT INTO `articles_tags` VALUES (784, 1, 784);
+INSERT INTO `articles_tags` VALUES (785, 2, 785);
+INSERT INTO `articles_tags` VALUES (786, 1, 786);
+INSERT INTO `articles_tags` VALUES (787, 2, 787);
+INSERT INTO `articles_tags` VALUES (788, 1, 788);
+INSERT INTO `articles_tags` VALUES (789, 2, 789);
+INSERT INTO `articles_tags` VALUES (790, 1, 790);
+INSERT INTO `articles_tags` VALUES (791, 2, 791);
+INSERT INTO `articles_tags` VALUES (792, 1, 792);
+INSERT INTO `articles_tags` VALUES (793, 2, 793);
+INSERT INTO `articles_tags` VALUES (794, 1, 794);
+INSERT INTO `articles_tags` VALUES (795, 2, 795);
+INSERT INTO `articles_tags` VALUES (796, 1, 796);
+INSERT INTO `articles_tags` VALUES (797, 2, 797);
+INSERT INTO `articles_tags` VALUES (798, 1, 798);
+INSERT INTO `articles_tags` VALUES (799, 2, 799);
+INSERT INTO `articles_tags` VALUES (800, 1, 800);
+INSERT INTO `articles_tags` VALUES (801, 2, 801);
+INSERT INTO `articles_tags` VALUES (802, 1, 802);
+INSERT INTO `articles_tags` VALUES (803, 2, 803);
+INSERT INTO `articles_tags` VALUES (804, 1, 804);
+INSERT INTO `articles_tags` VALUES (805, 2, 805);
+INSERT INTO `articles_tags` VALUES (806, 1, 806);
+INSERT INTO `articles_tags` VALUES (807, 2, 807);
+INSERT INTO `articles_tags` VALUES (808, 1, 808);
+INSERT INTO `articles_tags` VALUES (809, 2, 809);
+INSERT INTO `articles_tags` VALUES (810, 1, 810);
+INSERT INTO `articles_tags` VALUES (811, 2, 811);
+INSERT INTO `articles_tags` VALUES (812, 1, 812);
+INSERT INTO `articles_tags` VALUES (813, 2, 813);
+INSERT INTO `articles_tags` VALUES (814, 1, 814);
+INSERT INTO `articles_tags` VALUES (815, 2, 815);
+INSERT INTO `articles_tags` VALUES (816, 1, 816);
+INSERT INTO `articles_tags` VALUES (817, 2, 817);
+INSERT INTO `articles_tags` VALUES (818, 1, 818);
+INSERT INTO `articles_tags` VALUES (819, 2, 819);
+INSERT INTO `articles_tags` VALUES (820, 1, 820);
+INSERT INTO `articles_tags` VALUES (821, 2, 821);
+INSERT INTO `articles_tags` VALUES (822, 1, 822);
+INSERT INTO `articles_tags` VALUES (823, 2, 823);
+INSERT INTO `articles_tags` VALUES (824, 1, 824);
+INSERT INTO `articles_tags` VALUES (825, 2, 825);
+INSERT INTO `articles_tags` VALUES (826, 1, 826);
+INSERT INTO `articles_tags` VALUES (827, 2, 827);
+INSERT INTO `articles_tags` VALUES (828, 1, 828);
+INSERT INTO `articles_tags` VALUES (829, 2, 829);
+INSERT INTO `articles_tags` VALUES (830, 1, 830);
+INSERT INTO `articles_tags` VALUES (831, 2, 831);
+INSERT INTO `articles_tags` VALUES (832, 1, 832);
+INSERT INTO `articles_tags` VALUES (833, 2, 833);
+INSERT INTO `articles_tags` VALUES (834, 1, 834);
+INSERT INTO `articles_tags` VALUES (835, 2, 835);
+INSERT INTO `articles_tags` VALUES (836, 1, 836);
+INSERT INTO `articles_tags` VALUES (837, 2, 837);
+INSERT INTO `articles_tags` VALUES (838, 1, 838);
+INSERT INTO `articles_tags` VALUES (839, 2, 839);
+INSERT INTO `articles_tags` VALUES (840, 1, 840);
+INSERT INTO `articles_tags` VALUES (841, 2, 841);
+INSERT INTO `articles_tags` VALUES (842, 1, 842);
+INSERT INTO `articles_tags` VALUES (843, 2, 843);
+INSERT INTO `articles_tags` VALUES (844, 1, 844);
+INSERT INTO `articles_tags` VALUES (845, 2, 845);
+INSERT INTO `articles_tags` VALUES (846, 1, 846);
+INSERT INTO `articles_tags` VALUES (847, 2, 847);
+INSERT INTO `articles_tags` VALUES (848, 1, 848);
+INSERT INTO `articles_tags` VALUES (849, 2, 849);
+INSERT INTO `articles_tags` VALUES (850, 1, 850);
+INSERT INTO `articles_tags` VALUES (851, 2, 851);
+INSERT INTO `articles_tags` VALUES (852, 1, 852);
+INSERT INTO `articles_tags` VALUES (853, 2, 853);
+INSERT INTO `articles_tags` VALUES (854, 1, 854);
+INSERT INTO `articles_tags` VALUES (855, 2, 855);
+INSERT INTO `articles_tags` VALUES (856, 1, 856);
+INSERT INTO `articles_tags` VALUES (857, 2, 857);
+INSERT INTO `articles_tags` VALUES (858, 1, 858);
+INSERT INTO `articles_tags` VALUES (859, 2, 859);
+INSERT INTO `articles_tags` VALUES (860, 1, 860);
+INSERT INTO `articles_tags` VALUES (861, 2, 861);
+INSERT INTO `articles_tags` VALUES (862, 1, 862);
+INSERT INTO `articles_tags` VALUES (863, 2, 863);
+INSERT INTO `articles_tags` VALUES (864, 1, 864);
+INSERT INTO `articles_tags` VALUES (865, 2, 865);
+INSERT INTO `articles_tags` VALUES (866, 1, 866);
+INSERT INTO `articles_tags` VALUES (867, 2, 867);
+INSERT INTO `articles_tags` VALUES (868, 1, 868);
+INSERT INTO `articles_tags` VALUES (869, 2, 869);
+INSERT INTO `articles_tags` VALUES (870, 1, 870);
+INSERT INTO `articles_tags` VALUES (871, 2, 871);
+INSERT INTO `articles_tags` VALUES (872, 1, 872);
+INSERT INTO `articles_tags` VALUES (873, 2, 873);
+INSERT INTO `articles_tags` VALUES (874, 1, 874);
+INSERT INTO `articles_tags` VALUES (875, 2, 875);
+INSERT INTO `articles_tags` VALUES (876, 1, 876);
+INSERT INTO `articles_tags` VALUES (877, 2, 877);
+INSERT INTO `articles_tags` VALUES (878, 1, 878);
+INSERT INTO `articles_tags` VALUES (879, 2, 879);
+INSERT INTO `articles_tags` VALUES (880, 1, 880);
+INSERT INTO `articles_tags` VALUES (881, 2, 881);
+INSERT INTO `articles_tags` VALUES (882, 1, 882);
+INSERT INTO `articles_tags` VALUES (883, 2, 883);
+INSERT INTO `articles_tags` VALUES (884, 1, 884);
+INSERT INTO `articles_tags` VALUES (885, 2, 885);
+INSERT INTO `articles_tags` VALUES (886, 1, 886);
+INSERT INTO `articles_tags` VALUES (887, 2, 887);
+INSERT INTO `articles_tags` VALUES (888, 1, 888);
+INSERT INTO `articles_tags` VALUES (889, 2, 889);
+INSERT INTO `articles_tags` VALUES (890, 1, 890);
+INSERT INTO `articles_tags` VALUES (891, 2, 891);
+INSERT INTO `articles_tags` VALUES (892, 1, 892);
+INSERT INTO `articles_tags` VALUES (893, 2, 893);
+INSERT INTO `articles_tags` VALUES (894, 1, 894);
+INSERT INTO `articles_tags` VALUES (895, 2, 895);
+INSERT INTO `articles_tags` VALUES (896, 1, 896);
+INSERT INTO `articles_tags` VALUES (897, 2, 897);
+INSERT INTO `articles_tags` VALUES (898, 1, 898);
+INSERT INTO `articles_tags` VALUES (899, 2, 899);
+INSERT INTO `articles_tags` VALUES (900, 1, 900);
+INSERT INTO `articles_tags` VALUES (901, 2, 901);
+INSERT INTO `articles_tags` VALUES (902, 1, 902);
+INSERT INTO `articles_tags` VALUES (903, 2, 903);
+INSERT INTO `articles_tags` VALUES (904, 1, 904);
+INSERT INTO `articles_tags` VALUES (905, 2, 905);
+INSERT INTO `articles_tags` VALUES (906, 1, 906);
+INSERT INTO `articles_tags` VALUES (907, 2, 907);
+INSERT INTO `articles_tags` VALUES (908, 1, 908);
+INSERT INTO `articles_tags` VALUES (909, 2, 909);
+INSERT INTO `articles_tags` VALUES (910, 1, 910);
+INSERT INTO `articles_tags` VALUES (911, 2, 911);
+INSERT INTO `articles_tags` VALUES (912, 1, 912);
+INSERT INTO `articles_tags` VALUES (913, 2, 913);
+INSERT INTO `articles_tags` VALUES (914, 1, 914);
+INSERT INTO `articles_tags` VALUES (915, 2, 915);
+INSERT INTO `articles_tags` VALUES (916, 1, 916);
+INSERT INTO `articles_tags` VALUES (917, 2, 917);
+INSERT INTO `articles_tags` VALUES (918, 1, 918);
+INSERT INTO `articles_tags` VALUES (919, 2, 919);
+INSERT INTO `articles_tags` VALUES (920, 1, 920);
+INSERT INTO `articles_tags` VALUES (921, 2, 921);
+INSERT INTO `articles_tags` VALUES (922, 1, 922);
+INSERT INTO `articles_tags` VALUES (923, 2, 923);
+INSERT INTO `articles_tags` VALUES (924, 1, 924);
+INSERT INTO `articles_tags` VALUES (925, 2, 925);
+INSERT INTO `articles_tags` VALUES (926, 1, 926);
+INSERT INTO `articles_tags` VALUES (927, 2, 927);
+INSERT INTO `articles_tags` VALUES (928, 1, 928);
+INSERT INTO `articles_tags` VALUES (929, 2, 929);
+INSERT INTO `articles_tags` VALUES (930, 1, 930);
+INSERT INTO `articles_tags` VALUES (931, 2, 931);
+INSERT INTO `articles_tags` VALUES (932, 1, 932);
+INSERT INTO `articles_tags` VALUES (933, 2, 933);
+INSERT INTO `articles_tags` VALUES (934, 1, 934);
+INSERT INTO `articles_tags` VALUES (935, 2, 935);
+INSERT INTO `articles_tags` VALUES (936, 1, 936);
+INSERT INTO `articles_tags` VALUES (937, 2, 937);
+INSERT INTO `articles_tags` VALUES (938, 1, 938);
+INSERT INTO `articles_tags` VALUES (939, 2, 939);
+INSERT INTO `articles_tags` VALUES (940, 1, 940);
+INSERT INTO `articles_tags` VALUES (941, 2, 941);
+INSERT INTO `articles_tags` VALUES (942, 1, 942);
+INSERT INTO `articles_tags` VALUES (943, 2, 943);
+INSERT INTO `articles_tags` VALUES (944, 1, 944);
+INSERT INTO `articles_tags` VALUES (945, 2, 945);
+INSERT INTO `articles_tags` VALUES (946, 1, 946);
+INSERT INTO `articles_tags` VALUES (947, 2, 947);
+INSERT INTO `articles_tags` VALUES (948, 1, 948);
+INSERT INTO `articles_tags` VALUES (949, 2, 949);
+INSERT INTO `articles_tags` VALUES (950, 1, 950);
+INSERT INTO `articles_tags` VALUES (951, 2, 951);
+INSERT INTO `articles_tags` VALUES (952, 1, 952);
+INSERT INTO `articles_tags` VALUES (953, 2, 953);
+INSERT INTO `articles_tags` VALUES (954, 1, 954);
+INSERT INTO `articles_tags` VALUES (955, 2, 955);
+INSERT INTO `articles_tags` VALUES (956, 1, 956);
+INSERT INTO `articles_tags` VALUES (957, 2, 957);
+INSERT INTO `articles_tags` VALUES (958, 1, 958);
+INSERT INTO `articles_tags` VALUES (959, 2, 959);
+INSERT INTO `articles_tags` VALUES (960, 1, 960);
+INSERT INTO `articles_tags` VALUES (961, 2, 961);
+INSERT INTO `articles_tags` VALUES (962, 1, 962);
+INSERT INTO `articles_tags` VALUES (963, 2, 963);
+INSERT INTO `articles_tags` VALUES (964, 1, 964);
+INSERT INTO `articles_tags` VALUES (965, 2, 965);
+INSERT INTO `articles_tags` VALUES (966, 1, 966);
+INSERT INTO `articles_tags` VALUES (967, 2, 967);
+INSERT INTO `articles_tags` VALUES (968, 1, 968);
+INSERT INTO `articles_tags` VALUES (969, 2, 969);
+INSERT INTO `articles_tags` VALUES (970, 1, 970);
+INSERT INTO `articles_tags` VALUES (971, 2, 971);
+INSERT INTO `articles_tags` VALUES (972, 1, 972);
+INSERT INTO `articles_tags` VALUES (973, 2, 973);
+INSERT INTO `articles_tags` VALUES (974, 1, 974);
+INSERT INTO `articles_tags` VALUES (975, 2, 975);
+INSERT INTO `articles_tags` VALUES (976, 1, 976);
+INSERT INTO `articles_tags` VALUES (977, 2, 977);
+INSERT INTO `articles_tags` VALUES (978, 1, 978);
+INSERT INTO `articles_tags` VALUES (979, 2, 979);
+INSERT INTO `articles_tags` VALUES (980, 1, 980);
+INSERT INTO `articles_tags` VALUES (981, 2, 981);
+INSERT INTO `articles_tags` VALUES (982, 1, 982);
+INSERT INTO `articles_tags` VALUES (983, 2, 983);
+INSERT INTO `articles_tags` VALUES (984, 1, 984);
+INSERT INTO `articles_tags` VALUES (985, 2, 985);
+INSERT INTO `articles_tags` VALUES (986, 1, 986);
+INSERT INTO `articles_tags` VALUES (987, 2, 987);
+INSERT INTO `articles_tags` VALUES (988, 1, 988);
+INSERT INTO `articles_tags` VALUES (989, 2, 989);
+INSERT INTO `articles_tags` VALUES (990, 1, 990);
+INSERT INTO `articles_tags` VALUES (991, 2, 991);
+INSERT INTO `articles_tags` VALUES (992, 1, 992);
+INSERT INTO `articles_tags` VALUES (993, 2, 993);
+INSERT INTO `articles_tags` VALUES (994, 1, 994);
+INSERT INTO `articles_tags` VALUES (995, 2, 995);
+INSERT INTO `articles_tags` VALUES (996, 1, 996);
+INSERT INTO `articles_tags` VALUES (997, 2, 997);
+INSERT INTO `articles_tags` VALUES (998, 1, 998);
+INSERT INTO `articles_tags` VALUES (999, 2, 999);
 
-LOCK TABLES `articles_tags` WRITE;
-/*!40000 ALTER TABLE `articles_tags` DISABLE KEYS */;
-INSERT INTO `articles_tags` VALUES (1,2,1),(2,1,2),(3,2,3),(4,1,4),(5,2,5),(6,1,6),(7,2,7),(8,1,8),(9,2,9),(10,1,10),(11,2,11),(12,1,12),(13,2,13),(14,1,14),(15,2,15),(16,1,16),(17,2,17),(18,1,18),(19,2,19),(20,1,20),(21,2,21),(22,1,22),(23,2,23),(24,1,24),(25,2,25),(26,1,26),(27,2,27),(28,1,28),(29,2,29),(30,1,30),(31,2,31),(32,1,32),(33,2,33),(34,1,34),(35,2,35),(36,1,36),(37,2,37),(38,1,38),(39,2,39),(40,1,40),(41,2,41),(42,1,42),(43,2,43),(44,1,44),(45,2,45),(46,1,46),(47,2,47),(48,1,48),(49,2,49),(50,1,50),(51,2,51),(52,1,52),(53,2,53),(54,1,54),(55,2,55),(56,1,56),(57,2,57),(58,1,58),(59,2,59),(60,1,60),(61,2,61),(62,1,62),(63,2,63),(64,1,64),(65,2,65),(66,1,66),(67,2,67),(68,1,68),(69,2,69),(70,1,70),(71,2,71),(72,1,72),(73,2,73),(74,1,74),(75,2,75),(76,1,76),(77,2,77),(78,1,78),(79,2,79),(80,1,80),(81,2,81),(82,1,82),(83,2,83),(84,1,84),(85,2,85),(86,1,86),(87,2,87),(88,1,88),(89,2,89),(90,1,90),(91,2,91),(92,1,92),(93,2,93),(94,1,94),(95,2,95),(96,1,96),(97,2,97),(98,1,98),(99,2,99),(100,1,100),(101,2,101),(102,1,102),(103,2,103),(104,1,104),(105,2,105),(106,1,106),(107,2,107),(108,1,108),(109,2,109),(110,1,110),(111,2,111),(112,1,112),(113,2,113),(114,1,114),(115,2,115),(116,1,116),(117,2,117),(118,1,118),(119,2,119),(120,1,120),(121,2,121),(122,1,122),(123,2,123),(124,1,124),(125,2,125),(126,1,126),(127,2,127),(128,1,128),(129,2,129),(130,1,130),(131,2,131),(132,1,132),(133,2,133),(134,1,134),(135,2,135),(136,1,136),(137,2,137),(138,1,138),(139,2,139),(140,1,140),(141,2,141),(142,1,142),(143,2,143),(144,1,144),(145,2,145),(146,1,146),(147,2,147),(148,1,148),(149,2,149),(150,1,150),(151,2,151),(152,1,152),(153,2,153),(154,1,154),(155,2,155),(156,1,156),(157,2,157),(158,1,158),(159,2,159),(160,1,160),(161,2,161),(162,1,162),(163,2,163),(164,1,164),(165,2,165),(166,1,166),(167,2,167),(168,1,168),(169,2,169),(170,1,170),(171,2,171),(172,1,172),(173,2,173),(174,1,174),(175,2,175),(176,1,176),(177,2,177),(178,1,178),(179,2,179),(180,1,180),(181,2,181),(182,1,182),(183,2,183),(184,1,184),(185,2,185),(186,1,186),(187,2,187),(188,1,188),(189,2,189),(190,1,190),(191,2,191),(192,1,192),(193,2,193),(194,1,194),(195,2,195),(196,1,196),(197,2,197),(198,1,198),(199,2,199),(200,1,200),(201,2,201),(202,1,202),(203,2,203),(204,1,204),(205,2,205),(206,1,206),(207,2,207),(208,1,208),(209,2,209),(210,1,210),(211,2,211),(212,1,212),(213,2,213),(214,1,214),(215,2,215),(216,1,216),(217,2,217),(218,1,218),(219,2,219),(220,1,220),(221,2,221),(222,1,222),(223,2,223),(224,1,224),(225,2,225),(226,1,226),(227,2,227),(228,1,228),(229,2,229),(230,1,230),(231,2,231),(232,1,232),(233,2,233),(234,1,234),(235,2,235),(236,1,236),(237,2,237),(238,1,238),(239,2,239),(240,1,240),(241,2,241),(242,1,242),(243,2,243),(244,1,244),(245,2,245),(246,1,246),(247,2,247),(248,1,248),(249,2,249),(250,1,250),(251,2,251),(252,1,252),(253,2,253),(254,1,254),(255,2,255),(256,1,256),(257,2,257),(258,1,258),(259,2,259),(260,1,260),(261,2,261),(262,1,262),(263,2,263),(264,1,264),(265,2,265),(266,1,266),(267,2,267),(268,1,268),(269,2,269),(270,1,270),(271,2,271),(272,1,272),(273,2,273),(274,1,274),(275,2,275),(276,1,276),(277,2,277),(278,1,278),(279,2,279),(280,1,280),(281,2,281),(282,1,282),(283,2,283),(284,1,284),(285,2,285),(286,1,286),(287,2,287),(288,1,288),(289,2,289),(290,1,290),(291,2,291),(292,1,292),(293,2,293),(294,1,294),(295,2,295),(296,1,296),(297,2,297),(298,1,298),(299,2,299),(300,1,300),(301,2,301),(302,1,302),(303,2,303),(304,1,304),(305,2,305),(306,1,306),(307,2,307),(308,1,308),(309,2,309),(310,1,310),(311,2,311),(312,1,312),(313,2,313),(314,1,314),(315,2,315),(316,1,316),(317,2,317),(318,1,318),(319,2,319),(320,1,320),(321,2,321),(322,1,322),(323,2,323),(324,1,324),(325,2,325),(326,1,326),(327,2,327),(328,1,328),(329,2,329),(330,1,330),(331,2,331),(332,1,332),(333,2,333),(334,1,334),(335,2,335),(336,1,336),(337,2,337),(338,1,338),(339,2,339),(340,1,340),(341,2,341),(342,1,342),(343,2,343),(344,1,344),(345,2,345),(346,1,346),(347,2,347),(348,1,348),(349,2,349),(350,1,350),(351,2,351),(352,1,352),(353,2,353),(354,1,354),(355,2,355),(356,1,356),(357,2,357),(358,1,358),(359,2,359),(360,1,360),(361,2,361),(362,1,362),(363,2,363),(364,1,364),(365,2,365),(366,1,366),(367,2,367),(368,1,368),(369,2,369),(370,1,370),(371,2,371),(372,1,372),(373,2,373),(374,1,374),(375,2,375),(376,1,376),(377,2,377),(378,1,378),(379,2,379),(380,1,380),(381,2,381),(382,1,382),(383,2,383),(384,1,384),(385,2,385),(386,1,386),(387,2,387),(388,1,388),(389,2,389),(390,1,390),(391,2,391),(392,1,392),(393,2,393),(394,1,394),(395,2,395),(396,1,396),(397,2,397),(398,1,398),(399,2,399),(400,1,400),(401,2,401),(402,1,402),(403,2,403),(404,1,404),(405,2,405),(406,1,406),(407,2,407),(408,1,408),(409,2,409),(410,1,410),(411,2,411),(412,1,412),(413,2,413),(414,1,414),(415,2,415),(416,1,416),(417,2,417),(418,1,418),(419,2,419),(420,1,420),(421,2,421),(422,1,422),(423,2,423),(424,1,424),(425,2,425),(426,1,426),(427,2,427),(428,1,428),(429,2,429),(430,1,430),(431,2,431),(432,1,432),(433,2,433),(434,1,434),(435,2,435),(436,1,436),(437,2,437),(438,1,438),(439,2,439),(440,1,440),(441,2,441),(442,1,442),(443,2,443),(444,1,444),(445,2,445),(446,1,446),(447,2,447),(448,1,448),(449,2,449),(450,1,450),(451,2,451),(452,1,452),(453,2,453),(454,1,454),(455,2,455),(456,1,456),(457,2,457),(458,1,458),(459,2,459),(460,1,460),(461,2,461),(462,1,462),(463,2,463),(464,1,464),(465,2,465),(466,1,466),(467,2,467),(468,1,468),(469,2,469),(470,1,470),(471,2,471),(472,1,472),(473,2,473),(474,1,474),(475,2,475),(476,1,476),(477,2,477),(478,1,478),(479,2,479),(480,1,480),(481,2,481),(482,1,482),(483,2,483),(484,1,484),(485,2,485),(486,1,486),(487,2,487),(488,1,488),(489,2,489),(490,1,490),(491,2,491),(492,1,492),(493,2,493),(494,1,494),(495,2,495),(496,1,496),(497,2,497),(498,1,498),(499,2,499),(500,1,500),(501,2,501),(502,1,502),(503,2,503),(504,1,504),(505,2,505),(506,1,506),(507,2,507),(508,1,508),(509,2,509),(510,1,510),(511,2,511),(512,1,512),(513,2,513),(514,1,514),(515,2,515),(516,1,516),(517,2,517),(518,1,518),(519,2,519),(520,1,520),(521,2,521),(522,1,522),(523,2,523),(524,1,524),(525,2,525),(526,1,526),(527,2,527),(528,1,528),(529,2,529),(530,1,530),(531,2,531),(532,1,532),(533,2,533),(534,1,534),(535,2,535),(536,1,536),(537,2,537),(538,1,538),(539,2,539),(540,1,540),(541,2,541),(542,1,542),(543,2,543),(544,1,544),(545,2,545),(546,1,546),(547,2,547),(548,1,548),(549,2,549),(550,1,550),(551,2,551),(552,1,552),(553,2,553),(554,1,554),(555,2,555),(556,1,556),(557,2,557),(558,1,558),(559,2,559),(560,1,560),(561,2,561),(562,1,562),(563,2,563),(564,1,564),(565,2,565),(566,1,566),(567,2,567),(568,1,568),(569,2,569),(570,1,570),(571,2,571),(572,1,572),(573,2,573),(574,1,574),(575,2,575),(576,1,576),(577,2,577),(578,1,578),(579,2,579),(580,1,580),(581,2,581),(582,1,582),(583,2,583),(584,1,584),(585,2,585),(586,1,586),(587,2,587),(588,1,588),(589,2,589),(590,1,590),(591,2,591),(592,1,592),(593,2,593),(594,1,594),(595,2,595),(596,1,596),(597,2,597),(598,1,598),(599,2,599),(600,1,600),(601,2,601),(602,1,602),(603,2,603),(604,1,604),(605,2,605),(606,1,606),(607,2,607),(608,1,608),(609,2,609),(610,1,610),(611,2,611),(612,1,612),(613,2,613),(614,1,614),(615,2,615),(616,1,616),(617,2,617),(618,1,618),(619,2,619),(620,1,620),(621,2,621),(622,1,622),(623,2,623),(624,1,624),(625,2,625),(626,1,626),(627,2,627),(628,1,628),(629,2,629),(630,1,630),(631,2,631),(632,1,632),(633,2,633),(634,1,634),(635,2,635),(636,1,636),(637,2,637),(638,1,638),(639,2,639),(640,1,640),(641,2,641),(642,1,642),(643,2,643),(644,1,644),(645,2,645),(646,1,646),(647,2,647),(648,1,648),(649,2,649),(650,1,650),(651,2,651),(652,1,652),(653,2,653),(654,1,654),(655,2,655),(656,1,656),(657,2,657),(658,1,658),(659,2,659),(660,1,660),(661,2,661),(662,1,662),(663,2,663),(664,1,664),(665,2,665),(666,1,666),(667,2,667),(668,1,668),(669,2,669),(670,1,670),(671,2,671),(672,1,672),(673,2,673),(674,1,674),(675,2,675),(676,1,676),(677,2,677),(678,1,678),(679,2,679),(680,1,680),(681,2,681),(682,1,682),(683,2,683),(684,1,684),(685,2,685),(686,1,686),(687,2,687),(688,1,688),(689,2,689),(690,1,690),(691,2,691),(692,1,692),(693,2,693),(694,1,694),(695,2,695),(696,1,696),(697,2,697),(698,1,698),(699,2,699),(700,1,700),(701,2,701),(702,1,702),(703,2,703),(704,1,704),(705,2,705),(706,1,706),(707,2,707),(708,1,708),(709,2,709),(710,1,710),(711,2,711),(712,1,712),(713,2,713),(714,1,714),(715,2,715),(716,1,716),(717,2,717),(718,1,718),(719,2,719),(720,1,720),(721,2,721),(722,1,722),(723,2,723),(724,1,724),(725,2,725),(726,1,726),(727,2,727),(728,1,728),(729,2,729),(730,1,730),(731,2,731),(732,1,732),(733,2,733),(734,1,734),(735,2,735),(736,1,736),(737,2,737),(738,1,738),(739,2,739),(740,1,740),(741,2,741),(742,1,742),(743,2,743),(744,1,744),(745,2,745),(746,1,746),(747,2,747),(748,1,748),(749,2,749),(750,1,750),(751,2,751),(752,1,752),(753,2,753),(754,1,754),(755,2,755),(756,1,756),(757,2,757),(758,1,758),(759,2,759),(760,1,760),(761,2,761),(762,1,762),(763,2,763),(764,1,764),(765,2,765),(766,1,766),(767,2,767),(768,1,768),(769,2,769),(770,1,770),(771,2,771),(772,1,772),(773,2,773),(774,1,774),(775,2,775),(776,1,776),(777,2,777),(778,1,778),(779,2,779),(780,1,780),(781,2,781),(782,1,782),(783,2,783),(784,1,784),(785,2,785),(786,1,786),(787,2,787),(788,1,788),(789,2,789),(790,1,790),(791,2,791),(792,1,792),(793,2,793),(794,1,794),(795,2,795),(796,1,796),(797,2,797),(798,1,798),(799,2,799),(800,1,800),(801,2,801),(802,1,802),(803,2,803),(804,1,804),(805,2,805),(806,1,806),(807,2,807),(808,1,808),(809,2,809),(810,1,810),(811,2,811),(812,1,812),(813,2,813),(814,1,814),(815,2,815),(816,1,816),(817,2,817),(818,1,818),(819,2,819),(820,1,820),(821,2,821),(822,1,822),(823,2,823),(824,1,824),(825,2,825),(826,1,826),(827,2,827),(828,1,828),(829,2,829),(830,1,830),(831,2,831),(832,1,832),(833,2,833),(834,1,834),(835,2,835),(836,1,836),(837,2,837),(838,1,838),(839,2,839),(840,1,840),(841,2,841),(842,1,842),(843,2,843),(844,1,844),(845,2,845),(846,1,846),(847,2,847),(848,1,848),(849,2,849),(850,1,850),(851,2,851),(852,1,852),(853,2,853),(854,1,854),(855,2,855),(856,1,856),(857,2,857),(858,1,858),(859,2,859),(860,1,860),(861,2,861),(862,1,862),(863,2,863),(864,1,864),(865,2,865),(866,1,866),(867,2,867),(868,1,868),(869,2,869),(870,1,870),(871,2,871),(872,1,872),(873,2,873),(874,1,874),(875,2,875),(876,1,876),(877,2,877),(878,1,878),(879,2,879),(880,1,880),(881,2,881),(882,1,882),(883,2,883),(884,1,884),(885,2,885),(886,1,886),(887,2,887),(888,1,888),(889,2,889),(890,1,890),(891,2,891),(892,1,892),(893,2,893),(894,1,894),(895,2,895),(896,1,896),(897,2,897),(898,1,898),(899,2,899),(900,1,900),(901,2,901),(902,1,902),(903,2,903),(904,1,904),(905,2,905),(906,1,906),(907,2,907),(908,1,908),(909,2,909),(910,1,910),(911,2,911),(912,1,912),(913,2,913),(914,1,914),(915,2,915),(916,1,916),(917,2,917),(918,1,918),(919,2,919),(920,1,920),(921,2,921),(922,1,922),(923,2,923),(924,1,924),(925,2,925),(926,1,926),(927,2,927),(928,1,928),(929,2,929),(930,1,930),(931,2,931),(932,1,932),(933,2,933),(934,1,934),(935,2,935),(936,1,936),(937,2,937),(938,1,938),(939,2,939),(940,1,940),(941,2,941),(942,1,942),(943,2,943),(944,1,944),(945,2,945),(946,1,946),(947,2,947),(948,1,948),(949,2,949),(950,1,950),(951,2,951),(952,1,952),(953,2,953),(954,1,954),(955,2,955),(956,1,956),(957,2,957),(958,1,958),(959,2,959),(960,1,960),(961,2,961),(962,1,962),(963,2,963),(964,1,964),(965,2,965),(966,1,966),(967,2,967),(968,1,968),(969,2,969),(970,1,970),(971,2,971),(972,1,972),(973,2,973),(974,1,974),(975,2,975),(976,1,976),(977,2,977),(978,1,978),(979,2,979),(980,1,980),(981,2,981),(982,1,982),(983,2,983),(984,1,984),(985,2,985),(986,1,986),(987,2,987),(988,1,988),(989,2,989),(990,1,990),(991,2,991),(992,1,992),(993,2,993),(994,1,994),(995,2,995),(996,1,996),(997,2,997),(998,1,998),(999,2,999);
-/*!40000 ALTER TABLE `articles_tags` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `categories`
---
-
+-- ----------------------------
+-- Table structure for categories
+-- ----------------------------
 DROP TABLE IF EXISTS `categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `categories` (
-  `category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `category_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `categories`  (
+  `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`category_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `categories`
---
+-- ----------------------------
+-- Records of categories
+-- ----------------------------
+INSERT INTO `categories` VALUES (1, 'Thể thao');
+INSERT INTO `categories` VALUES (2, 'Du lịch');
+INSERT INTO `categories` VALUES (3, 'Kinh doanh');
+INSERT INTO `categories` VALUES (4, 'Pháp luật');
+INSERT INTO `categories` VALUES (5, 'Kinh tế');
+INSERT INTO `categories` VALUES (6, 'Chính trị');
+INSERT INTO `categories` VALUES (7, 'Xã hội');
+INSERT INTO `categories` VALUES (8, 'Khoa học');
+INSERT INTO `categories` VALUES (9, 'Hài');
+INSERT INTO `categories` VALUES (10, 'Sức khoẻ');
 
-LOCK TABLES `categories` WRITE;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Thể thao'),(2,'Du lịch'),(3,'Kinh doanh'),(4,'Pháp luật'),(5,'Kinh tế'),(6,'Chính trị'),(7,'Xã hội'),(8,'Khoa học'),(9,'Hài'),(10,'Sức khoẻ');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `comments`
---
-
+-- ----------------------------
+-- Table structure for comments
+-- ----------------------------
 DROP TABLE IF EXISTS `comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `comments` (
-  `comment_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
+CREATE TABLE `comments`  (
+  `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `article_id` int(10) UNSIGNED NOT NULL,
   `time` datetime NOT NULL,
-  `subscriber_id` int(10) unsigned NOT NULL,
-  `comment_content` varchar(2048) NOT NULL,
-  PRIMARY KEY (`comment_id`),
-  KEY `fk_article_id_3` (`article_id`),
-  KEY `fk_subscriber_id` (`subscriber_id`),
+  `subscriber_id` int(10) UNSIGNED NOT NULL,
+  `comment_content` varchar(2048) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`comment_id`) USING BTREE,
+  INDEX `fk_article_id_3`(`article_id`) USING BTREE,
+  INDEX `fk_subscriber_id`(`subscriber_id`) USING BTREE,
   CONSTRAINT `fk_article_id_3` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_subscriber_id` FOREIGN KEY (`subscriber_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `comments`
---
+-- ----------------------------
+-- Records of comments
+-- ----------------------------
+INSERT INTO `comments` VALUES (1, 15, '2021-07-01 10:43:25', 6, 'Comment so 1');
+INSERT INTO `comments` VALUES (2, 15, '2021-08-26 10:44:00', 4, 'Comment so 2');
+INSERT INTO `comments` VALUES (3, 15, '2021-07-01 10:44:25', 4, 'Comment so 3');
+INSERT INTO `comments` VALUES (4, 15, '2021-07-05 11:27:28', 4, 'asdasdasd');
+INSERT INTO `comments` VALUES (5, 15, '2021-07-05 11:27:35', 4, 'asdasdasdasd');
+INSERT INTO `comments` VALUES (6, 311, '2021-07-06 01:47:43', 4, 'sadasd');
+INSERT INTO `comments` VALUES (7, 311, '2021-07-06 01:47:53', 4, 'con cac');
 
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,15,'2021-07-01 10:43:25',6,'Comment so 1'),(2,15,'2021-08-26 10:44:00',4,'Comment so 2'),(3,15,'2021-07-01 10:44:25',4,'Comment so 3'),(4,15,'2021-07-05 11:27:28',4,'asdasdasd'),(5,15,'2021-07-05 11:27:35',4,'asdasdasdasd'),(6,311,'2021-07-06 01:47:43',4,'sadasd'),(7,311,'2021-07-06 01:47:53',4,'con cac');
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `declined_articles`
---
-
+-- ----------------------------
+-- Table structure for declined_articles
+-- ----------------------------
 DROP TABLE IF EXISTS `declined_articles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `declined_articles` (
-  `declined_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `article_id` int(10) unsigned NOT NULL,
-  `editor_id` int(10) unsigned NOT NULL,
-  `decline_reason` varchar(4096) NOT NULL,
-  `decline_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`declined_id`),
-  KEY `fk_article_id_4` (`article_id`),
-  KEY `fk_editor_id_2` (`editor_id`),
+CREATE TABLE `declined_articles`  (
+  `declined_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `article_id` int(10) UNSIGNED NOT NULL,
+  `editor_id` int(10) UNSIGNED NOT NULL,
+  `decline_reason` varchar(4096) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `decline_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`declined_id`) USING BTREE,
+  INDEX `fk_article_id_4`(`article_id`) USING BTREE,
+  INDEX `fk_editor_id_2`(`editor_id`) USING BTREE,
   CONSTRAINT `fk_article_id_4` FOREIGN KEY (`article_id`) REFERENCES `articles` (`article_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_editor_id_2` FOREIGN KEY (`editor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=389 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 389 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `declined_articles`
---
+-- ----------------------------
+-- Records of declined_articles
+-- ----------------------------
+INSERT INTO `declined_articles` VALUES (7, 2, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (8, 6, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (9, 18, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (10, 30, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (11, 34, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (12, 46, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (13, 50, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (14, 62, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (15, 66, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (16, 78, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (17, 90, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (18, 94, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (19, 106, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (20, 110, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (21, 122, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (22, 126, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (23, 138, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (24, 150, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (25, 154, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (26, 166, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (27, 170, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (28, 182, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (29, 186, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (30, 198, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (31, 210, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (32, 214, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (33, 226, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (34, 230, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (35, 242, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (36, 246, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (37, 258, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (38, 270, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (39, 274, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (40, 286, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (41, 290, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (42, 302, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (43, 306, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (44, 318, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (45, 330, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (46, 334, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (47, 346, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (48, 350, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (49, 362, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (50, 366, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (51, 378, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (52, 390, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (53, 394, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (54, 406, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (55, 410, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (56, 422, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (57, 426, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (58, 438, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (59, 450, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (60, 454, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (61, 466, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (62, 470, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (63, 482, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (64, 486, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (65, 498, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (66, 510, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (67, 514, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (68, 526, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (69, 530, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (70, 542, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (71, 546, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (72, 558, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (73, 570, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (74, 574, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (75, 586, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (76, 590, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (77, 602, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (78, 606, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (79, 618, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (80, 630, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (81, 634, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (82, 646, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (83, 650, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (84, 662, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (85, 666, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (86, 678, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (87, 690, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (88, 694, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (89, 706, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (90, 710, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (91, 722, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (92, 726, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (93, 738, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (94, 750, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (95, 754, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (96, 766, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (97, 770, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (98, 782, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (99, 786, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (100, 798, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (101, 810, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (102, 814, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (103, 826, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (104, 830, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (105, 842, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (106, 846, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (107, 858, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (108, 870, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (109, 874, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (110, 886, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (111, 890, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (112, 902, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (113, 906, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (114, 918, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (115, 930, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (116, 934, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (117, 946, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (118, 950, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (119, 962, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (120, 966, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (121, 978, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (122, 990, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (123, 994, 2, 'Từ chối', '2021-07-17 18:49:38');
+INSERT INTO `declined_articles` VALUES (134, 10, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (135, 14, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (136, 22, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (137, 26, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (138, 38, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (139, 42, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (140, 54, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (141, 58, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (142, 70, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (143, 74, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (144, 82, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (145, 86, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (146, 98, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (147, 102, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (148, 114, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (149, 118, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (150, 130, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (151, 134, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (152, 142, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (153, 146, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (154, 158, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (155, 162, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (156, 174, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (157, 178, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (158, 190, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (159, 194, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (160, 202, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (161, 206, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (162, 218, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (163, 222, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (164, 234, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (165, 238, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (166, 250, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (167, 254, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (168, 262, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (169, 266, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (170, 278, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (171, 282, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (172, 294, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (173, 298, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (174, 310, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (175, 314, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (176, 322, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (177, 326, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (178, 338, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (179, 342, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (180, 354, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (181, 358, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (182, 370, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (183, 374, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (184, 382, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (185, 386, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (186, 398, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (187, 402, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (188, 414, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (189, 418, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (190, 430, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (191, 434, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (192, 442, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (193, 446, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (194, 458, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (195, 462, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (196, 474, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (197, 478, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (198, 490, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (199, 494, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (200, 502, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (201, 506, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (202, 518, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (203, 522, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (204, 534, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (205, 538, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (206, 550, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (207, 554, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (208, 562, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (209, 566, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (210, 578, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (211, 582, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (212, 594, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (213, 598, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (214, 610, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (215, 614, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (216, 622, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (217, 626, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (218, 638, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (219, 642, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (220, 654, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (221, 658, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (222, 670, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (223, 674, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (224, 682, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (225, 686, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (226, 698, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (227, 702, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (228, 714, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (229, 718, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (230, 730, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (231, 734, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (232, 742, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (233, 746, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (234, 758, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (235, 762, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (236, 774, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (237, 778, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (238, 790, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (239, 794, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (240, 802, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (241, 806, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (242, 818, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (243, 822, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (244, 834, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (245, 838, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (246, 850, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (247, 854, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (248, 862, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (249, 866, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (250, 878, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (251, 882, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (252, 894, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (253, 898, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (254, 910, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (255, 914, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (256, 922, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (257, 926, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (258, 938, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (259, 942, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (260, 954, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (261, 958, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (262, 970, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (263, 974, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (264, 982, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (265, 986, 7, 'Từ chối', '2021-07-17 18:50:36');
+INSERT INTO `declined_articles` VALUES (266, 998, 7, 'Từ chối', '2021-07-17 18:50:36');
 
-LOCK TABLES `declined_articles` WRITE;
-/*!40000 ALTER TABLE `declined_articles` DISABLE KEYS */;
-INSERT INTO `declined_articles` VALUES (7,2,2,'Từ chối','2021-07-17 18:49:38'),(8,6,2,'Từ chối','2021-07-17 18:49:38'),(9,18,2,'Từ chối','2021-07-17 18:49:38'),(10,30,2,'Từ chối','2021-07-17 18:49:38'),(11,34,2,'Từ chối','2021-07-17 18:49:38'),(12,46,2,'Từ chối','2021-07-17 18:49:38'),(13,50,2,'Từ chối','2021-07-17 18:49:38'),(14,62,2,'Từ chối','2021-07-17 18:49:38'),(15,66,2,'Từ chối','2021-07-17 18:49:38'),(16,78,2,'Từ chối','2021-07-17 18:49:38'),(17,90,2,'Từ chối','2021-07-17 18:49:38'),(18,94,2,'Từ chối','2021-07-17 18:49:38'),(19,106,2,'Từ chối','2021-07-17 18:49:38'),(20,110,2,'Từ chối','2021-07-17 18:49:38'),(21,122,2,'Từ chối','2021-07-17 18:49:38'),(22,126,2,'Từ chối','2021-07-17 18:49:38'),(23,138,2,'Từ chối','2021-07-17 18:49:38'),(24,150,2,'Từ chối','2021-07-17 18:49:38'),(25,154,2,'Từ chối','2021-07-17 18:49:38'),(26,166,2,'Từ chối','2021-07-17 18:49:38'),(27,170,2,'Từ chối','2021-07-17 18:49:38'),(28,182,2,'Từ chối','2021-07-17 18:49:38'),(29,186,2,'Từ chối','2021-07-17 18:49:38'),(30,198,2,'Từ chối','2021-07-17 18:49:38'),(31,210,2,'Từ chối','2021-07-17 18:49:38'),(32,214,2,'Từ chối','2021-07-17 18:49:38'),(33,226,2,'Từ chối','2021-07-17 18:49:38'),(34,230,2,'Từ chối','2021-07-17 18:49:38'),(35,242,2,'Từ chối','2021-07-17 18:49:38'),(36,246,2,'Từ chối','2021-07-17 18:49:38'),(37,258,2,'Từ chối','2021-07-17 18:49:38'),(38,270,2,'Từ chối','2021-07-17 18:49:38'),(39,274,2,'Từ chối','2021-07-17 18:49:38'),(40,286,2,'Từ chối','2021-07-17 18:49:38'),(41,290,2,'Từ chối','2021-07-17 18:49:38'),(42,302,2,'Từ chối','2021-07-17 18:49:38'),(43,306,2,'Từ chối','2021-07-17 18:49:38'),(44,318,2,'Từ chối','2021-07-17 18:49:38'),(45,330,2,'Từ chối','2021-07-17 18:49:38'),(46,334,2,'Từ chối','2021-07-17 18:49:38'),(47,346,2,'Từ chối','2021-07-17 18:49:38'),(48,350,2,'Từ chối','2021-07-17 18:49:38'),(49,362,2,'Từ chối','2021-07-17 18:49:38'),(50,366,2,'Từ chối','2021-07-17 18:49:38'),(51,378,2,'Từ chối','2021-07-17 18:49:38'),(52,390,2,'Từ chối','2021-07-17 18:49:38'),(53,394,2,'Từ chối','2021-07-17 18:49:38'),(54,406,2,'Từ chối','2021-07-17 18:49:38'),(55,410,2,'Từ chối','2021-07-17 18:49:38'),(56,422,2,'Từ chối','2021-07-17 18:49:38'),(57,426,2,'Từ chối','2021-07-17 18:49:38'),(58,438,2,'Từ chối','2021-07-17 18:49:38'),(59,450,2,'Từ chối','2021-07-17 18:49:38'),(60,454,2,'Từ chối','2021-07-17 18:49:38'),(61,466,2,'Từ chối','2021-07-17 18:49:38'),(62,470,2,'Từ chối','2021-07-17 18:49:38'),(63,482,2,'Từ chối','2021-07-17 18:49:38'),(64,486,2,'Từ chối','2021-07-17 18:49:38'),(65,498,2,'Từ chối','2021-07-17 18:49:38'),(66,510,2,'Từ chối','2021-07-17 18:49:38'),(67,514,2,'Từ chối','2021-07-17 18:49:38'),(68,526,2,'Từ chối','2021-07-17 18:49:38'),(69,530,2,'Từ chối','2021-07-17 18:49:38'),(70,542,2,'Từ chối','2021-07-17 18:49:38'),(71,546,2,'Từ chối','2021-07-17 18:49:38'),(72,558,2,'Từ chối','2021-07-17 18:49:38'),(73,570,2,'Từ chối','2021-07-17 18:49:38'),(74,574,2,'Từ chối','2021-07-17 18:49:38'),(75,586,2,'Từ chối','2021-07-17 18:49:38'),(76,590,2,'Từ chối','2021-07-17 18:49:38'),(77,602,2,'Từ chối','2021-07-17 18:49:38'),(78,606,2,'Từ chối','2021-07-17 18:49:38'),(79,618,2,'Từ chối','2021-07-17 18:49:38'),(80,630,2,'Từ chối','2021-07-17 18:49:38'),(81,634,2,'Từ chối','2021-07-17 18:49:38'),(82,646,2,'Từ chối','2021-07-17 18:49:38'),(83,650,2,'Từ chối','2021-07-17 18:49:38'),(84,662,2,'Từ chối','2021-07-17 18:49:38'),(85,666,2,'Từ chối','2021-07-17 18:49:38'),(86,678,2,'Từ chối','2021-07-17 18:49:38'),(87,690,2,'Từ chối','2021-07-17 18:49:38'),(88,694,2,'Từ chối','2021-07-17 18:49:38'),(89,706,2,'Từ chối','2021-07-17 18:49:38'),(90,710,2,'Từ chối','2021-07-17 18:49:38'),(91,722,2,'Từ chối','2021-07-17 18:49:38'),(92,726,2,'Từ chối','2021-07-17 18:49:38'),(93,738,2,'Từ chối','2021-07-17 18:49:38'),(94,750,2,'Từ chối','2021-07-17 18:49:38'),(95,754,2,'Từ chối','2021-07-17 18:49:38'),(96,766,2,'Từ chối','2021-07-17 18:49:38'),(97,770,2,'Từ chối','2021-07-17 18:49:38'),(98,782,2,'Từ chối','2021-07-17 18:49:38'),(99,786,2,'Từ chối','2021-07-17 18:49:38'),(100,798,2,'Từ chối','2021-07-17 18:49:38'),(101,810,2,'Từ chối','2021-07-17 18:49:38'),(102,814,2,'Từ chối','2021-07-17 18:49:38'),(103,826,2,'Từ chối','2021-07-17 18:49:38'),(104,830,2,'Từ chối','2021-07-17 18:49:38'),(105,842,2,'Từ chối','2021-07-17 18:49:38'),(106,846,2,'Từ chối','2021-07-17 18:49:38'),(107,858,2,'Từ chối','2021-07-17 18:49:38'),(108,870,2,'Từ chối','2021-07-17 18:49:38'),(109,874,2,'Từ chối','2021-07-17 18:49:38'),(110,886,2,'Từ chối','2021-07-17 18:49:38'),(111,890,2,'Từ chối','2021-07-17 18:49:38'),(112,902,2,'Từ chối','2021-07-17 18:49:38'),(113,906,2,'Từ chối','2021-07-17 18:49:38'),(114,918,2,'Từ chối','2021-07-17 18:49:38'),(115,930,2,'Từ chối','2021-07-17 18:49:38'),(116,934,2,'Từ chối','2021-07-17 18:49:38'),(117,946,2,'Từ chối','2021-07-17 18:49:38'),(118,950,2,'Từ chối','2021-07-17 18:49:38'),(119,962,2,'Từ chối','2021-07-17 18:49:38'),(120,966,2,'Từ chối','2021-07-17 18:49:38'),(121,978,2,'Từ chối','2021-07-17 18:49:38'),(122,990,2,'Từ chối','2021-07-17 18:49:38'),(123,994,2,'Từ chối','2021-07-17 18:49:38'),(134,10,7,'Từ chối','2021-07-17 18:50:36'),(135,14,7,'Từ chối','2021-07-17 18:50:36'),(136,22,7,'Từ chối','2021-07-17 18:50:36'),(137,26,7,'Từ chối','2021-07-17 18:50:36'),(138,38,7,'Từ chối','2021-07-17 18:50:36'),(139,42,7,'Từ chối','2021-07-17 18:50:36'),(140,54,7,'Từ chối','2021-07-17 18:50:36'),(141,58,7,'Từ chối','2021-07-17 18:50:36'),(142,70,7,'Từ chối','2021-07-17 18:50:36'),(143,74,7,'Từ chối','2021-07-17 18:50:36'),(144,82,7,'Từ chối','2021-07-17 18:50:36'),(145,86,7,'Từ chối','2021-07-17 18:50:36'),(146,98,7,'Từ chối','2021-07-17 18:50:36'),(147,102,7,'Từ chối','2021-07-17 18:50:36'),(148,114,7,'Từ chối','2021-07-17 18:50:36'),(149,118,7,'Từ chối','2021-07-17 18:50:36'),(150,130,7,'Từ chối','2021-07-17 18:50:36'),(151,134,7,'Từ chối','2021-07-17 18:50:36'),(152,142,7,'Từ chối','2021-07-17 18:50:36'),(153,146,7,'Từ chối','2021-07-17 18:50:36'),(154,158,7,'Từ chối','2021-07-17 18:50:36'),(155,162,7,'Từ chối','2021-07-17 18:50:36'),(156,174,7,'Từ chối','2021-07-17 18:50:36'),(157,178,7,'Từ chối','2021-07-17 18:50:36'),(158,190,7,'Từ chối','2021-07-17 18:50:36'),(159,194,7,'Từ chối','2021-07-17 18:50:36'),(160,202,7,'Từ chối','2021-07-17 18:50:36'),(161,206,7,'Từ chối','2021-07-17 18:50:36'),(162,218,7,'Từ chối','2021-07-17 18:50:36'),(163,222,7,'Từ chối','2021-07-17 18:50:36'),(164,234,7,'Từ chối','2021-07-17 18:50:36'),(165,238,7,'Từ chối','2021-07-17 18:50:36'),(166,250,7,'Từ chối','2021-07-17 18:50:36'),(167,254,7,'Từ chối','2021-07-17 18:50:36'),(168,262,7,'Từ chối','2021-07-17 18:50:36'),(169,266,7,'Từ chối','2021-07-17 18:50:36'),(170,278,7,'Từ chối','2021-07-17 18:50:36'),(171,282,7,'Từ chối','2021-07-17 18:50:36'),(172,294,7,'Từ chối','2021-07-17 18:50:36'),(173,298,7,'Từ chối','2021-07-17 18:50:36'),(174,310,7,'Từ chối','2021-07-17 18:50:36'),(175,314,7,'Từ chối','2021-07-17 18:50:36'),(176,322,7,'Từ chối','2021-07-17 18:50:36'),(177,326,7,'Từ chối','2021-07-17 18:50:36'),(178,338,7,'Từ chối','2021-07-17 18:50:36'),(179,342,7,'Từ chối','2021-07-17 18:50:36'),(180,354,7,'Từ chối','2021-07-17 18:50:36'),(181,358,7,'Từ chối','2021-07-17 18:50:36'),(182,370,7,'Từ chối','2021-07-17 18:50:36'),(183,374,7,'Từ chối','2021-07-17 18:50:36'),(184,382,7,'Từ chối','2021-07-17 18:50:36'),(185,386,7,'Từ chối','2021-07-17 18:50:36'),(186,398,7,'Từ chối','2021-07-17 18:50:36'),(187,402,7,'Từ chối','2021-07-17 18:50:36'),(188,414,7,'Từ chối','2021-07-17 18:50:36'),(189,418,7,'Từ chối','2021-07-17 18:50:36'),(190,430,7,'Từ chối','2021-07-17 18:50:36'),(191,434,7,'Từ chối','2021-07-17 18:50:36'),(192,442,7,'Từ chối','2021-07-17 18:50:36'),(193,446,7,'Từ chối','2021-07-17 18:50:36'),(194,458,7,'Từ chối','2021-07-17 18:50:36'),(195,462,7,'Từ chối','2021-07-17 18:50:36'),(196,474,7,'Từ chối','2021-07-17 18:50:36'),(197,478,7,'Từ chối','2021-07-17 18:50:36'),(198,490,7,'Từ chối','2021-07-17 18:50:36'),(199,494,7,'Từ chối','2021-07-17 18:50:36'),(200,502,7,'Từ chối','2021-07-17 18:50:36'),(201,506,7,'Từ chối','2021-07-17 18:50:36'),(202,518,7,'Từ chối','2021-07-17 18:50:36'),(203,522,7,'Từ chối','2021-07-17 18:50:36'),(204,534,7,'Từ chối','2021-07-17 18:50:36'),(205,538,7,'Từ chối','2021-07-17 18:50:36'),(206,550,7,'Từ chối','2021-07-17 18:50:36'),(207,554,7,'Từ chối','2021-07-17 18:50:36'),(208,562,7,'Từ chối','2021-07-17 18:50:36'),(209,566,7,'Từ chối','2021-07-17 18:50:36'),(210,578,7,'Từ chối','2021-07-17 18:50:36'),(211,582,7,'Từ chối','2021-07-17 18:50:36'),(212,594,7,'Từ chối','2021-07-17 18:50:36'),(213,598,7,'Từ chối','2021-07-17 18:50:36'),(214,610,7,'Từ chối','2021-07-17 18:50:36'),(215,614,7,'Từ chối','2021-07-17 18:50:36'),(216,622,7,'Từ chối','2021-07-17 18:50:36'),(217,626,7,'Từ chối','2021-07-17 18:50:36'),(218,638,7,'Từ chối','2021-07-17 18:50:36'),(219,642,7,'Từ chối','2021-07-17 18:50:36'),(220,654,7,'Từ chối','2021-07-17 18:50:36'),(221,658,7,'Từ chối','2021-07-17 18:50:36'),(222,670,7,'Từ chối','2021-07-17 18:50:36'),(223,674,7,'Từ chối','2021-07-17 18:50:36'),(224,682,7,'Từ chối','2021-07-17 18:50:36'),(225,686,7,'Từ chối','2021-07-17 18:50:36'),(226,698,7,'Từ chối','2021-07-17 18:50:36'),(227,702,7,'Từ chối','2021-07-17 18:50:36'),(228,714,7,'Từ chối','2021-07-17 18:50:36'),(229,718,7,'Từ chối','2021-07-17 18:50:36'),(230,730,7,'Từ chối','2021-07-17 18:50:36'),(231,734,7,'Từ chối','2021-07-17 18:50:36'),(232,742,7,'Từ chối','2021-07-17 18:50:36'),(233,746,7,'Từ chối','2021-07-17 18:50:36'),(234,758,7,'Từ chối','2021-07-17 18:50:36'),(235,762,7,'Từ chối','2021-07-17 18:50:36'),(236,774,7,'Từ chối','2021-07-17 18:50:36'),(237,778,7,'Từ chối','2021-07-17 18:50:36'),(238,790,7,'Từ chối','2021-07-17 18:50:36'),(239,794,7,'Từ chối','2021-07-17 18:50:36'),(240,802,7,'Từ chối','2021-07-17 18:50:36'),(241,806,7,'Từ chối','2021-07-17 18:50:36'),(242,818,7,'Từ chối','2021-07-17 18:50:36'),(243,822,7,'Từ chối','2021-07-17 18:50:36'),(244,834,7,'Từ chối','2021-07-17 18:50:36'),(245,838,7,'Từ chối','2021-07-17 18:50:36'),(246,850,7,'Từ chối','2021-07-17 18:50:36'),(247,854,7,'Từ chối','2021-07-17 18:50:36'),(248,862,7,'Từ chối','2021-07-17 18:50:36'),(249,866,7,'Từ chối','2021-07-17 18:50:36'),(250,878,7,'Từ chối','2021-07-17 18:50:36'),(251,882,7,'Từ chối','2021-07-17 18:50:36'),(252,894,7,'Từ chối','2021-07-17 18:50:36'),(253,898,7,'Từ chối','2021-07-17 18:50:36'),(254,910,7,'Từ chối','2021-07-17 18:50:36'),(255,914,7,'Từ chối','2021-07-17 18:50:36'),(256,922,7,'Từ chối','2021-07-17 18:50:36'),(257,926,7,'Từ chối','2021-07-17 18:50:36'),(258,938,7,'Từ chối','2021-07-17 18:50:36'),(259,942,7,'Từ chối','2021-07-17 18:50:36'),(260,954,7,'Từ chối','2021-07-17 18:50:36'),(261,958,7,'Từ chối','2021-07-17 18:50:36'),(262,970,7,'Từ chối','2021-07-17 18:50:36'),(263,974,7,'Từ chối','2021-07-17 18:50:36'),(264,982,7,'Từ chối','2021-07-17 18:50:36'),(265,986,7,'Từ chối','2021-07-17 18:50:36'),(266,998,7,'Từ chối','2021-07-17 18:50:36');
-/*!40000 ALTER TABLE `declined_articles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `editor_categories`
---
-
+-- ----------------------------
+-- Table structure for editor_categories
+-- ----------------------------
 DROP TABLE IF EXISTS `editor_categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `editor_categories` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `editor_id` int(10) unsigned NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_editor_id` (`editor_id`),
-  KEY `fk_category_id` (`category_id`),
+CREATE TABLE `editor_categories`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `editor_id` int(10) UNSIGNED NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `fk_editor_id`(`editor_id`) USING BTREE,
+  INDEX `fk_category_id`(`category_id`) USING BTREE,
   CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_editor_id` FOREIGN KEY (`editor_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `editor_categories`
---
+-- ----------------------------
+-- Records of editor_categories
+-- ----------------------------
+INSERT INTO `editor_categories` VALUES (1, 2, 1);
+INSERT INTO `editor_categories` VALUES (2, 2, 2);
+INSERT INTO `editor_categories` VALUES (3, 2, 3);
+INSERT INTO `editor_categories` VALUES (4, 2, 4);
+INSERT INTO `editor_categories` VALUES (5, 2, 5);
+INSERT INTO `editor_categories` VALUES (6, 2, 6);
+INSERT INTO `editor_categories` VALUES (7, 2, 7);
+INSERT INTO `editor_categories` VALUES (8, 7, 3);
+INSERT INTO `editor_categories` VALUES (9, 7, 8);
+INSERT INTO `editor_categories` VALUES (10, 7, 9);
+INSERT INTO `editor_categories` VALUES (11, 7, 10);
 
-LOCK TABLES `editor_categories` WRITE;
-/*!40000 ALTER TABLE `editor_categories` DISABLE KEYS */;
-INSERT INTO `editor_categories` VALUES (1,2,1),(2,2,2),(3,2,3),(4,2,4),(5,2,5),(6,2,6),(7,2,7),(8,7,3),(9,7,8),(10,7,9),(11,7,10);
-/*!40000 ALTER TABLE `editor_categories` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for resetpwd_otp_logs
+-- ----------------------------
+DROP TABLE IF EXISTS `resetpwd_otp_logs`;
+CREATE TABLE `resetpwd_otp_logs`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `otp` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `create_time` datetime NOT NULL,
+  `outdate_time` datetime NOT NULL,
+  `is_used` tinyint(255) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Table structure for table `states`
---
+-- ----------------------------
+-- Records of resetpwd_otp_logs
+-- ----------------------------
+INSERT INTO `resetpwd_otp_logs` VALUES (15, '1@1.com', 'LBOU51', '2021-08-13 17:22:52', '2021-08-13 17:37:52', 0);
 
+-- ----------------------------
+-- Table structure for states
+-- ----------------------------
 DROP TABLE IF EXISTS `states`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `states` (
-  `state_id` int(10) unsigned NOT NULL,
-  `state_name` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`state_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `states`  (
+  `state_id` int(10) UNSIGNED NOT NULL,
+  `state_name` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`state_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `states`
---
+-- ----------------------------
+-- Records of states
+-- ----------------------------
+INSERT INTO `states` VALUES (1, 'Đã duyệt - Chờ xuất bản');
+INSERT INTO `states` VALUES (2, 'Đã xuất bản');
+INSERT INTO `states` VALUES (3, 'Bị từ chối');
+INSERT INTO `states` VALUES (4, 'Chưa được duyệt');
 
-LOCK TABLES `states` WRITE;
-/*!40000 ALTER TABLE `states` DISABLE KEYS */;
-INSERT INTO `states` VALUES (1,'Đã duyệt - Chờ xuất bản'),(2,'Đã xuất bản'),(3,'Bị từ chối'),(4,'Chưa được duyệt');
-/*!40000 ALTER TABLE `states` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sub_timer`
---
-
+-- ----------------------------
+-- Table structure for sub_timer
+-- ----------------------------
 DROP TABLE IF EXISTS `sub_timer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sub_timer` (
-  `subscriber_id` int(10) unsigned NOT NULL,
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sub_timer`  (
+  `subscriber_id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `start_time` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_subsciber_id` (`subscriber_id`),
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `fk_subsciber_id`(`subscriber_id`) USING BTREE,
   CONSTRAINT `fk_subsciber_id` FOREIGN KEY (`subscriber_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `sub_timer`
---
+-- ----------------------------
+-- Records of sub_timer
+-- ----------------------------
+INSERT INTO `sub_timer` VALUES (4, 1, '2021-06-09 14:19:34');
+INSERT INTO `sub_timer` VALUES (4, 2, '2021-06-23 14:19:39');
 
-LOCK TABLES `sub_timer` WRITE;
-/*!40000 ALTER TABLE `sub_timer` DISABLE KEYS */;
-INSERT INTO `sub_timer` VALUES (4,1,'2021-06-09 14:19:34'),(4,2,'2021-06-23 14:19:39');
-/*!40000 ALTER TABLE `sub_timer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `subcategories`
---
-
+-- ----------------------------
+-- Table structure for subcategories
+-- ----------------------------
 DROP TABLE IF EXISTS `subcategories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subcategories` (
-  `subcategory_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `subcategory_name` varchar(255) NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`subcategory_id`),
-  KEY `fk_category_id_3` (`category_id`),
+CREATE TABLE `subcategories`  (
+  `subcategory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `subcategory_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `category_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`subcategory_id`) USING BTREE,
+  INDEX `fk_category_id_3`(`category_id`) USING BTREE,
   CONSTRAINT `fk_category_id_3` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `subcategories`
---
+-- ----------------------------
+-- Records of subcategories
+-- ----------------------------
+INSERT INTO `subcategories` VALUES (1, 'Nông sản', 3);
+INSERT INTO `subcategories` VALUES (2, 'Hải sản', 3);
+INSERT INTO `subcategories` VALUES (3, 'Đá bóng', 1);
+INSERT INTO `subcategories` VALUES (4, 'Xung quanh', 2);
+INSERT INTO `subcategories` VALUES (5, 'Thế giới', 2);
+INSERT INTO `subcategories` VALUES (6, 'PL trong nước', 4);
+INSERT INTO `subcategories` VALUES (7, 'PL ngoài nước', 4);
+INSERT INTO `subcategories` VALUES (8, 'Bóng rổ', 1);
+INSERT INTO `subcategories` VALUES (9, 'Kinh tế ngoài nước', 5);
+INSERT INTO `subcategories` VALUES (10, 'Kinh tế trong nước', 5);
+INSERT INTO `subcategories` VALUES (11, 'Chính trị', 6);
+INSERT INTO `subcategories` VALUES (12, 'Xã hội', 7);
+INSERT INTO `subcategories` VALUES (13, 'Khoa học', 8);
+INSERT INTO `subcategories` VALUES (14, 'Hài', 9);
+INSERT INTO `subcategories` VALUES (15, 'Sức khoẻ', 10);
 
-LOCK TABLES `subcategories` WRITE;
-/*!40000 ALTER TABLE `subcategories` DISABLE KEYS */;
-INSERT INTO `subcategories` VALUES (1,'Nông sản',3),(2,'Hải sản',3),(3,'Đá bóng',1),(4,'Xung quanh',2),(5,'Thế giới',2),(6,'PL trong nước',4),(7,'PL ngoài nước',4),(8,'Bóng rổ',1),(9,'Kinh tế ngoài nước',5),(10,'Kinh tế trong nước',5),(11,'Chính trị',6),(12,'Xã hội',7),(13,'Khoa học',8),(14,'Hài',9),(15,'Sức khoẻ',10);
-/*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tags`
---
-
+-- ----------------------------
+-- Table structure for tags
+-- ----------------------------
 DROP TABLE IF EXISTS `tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tags` (
-  `tag_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `tag_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `tags`  (
+  `tag_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tag_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`tag_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `tags`
---
+-- ----------------------------
+-- Records of tags
+-- ----------------------------
+INSERT INTO `tags` VALUES (1, 'Noi dung tag_name_1');
+INSERT INTO `tags` VALUES (2, 'Noi dung tag_name_2');
 
-LOCK TABLES `tags` WRITE;
-/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Noi dung tag_name_1'),(2,'Noi dung tag_name_2');
-/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user_roles`
---
-
+-- ----------------------------
+-- Table structure for user_roles
+-- ----------------------------
 DROP TABLE IF EXISTS `user_roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_roles` (
-  `rold_id` int(10) unsigned NOT NULL,
-  `role_name` varchar(64) NOT NULL,
-  PRIMARY KEY (`rold_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+CREATE TABLE `user_roles`  (
+  `rold_id` int(10) UNSIGNED NOT NULL,
+  `role_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`rold_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `user_roles`
---
+-- ----------------------------
+-- Records of user_roles
+-- ----------------------------
+INSERT INTO `user_roles` VALUES (2, 'Subscriber');
+INSERT INTO `user_roles` VALUES (3, 'Writer');
+INSERT INTO `user_roles` VALUES (4, 'Editor');
+INSERT INTO `user_roles` VALUES (5, 'Admin');
 
-LOCK TABLES `user_roles` WRITE;
-/*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (2,'Subscriber'),(3,'Writer'),(4,'Editor'),(5,'Admin');
-/*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `full_name` varchar(255) NOT NULL,
-  `role` int(10) unsigned NOT NULL COMMENT '2: Subber, 3: Writer, 4: Editor, 5: Admin',
-  `pseudonym` varchar(255) DEFAULT NULL COMMENT 'But danh (neu role la 3)',
-  `username` varchar(16) NOT NULL,
-  `password` varchar(512) NOT NULL COMMENT 'Bcrypt password',
-  `email` varchar(255) NOT NULL,
+CREATE TABLE `users`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `role` int(10) UNSIGNED NOT NULL COMMENT '2: Subber, 3: Writer, 4: Editor, 5: Admin',
+  `pseudonym` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'But danh (neu role la 3)',
+  `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `password` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'Bcrypt password',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `dob` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_role` (`role`),
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `fk_role`(`role`) USING BTREE,
   CONSTRAINT `fk_role` FOREIGN KEY (`role`) REFERENCES `user_roles` (`rold_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `users`
---
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'Nguyễn Quốc Trung Admin', 5, NULL, 'trung', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'trung@gmail.com', '2021-06-01');
+INSERT INTO `users` VALUES (2, 'Trần Quốc Thắng Editor', 4, NULL, 'thang', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'thang@gmail.com', '2021-06-08');
+INSERT INTO `users` VALUES (3, 'Trần Chí Hào Writer', 3, 'ButDanhCuaHao123456', 'hao', '$2a$10$yeF13jeaBfXkaZmixAw84OTdssIdE80SiGvkxf7b5PfvyxriCy.Oq', 'hao123@gmail.com', '2021-08-13');
+INSERT INTO `users` VALUES (4, 'Người Subscriber', 2, NULL, 'UserNameOfSub', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'sub@gmail.com', '2021-06-08');
+INSERT INTO `users` VALUES (5, 'Một writer nào đó', 3, 'Bút danh nào đó', 'random_writer', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'random@gmail.com', '2015-06-26');
+INSERT INTO `users` VALUES (6, 'SubScriberrrrrrr', 2, NULL, 'SUBBBB', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'subb@gmail.com', '2021-07-28');
+INSERT INTO `users` VALUES (7, 'Editor Thứ Hai', 4, NULL, 'editorthuhai', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'editorthuhai@gmail.com', '2000-01-02');
+INSERT INTO `users` VALUES (8, '1', 2, NULL, 'testreg', '$2a$10$oVWmkS/r7v3DKDSb80noee3sAhiDR3FuXMxMk7UIUpX/ONwi.g1cG', '1@1.com', '2021-08-17');
+INSERT INTO `users` VALUES (9, 'cdasmkclkslmls', 2, NULL, 'testreg1', '$2a$10$kQoX6IS0qkwAhQ3pT67ncOuwXFO1ajqkY0jvRyR0eWNF.HhnqBElu', 'wqewqemkmgmg2@mmqmmqmqm.domdmwq', '2021-08-13');
+INSERT INTO `users` VALUES (10, 'Test Login', 2, NULL, 'testlogin', '$2a$10$VryB0.FL0RrXKQWXPgVYX.6h/pQt.u9Wh7h8.O6f4z5UhDs5LowtG', 'testlogin@gmail.com', '2021-11-04');
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Nguyễn Quốc Trung Admin',5,NULL,'trung','','trung@gmail.com','2021-06-01'),(2,'Trần Quốc Thắng Editor',4,NULL,'thang','','thang@gmail.com','2021-06-08'),(3,'Trần Chí Hào Writer',3,'ButDanhCuaHao','hao','','hao@gmail.com','2021-06-09'),(4,'Người Subscriber',2,NULL,'UserNameOfSub','','sub@gmail.com','2021-06-08'),(5,'Một writer nào đó',3,'Bút danh nào đó','random_writer','','random@gmail.com','2015-06-26'),(6,'SubScriberrrrrrr',2,NULL,'SUBBBB','','subb@gmail.com','2021-07-28'),(7,'Editor Thứ Hai',4,NULL,'editorthuhai','','editorthuhai@gmail.com','2000-01-02');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-07-17 18:55:16
+SET FOREIGN_KEY_CHECKS = 1;
