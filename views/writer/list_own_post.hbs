@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    {{#if permitted}}
     <div class="row">
         <div class="col-md-8">
             <h3>Bài viết của bạn</h3>
@@ -49,9 +50,11 @@
                 </td>
                 <td>
                     {{#if (ifCond state '==' '3')}}
-                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh sửa</a>
+                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh
+                        sửa</a>
                     {{else if (ifCond state '==' '4')}}
-                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh sửa</a>
+                    <a href="/writer/edit/{{article_id}}" class="btn btn-primary btn-sm"><i class="fa fa-cut"></i> Chỉnh
+                        sửa</a>
                     {{/if}}
                 </td>
             </tr>
@@ -60,5 +63,8 @@
     </table>
     {{else}}
     <p>Bạn chưa tạo bài viết nào!</p>
+    {{/if}}
+    {{else}}
+    <p>Bạn không có quyền truy cập trang này!</p>
     {{/if}}
 </div>

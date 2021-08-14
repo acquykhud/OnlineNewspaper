@@ -4,6 +4,7 @@
 {{/section}}
 
 <div class="container-fluid">
+    {{#if permitted}}
     <div class="row">
         <div class="col-md-8">
             <h3>Bài viết bạn quản lý</h3>
@@ -74,6 +75,9 @@
     </table>
     {{else}}
     <p>Chuyên mục của bạn chưa có bài viết nào!</p>
+    {{/if}}
+    {{else}}
+    <p>Bạn không có quyền truy cập trang này!</p>
     {{/if}}
 </div>
 

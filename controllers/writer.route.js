@@ -1,15 +1,20 @@
 const express = require('express');
 
+const auth = require('../middlewares/auth.mdw');
+
 const articlesModel = require('../models/articles.model');
 const tagsModel = require('../models/tags.model');
 
 const router = express.Router();
 
-// Bai viet cua writer nao?
-let logged = false;
-let author_id = 3;
+router.get('/', auth.requireLogin, async function(req, res) {
+    if (req.session.user.role !== 3) {
+        res.render('editor/list_managed_post', {
+            permitted: false
+        });
+    }
 
-router.get('/', async function(req, res) {
+    const author_id = req.session.user.id;
     const allArticles = await articlesModel.getArticleList(author_id);
 
     for (const article of allArticles) {
@@ -33,29 +38,27 @@ router.get('/', async function(req, res) {
         }
     }
 
-    //console.log(allArticles);
-
     res.render('writer/list_own_post', {
-        logged: logged,
+        permitted: true,
         article_list: allArticles
     });
 });
 
-router.get('/edit/:id/', async function(req, res) {
+router.get('/edit/:id/', auth.requireLogin, async function(req, res) {
+    const author_id = req.session.user.id;
     const article_id = req.params.id;
+
     let article = await articlesModel.getArticleForWriter(article_id);
-    //console.log(article);
     if (!((article.state === 3 || article.state === 4) && author_id === article.author_id)) {
         article = undefined;
     }
     res.render('writer/edit_post', {
-        logged: logged,
         article: article,
         article_id: article_id
     });
 });
 
-router.post('/edit-post', async function(req, res) {
+router.post('/edit-post', auth.requireLogin, async function(req, res) {
     const article_id = req.body.article_id;
     const title = req.body.title;
     const subcategory_id = req.body.subcategory_id;
@@ -64,13 +67,6 @@ router.post('/edit-post', async function(req, res) {
     const tags = req.body.tags[1].split(',');
     const avatar_path = req.body.avatar;
 
-    // console.log(article_id);
-    // console.log(title);
-    // console.log(subcategory_id);
-    // console.log(abstract);
-    // console.log(content);
-    // console.log(tags);
-
     await articlesModel.updateArticleFromWriter(article_id, title, abstract, content, avatar_path);
     await articlesModel.updateSubcategoryForArticle(article_id, subcategory_id);
     await tagsModel.addTagList(tags);
@@ -78,26 +74,25 @@ router.post('/edit-post', async function(req, res) {
     res.redirect('/writer');
 })
 
+router.get('/new', auth.requireLogin, function(req, res) {
+    let permitted = true;
+    if (req.session.user.role !== 3) {
+        permitted = false;
+    }
 
-router.get('/new', function(req, res) {
     res.render('writer/new_post', {
-        logged: logged
+        permitted: permitted
     });
 });
 
-router.post('/add-new-post', async function(req, res) {
+router.post('/add-new-post', auth.requireLogin, async function(req, res) {
+    const author_id = req.session.user.id;
     const title = req.body.title;
     const subcategory_id = req.body.subcategory_id;
     const abstract = req.body.abstract;
     const content = req.body.content;
     const tags = req.body.tags[1].split(',');
     const avatar_path = req.body.avatar;
-
-    // console.log(title);
-    // console.log(subcategory_id);
-    // console.log(abstract);
-    // console.log(content);
-    // console.log(tags);
 
     const addResult = await articlesModel.addArticleFromWriter(author_id, title, content, abstract, avatar_path);
     const article_id = addResult[0].insertId;

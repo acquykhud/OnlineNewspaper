@@ -1,16 +1,21 @@
 const express = require('express');
 const moment = require('moment');
 
+const auth = require('../middlewares/auth.mdw');
+
 const articlesModel = require('../models/articles.model');
 const tagsModel = require('../models/tags.model');
 
 const router = express.Router();
 
-// Bài viết của editor nào?
-const editor_id = 2;
-let logged = false;
+router.get('/', auth.requireLogin, async function(req, res) {
+    if (req.session.user.role !== 4) {
+        res.render('editor/list_managed_post', {
+            permitted: false
+        });
+    }
 
-router.get('/', async function(req, res) {
+    const editor_id = req.session.user.id;
     const allArticles = await articlesModel.getEditorArticleList(editor_id);
 
     for (const article of allArticles) {
@@ -40,24 +45,19 @@ router.get('/', async function(req, res) {
             } else {
                 article.editor = accept_info.full_name;
             }
-            console.log(article.editor);
         }
     }
 
-    //console.log(allArticles);
-
     res.render('editor/list_managed_post', {
-        logged: logged,
+        permitted: true,
         article_list: allArticles
     });
 });
 
-router.post('/send-declined-reason', async function(req, res) {
+router.post('/send-declined-reason', auth.requireLogin, async function(req, res) {
+    const editor_id = req.session.user.id;
     const article_id = req.body.declined_article_id;
     const declined_reason = req.body.declined_note;
-
-    //console.log(article_id);
-    //console.log(declined_reason);
 
     await articlesModel.setStateToDeclined(article_id);
     await articlesModel.addToDeclinedArticles(article_id, editor_id, declined_reason);
@@ -65,16 +65,12 @@ router.post('/send-declined-reason', async function(req, res) {
     res.redirect('/editor');
 });
 
-router.post('/send-accepted', async function(req, res) {
+router.post('/send-accepted', auth.requireLogin, async function(req, res) {
+    const editor_id = req.session.user.id;
     const article_id = req.body.accepted_article_id;
     const subcategory_id = req.body.subcategory_id;
     const tags = req.body.tags[1].split(',');
     const release_time = moment(req.body.release_time, 'DD/MM/YYYY HH:mm').format('YYYY-MM-DD HH:mm:ss');
-
-    // console.log(article_id);
-    // console.log(subcategory_id);
-    // console.log(tags);
-    // console.log(release_time);
 
     await articlesModel.updateAcceptedArticleFromEditor(article_id, editor_id, release_time);
     await articlesModel.updateSubcategoryForArticle(article_id, subcategory_id);

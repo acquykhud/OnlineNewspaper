@@ -1,4 +1,5 @@
 <div class="container">
+    {{#if permitted}}
     <div class="row">
         <div class="col-md-12">
             <h3>Thêm bài viết</h3>
@@ -39,6 +40,9 @@
             </form>
         </div>
     </div>
+    {{else}}
+    <p>Bạn không có quyền thêm bài viết!</p>
+    {{/if}}
 </div>
 
 {{#section 'js'}}
