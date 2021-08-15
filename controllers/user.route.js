@@ -3,6 +3,9 @@ const auth = require('../middlewares/auth.mdw');
 const userModel = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
+const sendmail = require('../utils/sendmail');
+const { route } = require('./writer.route');
+const session = require('express-session');
 const router = express.Router();
 
 router.get('/login', auth.requireNoLogin, function (req, res) {
@@ -195,7 +198,8 @@ router.post('/resetpwd', auth.requireNoLogin, async function (req, res) {
         res.render('user/resetpwd_send_otp', {err: "Hãy nhập email"});
     }
     else {
-        if (await userModel.findUserByEmail(req.body.email) == null) {
+        let user = await userModel.findUserByEmail(req.body.email);
+        if (user == null) {
             res.render('user/resetpwd_send_otp', {err: "Không có tài khoản nào sử dụng địa chỉ email này"});
         }
         else {
@@ -222,11 +226,63 @@ router.post('/resetpwd', auth.requireNoLogin, async function (req, res) {
                 const dow = tmp.day();
                 lastestOTP.outdate_time = tmp.format(`[${days[dow]}], DD/MM/YYYY HH:mm:ss`);
             }
+            req.session.emailOTP = req.body.email;
+            sendmail.sendOTPEmail(req.body.email, user.full_name, lastestOTP.otp, lastestOTP.outdate_time);
             res.render('user/resetpwd_change_pass', {
                 email: req.body.email, 
                 time: lastestOTP.outdate_time
             });
         }
+    }
+});
+
+router.post('/resetpwd/changepass', auth.requireNoLogin, async function (req, res) {
+    let msg = [];
+    if (typeof(req.body.otp) == 'undefined' || req.body.otp.length == 0) {
+        msg.push("Hãy nhập mã OTP");
+    }
+    if (typeof(req.body.password) == 'undefined' || req.body.password.length == 0) {
+        msg.push("Hãy nhập mật khẩu mới");
+    }
+    if (typeof(req.body.repassword) == 'undefined' || req.body.repassword.length == 0) {
+        msg.push("Hãy nhập lại mật khẩu mới");
+    }
+    if (req.body.password != req.body.repassword) {
+        msg.push("Mật khẩu nhập lại không khớp");
+    }
+    if (msg.length == 0) {
+        if (req.session.emailOTP == null) {
+            return res.redirect('/user/resetpwd');
+        }
+        otp = await userModel.findNewestOTPByEmailAndOTP(req.session.emailOTP, req.body.otp);
+        if (otp == null) {
+            msg.push("Mã OTP không đúng");
+        }
+        else {
+            user = await userModel.findUserByEmail(req.session.emailOTP);
+            if (user == null) {
+                msg.push("Không tìm thấy tài khoản của bạn");
+            }
+            else {
+                user.password = bcrypt.hashSync(req.body.password, 10);
+                await userModel.updateUser(user);
+                req.session.emailOTP = null;
+                msg.push("Khôi phục mật khẩu thành công");
+                return res.render('user/resetpwd_change_pass', {
+                    msg: msg,
+                });
+            }
+        }
+        res.render('user/resetpwd_change_pass', {
+            msg: msg,
+            err: true
+        });
+    }
+    else {
+        res.render('user/resetpwd_change_pass', {
+            msg: msg,
+            err: true
+        });
     }
 });
 

@@ -5,6 +5,9 @@ module.exports = function (app) {
         if (typeof(req.session.logged) == 'undefined') {
             req.session.logged = false;
         }
+        if (typeof(req.session.emailOTP) == 'undefined') {
+            req.session.emailOTP = null;
+        }
         res.locals.logged = req.session.logged;
         res.locals.user = req.session.user;
         next();

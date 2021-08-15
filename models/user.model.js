@@ -29,6 +29,14 @@ module.exports = {
         return rows[0];
     },
 
+    async findNewestOTPByEmailAndOTP(email, otp) {
+        const rows = await db('resetpwd_otp_logs').where('email', email).where('otp', otp).orderBy('outdate_time', 'desc');
+        if (rows.length == 0) {
+            return null;
+        }
+        return rows[0];
+    },
+
     async findRoleNameByRoleId(roleId) {
         const matched_rows = await db('user_roles').where('rold_id', roleId);
         if (matched_rows.length == 0) {
