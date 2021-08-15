@@ -4,6 +4,7 @@ const userModel = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const sendmail = require('../utils/sendmail');
+const { checkValidSub } = require('../utils/helpers');
 const router = express.Router();
 
 router.get('/login', auth.requireNoLogin, function (req, res) {
