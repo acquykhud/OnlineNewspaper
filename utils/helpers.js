@@ -76,6 +76,8 @@ module.exports = {
         if (user.role !== 2)
             return false;
         const subInfo = await findSubInfoByUserId(user.id);
+        if (subInfo === null)
+            return false;
         const start_time = subInfo['start_time'];
         const now = Math.ceil(Date.now() / 1000.0);
         const diff = now - start_time;
