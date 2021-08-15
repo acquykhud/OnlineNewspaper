@@ -8,4 +8,5 @@ module.exports = function(app) {
     app.use('/ajax/', require('../controllers/ajax.route'));
     app.use('/user/', require('../controllers/user.route'));
     app.use('/view/', require('../controllers/view.route'));
+    app.use('/admin/', require('../controllers/admin.route'));
 }

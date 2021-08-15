@@ -60,13 +60,16 @@
             <ul class="navbar-nav mr-auto">
                 {{#each this.categoriesList}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link" role="button" id="navbarDropdown" href="/view/cat/{{this.category.category_id}}" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" role="button" id="navbarDropdown" href="/view/cat/{{this.category.category_id}}"
+                        aria-haspopup="true" aria-expanded="false">
                         {{this.category.category_name}}
                     </a>
                     {{#unless this.empty}}
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {{#each this.subCategoriesList}}
-                        <a class="dropdown-item" href="/view/cat/{{category_id}}/{{this.subcategory_id}}">{{this.subcategory_name}}</a>
+                        <a class="dropdown-item"
+                            href="/view/cat/{{category_id}}/{{this.subcategory_id}}">{{this.subcategory_id}} -
+                            {{this.subcategory_name}}</a>
                         {{/each}}
                     </div>
                     {{/unless}}
@@ -74,7 +77,8 @@
                 {{/each}}
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/view/search/" method="GET">
-                <input class="form-control mr-sm-2" type="search" placeholder="Nội dung ..." aria-label="Search" name="keyword">
+                <input class="form-control mr-sm-2" type="search" placeholder="Nội dung ..." aria-label="Search"
+                    name="keyword">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
             <ul class="navbar-nav navbar-right">
@@ -98,19 +102,42 @@
                     <a class="nav-link" href="/user/info">Tài khoản</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript: $('#frmLogout').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</a>
+                    <a class="nav-link" href="javascript: $('#frmLogout').submit();"><i class="fa fa-sign-out"
+                            aria-hidden="true"></i>Đăng xuất</a>
                 </li>
                 {{else}}
                 <li class="nav-item">
                     <a class="nav-link" href="/user/login"><i class="fa fa-key" aria-hidden="true"></i> Đăng nhập</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
+                    <a class="nav-link" href="/user/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng
+                        ký</a>
                 </li>
                 {{/if}}
             </ul>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Quản lý</h3>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link {{#if (ifCond path '==' 'category')}} active {{/if}}" href="/admin/category">Chuyên mục</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{#if (ifCond path '==' 'tag')}} active {{/if}}" href="/admin/tag">Nhãn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/post">Bài viết</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/user">Người dùng</a>
+            </li>
+        </ul>
+    </div>
     {{{ body }}}
     <form id="frmLogout" action="/user/logout" method="POST"></form>
     <div style="padding-bottom: 100px"></div>
