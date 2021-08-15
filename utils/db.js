@@ -4,11 +4,11 @@ const knex = require('knex')({
     client: 'mysql2',
     connection: {
         host: '127.0.0.1',
-        port: 3306,
-        user: 'xikhud2',
-        password: 'xikhud',
-        database: 'OnlineNewspaper',
-        typeCast: function (field, next) {
+        port: 8889,
+        user: 'root',
+        password: 'root',
+        database: 'onlinenewspaper1408',
+        typeCast: function(field, next) {
             if (field.type == 'DATETIME') {
                 const tmp = moment(field.string());
                 if (field.name == 'start_time') {
