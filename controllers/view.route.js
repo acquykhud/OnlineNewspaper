@@ -3,6 +3,9 @@ const categoryModel = require('../models/categories.models');
 const moment = require('moment');
 const helpers = require("../utils/helpers");
 const router = express.Router();
+const {requireLogin} = require('../middlewares/auth.mdw');
+const userModel = require('../models/user.model');
+const { checkValidSub, sendWithFileName, printPDF } = require('../utils/helpers');
 
 router.get('/home/', async function(req, res) {
     const topArticlesByTime = helpers.makePairs(await categoryModel.getTopArticlesByTime());
@@ -18,7 +21,12 @@ router.get('/home/', async function(req, res) {
 });
 
 router.get('/search/', async function(req, res) {
-    const isValidSub = false;
+    let isValidSub = false;
+    if (req.session.logged) {
+        if (await checkValidSub(req.session.user) === true) {
+            isValidSub = true;
+        }
+    }
     const keyword = req.query.keyword || '';
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
@@ -35,14 +43,22 @@ router.get('/search/', async function(req, res) {
             pagingList: await helpers.createPagingList(page, 'keyword', keyword),
         });
     } else {
-        console.log('--------> end - reason: wrong search/page');
-        res.send('--------> end - reason: wrong search/page');
+        //console.log('--------> end - reason: wrong search/page');
+        //res.send('--------> end - reason: wrong search/page');
+        res.render('simple_info/error', {
+            error_message: 'Lỗi search',
+        });
     }
 
 });
 
 router.get('/cat/:id/', async function(req, res) {
-    const isValidSub = false;
+    let isValidSub = false;
+    if (req.session.logged) {
+        if (await checkValidSub(req.session.user) === true) {
+            isValidSub = true;
+        }
+    }
     const catId = req.params.id;
     const page = +req.query.page || 1;
     const offset = (page - 1) * 6;
@@ -65,13 +81,21 @@ router.get('/cat/:id/', async function(req, res) {
             pagingList: await helpers.createPagingList(page, 'category', catId),
         });
     } else {
-        console.log('--------> end - reason: wrong catId/page');
-        res.send('--------> end - reason: wrong catId/page');
+        //console.log('--------> end - reason: wrong catId/page');
+        //res.send('--------> end - reason: wrong catId/page');
+        res.render('simple_info/error', {
+            error_message: 'Danh mục lớn không tồn tại',
+        });
     }
 });
 
 router.get('/cat/:id/:subid/', async function(req, res) {
-    const isValidSub = false;
+    let isValidSub = false;
+    if (req.session.logged) {
+        if (await checkValidSub(req.session.user) === true) {
+            isValidSub = true;
+        }
+    }
     const catId = req.params.id;
     const subId = req.params.subid;
     const page = +req.query.page || 1;
@@ -102,8 +126,11 @@ router.get('/cat/:id/:subid/', async function(req, res) {
             pagingList: await helpers.createPagingList(page, 'subcategory', subId),
         });
     } else {
-        console.log('--------> end - reason: wrong catId/subId/page');
-        res.send('--------> end - reason: wrong catId/subId/page'); // wrong both!
+        //console.log('--------> end - reason: wrong catId/subId/page');
+        //res.send('--------> end - reason: wrong catId/subId/page'); // wrong both!
+        res.render('simple_info/error', {
+            error_message: 'Danh mục không tồn tại',
+        });
     }
 });
 
@@ -122,8 +149,11 @@ router.get('/tag/:id', async function(req, res) {
             articlesList: articlesList,
         });
     } else {
-        console.log('--------> end - reason: wrong tagId');
-        res.send('--------> end - reason: wrong tagId');
+        //console.log('--------> end - reason: wrong tagId');
+        //res.send('--------> end - reason: wrong tagId');
+        res.render('simple_info/error', {
+            error_message: 'Tag không tồn tại',
+        });
     }
 });
 
@@ -131,7 +161,10 @@ router.get('/post/:id/', async function(req, res) {
     const articleId = req.params.id;
     let article = await categoryModel.getArticleById(articleId);
     if (article === null) {
-        return res.send('--------> end - reason: wrong article_id');
+        //return res.send('--------> end - reason: wrong article_id');
+        return res.render('simple_info/error', {
+            error_message: 'Bài báo không tồn tại'
+        });
     }
     const comments = await categoryModel.getCommentsByArticleId(articleId);
     const subCategoryId = await categoryModel.getSubCatgoryByArticleId(articleId);
@@ -151,7 +184,8 @@ router.get('/post/:id/', async function(req, res) {
     });
 });
 
-router.post('/post/post_comment/', async function(req, res) {
+router.post('/post/post_comment/', requireLogin, async function(req, res) {
+    const user = res.locals.user;
     const oldUrl = req.headers.referrer || req.headers.referer || '/';
     const commentContent = req.body.comment_content;
     const articleId = req.body.article_id;
@@ -159,9 +193,27 @@ router.post('/post/post_comment/', async function(req, res) {
         return res.redirect(oldUrl);
     }
     const time = moment().format('YYYY-MM-DD hh:mm:ss');
-    const userId = 4; // <--------- fix this
+    const userId = user.id;
     await categoryModel.postComment(articleId, time, userId, commentContent);
     res.redirect(oldUrl);
+});
+
+router.get('/download', async function(req, res) {
+    const article_id = req.query.article_id;
+    if (typeof(article_id) === 'undefined') {
+        return res.render('simple_info/error', {
+            error_message: 'Không thể download bài viết này'
+        });
+    }
+    const article = await categoryModel.getArticleById(article_id);
+    if (article === null) {
+        return res.render('simple_info/error', {
+            error_message: 'Bài viết không tồn tại'
+        });
+    }
+    const url = req.protocol + '://' + req.get('host') + `/view/post/${article_id}`;
+    const fileName = `${article_id}.pdf`;
+    return sendWithFileName(res, await printPDF(url), fileName);
 });
 
 module.exports = router;

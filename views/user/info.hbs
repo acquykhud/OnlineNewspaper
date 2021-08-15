@@ -3,12 +3,20 @@
         <div class="col-md-12">
             <h3>Thông tin tài khoản</h3><br>
             <hr>
-            <p><b>Họ tên:</b> {{user.full_name}}</p><br>
-            <p><b>Email:</b> {{user.email}}</p><br>
-            <p><b>Ngày tháng năm sinh:</b> {{user.dob}}</p><br>
-            <p><b>Loại tài khoản:</b> {{user.roleName}}</p><br>
+            <p><b>Họ tên:</b> {{user.full_name}}</p>
+            <p><b>Email:</b> {{user.email}}</p>
+            <p><b>Ngày tháng năm sinh:</b> {{user.dob}}</p>
+            <p><b>Loại tài khoản:</b> {{user.roleName}}</p>
             {{#if (ifCond user.role '==' '3')}}
             <p><b>Bút danh:</b> {{user.pseudonym}}</p>
+            {{/if}}
+            {{#if (ifCond user.role '==' '2')}}
+            <p><b>Lần subscribe gần nhất: </b>{{convertTs user.subscriber_info.start_time}}</p>
+            {{#unless isValidSub}}
+            <form action="/user/subscribe" method="POST">
+                <button type="submit" class="btn btn-primary mb-2">Gia hạn/Subscribe</button><br>
+            </form>
+            {{/unless}}
             {{/if}}
             <a href="/user/update" class="btn btn-primary">Cập nhật thông tin</a>
             <a href="/user/changepwd" class="btn btn-primary">Đổi mật khẩu</a>

@@ -5,12 +5,15 @@ const knex = require('knex')({
     connection: {
         host: '127.0.0.1',
         port: 3306,
-        user: 'root',
-        password: '',
+        user: 'xikhud2',
+        password: 'xikhud',
         database: 'OnlineNewspaper',
         typeCast: function (field, next) {
             if (field.type == 'DATETIME') {
                 const tmp = moment(field.string());
+                if (field.name == 'start_time') {
+                    return +tmp.format('X'); // convert to timestamp
+                }
                 const dow = tmp.day();
                 return tmp.format(`[${days[dow]}], DD/MM/YYYY HH:mm:ss`);
             }

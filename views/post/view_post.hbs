@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <a href="/view/cat/{{this.categoryId}}">{{this.categoryName}}</a> > <a href="/view/cat/{{this.categoryId}}/{{this.subCategoryId}}">{{this.subCategoryName}}</a>
+            <a href="/view/cat/{{this.categoryId}}">{{this.categoryName}}</a> > <a
+                href="/view/cat/{{this.categoryId}}/{{this.subCategoryId}}">{{this.subCategoryName}}</a>
         </div>
         <div class="col-md-8">
             <p class="text-muted text-right">
@@ -28,12 +29,18 @@
             <hr>
         </div>
     </div>
+
+    {{#if (ifCond user.role '==' '2')}}
+    {{#if user.isValidSub}}
     <div class="row">
         <div class="col-md-12 text-center">
-            <button class="btn btn-primary"><i class="fa fa-cloud-download"></i> Tải bài viết dưới dạng pdf</button>
+            <a class="btn btn-primary" href="/view/download?article_id={{this.article.article_id}}"><i class="fa fa-cloud-download"></i>Tải bài viết dưới dạng pdf</a>
             <hr>
         </div>
     </div>
+    {{/if}}
+    {{/if}}
+
     {{#unless this.article.tagsListEmpty}}
     <div class="row">
         <div class="col-md-12">
@@ -45,13 +52,14 @@
         </div>
     </div>
     {{/unless}}
+
     {{#unless this.sameCategoryListEmpty}}
     <div class="row">
         <div class="col-md-12">
             <h3>Cùng chuyên mục</h3>
             <ul>
                 {{#each this.sameCategoryList}}
-                    <li><a href="/view/post/{{article_id}}">{{title}}</a></li>
+                <li><a href="/view/post/{{article_id}}">{{title}}</a></li>
                 {{/each}}
             </ul>
             <hr>
@@ -64,20 +72,20 @@
         </div>
     </div>
     <form action="/view/post/post_comment" method="POST" id="frm_submit_comment">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="form-group">
-                <input type="text" name="comment_content" class="form-control" placeholder="Bình luận của bạn">
-                <input type="hidden" value="{{this.article.article_id}}" name="article_id" class="form-control">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <input type="text" name="comment_content" class="form-control" placeholder="Bình luận của bạn">
+                    <input type="hidden" value="{{this.article.article_id}}" name="article_id" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-2 text-right">
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    Gửi
+                </button>
             </div>
         </div>
-        <div class="col-md-2 text-right">
-            <button type="submit" class="btn btn-primary w-100">
-                <i class="fa fa-comment" aria-hidden="true"></i>
-                Gửi
-            </button>
-        </div>
-    </div>
     </form>
     {{#each this.comments}}
     <div class="row">

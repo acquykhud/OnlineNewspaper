@@ -24,13 +24,22 @@ module.exports = {
         const tmp = await db.select('').from('subcategories').where('subcategory_id', subCategoryId);
         return tmp.length !== 0;
     },
+    async getTagsByArticleId(articleId) {
+        return (await db.raw(`
+        select t.tag_name, t.tag_id from articles_tags at
+        join tags t on t.tag_id = at.tag_id
+        where at.article_id = ${articleId}
+        `))[0];
+    },
     async getArticlesBySubCategory(subCategoryId, offset, isValidSub = false) {
-        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const option1 = (isValidSub === true) ? '' : 'where a.is_premium = 0';
+        const option2 = (isValidSub === true) ? 'order by a.is_premium desc' : '';
         const query = `select a.* from articles a
         join article_subcategories ass on a.article_id = ass.article_id and ass.subcategory_id = ${subCategoryId}
         join subcategories s on ass.subcategory_id = s.subcategory_id
         join categories c on s.category_id = c.category_id
-        ${option}
+        ${option1}
+        ${option2}
         limit 6 offset ${offset}
         `;
         let list = await db.raw(query);
@@ -43,21 +52,16 @@ module.exports = {
         }
         return list;
     },
-    async getTagsByArticleId(articleId) {
-        return (await db.raw(`
-        select t.tag_name, t.tag_id from articles_tags at
-        join tags t on t.tag_id = at.tag_id
-        where at.article_id = ${articleId}
-        `))[0];
-    },
     async getArticlesByCategory(categorId, offset, isValidSub = false) {
-        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const option1 = (isValidSub === true) ? '' : 'where a.is_premium = 0';
+        const option2 = (isValidSub === true) ? 'order by a.is_premium desc' : '';
         const query = `
         select a.*, c.category_name from articles a 
         join article_subcategories ass on a.article_id = ass.article_id 
         join subcategories s on ass.subcategory_id = s.subcategory_id and s.category_id = ${categorId}
         join categories c on s.category_id = c.category_id
-        ${option}
+        ${option1}
+        ${option2}
         limit 6 offset ${offset}
         `;
         let list = await db.raw(query);
@@ -233,11 +237,13 @@ module.exports = {
     },
     async getArticlesByKeyword(keyword, offset, isValidSub = false) {
         const hexEncodedKeyword = '0x' + (new Buffer.from(keyword).toString('hex'));
-        const option = (isValidSub === true) ? 'order by a.is_premium desc' : '';
+        const option1 = (isValidSub === true) ? '' : 'and a.is_premium = 0';
+        const option2 = (isValidSub === true) ? 'order by a.is_premium desc' : '';
         const query = `
         select a.* from articles a 
         where match (title, content, abstract) against (${hexEncodedKeyword} in natural language mode)
-        ${option}
+        ${option1}
+        ${option2}
         limit 6 offset ${offset}
         `;
         // console.log(query);

@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    app.get('/', async function(req, res) {
+    app.get('/', function(req, res) {
         res.redirect('view/home');
     });
 

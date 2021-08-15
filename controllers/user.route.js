@@ -6,6 +6,8 @@ const moment = require('moment');
 const sendmail = require('../utils/sendmail');
 const { route } = require('./writer.route');
 const session = require('express-session');
+const { checkValidSub } = require('../utils/helpers');
+const { updateSub } = require('../models/user.model');
 const router = express.Router();
 
 router.get('/login', auth.requireNoLogin, function (req, res) {
@@ -24,6 +26,10 @@ router.post('/login', auth.requireNoLogin, async function (req, res) {
     user.dob = moment(user.dob, 'YYYY/MM/DD').format('DD/MM/YYYY');
     user.roleName = await userModel.findRoleNameByRoleId(user.role);
     req.session.logged = true;
+    if (user.role === 2) { // subscriber
+        user['subscriber_info'] = await userModel.findSubInfoByUserId(user.id);
+        user['isValidSub'] = await checkValidSub(user);
+    }
     req.session.user = user;
     res.redirect('/');
 });
@@ -93,8 +99,10 @@ router.post('/logout', auth.requireLogin, function (req, res) {
     res.redirect('/');
 });
 
-router.get('/info', auth.requireLogin, function (req, res) {
-    res.render('user/info');
+router.get('/info', auth.requireLogin, async function (req, res) {
+    res.render('user/info', {
+        isValidSub: await checkValidSub(res.locals.user),
+    });
 });
 
 router.get('/update', auth.requireLogin, function (req, res) {
@@ -284,6 +292,18 @@ router.post('/resetpwd/changepass', auth.requireNoLogin, async function (req, re
             err: true
         });
     }
+});
+
+router.post('/subscribe', auth.requireLogin, async function(req, res) {
+    const retUrl = req.headers.referer || '/';
+    const user = res.locals.user;
+    if (user['role'] !== 2) {
+        return res.render('simple_info/error', {
+            error_message: 'Bạn phải là subscriber thì mới có thể thực hiện chức năng này',
+        });
+    }
+    await updateSub(user.id);
+    res.redirect(retUrl);
 });
 
 module.exports = router;

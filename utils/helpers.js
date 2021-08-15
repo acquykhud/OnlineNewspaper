@@ -1,5 +1,7 @@
 const categoryModel = require('../models/categories.models');
-
+const { findSubInfoByUserId } = require('../models/user.model');
+const puppeteer = require('puppeteer');
+ 
 module.exports = {
     async createPagingList(currentPage, type, arg1) {
         let totalArticlesCount = 0;
@@ -70,4 +72,30 @@ module.exports = {
         }
         return ret;
     },
+    async checkValidSub(user) {
+        if (user.role !== 2)
+            return false;
+        const subInfo = await findSubInfoByUserId(user.id);
+        const start_time = subInfo['start_time'];
+        const now = Math.ceil(Date.now() / 1000.0);
+        const diff = now - start_time;
+        if (diff < 604800)
+            return true;
+        return false;
+    },
+    async printPDF(url) {
+        const browser = await puppeteer.launch({ headless: true });
+        const page = await browser.newPage();
+        await page.goto(url, {waitUntil: 'networkidle0'});
+        const pdf = await page.pdf({ format: 'A4' });
+        await browser.close();
+        return pdf;
+    },
+
+    sendWithFileName(res, data, fileName) {
+        res.setHeader('Content-Disposition', 'attachment; filename=' + fileName);
+        res.setHeader('Content-Transfer-Encoding', 'binary');
+        res.setHeader('Content-Type', 'application/octet-stream');
+        return res.send(data);
+    }
 }

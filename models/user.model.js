@@ -1,4 +1,5 @@
 const db = require('../utils/db');
+const moment = require('moment');
 
 module.exports = {
     async findUserByUsername(username) {
@@ -7,6 +8,25 @@ module.exports = {
             return null;
         }
         return matched_users[0];
+    },
+
+    async findSubInfoByUserId(id) {
+        const ret = await db('sub_timer').where({
+            subscriber_id: id,
+        }).orderBy('start_time', 'desc');
+        if (ret.length === 0)
+            return null;
+        return ret[0];
+    },
+
+    async updateSub(id) {
+        const ts = Math.floor(Date.now() / 1000.0);
+        const tmp = moment.unix(ts) //.format('YYYY-MM-DD');
+        const start_time = tmp.format('YYYY-MM-DD hh:mm:ss');
+        await db('sub_timer').insert({
+            'subscriber_id': id,
+            'start_time': start_time,
+        });
     },
 
     async findUserByEmail(email) {
